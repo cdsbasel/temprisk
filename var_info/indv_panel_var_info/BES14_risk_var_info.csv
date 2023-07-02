@@ -1,0 +1,3 @@
+panel,varcode,measure_category,general_domain,domain_name,scale_type,scale_length,time_frame,behav_type,behav_paid,var_consider,var_include
+BES14,RISK_GEN_ORD4A,pro,gen,gen,ord,4,NA,NA,NA,1,1
+BES14,LOT_SCORE,beh,dom,gam,ord,16,NA,lot,hyp,1,1

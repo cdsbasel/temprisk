@@ -1,0 +1,345 @@
+---
+title: "Workflow"
+output: 
+  html_document:
+    toc: TRUE
+    toc_float: TRUE
+    date: "`r format(Sys.time(), '%d %B, %Y')`"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+library(tidyverse)
+library(knitr)
+library(gt)
+options(width = 3000)
+```
+
+
+Below are step-by-step instructions on how the files in the OSF repository (link) are used in the analyses described in the paper. 
+
+
+<br>
+
+```{r}
+knitr::include_graphics("images/tsrp_workflow.png")
+tbl <- read_csv("images/workflow.csv")
+tbl <- tbl %>% rename(No. = num)
+```
+
+<br><br>
+
+## Pre-processing
+
+```{r}
+tbl %>% 
+  filter(section == "pre_proc") %>% 
+  filter(dv == "all") %>% 
+  select(-c(dv,section)) %>% 
+  mutate(Input = str_replace_all(Input, ";", "<br>")) %>% 
+  mutate(Output = str_replace_all(Output, ";", "<br>")) %>% 
+  mutate(Scripts = str_replace_all(Scripts, ";", "<br>")) %>% 
+  gt() %>% 
+  fmt_markdown(columns = TRUE) %>% 
+  cols_width(
+    Description ~ px(375),
+    No. ~ px(25),
+    everything() ~ px(210)) %>% 
+  tab_options(column_labels.background.color = "black",
+              column_labels.font.weight = "bold",
+              table.border.bottom.width = px(1.5),
+              table.border.top.width = px(1.5),
+              table.border.bottom.color = "black",
+              table.border.top.color = "black",
+              table.font.size = 11,
+              table.font.names = "Helvetica",
+              table.background.color = "#FDF1C3") %>% 
+  tab_style(
+    style = cell_borders(
+      sides = c("all"),
+      color = "black",
+      weight = px(1),
+      style = "solid"
+    ),
+    locations = cells_body(
+      columns = everything(),
+      rows = everything()
+    )
+  ) %>% 
+  tab_style(
+    style = cell_text(whitespace = "break-spaces"),
+    locations = cells_body(
+      columns = everything(),
+      rows = everything()
+    )
+  )
+```
+
+
+<br><br>
+
+## Processing
+### Test-retest correlations
+```{r}
+tbl %>% 
+  filter(section == "proc") %>% 
+  filter(dv == "retest") %>% 
+  select(-c(dv,section)) %>% 
+  mutate(Input = str_replace_all(Input, ";", "<br>")) %>% 
+  mutate(Output = str_replace_all(Output, ";", "<br>")) %>% 
+  mutate(Scripts = str_replace_all(Scripts, ";", "<br>")) %>% 
+  gt() %>% 
+  fmt_markdown(columns = TRUE) %>% 
+  cols_width(
+    Description ~ px(375),
+    No. ~ px(25),
+    everything() ~ px(210)) %>% 
+  tab_options(column_labels.background.color = "black",
+              column_labels.font.weight = "bold",
+              table.border.bottom.width = px(1.5),
+              table.border.top.width = px(1.5),
+              table.border.bottom.color = "black",
+              table.border.top.color = "black",
+              table.font.size = 11,
+              table.font.names = "Helvetica",
+              table.background.color = "#C4DAC3") %>% 
+  tab_style(
+    style = cell_borders(
+      sides = c("all"),
+      color = "black",
+      weight = px(1),
+      style = "solid"
+    ),
+    locations = cells_body(
+      columns = everything(),
+      rows = everything()
+    )
+  )
+```
+
+<br>
+
+### Inter-correlations
+
+```{r}
+tbl %>% 
+  filter(section == "proc") %>% 
+  filter(dv == "bivar") %>% 
+  select(-c(dv,section)) %>% 
+  mutate(Input = str_replace_all(Input, ";", "<br>")) %>% 
+  mutate(Output = str_replace_all(Output, ";", "<br>")) %>% 
+  mutate(Scripts = str_replace_all(Scripts, ";", "<br>")) %>% 
+  gt() %>% 
+  fmt_markdown(columns = TRUE) %>% 
+  cols_width(
+    Description ~ px(375),
+    No. ~ px(25),
+    everything() ~ px(210)) %>% 
+  tab_options(column_labels.background.color = "black",
+              column_labels.font.weight = "bold",
+              table.border.bottom.width = px(1.5),
+              table.border.top.width = px(1.5),
+              table.border.bottom.color = "black",
+              table.border.top.color = "black",
+              table.font.size = 11,
+              table.font.names = "Helvetica",
+              table.background.color = "#C4DAC3") %>% 
+  tab_style(
+    style = cell_borders(
+      sides = c("all"),
+      color = "black",
+      weight = px(1),
+      style = "solid"
+    ),
+    locations = cells_body(
+      columns = everything(),
+      rows = everything()
+    )
+  )
+```
+
+
+
+<br><br>
+
+## Analysis
+### Test-retest correlations
+```{r}
+tbl %>% 
+  filter(section == "analysis") %>% 
+  filter(dv == "retest") %>% 
+  select(-c(dv,section)) %>% 
+  mutate(Input = str_replace_all(Input, ";", "<br>")) %>% 
+  mutate(Output = str_replace_all(Output, ";", "<br>")) %>% 
+  mutate(Scripts = str_replace_all(Scripts, ";", "<br>")) %>% 
+  gt() %>% 
+  fmt_markdown(columns = TRUE) %>% 
+  cols_width(
+    Description ~ px(375),
+    No. ~ px(25),
+    everything() ~ px(210)) %>% 
+  tab_options(column_labels.background.color = "black",
+              column_labels.font.weight = "bold",
+              table.border.bottom.width = px(1.5),
+              table.border.top.width = px(1.5),
+              table.border.bottom.color = "black",
+              table.border.top.color = "black",
+              table.font.size = 11,
+              table.font.names = "Helvetica",
+              table.background.color = "#BBC8DD") %>% 
+  tab_style(
+    style = cell_borders(
+      sides = c("all"),
+      color = "black",
+      weight = px(1),
+      style = "solid"
+    ),
+    locations = cells_body(
+      columns = everything(),
+      rows = everything()
+    )
+  ) 
+```
+
+<br>
+
+### Inter-correlations
+
+```{r}
+tbl %>% 
+  filter(section == "analysis") %>% 
+  filter(dv == "bivar") %>% 
+  select(-c(dv,section)) %>% 
+  mutate(Input = str_replace_all(Input, ";", "<br>")) %>% 
+  mutate(Output = str_replace_all(Output, ";", "<br>")) %>% 
+  mutate(Scripts = str_replace_all(Scripts, ";", "<br>")) %>% 
+  gt() %>% 
+  fmt_markdown(columns = TRUE) %>% 
+  cols_width(
+    Description ~ px(375),
+    No. ~ px(25),
+    everything() ~ px(210)) %>% 
+  tab_options(column_labels.background.color = "black",
+              column_labels.font.weight = "bold",
+              table.border.bottom.width = px(1.5),
+              table.border.top.width = px(1.5),
+              table.border.bottom.color = "black",
+              table.border.top.color = "black",
+              table.font.size = 11,
+              table.font.names = "Helvetica",
+              table.background.color = "#BBC8DD") %>% 
+  tab_style(
+    style = cell_borders(
+      sides = c("all"),
+      color = "black",
+      weight = px(1),
+      style = "solid"
+    ),
+    locations = cells_body(
+      columns = everything(),
+      rows = everything()
+    )
+  )
+```
+
+<br><br>
+
+
+
+
+
+
+
+
+## Visualisation
+
+
+### Test-retest correlations
+```{r}
+tbl %>% 
+  filter(section == "figures") %>% 
+  filter(dv == "retest") %>% 
+  select(-c(dv,section)) %>% 
+  mutate(Input = str_replace_all(Input, ";", "<br>")) %>% 
+  mutate(Output = str_replace_all(Output, ";", "<br>")) %>% 
+  mutate(Scripts = str_replace_all(Scripts, ";", "<br>")) %>% 
+  gt() %>% 
+  fmt_markdown(columns = TRUE) %>% 
+  cols_width(
+    Description ~ px(375),
+    No. ~ px(25),
+    everything() ~ px(210)) %>% 
+  tab_options(column_labels.background.color = "black",
+              column_labels.font.weight = "bold",
+              table.border.bottom.width = px(1.5),
+              table.border.top.width = px(1.5),
+              table.border.bottom.color = "black",
+              table.border.top.color = "black",
+              table.font.size = 11,
+              table.font.names = "Helvetica",
+              table.background.color = "#D7C8E4") %>% 
+  tab_style(
+    style = cell_borders(
+      sides = c("all"),
+      color = "black",
+      weight = px(1),
+      style = "solid"
+    ),
+    locations = cells_body(
+      columns = everything(),
+      rows = everything()
+    )
+  )
+```
+
+<br>
+
+### Inter-correlations
+
+```{r}
+tbl %>% 
+  filter(section == "figures") %>% 
+  filter(dv == "bivar") %>% 
+  select(-c(dv,section)) %>% 
+  mutate(Input = str_replace_all(Input, ";", "<br>")) %>% 
+  mutate(Output = str_replace_all(Output, ";", "<br>")) %>% 
+  mutate(Scripts = str_replace_all(Scripts, ";", "<br>")) %>% 
+  gt() %>% 
+  fmt_markdown(columns = TRUE) %>% 
+  cols_width(
+    Description ~ px(375),
+    No. ~ px(25),
+    everything() ~ px(210)) %>% 
+  tab_options(column_labels.background.color = "black",
+              column_labels.font.weight = "bold",
+              table.border.bottom.width = px(1.5),
+              table.border.top.width = px(1.5),
+              table.border.bottom.color = "black",
+              table.border.top.color = "black",
+              table.font.size = 11,
+              table.font.names = "Helvetica",
+              table.background.color = "#D7C8E4") %>% 
+  tab_style(
+    style = cell_borders(
+      sides = c("all"),
+      color = "black",
+      weight = px(1),
+      style = "solid"
+    ),
+    locations = cells_body(
+      columns = everything(),
+      rows = everything()
+    )
+  )
+```
+
+<br><br>
+
+
+
+
+
+
+
+
+

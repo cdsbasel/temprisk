@@ -1,0 +1,15 @@
+panel,varcode,measure_category,general_domain,domain_name,scale_type,scale_length,time_frame,behav_type,behav_paid,var_consider,var_include
+SHARE,ALC_3MO_ORD7A,fre,dom,alc,ord,7,90,NA,NA,1,1
+SHARE,ALC_6DRINKS_3MO_ORD7A,fre,dom,alc,ord,7,90,NA,NA,1,1
+SHARE,ALC_CHECK,fre,dom,alc,ord,2,7,NA,NA,0,0
+SHARE,ALC_DRINKS_DAY_OEA,fre,dom,alc,oe,NA,1,NA,NA,1,1
+SHARE,ALC_UNITS_WK_OEA,fre,dom,alc,oe,NA,7,NA,NA,1,1
+SHARE,RISK_FIN_ORD4A,pro,dom,inv,ord,4,NA,NA,NA,1,1
+SHARE,CIGARS_DAY_OEA,fre,dom,smo,oe,NA,1,NA,NA,1,1
+SHARE,CIGS_DAY_OEA,fre,dom,smo,oe,NA,1,NA,NA,1,1
+SHARE,PIPES_DAY_OEA,fre,dom,smo,oe,NA,1,NA,NA,1,1
+SHARE,SMK_CIGARS_CHECK,fre,dom,smo,ord,2,NA,NA,NA,0,0
+SHARE,SMK_CIGS_CHECK,fre,dom,smo,ord,2,NA,NA,NA,0,0
+SHARE,SMK_PIPES_CHECK,fre,dom,smo,ord,2,NA,NA,NA,0,0
+SHARE,SMKEVER_CHECK,fre,dom,smo,ord,2,NA,NA,NA,0,0
+SHARE,SMKNOW_CHECK,fre,dom,smo,ord,2,NA,NA,NA,0,0

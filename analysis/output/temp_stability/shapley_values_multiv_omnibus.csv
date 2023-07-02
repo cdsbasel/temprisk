@@ -1,0 +1,433 @@
+x,measure_category,m,x_lbl,categ_lbl,age_bin,min_n,corr_metric,data_transform,n_obs
+age_group,Omnibus,0.07492936289816371,Age,Respondent,20,250,spearman,none,28169
+domain_name,Omnibus,0.19660872320068037,NA,NA,20,250,spearman,none,28169
+gender_group,Omnibus,0.004345731993123782,Gender,Respondent,20,250,spearman,none,28169
+measure_category,Omnibus,0.016208769590583656,Category,Measure,20,250,spearman,none,28169
+panel,Omnibus,0.21185884373093794,Panel,Panel,20,250,spearman,none,28169
+sample_size,Omnibus,0.002786776051490861,n,Respondent,20,250,spearman,none,28169
+scale_type,Omnibus,0.00957125832587661,Scale Type,Measure,20,250,spearman,none,28169
+time_diff_mean,Omnibus,0.06067056515895692,Retest Interval,Measure,20,250,spearman,none,28169
+age_group,Omnibus,0.07027409916944281,Age,Respondent,20,250,pearson,none,28169
+domain_name,Omnibus,0.1870869696929618,NA,NA,20,250,pearson,none,28169
+gender_group,Omnibus,0.0022632906829994012,Gender,Respondent,20,250,pearson,none,28169
+measure_category,Omnibus,0.022819132939881533,Category,Measure,20,250,pearson,none,28169
+panel,Omnibus,0.22566654760653077,Panel,Panel,20,250,pearson,none,28169
+sample_size,Omnibus,0.003376832542136494,n,Respondent,20,250,pearson,none,28169
+scale_type,Omnibus,0.0056276625879195605,Scale Type,Measure,20,250,pearson,none,28169
+time_diff_mean,Omnibus,0.07159083651490414,Retest Interval,Measure,20,250,pearson,none,28169
+age_group,Omnibus,0.06228853832394421,Age,Respondent,20,250,icc2_1,none,28169
+domain_name,Omnibus,0.17399373311374322,NA,NA,20,250,icc2_1,none,28169
+gender_group,Omnibus,0.0015292250563743344,Gender,Respondent,20,250,icc2_1,none,28169
+measure_category,Omnibus,0.018873012103256145,Category,Measure,20,250,icc2_1,none,28169
+panel,Omnibus,0.22941854219451507,Panel,Panel,20,250,icc2_1,none,28169
+sample_size,Omnibus,0.0034851707962828067,n,Respondent,20,250,icc2_1,none,28169
+scale_type,Omnibus,0.007279494262203985,Scale Type,Measure,20,250,icc2_1,none,28169
+time_diff_mean,Omnibus,0.0785309329221334,Retest Interval,Measure,20,250,icc2_1,none,28169
+age_group,Omnibus,0.07492936289816371,Age,Respondent,20,250,spearman,log,28169
+domain_name,Omnibus,0.19660872320068037,NA,NA,20,250,spearman,log,28169
+gender_group,Omnibus,0.004345731993123782,Gender,Respondent,20,250,spearman,log,28169
+measure_category,Omnibus,0.016208769590583656,Category,Measure,20,250,spearman,log,28169
+panel,Omnibus,0.21185884373093794,Panel,Panel,20,250,spearman,log,28169
+sample_size,Omnibus,0.002786776051490861,n,Respondent,20,250,spearman,log,28169
+scale_type,Omnibus,0.00957125832587661,Scale Type,Measure,20,250,spearman,log,28169
+time_diff_mean,Omnibus,0.06067056515895692,Retest Interval,Measure,20,250,spearman,log,28169
+age_group,Omnibus,0.07147395366804207,Age,Respondent,20,250,pearson,log,28169
+domain_name,Omnibus,0.19187619450708804,NA,NA,20,250,pearson,log,28169
+gender_group,Omnibus,0.002199738685043079,Gender,Respondent,20,250,pearson,log,28169
+measure_category,Omnibus,0.02400494695732503,Category,Measure,20,250,pearson,log,28169
+panel,Omnibus,0.22483171377205824,Panel,Panel,20,250,pearson,log,28169
+sample_size,Omnibus,0.002904431643921676,n,Respondent,20,250,pearson,log,28169
+scale_type,Omnibus,0.0060302737306052005,Scale Type,Measure,20,250,pearson,log,28169
+time_diff_mean,Omnibus,0.06664312498376104,Retest Interval,Measure,20,250,pearson,log,28169
+age_group,Omnibus,0.07027409916944281,Age,Respondent,20,250,icc2_1,log,28169
+domain_name,Omnibus,0.1870869696929618,NA,NA,20,250,icc2_1,log,28169
+gender_group,Omnibus,0.0022632906829994012,Gender,Respondent,20,250,icc2_1,log,28169
+measure_category,Omnibus,0.022819132939881533,Category,Measure,20,250,icc2_1,log,28169
+panel,Omnibus,0.22566654760653077,Panel,Panel,20,250,icc2_1,log,28169
+sample_size,Omnibus,0.003376832542136494,n,Respondent,20,250,icc2_1,log,28169
+scale_type,Omnibus,0.0056276625879195605,Scale Type,Measure,20,250,icc2_1,log,28169
+time_diff_mean,Omnibus,0.07159083651490414,Retest Interval,Measure,20,250,icc2_1,log,28169
+age_group,Omnibus,0.05139020877311763,Age,Respondent,20,100,spearman,none,37338
+domain_name,Omnibus,0.16558655745081066,NA,NA,20,100,spearman,none,37338
+gender_group,Omnibus,0.005722146892466287,Gender,Respondent,20,100,spearman,none,37338
+measure_category,Omnibus,0.024651754767348048,Category,Measure,20,100,spearman,none,37338
+panel,Omnibus,0.2082024408269046,Panel,Panel,20,100,spearman,none,37338
+sample_size,Omnibus,0.0049402264916693665,n,Respondent,20,100,spearman,none,37338
+scale_type,Omnibus,0.01037825563973222,Scale Type,Measure,20,100,spearman,none,37338
+time_diff_mean,Omnibus,0.06512529352496148,Retest Interval,Measure,20,100,spearman,none,37338
+age_group,Omnibus,0.04799676680227544,Age,Respondent,20,100,pearson,none,37338
+domain_name,Omnibus,0.16082450287550104,NA,NA,20,100,pearson,none,37338
+gender_group,Omnibus,0.0029043768082395323,Gender,Respondent,20,100,pearson,none,37338
+measure_category,Omnibus,0.03324144042339155,Category,Measure,20,100,pearson,none,37338
+panel,Omnibus,0.22013806203063618,Panel,Panel,20,100,pearson,none,37338
+sample_size,Omnibus,0.005882385143733316,n,Respondent,20,100,pearson,none,37338
+scale_type,Omnibus,0.00596176170905445,Scale Type,Measure,20,100,pearson,none,37338
+time_diff_mean,Omnibus,0.07618090099003405,Retest Interval,Measure,20,100,pearson,none,37338
+age_group,Omnibus,0.04379351490259317,Age,Respondent,20,100,icc2_1,none,37338
+domain_name,Omnibus,0.14876789740367832,NA,NA,20,100,icc2_1,none,37338
+gender_group,Omnibus,0.0017985136281756851,Gender,Respondent,20,100,icc2_1,none,37338
+measure_category,Omnibus,0.028993148888520646,Category,Measure,20,100,icc2_1,none,37338
+panel,Omnibus,0.22038690664256047,Panel,Panel,20,100,icc2_1,none,37338
+sample_size,Omnibus,0.005195218996179298,n,Respondent,20,100,icc2_1,none,37338
+scale_type,Omnibus,0.005774401492440227,Scale Type,Measure,20,100,icc2_1,none,37338
+time_diff_mean,Omnibus,0.08112200782425409,Retest Interval,Measure,20,100,icc2_1,none,37338
+age_group,Omnibus,0.05139020877311763,Age,Respondent,20,100,spearman,log,37338
+domain_name,Omnibus,0.16558655745081066,NA,NA,20,100,spearman,log,37338
+gender_group,Omnibus,0.005722146892466287,Gender,Respondent,20,100,spearman,log,37338
+measure_category,Omnibus,0.024651754767348048,Category,Measure,20,100,spearman,log,37338
+panel,Omnibus,0.2082024408269046,Panel,Panel,20,100,spearman,log,37338
+sample_size,Omnibus,0.0049402264916693665,n,Respondent,20,100,spearman,log,37338
+scale_type,Omnibus,0.01037825563973222,Scale Type,Measure,20,100,spearman,log,37338
+time_diff_mean,Omnibus,0.06512529352496148,Retest Interval,Measure,20,100,spearman,log,37338
+age_group,Omnibus,0.049224608167973444,Age,Respondent,20,100,pearson,log,37338
+domain_name,Omnibus,0.16527099928011843,NA,NA,20,100,pearson,log,37338
+gender_group,Omnibus,0.00291097931216525,Gender,Respondent,20,100,pearson,log,37338
+measure_category,Omnibus,0.03472678151756301,Category,Measure,20,100,pearson,log,37338
+panel,Omnibus,0.21952813627396742,Panel,Panel,20,100,pearson,log,37338
+sample_size,Omnibus,0.005258311196199991,n,Respondent,20,100,pearson,log,37338
+scale_type,Omnibus,0.00651836087039794,Scale Type,Measure,20,100,pearson,log,37338
+time_diff_mean,Omnibus,0.07029006466771205,Retest Interval,Measure,20,100,pearson,log,37338
+age_group,Omnibus,0.04799676680227544,Age,Respondent,20,100,icc2_1,log,37338
+domain_name,Omnibus,0.16082450287550104,NA,NA,20,100,icc2_1,log,37338
+gender_group,Omnibus,0.0029043768082395323,Gender,Respondent,20,100,icc2_1,log,37338
+measure_category,Omnibus,0.03324144042339155,Category,Measure,20,100,icc2_1,log,37338
+panel,Omnibus,0.22013806203063618,Panel,Panel,20,100,icc2_1,log,37338
+sample_size,Omnibus,0.005882385143733316,n,Respondent,20,100,icc2_1,log,37338
+scale_type,Omnibus,0.00596176170905445,Scale Type,Measure,20,100,icc2_1,log,37338
+time_diff_mean,Omnibus,0.07618090099003405,Retest Interval,Measure,20,100,icc2_1,log,37338
+age_group,Omnibus,0.041676996513376766,Age,Respondent,20,30,spearman,none,44947
+domain_name,Omnibus,0.15852159635296786,NA,NA,20,30,spearman,none,44947
+gender_group,Omnibus,0.0062268841753640005,Gender,Respondent,20,30,spearman,none,44947
+measure_category,Omnibus,0.033228212424627555,Category,Measure,20,30,spearman,none,44947
+panel,Omnibus,0.1951977423627284,Panel,Panel,20,30,spearman,none,44947
+sample_size,Omnibus,0.008908374731320143,n,Respondent,20,30,spearman,none,44947
+scale_type,Omnibus,0.012255271273944152,Scale Type,Measure,20,30,spearman,none,44947
+time_diff_mean,Omnibus,0.072632273970657,Retest Interval,Measure,20,30,spearman,none,44947
+age_group,Omnibus,0.038626046245875637,Age,Respondent,20,30,pearson,none,44947
+domain_name,Omnibus,0.15695050533026123,NA,NA,20,30,pearson,none,44947
+gender_group,Omnibus,0.0035657345976462984,Gender,Respondent,20,30,pearson,none,44947
+measure_category,Omnibus,0.04290376037661092,Category,Measure,20,30,pearson,none,44947
+panel,Omnibus,0.20811808715920363,Panel,Panel,20,30,pearson,none,44947
+sample_size,Omnibus,0.01051662838811073,n,Respondent,20,30,pearson,none,44947
+scale_type,Omnibus,0.007675958668739944,Scale Type,Measure,20,30,pearson,none,44947
+time_diff_mean,Omnibus,0.08315989115824705,Retest Interval,Measure,20,30,pearson,none,44947
+age_group,Omnibus,0.034956909240061285,Age,Respondent,20,30,icc2_1,none,44947
+domain_name,Omnibus,0.14599652026566604,NA,NA,20,30,icc2_1,none,44947
+gender_group,Omnibus,0.002808251543066554,Gender,Respondent,20,30,icc2_1,none,44947
+measure_category,Omnibus,0.038520209466095946,Category,Measure,20,30,icc2_1,none,44947
+panel,Omnibus,0.21013215772649904,Panel,Panel,20,30,icc2_1,none,44947
+sample_size,Omnibus,0.009318007913647817,n,Respondent,20,30,icc2_1,none,44947
+scale_type,Omnibus,0.004889433674832971,Scale Type,Measure,20,30,icc2_1,none,44947
+time_diff_mean,Omnibus,0.0861299710953485,Retest Interval,Measure,20,30,icc2_1,none,44947
+age_group,Omnibus,0.041676996513376766,Age,Respondent,20,30,spearman,log,44947
+domain_name,Omnibus,0.15852159635296786,NA,NA,20,30,spearman,log,44947
+gender_group,Omnibus,0.0062268841753640005,Gender,Respondent,20,30,spearman,log,44947
+measure_category,Omnibus,0.033228212424627555,Category,Measure,20,30,spearman,log,44947
+panel,Omnibus,0.1951977423627284,Panel,Panel,20,30,spearman,log,44947
+sample_size,Omnibus,0.008908374731320143,n,Respondent,20,30,spearman,log,44947
+scale_type,Omnibus,0.012255271273944152,Scale Type,Measure,20,30,spearman,log,44947
+time_diff_mean,Omnibus,0.072632273970657,Retest Interval,Measure,20,30,spearman,log,44947
+age_group,Omnibus,0.039557371399674815,Age,Respondent,20,30,pearson,log,44947
+domain_name,Omnibus,0.16058491287769525,NA,NA,20,30,pearson,log,44947
+gender_group,Omnibus,0.0035171976984660694,Gender,Respondent,20,30,pearson,log,44947
+measure_category,Omnibus,0.04433248470273777,Category,Measure,20,30,pearson,log,44947
+panel,Omnibus,0.2067799172955172,Panel,Panel,20,30,pearson,log,44947
+sample_size,Omnibus,0.009678779044532754,n,Respondent,20,30,pearson,log,44947
+scale_type,Omnibus,0.008360770834278301,Scale Type,Measure,20,30,pearson,log,44947
+time_diff_mean,Omnibus,0.07652532250990637,Retest Interval,Measure,20,30,pearson,log,44947
+age_group,Omnibus,0.038626046245875637,Age,Respondent,20,30,icc2_1,log,44947
+domain_name,Omnibus,0.15695050533026123,NA,NA,20,30,icc2_1,log,44947
+gender_group,Omnibus,0.0035657345976462984,Gender,Respondent,20,30,icc2_1,log,44947
+measure_category,Omnibus,0.04290376037661092,Category,Measure,20,30,icc2_1,log,44947
+panel,Omnibus,0.20811808715920363,Panel,Panel,20,30,icc2_1,log,44947
+sample_size,Omnibus,0.01051662838811073,n,Respondent,20,30,icc2_1,log,44947
+scale_type,Omnibus,0.007675958668739944,Scale Type,Measure,20,30,icc2_1,log,44947
+time_diff_mean,Omnibus,0.08315989115824705,Retest Interval,Measure,20,30,icc2_1,log,44947
+age_group,Omnibus,0.09498002097317762,Age,Respondent,10,250,spearman,none,40283
+domain_name,Omnibus,0.19230745723189357,NA,NA,10,250,spearman,none,40283
+gender_group,Omnibus,0.0032075891740675233,Gender,Respondent,10,250,spearman,none,40283
+measure_category,Omnibus,0.014914226976463309,Category,Measure,10,250,spearman,none,40283
+panel,Omnibus,0.1871896324505441,Panel,Panel,10,250,spearman,none,40283
+sample_size,Omnibus,0.004338099872239412,n,Respondent,10,250,spearman,none,40283
+scale_type,Omnibus,0.007600952237209592,Scale Type,Measure,10,250,spearman,none,40283
+time_diff_mean,Omnibus,0.05487063755007438,Retest Interval,Measure,10,250,spearman,none,40283
+age_group,Omnibus,0.0960363324203212,Age,Respondent,10,250,pearson,none,40283
+domain_name,Omnibus,0.1779112479835039,NA,NA,10,250,pearson,none,40283
+gender_group,Omnibus,0.001103365833182393,Gender,Respondent,10,250,pearson,none,40283
+measure_category,Omnibus,0.02091342256631096,Category,Measure,10,250,pearson,none,40283
+panel,Omnibus,0.20060827781290405,Panel,Panel,10,250,pearson,none,40283
+sample_size,Omnibus,0.00597073067936014,n,Respondent,10,250,pearson,none,40283
+scale_type,Omnibus,0.004617282214929456,Scale Type,Measure,10,250,pearson,none,40283
+time_diff_mean,Omnibus,0.06650640932560561,Retest Interval,Measure,10,250,pearson,none,40283
+age_group,Omnibus,0.08735661382570455,Age,Respondent,10,250,icc2_1,none,40283
+domain_name,Omnibus,0.1598620789886416,NA,NA,10,250,icc2_1,none,40283
+gender_group,Omnibus,4.247859007064742e-4,Gender,Respondent,10,250,icc2_1,none,40283
+measure_category,Omnibus,0.015440846812342023,Category,Measure,10,250,icc2_1,none,40283
+panel,Omnibus,0.20247942211203282,Panel,Panel,10,250,icc2_1,none,40283
+sample_size,Omnibus,0.00834973313269246,n,Respondent,10,250,icc2_1,none,40283
+scale_type,Omnibus,0.008437748381938863,Scale Type,Measure,10,250,icc2_1,none,40283
+time_diff_mean,Omnibus,0.07553459243938344,Retest Interval,Measure,10,250,icc2_1,none,40283
+age_group,Omnibus,0.09498002097317762,Age,Respondent,10,250,spearman,log,40283
+domain_name,Omnibus,0.19230745723189357,NA,NA,10,250,spearman,log,40283
+gender_group,Omnibus,0.0032075891740675233,Gender,Respondent,10,250,spearman,log,40283
+measure_category,Omnibus,0.014914226976463309,Category,Measure,10,250,spearman,log,40283
+panel,Omnibus,0.1871896324505441,Panel,Panel,10,250,spearman,log,40283
+sample_size,Omnibus,0.004338099872239412,n,Respondent,10,250,spearman,log,40283
+scale_type,Omnibus,0.007600952237209592,Scale Type,Measure,10,250,spearman,log,40283
+time_diff_mean,Omnibus,0.05487063755007438,Retest Interval,Measure,10,250,spearman,log,40283
+age_group,Omnibus,0.09506047137965305,Age,Respondent,10,250,pearson,log,40283
+domain_name,Omnibus,0.18306973225866793,NA,NA,10,250,pearson,log,40283
+gender_group,Omnibus,0.0011342959261054354,Gender,Respondent,10,250,pearson,log,40283
+measure_category,Omnibus,0.02218230570194929,Category,Measure,10,250,pearson,log,40283
+panel,Omnibus,0.19933558022880338,Panel,Panel,10,250,pearson,log,40283
+sample_size,Omnibus,0.005651736939458401,n,Respondent,10,250,pearson,log,40283
+scale_type,Omnibus,0.00486340850060602,Scale Type,Measure,10,250,pearson,log,40283
+time_diff_mean,Omnibus,0.061364117710343356,Retest Interval,Measure,10,250,pearson,log,40283
+age_group,Omnibus,0.0960363324203212,Age,Respondent,10,250,icc2_1,log,40283
+domain_name,Omnibus,0.1779112479835039,NA,NA,10,250,icc2_1,log,40283
+gender_group,Omnibus,0.001103365833182393,Gender,Respondent,10,250,icc2_1,log,40283
+measure_category,Omnibus,0.02091342256631096,Category,Measure,10,250,icc2_1,log,40283
+panel,Omnibus,0.20060827781290405,Panel,Panel,10,250,icc2_1,log,40283
+sample_size,Omnibus,0.00597073067936014,n,Respondent,10,250,icc2_1,log,40283
+scale_type,Omnibus,0.004617282214929456,Scale Type,Measure,10,250,icc2_1,log,40283
+time_diff_mean,Omnibus,0.06650640932560561,Retest Interval,Measure,10,250,icc2_1,log,40283
+age_group,Omnibus,0.07800339422527619,Age,Respondent,10,100,spearman,none,53144
+domain_name,Omnibus,0.16308273451521835,NA,NA,10,100,spearman,none,53144
+gender_group,Omnibus,0.004051264064842789,Gender,Respondent,10,100,spearman,none,53144
+measure_category,Omnibus,0.0246725033205218,Category,Measure,10,100,spearman,none,53144
+panel,Omnibus,0.1965436603735103,Panel,Panel,10,100,spearman,none,53144
+sample_size,Omnibus,0.002498780526110793,n,Respondent,10,100,spearman,none,53144
+scale_type,Omnibus,0.009725669087339074,Scale Type,Measure,10,100,spearman,none,53144
+time_diff_mean,Omnibus,0.05697786002082863,Retest Interval,Measure,10,100,spearman,none,53144
+age_group,Omnibus,0.07707537303295163,Age,Respondent,10,100,pearson,none,53144
+domain_name,Omnibus,0.155288209880068,NA,NA,10,100,pearson,none,53144
+gender_group,Omnibus,0.0016170988291377576,Gender,Respondent,10,100,pearson,none,53144
+measure_category,Omnibus,0.03242166967933654,Category,Measure,10,100,pearson,none,53144
+panel,Omnibus,0.2098368065412172,Panel,Panel,10,100,pearson,none,53144
+sample_size,Omnibus,0.0031904230577692668,n,Respondent,10,100,pearson,none,53144
+scale_type,Omnibus,0.0055159499376559165,Scale Type,Measure,10,100,pearson,none,53144
+time_diff_mean,Omnibus,0.06807676222855673,Retest Interval,Measure,10,100,pearson,none,53144
+age_group,Omnibus,0.07255783864394832,Age,Respondent,10,100,icc2_1,none,53144
+domain_name,Omnibus,0.13901976915668446,NA,NA,10,100,icc2_1,none,53144
+gender_group,Omnibus,7.41008692197251e-4,Gender,Respondent,10,100,icc2_1,none,53144
+measure_category,Omnibus,0.026634643287198865,Category,Measure,10,100,icc2_1,none,53144
+panel,Omnibus,0.21027199351500447,Panel,Panel,10,100,icc2_1,none,53144
+sample_size,Omnibus,0.0032548808187895174,n,Respondent,10,100,icc2_1,none,53144
+scale_type,Omnibus,0.006428208329371742,Scale Type,Measure,10,100,icc2_1,none,53144
+time_diff_mean,Omnibus,0.0750071229261277,Retest Interval,Measure,10,100,icc2_1,none,53144
+age_group,Omnibus,0.07800339422527619,Age,Respondent,10,100,spearman,log,53144
+domain_name,Omnibus,0.16308273451521835,NA,NA,10,100,spearman,log,53144
+gender_group,Omnibus,0.004051264064842789,Gender,Respondent,10,100,spearman,log,53144
+measure_category,Omnibus,0.0246725033205218,Category,Measure,10,100,spearman,log,53144
+panel,Omnibus,0.1965436603735103,Panel,Panel,10,100,spearman,log,53144
+sample_size,Omnibus,0.002498780526110793,n,Respondent,10,100,spearman,log,53144
+scale_type,Omnibus,0.009725669087339074,Scale Type,Measure,10,100,spearman,log,53144
+time_diff_mean,Omnibus,0.05697786002082863,Retest Interval,Measure,10,100,spearman,log,53144
+age_group,Omnibus,0.07664544251016059,Age,Respondent,10,100,pearson,log,53144
+domain_name,Omnibus,0.16037367598115723,NA,NA,10,100,pearson,log,53144
+gender_group,Omnibus,0.0016633309812938834,Gender,Respondent,10,100,pearson,log,53144
+measure_category,Omnibus,0.03443478708611443,Category,Measure,10,100,pearson,log,53144
+panel,Omnibus,0.20871504737849728,Panel,Panel,10,100,pearson,log,53144
+sample_size,Omnibus,0.002764003568525729,n,Respondent,10,100,pearson,log,53144
+scale_type,Omnibus,0.006067309964317238,Scale Type,Measure,10,100,pearson,log,53144
+time_diff_mean,Omnibus,0.06213444976294577,Retest Interval,Measure,10,100,pearson,log,53144
+age_group,Omnibus,0.07707537303295163,Age,Respondent,10,100,icc2_1,log,53144
+domain_name,Omnibus,0.155288209880068,NA,NA,10,100,icc2_1,log,53144
+gender_group,Omnibus,0.0016170988291377576,Gender,Respondent,10,100,icc2_1,log,53144
+measure_category,Omnibus,0.03242166967933654,Category,Measure,10,100,icc2_1,log,53144
+panel,Omnibus,0.2098368065412172,Panel,Panel,10,100,icc2_1,log,53144
+sample_size,Omnibus,0.0031904230577692668,n,Respondent,10,100,icc2_1,log,53144
+scale_type,Omnibus,0.0055159499376559165,Scale Type,Measure,10,100,icc2_1,log,53144
+time_diff_mean,Omnibus,0.06807676222855673,Retest Interval,Measure,10,100,icc2_1,log,53144
+age_group,Omnibus,0.05873325437253672,Age,Respondent,10,30,spearman,none,72963
+domain_name,Omnibus,0.1501176634479127,NA,NA,10,30,spearman,none,72963
+gender_group,Omnibus,0.002488247291952045,Gender,Respondent,10,30,spearman,none,72963
+measure_category,Omnibus,0.036139885550733594,Category,Measure,10,30,spearman,none,72963
+panel,Omnibus,0.17430740570265532,Panel,Panel,10,30,spearman,none,72963
+sample_size,Omnibus,0.0049422587993103746,n,Respondent,10,30,spearman,none,72963
+scale_type,Omnibus,0.012922025349807435,Scale Type,Measure,10,30,spearman,none,72963
+time_diff_mean,Omnibus,0.061576887190422265,Retest Interval,Measure,10,30,spearman,none,72963
+age_group,Omnibus,0.056964953592347684,Age,Respondent,10,30,pearson,none,72963
+domain_name,Omnibus,0.14717327962491356,NA,NA,10,30,pearson,none,72963
+gender_group,Omnibus,9.729722214849296e-4,Gender,Respondent,10,30,pearson,none,72963
+measure_category,Omnibus,0.04509242736087874,Category,Measure,10,30,pearson,none,72963
+panel,Omnibus,0.18705974414925894,Panel,Panel,10,30,pearson,none,72963
+sample_size,Omnibus,0.006285883990175205,n,Respondent,10,30,pearson,none,72963
+scale_type,Omnibus,0.008378589688848108,Scale Type,Measure,10,30,pearson,none,72963
+time_diff_mean,Omnibus,0.07079923381484046,Retest Interval,Measure,10,30,pearson,none,72963
+age_group,Omnibus,0.0520613513901898,Age,Respondent,10,30,icc2_1,none,72963
+domain_name,Omnibus,0.13196465269597307,NA,NA,10,30,icc2_1,none,72963
+gender_group,Omnibus,6.837396333198208e-4,Gender,Respondent,10,30,icc2_1,none,72963
+measure_category,Omnibus,0.039236892230614905,Category,Measure,10,30,icc2_1,none,72963
+panel,Omnibus,0.18940624522300553,Panel,Panel,10,30,icc2_1,none,72963
+sample_size,Omnibus,0.00547094484460138,n,Respondent,10,30,icc2_1,none,72963
+scale_type,Omnibus,0.00508995450336665,Scale Type,Measure,10,30,icc2_1,none,72963
+time_diff_mean,Omnibus,0.07389182818692842,Retest Interval,Measure,10,30,icc2_1,none,72963
+age_group,Omnibus,0.05873325437253672,Age,Respondent,10,30,spearman,log,72963
+domain_name,Omnibus,0.1501176634479127,NA,NA,10,30,spearman,log,72963
+gender_group,Omnibus,0.002488247291952045,Gender,Respondent,10,30,spearman,log,72963
+measure_category,Omnibus,0.036139885550733594,Category,Measure,10,30,spearman,log,72963
+panel,Omnibus,0.17430740570265532,Panel,Panel,10,30,spearman,log,72963
+sample_size,Omnibus,0.0049422587993103746,n,Respondent,10,30,spearman,log,72963
+scale_type,Omnibus,0.012922025349807435,Scale Type,Measure,10,30,spearman,log,72963
+time_diff_mean,Omnibus,0.061576887190422265,Retest Interval,Measure,10,30,spearman,log,72963
+age_group,Omnibus,0.05645266758715049,Age,Respondent,10,30,pearson,log,72963
+domain_name,Omnibus,0.1504577812501623,NA,NA,10,30,pearson,log,72963
+gender_group,Omnibus,9.502773304583006e-4,Gender,Respondent,10,30,pearson,log,72963
+measure_category,Omnibus,0.04703476891694484,Category,Measure,10,30,pearson,log,72963
+panel,Omnibus,0.18537454966896197,Panel,Panel,10,30,pearson,log,72963
+sample_size,Omnibus,0.005681198714087334,n,Respondent,10,30,pearson,log,72963
+scale_type,Omnibus,0.009026797562207443,Scale Type,Measure,10,30,pearson,log,72963
+time_diff_mean,Omnibus,0.06492153892783098,Retest Interval,Measure,10,30,pearson,log,72963
+age_group,Omnibus,0.056964953592347684,Age,Respondent,10,30,icc2_1,log,72963
+domain_name,Omnibus,0.14717327962491356,NA,NA,10,30,icc2_1,log,72963
+gender_group,Omnibus,9.729722214849296e-4,Gender,Respondent,10,30,icc2_1,log,72963
+measure_category,Omnibus,0.04509242736087874,Category,Measure,10,30,icc2_1,log,72963
+panel,Omnibus,0.18705974414925894,Panel,Panel,10,30,icc2_1,log,72963
+sample_size,Omnibus,0.006285883990175205,n,Respondent,10,30,icc2_1,log,72963
+scale_type,Omnibus,0.008378589688848108,Scale Type,Measure,10,30,icc2_1,log,72963
+time_diff_mean,Omnibus,0.07079923381484046,Retest Interval,Measure,10,30,icc2_1,log,72963
+age_group,Omnibus,0.13548025233939515,Age,Respondent,5,250,spearman,none,41124
+domain_name,Omnibus,0.15828363513732943,NA,NA,5,250,spearman,none,41124
+gender_group,Omnibus,0.0026569976398317066,Gender,Respondent,5,250,spearman,none,41124
+measure_category,Omnibus,0.014651831670806333,Category,Measure,5,250,spearman,none,41124
+panel,Omnibus,0.21804977450256818,Panel,Panel,5,250,spearman,none,41124
+sample_size,Omnibus,0.010404410580661065,n,Respondent,5,250,spearman,none,41124
+scale_type,Omnibus,0.009737183538189512,Scale Type,Measure,5,250,spearman,none,41124
+time_diff_mean,Omnibus,0.055335805023939706,Retest Interval,Measure,5,250,spearman,none,41124
+age_group,Omnibus,0.1376568061114042,Age,Respondent,5,250,pearson,none,41124
+domain_name,Omnibus,0.14017035198939345,NA,NA,5,250,pearson,none,41124
+gender_group,Omnibus,0.00490429978417108,Gender,Respondent,5,250,pearson,none,41124
+measure_category,Omnibus,0.021624646283649365,Category,Measure,5,250,pearson,none,41124
+panel,Omnibus,0.23322373144552463,Panel,Panel,5,250,pearson,none,41124
+sample_size,Omnibus,0.013630029438903598,n,Respondent,5,250,pearson,none,41124
+scale_type,Omnibus,0.005936030372458818,Scale Type,Measure,5,250,pearson,none,41124
+time_diff_mean,Omnibus,0.06868366942450478,Retest Interval,Measure,5,250,pearson,none,41124
+age_group,Omnibus,0.1271249687546057,Age,Respondent,5,250,icc2_1,none,41124
+domain_name,Omnibus,0.11280948250199853,NA,NA,5,250,icc2_1,none,41124
+gender_group,Omnibus,0.00724045406003947,Gender,Respondent,5,250,icc2_1,none,41124
+measure_category,Omnibus,0.014011968497725659,Category,Measure,5,250,icc2_1,none,41124
+panel,Omnibus,0.22986465711005027,Panel,Panel,5,250,icc2_1,none,41124
+sample_size,Omnibus,0.01922451209883996,n,Respondent,5,250,icc2_1,none,41124
+scale_type,Omnibus,0.0060196566703888624,Scale Type,Measure,5,250,icc2_1,none,41124
+time_diff_mean,Omnibus,0.0815956339510821,Retest Interval,Measure,5,250,icc2_1,none,41124
+age_group,Omnibus,0.13548025233939515,Age,Respondent,5,250,spearman,log,41124
+domain_name,Omnibus,0.15828363513732943,NA,NA,5,250,spearman,log,41124
+gender_group,Omnibus,0.0026569976398317066,Gender,Respondent,5,250,spearman,log,41124
+measure_category,Omnibus,0.014651831670806333,Category,Measure,5,250,spearman,log,41124
+panel,Omnibus,0.21804977450256818,Panel,Panel,5,250,spearman,log,41124
+sample_size,Omnibus,0.010404410580661065,n,Respondent,5,250,spearman,log,41124
+scale_type,Omnibus,0.009737183538189512,Scale Type,Measure,5,250,spearman,log,41124
+time_diff_mean,Omnibus,0.055335805023939706,Retest Interval,Measure,5,250,spearman,log,41124
+age_group,Omnibus,0.13657359861342183,Age,Respondent,5,250,pearson,log,41124
+domain_name,Omnibus,0.14519717603629897,NA,NA,5,250,pearson,log,41124
+gender_group,Omnibus,0.004697928606573381,Gender,Respondent,5,250,pearson,log,41124
+measure_category,Omnibus,0.023535894191360443,Category,Measure,5,250,pearson,log,41124
+panel,Omnibus,0.23266210500668744,Panel,Panel,5,250,pearson,log,41124
+sample_size,Omnibus,0.01370070148731692,n,Respondent,5,250,pearson,log,41124
+scale_type,Omnibus,0.006471939715703719,Scale Type,Measure,5,250,pearson,log,41124
+time_diff_mean,Omnibus,0.06350936430341096,Retest Interval,Measure,5,250,pearson,log,41124
+age_group,Omnibus,0.1376568061114042,Age,Respondent,5,250,icc2_1,log,41124
+domain_name,Omnibus,0.14017035198939345,NA,NA,5,250,icc2_1,log,41124
+gender_group,Omnibus,0.00490429978417108,Gender,Respondent,5,250,icc2_1,log,41124
+measure_category,Omnibus,0.021624646283649365,Category,Measure,5,250,icc2_1,log,41124
+panel,Omnibus,0.23322373144552463,Panel,Panel,5,250,icc2_1,log,41124
+sample_size,Omnibus,0.013630029438903598,n,Respondent,5,250,icc2_1,log,41124
+scale_type,Omnibus,0.005936030372458818,Scale Type,Measure,5,250,icc2_1,log,41124
+time_diff_mean,Omnibus,0.06868366942450478,Retest Interval,Measure,5,250,icc2_1,log,41124
+age_group,Omnibus,0.08533736677298263,Age,Respondent,5,100,spearman,none,81837
+domain_name,Omnibus,0.1608600816168952,NA,NA,5,100,spearman,none,81837
+gender_group,Omnibus,0.002255611877389377,Gender,Respondent,5,100,spearman,none,81837
+measure_category,Omnibus,0.021604582795108275,Category,Measure,5,100,spearman,none,81837
+panel,Omnibus,0.17216213389201948,Panel,Panel,5,100,spearman,none,81837
+sample_size,Omnibus,0.004552546536541188,n,Respondent,5,100,spearman,none,81837
+scale_type,Omnibus,0.007536060088432518,Scale Type,Measure,5,100,spearman,none,81837
+time_diff_mean,Omnibus,0.05030629597018619,Retest Interval,Measure,5,100,spearman,none,81837
+age_group,Omnibus,0.0832178701101939,Age,Respondent,5,100,pearson,none,81837
+domain_name,Omnibus,0.15009241693353068,NA,NA,5,100,pearson,none,81837
+gender_group,Omnibus,5.065022500295261e-4,Gender,Respondent,5,100,pearson,none,81837
+measure_category,Omnibus,0.02820961130081908,Category,Measure,5,100,pearson,none,81837
+panel,Omnibus,0.18351649610034423,Panel,Panel,5,100,pearson,none,81837
+sample_size,Omnibus,0.005759987550657791,n,Respondent,5,100,pearson,none,81837
+scale_type,Omnibus,0.004459395384196794,Scale Type,Measure,5,100,pearson,none,81837
+time_diff_mean,Omnibus,0.0608361775710493,Retest Interval,Measure,5,100,pearson,none,81837
+age_group,Omnibus,0.0749533326149699,Age,Respondent,5,100,icc2_1,none,81837
+domain_name,Omnibus,0.12991602720387874,NA,NA,5,100,icc2_1,none,81837
+gender_group,Omnibus,1.5710914075815023e-4,Gender,Respondent,5,100,icc2_1,none,81837
+measure_category,Omnibus,0.021402539218641766,Category,Measure,5,100,icc2_1,none,81837
+panel,Omnibus,0.18329907936348377,Panel,Panel,5,100,icc2_1,none,81837
+sample_size,Omnibus,0.007386591585477909,n,Respondent,5,100,icc2_1,none,81837
+scale_type,Omnibus,0.007359019859484974,Scale Type,Measure,5,100,icc2_1,none,81837
+time_diff_mean,Omnibus,0.06796263998118929,Retest Interval,Measure,5,100,icc2_1,none,81837
+age_group,Omnibus,0.08533736677298263,Age,Respondent,5,100,spearman,log,81837
+domain_name,Omnibus,0.1608600816168952,NA,NA,5,100,spearman,log,81837
+gender_group,Omnibus,0.002255611877389377,Gender,Respondent,5,100,spearman,log,81837
+measure_category,Omnibus,0.021604582795108275,Category,Measure,5,100,spearman,log,81837
+panel,Omnibus,0.17216213389201948,Panel,Panel,5,100,spearman,log,81837
+sample_size,Omnibus,0.004552546536541188,n,Respondent,5,100,spearman,log,81837
+scale_type,Omnibus,0.007536060088432518,Scale Type,Measure,5,100,spearman,log,81837
+time_diff_mean,Omnibus,0.05030629597018619,Retest Interval,Measure,5,100,spearman,log,81837
+age_group,Omnibus,0.08353187326658569,Age,Respondent,5,100,pearson,log,81837
+domain_name,Omnibus,0.1529672316161887,NA,NA,5,100,pearson,log,81837
+gender_group,Omnibus,5.150856800038116e-4,Gender,Respondent,5,100,pearson,log,81837
+measure_category,Omnibus,0.03030227384923132,Category,Measure,5,100,pearson,log,81837
+panel,Omnibus,0.1831635414080763,Panel,Panel,5,100,pearson,log,81837
+sample_size,Omnibus,0.005546125343487762,n,Respondent,5,100,pearson,log,81837
+scale_type,Omnibus,0.004677383245277842,Scale Type,Measure,5,100,pearson,log,81837
+time_diff_mean,Omnibus,0.055792789863227714,Retest Interval,Measure,5,100,pearson,log,81837
+age_group,Omnibus,0.0832178701101939,Age,Respondent,5,100,icc2_1,log,81837
+domain_name,Omnibus,0.15009241693353068,NA,NA,5,100,icc2_1,log,81837
+gender_group,Omnibus,5.065022500295261e-4,Gender,Respondent,5,100,icc2_1,log,81837
+measure_category,Omnibus,0.02820961130081908,Category,Measure,5,100,icc2_1,log,81837
+panel,Omnibus,0.18351649610034423,Panel,Panel,5,100,icc2_1,log,81837
+sample_size,Omnibus,0.005759987550657791,n,Respondent,5,100,icc2_1,log,81837
+scale_type,Omnibus,0.004459395384196794,Scale Type,Measure,5,100,icc2_1,log,81837
+time_diff_mean,Omnibus,0.0608361775710493,Retest Interval,Measure,5,100,icc2_1,log,81837
+age_group,Omnibus,0.07211027435601734,Age,Respondent,5,30,spearman,none,118402
+domain_name,Omnibus,0.12989890319590205,NA,NA,5,30,spearman,none,118402
+gender_group,Omnibus,0.002169449536727453,Gender,Respondent,5,30,spearman,none,118402
+measure_category,Omnibus,0.03453447927455507,Category,Measure,5,30,spearman,none,118402
+panel,Omnibus,0.1577561785753175,Panel,Panel,5,30,spearman,none,118402
+sample_size,Omnibus,0.0019761776613681963,n,Respondent,5,30,spearman,none,118402
+scale_type,Omnibus,0.009927001532227026,Scale Type,Measure,5,30,spearman,none,118402
+time_diff_mean,Omnibus,0.048273114451216875,Retest Interval,Measure,5,30,spearman,none,118402
+age_group,Omnibus,0.07197886032862488,Age,Respondent,5,30,pearson,none,118402
+domain_name,Omnibus,0.12526408532828848,NA,NA,5,30,pearson,none,118402
+gender_group,Omnibus,4.681071167638519e-4,Gender,Respondent,5,30,pearson,none,118402
+measure_category,Omnibus,0.0422550459593436,Category,Measure,5,30,pearson,none,118402
+panel,Omnibus,0.1682380616400597,Panel,Panel,5,30,pearson,none,118402
+sample_size,Omnibus,0.0027427057174931294,n,Respondent,5,30,pearson,none,118402
+scale_type,Omnibus,0.00606376561509015,Scale Type,Measure,5,30,pearson,none,118402
+time_diff_mean,Omnibus,0.05684887357656695,Retest Interval,Measure,5,30,pearson,none,118402
+age_group,Omnibus,0.0683697498404482,Age,Respondent,5,30,icc2_1,none,118402
+domain_name,Omnibus,0.10884451449488314,NA,NA,5,30,icc2_1,none,118402
+gender_group,Omnibus,1.480769013925519e-4,Gender,Respondent,5,30,icc2_1,none,118402
+measure_category,Omnibus,0.03531994035693715,Category,Measure,5,30,icc2_1,none,118402
+panel,Omnibus,0.1674927091933154,Panel,Panel,5,30,icc2_1,none,118402
+sample_size,Omnibus,0.0027266892374881537,n,Respondent,5,30,icc2_1,none,118402
+scale_type,Omnibus,0.00446656568893592,Scale Type,Measure,5,30,icc2_1,none,118402
+time_diff_mean,Omnibus,0.060859879869815475,Retest Interval,Measure,5,30,icc2_1,none,118402
+age_group,Omnibus,0.07211027435601734,Age,Respondent,5,30,spearman,log,118402
+domain_name,Omnibus,0.12989890319590205,NA,NA,5,30,spearman,log,118402
+gender_group,Omnibus,0.002169449536727453,Gender,Respondent,5,30,spearman,log,118402
+measure_category,Omnibus,0.03453447927455507,Category,Measure,5,30,spearman,log,118402
+panel,Omnibus,0.1577561785753175,Panel,Panel,5,30,spearman,log,118402
+sample_size,Omnibus,0.0019761776613681963,n,Respondent,5,30,spearman,log,118402
+scale_type,Omnibus,0.009927001532227026,Scale Type,Measure,5,30,spearman,log,118402
+time_diff_mean,Omnibus,0.048273114451216875,Retest Interval,Measure,5,30,spearman,log,118402
+age_group,Omnibus,0.07126931347871353,Age,Respondent,5,30,pearson,log,118402
+domain_name,Omnibus,0.12766264801173383,NA,NA,5,30,pearson,log,118402
+gender_group,Omnibus,5.150382696821802e-4,Gender,Respondent,5,30,pearson,log,118402
+measure_category,Omnibus,0.044758120687030306,Category,Measure,5,30,pearson,log,118402
+panel,Omnibus,0.16749106175316944,Panel,Panel,5,30,pearson,log,118402
+sample_size,Omnibus,0.002337446061714245,n,Respondent,5,30,pearson,log,118402
+scale_type,Omnibus,0.006520111736785578,Scale Type,Measure,5,30,pearson,log,118402
+time_diff_mean,Omnibus,0.05199086693811555,Retest Interval,Measure,5,30,pearson,log,118402
+age_group,Omnibus,0.07197886032862488,Age,Respondent,5,30,icc2_1,log,118402
+domain_name,Omnibus,0.12526408532828848,NA,NA,5,30,icc2_1,log,118402
+gender_group,Omnibus,4.681071167638519e-4,Gender,Respondent,5,30,icc2_1,log,118402
+measure_category,Omnibus,0.0422550459593436,Category,Measure,5,30,icc2_1,log,118402
+panel,Omnibus,0.1682380616400597,Panel,Panel,5,30,icc2_1,log,118402
+sample_size,Omnibus,0.0027427057174931294,n,Respondent,5,30,icc2_1,log,118402
+scale_type,Omnibus,0.00606376561509015,Scale Type,Measure,5,30,icc2_1,log,118402
+time_diff_mean,Omnibus,0.05684887357656695,Retest Interval,Measure,5,30,icc2_1,log,118402

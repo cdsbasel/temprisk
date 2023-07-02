@@ -1,0 +1,36 @@
+name: "companion-website"
+navbar:
+  title: "Bagaïni et al. (2023)"
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "Workflow"
+      href: workflow_overview.html
+    - text: "Data"
+      href: data_desc.html
+    # - text: "Processing"
+    #   menu: 
+    #     - text: "Test-Retest Correlations"
+    #       href: retest_overview.html
+    #     - text: "Intercorrelations"
+    #       href: bivar_overview.html
+    - text: "Processing"
+      href: processing_overview.html
+    - text: "Analyses"
+      menu: 
+        - text: "Variance Decomposition"
+          href: var_decomp_overview.html
+        - text: "Temporal Stability"
+          href: masc_overview.html
+        - text: "Convergent Validity"
+          href: ma_bivar_overview.html
+    - text: "Multiverse"
+      href: multiverse_overview.html
+output:
+  html_document:
+    theme: flatly
+    highlight: tango
+    includes:
+      in_header: "favicon.html" 
+
+

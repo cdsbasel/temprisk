@@ -1,0 +1,6 @@
+panel,varcode,measure_category,general_domain,domain_name,scale_type,scale_length,time_frame,behav_type,behav_paid,var_consider,var_include
+HILDA,RISK_FIN_ORD4A,pro,dom,inv,ord,4,NA,NA,NA,1,1
+HILDA,RISK_FIN_ORD4B,pro,dom,inv,ord,4,NA,NA,NA,1,1
+HILDA,RISK_GEN_ORD11A,pro,gen,gen,ord,11,NA,NA,NA,1,1
+HILDA,SMK_CHECK,fre,dom,smo,ord,5,NA,NA,NA,0,0
+HILDA,CIGS_WK_OEA,fre,dom,smo,oe,NA,7,NA,NA,1,1

@@ -1,0 +1,11 @@
+panel,varcode,measure_category,general_domain,domain_name,scale_type,scale_length,time_frame,behav_type,behav_paid,var_consider,var_include
+LIKS,ALC_BEER_DAY_OEA,fre,dom,alc,oe,NA,1,NA,NA,1,1
+LIKS,ALC_CHECK,fre,dom,alc,ord,2,NA,NA,NA,0,0
+LIKS,ALC_HOMEMADE_DAY_OEA,fre,dom,alc,oe,NA,1,NA,NA,1,1
+LIKS,ALC_MO_ORD5A,fre,dom,alc,ord,5,30,NA,NA,1,1
+LIKS,ALC_OTHER_DAY_OEA,fre,dom,alc,oe,NA,1,NA,NA,1,1
+LIKS,ALC_VODKA_DAY_OEA,fre,dom,alc,oe,NA,1,NA,NA,1,1
+LIKS,ALC_WINE_DAY_OEA,fre,dom,alc,oe,NA,1,NA,NA,1,1
+LIKS,RISK_GEN_ORD11A,pro,gen,gen,ord,11,NA,NA,NA,1,1
+LIKS,CIGS_DAY_OEA,fre,dom,smo,oe,NA,1,NA,NA,1,1
+LIKS,SMK_CHECK,fre,dom,smo,ord,2,NA,NA,NA,0,0

@@ -1,0 +1,3751 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Workflow</title>
+
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link rel="shortcut icon" href="/Volumes/CDS-Data/08_Projects/TSRP/companion_site/images/magnifying-glass-chart-solid.svg">
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Bagaïni et al. (2023)</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="workflow_overview.html">Workflow</a>
+</li>
+<li>
+  <a href="data_desc.html">Data</a>
+</li>
+<li>
+  <a href="processing_overview.html">Processing</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Analyses
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="var_decomp_overview.html">Variance Decomposition</a>
+    </li>
+    <li>
+      <a href="masc_overview.html">Temporal Stability</a>
+    </li>
+    <li>
+      <a href="ma_bivar_overview.html">Convergent Validity</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="multiverse_overview.html">Multiverse</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Workflow</h1>
+
+</div>
+
+
+<p>Below are step-by-step instructions on how the files in the OSF repository (link) are used in the analyses described in the paper.</p>
+<p><br></p>
+<p><img src="images/tsrp_workflow.png" width="1532" /></p>
+<p><br><br></p>
+<div id="pre-processing" class="section level2">
+<h2>Pre-processing</h2>
+<div id="vieczbyxgx" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: Helvetica;
+}
+
+#vieczbyxgx .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 11px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FDF1C3;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 1.5px;
+  border-top-color: #000000;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 1.5px;
+  border-bottom-color: #000000;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#vieczbyxgx .gt_heading {
+  background-color: #FDF1C3;
+  text-align: center;
+  border-bottom-color: #FDF1C3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#vieczbyxgx .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FDF1C3;
+  border-bottom-width: 0;
+}
+
+#vieczbyxgx .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FDF1C3;
+  border-top-width: 0;
+}
+
+#vieczbyxgx .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#vieczbyxgx .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#vieczbyxgx .gt_col_heading {
+  color: #FFFFFF;
+  background-color: #000000;
+  font-size: 100%;
+  font-weight: bold;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#vieczbyxgx .gt_column_spanner_outer {
+  color: #FFFFFF;
+  background-color: #000000;
+  font-size: 100%;
+  font-weight: bold;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#vieczbyxgx .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#vieczbyxgx .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#vieczbyxgx .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#vieczbyxgx .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FDF1C3;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#vieczbyxgx .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FDF1C3;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#vieczbyxgx .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#vieczbyxgx .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#vieczbyxgx .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#vieczbyxgx .gt_stub {
+  color: #333333;
+  background-color: #FDF1C3;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#vieczbyxgx .gt_stub_row_group {
+  color: #333333;
+  background-color: #FDF1C3;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#vieczbyxgx .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#vieczbyxgx .gt_summary_row {
+  color: #333333;
+  background-color: #FDF1C3;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#vieczbyxgx .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#vieczbyxgx .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#vieczbyxgx .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#vieczbyxgx .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FDF1C3;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#vieczbyxgx .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#vieczbyxgx .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#vieczbyxgx .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#vieczbyxgx .gt_footnotes {
+  color: #333333;
+  background-color: #FDF1C3;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#vieczbyxgx .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#vieczbyxgx .gt_sourcenotes {
+  color: #333333;
+  background-color: #FDF1C3;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#vieczbyxgx .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#vieczbyxgx .gt_left {
+  text-align: left;
+}
+
+#vieczbyxgx .gt_center {
+  text-align: center;
+}
+
+#vieczbyxgx .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#vieczbyxgx .gt_font_normal {
+  font-weight: normal;
+}
+
+#vieczbyxgx .gt_font_bold {
+  font-weight: bold;
+}
+
+#vieczbyxgx .gt_font_italic {
+  font-style: italic;
+}
+
+#vieczbyxgx .gt_super {
+  font-size: 65%;
+}
+
+#vieczbyxgx .gt_two_val_uncert {
+  display: inline-block;
+  line-height: 1em;
+  text-align: right;
+  font-size: 60%;
+  vertical-align: -0.25em;
+  margin-left: 0.1em;
+}
+
+#vieczbyxgx .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+#vieczbyxgx .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#vieczbyxgx .gt_slash_mark {
+  font-size: 0.7em;
+  line-height: 0.7em;
+  vertical-align: 0.15em;
+}
+
+#vieczbyxgx .gt_fraction_numerator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: 0.45em;
+}
+
+#vieczbyxgx .gt_fraction_denominator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: -0.05em;
+}
+</style>
+<table class="gt_table" style="table-layout: fixed;; width: 0px">
+  <colgroup>
+    <col style="width:25px;"/>
+    <col style="width:375px;"/>
+    <col style="width:210px;"/>
+    <col style="width:210px;"/>
+    <col style="width:210px;"/>
+  </colgroup>
+  
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">No.</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">Description</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">Input</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">Scripts</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">Output</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td class="gt_row gt_right" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black; white-space: break-spaces;"><div class='gt_from_md'><p>1</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black; white-space: break-spaces;"><div class='gt_from_md'><p>For each PANEL, a .xlsx file with the variable information about each risk measure was created by adapting the information from the sample’s main variable codebook. Separate tabs include different classes of variables (e.g., variable codes for respondent demographics).Then an R script reads each sheet from each .xlsx file and creates a list object containing the information from all the samples saved as separates data frames.</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black; white-space: break-spaces;"><div class='gt_from_md'><p>var_info/codebook_main.xlsx<br> var_info/PANEL_var_info.xlsx</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black; white-space: break-spaces;"><div class='gt_from_md'><p>var_info/code/merge_var_info.R</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black; white-space: break-spaces;"><div class='gt_from_md'><p>var_info/panel_var_info.rds</p>
+</div></td></tr>
+    <tr><td class="gt_row gt_right" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black; white-space: break-spaces;"><div class='gt_from_md'><p>2</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black; white-space: break-spaces;"><div class='gt_from_md'><p>For each PANEL, an R script  reads the  panel_var_info.rds file and Raw Panel Data file(s) to select the relevant variables, and creates a .csv  file (long format) with the relevant (and if needed, re-coded) raw panel data, as well as a csv file with the main information on the different risk preference measures (e.g., measure category, domain, and sub-domain). Simultaneously, a summary overview of the data are created for inspection- These pre-processed files are in the same format for all panels</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black; white-space: break-spaces;"><div class='gt_from_md'><p>var_info/panel_var_info.rds<br> local_drive/Raw panel data</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black; white-space: break-spaces;"><div class='gt_from_md'><p>pre_processing/code/PANEL_preproc.R</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black; white-space: break-spaces;"><div class='gt_from_md'><p>local_drive/PANEL_proc_data.csv<br>var_info/PANEL_risk_var_info.csv</p>
+</div></td></tr>
+    <tr><td class="gt_row gt_right" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black; white-space: break-spaces;"><div class='gt_from_md'><p>3</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black; white-space: break-spaces;"><div class='gt_from_md'><p>The information on the final measures included in the analyses for each sample are combined into a single R list object to be used for data processing</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black; white-space: break-spaces;"><div class='gt_from_md'><p>var_info/PANEL_risk_var_info.csv</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black; white-space: break-spaces;"><div class='gt_from_md'><p>var_info/code/merge_risk_info.R</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black; white-space: break-spaces;"><div class='gt_from_md'><p>var_info/panel_risk_info.rds</p>
+</div></td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+<p><br><br></p>
+</div>
+<div id="processing" class="section level2">
+<h2>Processing</h2>
+<div id="test-retest-correlations" class="section level3">
+<h3>Test-retest correlations</h3>
+<div id="nczjajozcy" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: Helvetica;
+}
+
+#nczjajozcy .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 11px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #C4DAC3;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 1.5px;
+  border-top-color: #000000;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 1.5px;
+  border-bottom-color: #000000;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#nczjajozcy .gt_heading {
+  background-color: #C4DAC3;
+  text-align: center;
+  border-bottom-color: #C4DAC3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#nczjajozcy .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #C4DAC3;
+  border-bottom-width: 0;
+}
+
+#nczjajozcy .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #C4DAC3;
+  border-top-width: 0;
+}
+
+#nczjajozcy .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#nczjajozcy .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#nczjajozcy .gt_col_heading {
+  color: #FFFFFF;
+  background-color: #000000;
+  font-size: 100%;
+  font-weight: bold;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#nczjajozcy .gt_column_spanner_outer {
+  color: #FFFFFF;
+  background-color: #000000;
+  font-size: 100%;
+  font-weight: bold;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#nczjajozcy .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#nczjajozcy .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#nczjajozcy .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#nczjajozcy .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #C4DAC3;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#nczjajozcy .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #C4DAC3;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#nczjajozcy .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#nczjajozcy .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#nczjajozcy .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#nczjajozcy .gt_stub {
+  color: #333333;
+  background-color: #C4DAC3;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#nczjajozcy .gt_stub_row_group {
+  color: #333333;
+  background-color: #C4DAC3;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#nczjajozcy .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#nczjajozcy .gt_summary_row {
+  color: #333333;
+  background-color: #C4DAC3;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#nczjajozcy .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#nczjajozcy .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#nczjajozcy .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#nczjajozcy .gt_grand_summary_row {
+  color: #333333;
+  background-color: #C4DAC3;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#nczjajozcy .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#nczjajozcy .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#nczjajozcy .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#nczjajozcy .gt_footnotes {
+  color: #333333;
+  background-color: #C4DAC3;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#nczjajozcy .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#nczjajozcy .gt_sourcenotes {
+  color: #333333;
+  background-color: #C4DAC3;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#nczjajozcy .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#nczjajozcy .gt_left {
+  text-align: left;
+}
+
+#nczjajozcy .gt_center {
+  text-align: center;
+}
+
+#nczjajozcy .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#nczjajozcy .gt_font_normal {
+  font-weight: normal;
+}
+
+#nczjajozcy .gt_font_bold {
+  font-weight: bold;
+}
+
+#nczjajozcy .gt_font_italic {
+  font-style: italic;
+}
+
+#nczjajozcy .gt_super {
+  font-size: 65%;
+}
+
+#nczjajozcy .gt_two_val_uncert {
+  display: inline-block;
+  line-height: 1em;
+  text-align: right;
+  font-size: 60%;
+  vertical-align: -0.25em;
+  margin-left: 0.1em;
+}
+
+#nczjajozcy .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+#nczjajozcy .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#nczjajozcy .gt_slash_mark {
+  font-size: 0.7em;
+  line-height: 0.7em;
+  vertical-align: 0.15em;
+}
+
+#nczjajozcy .gt_fraction_numerator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: 0.45em;
+}
+
+#nczjajozcy .gt_fraction_denominator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: -0.05em;
+}
+</style>
+<table class="gt_table" style="table-layout: fixed;; width: 0px">
+  <colgroup>
+    <col style="width:25px;"/>
+    <col style="width:375px;"/>
+    <col style="width:210px;"/>
+    <col style="width:210px;"/>
+    <col style="width:210px;"/>
+  </colgroup>
+  
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">No.</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">Description</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">Input</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">Scripts</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">Output</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td class="gt_row gt_right" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>1</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>For each panel, an R script reads the  PANEL_proc_data.csv and computes the test-retest correlations for different time intervals for each measure using the function calc_retest.R. In addition, the relevant information for each risk preference measure is joined to the set of test-retest correlations. Altogether, this  is saved as a .csv file. The PANEL_retest.csv file has the same format for all panels.</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>local_drive/PANEL_proc_data.csv  var_info/panel_risk_info.rds</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>processing/code/temp_stability/calc_retest.R<br>processing/code/temp_stability/PANEL_retestcalc.R</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>processing/output/temp_stability/PANEL_retest.csv</p>
+</div></td></tr>
+    <tr><td class="gt_row gt_right" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>2</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>Using merge_retest.R and the PANEL_retest.csv files, a complete_retest.csv file is created with all the retest correlations</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>processing/output/temp_stability/PANEL_retest.csv</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>processing/code/temp_stability/merge_retest.R</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>processing/output/temp_stability/complete_retest.csv</p>
+</div></td></tr>
+    <tr><td class="gt_row gt_right" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>3</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>Using calc_agg_retest.R and the complete_retest.csv file, compute aggregated correlation coefficients based on different criteria (e.g., minimum number of responses) and create a complete_agg_retest_yb..csv files</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>processing/output/temp_stability/complete_retest.csv</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>processing/code/temp_stability/calc_agg_retest.R</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>processing/output/temp_stability/complete_agg_retest_yb..csv</p>
+</div></td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+<p><br></p>
+</div>
+<div id="inter-correlations" class="section level3">
+<h3>Inter-correlations</h3>
+<div id="rtilcismwf" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: Helvetica;
+}
+
+#rtilcismwf .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 11px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #C4DAC3;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 1.5px;
+  border-top-color: #000000;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 1.5px;
+  border-bottom-color: #000000;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#rtilcismwf .gt_heading {
+  background-color: #C4DAC3;
+  text-align: center;
+  border-bottom-color: #C4DAC3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#rtilcismwf .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #C4DAC3;
+  border-bottom-width: 0;
+}
+
+#rtilcismwf .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #C4DAC3;
+  border-top-width: 0;
+}
+
+#rtilcismwf .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#rtilcismwf .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#rtilcismwf .gt_col_heading {
+  color: #FFFFFF;
+  background-color: #000000;
+  font-size: 100%;
+  font-weight: bold;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#rtilcismwf .gt_column_spanner_outer {
+  color: #FFFFFF;
+  background-color: #000000;
+  font-size: 100%;
+  font-weight: bold;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#rtilcismwf .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#rtilcismwf .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#rtilcismwf .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#rtilcismwf .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #C4DAC3;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#rtilcismwf .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #C4DAC3;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#rtilcismwf .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#rtilcismwf .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#rtilcismwf .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#rtilcismwf .gt_stub {
+  color: #333333;
+  background-color: #C4DAC3;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#rtilcismwf .gt_stub_row_group {
+  color: #333333;
+  background-color: #C4DAC3;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#rtilcismwf .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#rtilcismwf .gt_summary_row {
+  color: #333333;
+  background-color: #C4DAC3;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#rtilcismwf .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#rtilcismwf .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#rtilcismwf .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#rtilcismwf .gt_grand_summary_row {
+  color: #333333;
+  background-color: #C4DAC3;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#rtilcismwf .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#rtilcismwf .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#rtilcismwf .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#rtilcismwf .gt_footnotes {
+  color: #333333;
+  background-color: #C4DAC3;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#rtilcismwf .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#rtilcismwf .gt_sourcenotes {
+  color: #333333;
+  background-color: #C4DAC3;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#rtilcismwf .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#rtilcismwf .gt_left {
+  text-align: left;
+}
+
+#rtilcismwf .gt_center {
+  text-align: center;
+}
+
+#rtilcismwf .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#rtilcismwf .gt_font_normal {
+  font-weight: normal;
+}
+
+#rtilcismwf .gt_font_bold {
+  font-weight: bold;
+}
+
+#rtilcismwf .gt_font_italic {
+  font-style: italic;
+}
+
+#rtilcismwf .gt_super {
+  font-size: 65%;
+}
+
+#rtilcismwf .gt_two_val_uncert {
+  display: inline-block;
+  line-height: 1em;
+  text-align: right;
+  font-size: 60%;
+  vertical-align: -0.25em;
+  margin-left: 0.1em;
+}
+
+#rtilcismwf .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+#rtilcismwf .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#rtilcismwf .gt_slash_mark {
+  font-size: 0.7em;
+  line-height: 0.7em;
+  vertical-align: 0.15em;
+}
+
+#rtilcismwf .gt_fraction_numerator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: 0.45em;
+}
+
+#rtilcismwf .gt_fraction_denominator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: -0.05em;
+}
+</style>
+<table class="gt_table" style="table-layout: fixed;; width: 0px">
+  <colgroup>
+    <col style="width:25px;"/>
+    <col style="width:375px;"/>
+    <col style="width:210px;"/>
+    <col style="width:210px;"/>
+    <col style="width:210px;"/>
+  </colgroup>
+  
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">No.</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">Description</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">Input</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">Scripts</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">Output</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td class="gt_row gt_right" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>1</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>For each panel, an R script reads the PANEL_proc_data.csv and computes the inter-correlations between different measures for different time intervals using the function calc_intercor.R. In addition, the relevant information for each pair of risk preference measure is joined to the set of test-retest correlations. Altogether, this  is saved as a .csv file. Th PANEL_intercor_data.csv file has the same format for all panels.</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>var_info/panel_var_info.rds<br> local_drive/Raw panel data</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>processing/code/convergent_val/calc_bivar.R<br>processing/code/convergent_val/PANEL_intercor.R</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>processing/output/convergent_val/PANEL_intercor_data.csv</p>
+</div></td></tr>
+    <tr><td class="gt_row gt_right" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>2</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>Using merge_intercor.R and the PANEL_intercor_data.csv files, a complete_intercor.csv file is created with all the inter-correlations.</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>processing/output/convergent_val/PANEL_intercor_data.csv</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>processing/code/convergent_val/merge_intercor.R<br></p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>processing/output/convergent_val/complete_intercor.csv</p>
+</div></td></tr>
+    <tr><td class="gt_row gt_right" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>3</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>Using calc_agg_intercor.R and the complete_intercor.csv file, compute aggregated correlation coefficients based on different criteria (e.g., minimum number of responses) and create a complete_agg_intercor_yb..csv files</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>processing/output/convergent_val/complete_intercor.csv</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>processing/code/convergent_val/calc_agg_intercor.R</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>processing/output/convergent_val/complete_agg_intercor_yb..csv</p>
+</div></td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+<p><br><br></p>
+</div>
+</div>
+<div id="analysis" class="section level2">
+<h2>Analysis</h2>
+<div id="test-retest-correlations-1" class="section level3">
+<h3>Test-retest correlations</h3>
+<div id="ipoozcyqpu" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: Helvetica;
+}
+
+#ipoozcyqpu .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 11px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #BBC8DD;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 1.5px;
+  border-top-color: #000000;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 1.5px;
+  border-bottom-color: #000000;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#ipoozcyqpu .gt_heading {
+  background-color: #BBC8DD;
+  text-align: center;
+  border-bottom-color: #BBC8DD;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ipoozcyqpu .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #BBC8DD;
+  border-bottom-width: 0;
+}
+
+#ipoozcyqpu .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #BBC8DD;
+  border-top-width: 0;
+}
+
+#ipoozcyqpu .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ipoozcyqpu .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ipoozcyqpu .gt_col_heading {
+  color: #FFFFFF;
+  background-color: #000000;
+  font-size: 100%;
+  font-weight: bold;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#ipoozcyqpu .gt_column_spanner_outer {
+  color: #FFFFFF;
+  background-color: #000000;
+  font-size: 100%;
+  font-weight: bold;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#ipoozcyqpu .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#ipoozcyqpu .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#ipoozcyqpu .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#ipoozcyqpu .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #BBC8DD;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#ipoozcyqpu .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #BBC8DD;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#ipoozcyqpu .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#ipoozcyqpu .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#ipoozcyqpu .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#ipoozcyqpu .gt_stub {
+  color: #333333;
+  background-color: #BBC8DD;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ipoozcyqpu .gt_stub_row_group {
+  color: #333333;
+  background-color: #BBC8DD;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#ipoozcyqpu .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#ipoozcyqpu .gt_summary_row {
+  color: #333333;
+  background-color: #BBC8DD;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ipoozcyqpu .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#ipoozcyqpu .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#ipoozcyqpu .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ipoozcyqpu .gt_grand_summary_row {
+  color: #333333;
+  background-color: #BBC8DD;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ipoozcyqpu .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#ipoozcyqpu .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#ipoozcyqpu .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ipoozcyqpu .gt_footnotes {
+  color: #333333;
+  background-color: #BBC8DD;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ipoozcyqpu .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ipoozcyqpu .gt_sourcenotes {
+  color: #333333;
+  background-color: #BBC8DD;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ipoozcyqpu .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ipoozcyqpu .gt_left {
+  text-align: left;
+}
+
+#ipoozcyqpu .gt_center {
+  text-align: center;
+}
+
+#ipoozcyqpu .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#ipoozcyqpu .gt_font_normal {
+  font-weight: normal;
+}
+
+#ipoozcyqpu .gt_font_bold {
+  font-weight: bold;
+}
+
+#ipoozcyqpu .gt_font_italic {
+  font-style: italic;
+}
+
+#ipoozcyqpu .gt_super {
+  font-size: 65%;
+}
+
+#ipoozcyqpu .gt_two_val_uncert {
+  display: inline-block;
+  line-height: 1em;
+  text-align: right;
+  font-size: 60%;
+  vertical-align: -0.25em;
+  margin-left: 0.1em;
+}
+
+#ipoozcyqpu .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+#ipoozcyqpu .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#ipoozcyqpu .gt_slash_mark {
+  font-size: 0.7em;
+  line-height: 0.7em;
+  vertical-align: 0.15em;
+}
+
+#ipoozcyqpu .gt_fraction_numerator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: 0.45em;
+}
+
+#ipoozcyqpu .gt_fraction_denominator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: -0.05em;
+}
+</style>
+<table class="gt_table" style="table-layout: fixed;; width: 0px">
+  <colgroup>
+    <col style="width:25px;"/>
+    <col style="width:375px;"/>
+    <col style="width:210px;"/>
+    <col style="width:210px;"/>
+    <col style="width:210px;"/>
+  </colgroup>
+  
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">No.</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">Description</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">Input</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">Scripts</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">Output</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td class="gt_row gt_right" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>1</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p><em><strong>Variance Decomposition:</strong></em> The var_decomposition.R script reads the complete_retest.csv an conducts variance decomposition for all the test-retest correlations (i.e., omnibus analysis) and separately for each measure category.</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>processing/output/temp_stability/complete_retest.csv</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>analysis/code/temp_stability/var_decomposition.R</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>analysis/output/temp_stability/shapley_values_.<em>retest.csv<br>analysis/output/temp_stability/shapley_values</em>._retest_boot.csv</p>
+</div></td></tr>
+    <tr><td class="gt_row gt_right" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>2</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p><em><strong>Fitting the MASC model:</strong></em> Read the complete_agg_retest_yb..csv  file using the corresponding R script (i.e., masc_..R) and fit the (meta-analytic) non-linear mixed-effects model (i.e.,MASC). Check model fit and convergence diagnostics.</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>processing/output/temp_stability/complete_agg_retest_yb..csv</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>analysis/code/temp_stability/masc_..R</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>analysis/output/temp_stability/masc_..rds</p>
+</div></td></tr>
+    <tr><td class="gt_row gt_right" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>3</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p><em><strong>Multiverse Analysis - Variance Decomposition:</strong></em> The var_decomposition_multiverse.R script reads the complete_retest.csv, using and  conducts variance decomposition for all the test-retest correlations (i.e., omnibus analysis) and separately for each measure category with the different  sub datasets of retest correlation to assess how consistent the variance explained by each effect is.</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>processing/output/temp_stability/complete_retest.csv</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>analysis/code/temp_stability/var_decomp_retest_multiverse.R</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>analysis/output/temp_stability/shapley_values_._retest_multiverse_summary.csv</p>
+</div></td></tr>
+    <tr><td class="gt_row gt_right" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>4</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p><em><strong>Multiverse Analysis - Fitting the MASC model:</strong></em> Using the masc_._multiverse.R fit the (meta-analytic) non-linear mixed model (i.e.,MASC) using each sub dataset of aggregated correlations coefficients from the complete_agg_retest_yb..csv  files and save a summary of the output to assess the consistency of the results.</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>processing/output/temp_stability/complete_retest_wcor_.yrbin_.n_.mo.rds</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>analysis/code/temp_stability/masc_._multiverse.R</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>analysis/output/temp_stability/masc_._multiverse_summary.csv</p>
+</div></td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+<p><br></p>
+</div>
+<div id="inter-correlations-1" class="section level3">
+<h3>Inter-correlations</h3>
+<div id="dkvmfrdpto" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: Helvetica;
+}
+
+#dkvmfrdpto .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 11px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #BBC8DD;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 1.5px;
+  border-top-color: #000000;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 1.5px;
+  border-bottom-color: #000000;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#dkvmfrdpto .gt_heading {
+  background-color: #BBC8DD;
+  text-align: center;
+  border-bottom-color: #BBC8DD;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#dkvmfrdpto .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #BBC8DD;
+  border-bottom-width: 0;
+}
+
+#dkvmfrdpto .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #BBC8DD;
+  border-top-width: 0;
+}
+
+#dkvmfrdpto .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#dkvmfrdpto .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#dkvmfrdpto .gt_col_heading {
+  color: #FFFFFF;
+  background-color: #000000;
+  font-size: 100%;
+  font-weight: bold;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#dkvmfrdpto .gt_column_spanner_outer {
+  color: #FFFFFF;
+  background-color: #000000;
+  font-size: 100%;
+  font-weight: bold;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#dkvmfrdpto .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#dkvmfrdpto .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#dkvmfrdpto .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#dkvmfrdpto .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #BBC8DD;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#dkvmfrdpto .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #BBC8DD;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#dkvmfrdpto .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#dkvmfrdpto .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#dkvmfrdpto .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#dkvmfrdpto .gt_stub {
+  color: #333333;
+  background-color: #BBC8DD;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dkvmfrdpto .gt_stub_row_group {
+  color: #333333;
+  background-color: #BBC8DD;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#dkvmfrdpto .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#dkvmfrdpto .gt_summary_row {
+  color: #333333;
+  background-color: #BBC8DD;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dkvmfrdpto .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#dkvmfrdpto .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#dkvmfrdpto .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#dkvmfrdpto .gt_grand_summary_row {
+  color: #333333;
+  background-color: #BBC8DD;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dkvmfrdpto .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#dkvmfrdpto .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#dkvmfrdpto .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#dkvmfrdpto .gt_footnotes {
+  color: #333333;
+  background-color: #BBC8DD;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#dkvmfrdpto .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dkvmfrdpto .gt_sourcenotes {
+  color: #333333;
+  background-color: #BBC8DD;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#dkvmfrdpto .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dkvmfrdpto .gt_left {
+  text-align: left;
+}
+
+#dkvmfrdpto .gt_center {
+  text-align: center;
+}
+
+#dkvmfrdpto .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#dkvmfrdpto .gt_font_normal {
+  font-weight: normal;
+}
+
+#dkvmfrdpto .gt_font_bold {
+  font-weight: bold;
+}
+
+#dkvmfrdpto .gt_font_italic {
+  font-style: italic;
+}
+
+#dkvmfrdpto .gt_super {
+  font-size: 65%;
+}
+
+#dkvmfrdpto .gt_two_val_uncert {
+  display: inline-block;
+  line-height: 1em;
+  text-align: right;
+  font-size: 60%;
+  vertical-align: -0.25em;
+  margin-left: 0.1em;
+}
+
+#dkvmfrdpto .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+#dkvmfrdpto .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#dkvmfrdpto .gt_slash_mark {
+  font-size: 0.7em;
+  line-height: 0.7em;
+  vertical-align: 0.15em;
+}
+
+#dkvmfrdpto .gt_fraction_numerator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: 0.45em;
+}
+
+#dkvmfrdpto .gt_fraction_denominator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: -0.05em;
+}
+</style>
+<table class="gt_table" style="table-layout: fixed;; width: 0px">
+  <colgroup>
+    <col style="width:25px;"/>
+    <col style="width:375px;"/>
+    <col style="width:210px;"/>
+    <col style="width:210px;"/>
+    <col style="width:210px;"/>
+  </colgroup>
+  
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">No.</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">Description</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">Input</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">Scripts</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">Output</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td class="gt_row gt_right" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>1</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p><em><strong>Variance Decomposition:</strong></em> The  var_decomposition.R script reads the complete_intercor.csv to  conduct variance decomposition for the inter-correlations.</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>processing/output/convergent_val/complete_intercor.csv</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>analysis/code/convergent_val/var_decomposition.R</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>analysis/output/convergent_val/shapley_values_.<em>intercor.csv<br>analysis/output/convergent_val/shapley_values</em>._intercor_boot.csv</p>
+</div></td></tr>
+    <tr><td class="gt_row gt_right" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>2</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p><em><strong>Meta-Analysis and Meta-Regressions:</strong></em> The brms_ma.R script reads the complete_agg_intercor_yb..csv files and fit  the different Bayesian random effects models (i.e., intercept only and with covariates)</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>processing/output/convergent_val/complete_agg_intercor_yb..csv</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>analysis/code/brms_ma.R</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>analysis/output/convergent_val/fit_convergent_ma_..rds</p>
+</div></td></tr>
+    <tr><td class="gt_row gt_right" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>3</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p><em><strong>Multiverse Analysis - Variance Decomposition:</strong></em> The  var_decomposition_multiverse.R script reads the complete_intercor.csv and conducts variance decomposition for the inter-correlations with the different sub datasets of inter-correlation to assess the consistency of the variance explained by each effect is.</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>processing/output/convergent_val/complete_intercor.csv</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>analysis/code/var_decomposoiion_multiverse.R</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>analysis/output/shapley_values_._intercor_boot_multiverse_summary.csv</p>
+</div></td></tr>
+    <tr><td class="gt_row gt_right" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>4</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p><em><strong>Multiverse Analysis Meta-Analysis and Meta-Regressions:</strong></em> Using the brms_ma_multiverse.R fit the different Bayesian random effects meta-analytic models (i.e., intercept only and with covariates) using each sub dataset of aggregated correlations coefficients from the complete_agg_intercor_yb..csv  files and save a summary of the output to assess the consistency of the results.</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>processing/output/convergent_val/complete_agg_intercor_yb..csv</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>analysis/code/convergent_val/brms_ma_multiverse.R</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>analysis/output/convergent_val/brms_ma_mulriverse_summary.csv</p>
+</div></td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+<p><br><br></p>
+</div>
+</div>
+<div id="visualisation" class="section level2">
+<h2>Visualisation</h2>
+<div id="test-retest-correlations-2" class="section level3">
+<h3>Test-retest correlations</h3>
+<div id="xbahyuylox" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: Helvetica;
+}
+
+#xbahyuylox .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 11px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #D7C8E4;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 1.5px;
+  border-top-color: #000000;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 1.5px;
+  border-bottom-color: #000000;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#xbahyuylox .gt_heading {
+  background-color: #D7C8E4;
+  text-align: center;
+  border-bottom-color: #D7C8E4;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#xbahyuylox .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #D7C8E4;
+  border-bottom-width: 0;
+}
+
+#xbahyuylox .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #D7C8E4;
+  border-top-width: 0;
+}
+
+#xbahyuylox .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xbahyuylox .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#xbahyuylox .gt_col_heading {
+  color: #FFFFFF;
+  background-color: #000000;
+  font-size: 100%;
+  font-weight: bold;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#xbahyuylox .gt_column_spanner_outer {
+  color: #FFFFFF;
+  background-color: #000000;
+  font-size: 100%;
+  font-weight: bold;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#xbahyuylox .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#xbahyuylox .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#xbahyuylox .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#xbahyuylox .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #D7C8E4;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#xbahyuylox .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #D7C8E4;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#xbahyuylox .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#xbahyuylox .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#xbahyuylox .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#xbahyuylox .gt_stub {
+  color: #333333;
+  background-color: #D7C8E4;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xbahyuylox .gt_stub_row_group {
+  color: #333333;
+  background-color: #D7C8E4;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#xbahyuylox .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#xbahyuylox .gt_summary_row {
+  color: #333333;
+  background-color: #D7C8E4;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xbahyuylox .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#xbahyuylox .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#xbahyuylox .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xbahyuylox .gt_grand_summary_row {
+  color: #333333;
+  background-color: #D7C8E4;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xbahyuylox .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#xbahyuylox .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#xbahyuylox .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xbahyuylox .gt_footnotes {
+  color: #333333;
+  background-color: #D7C8E4;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#xbahyuylox .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xbahyuylox .gt_sourcenotes {
+  color: #333333;
+  background-color: #D7C8E4;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#xbahyuylox .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xbahyuylox .gt_left {
+  text-align: left;
+}
+
+#xbahyuylox .gt_center {
+  text-align: center;
+}
+
+#xbahyuylox .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#xbahyuylox .gt_font_normal {
+  font-weight: normal;
+}
+
+#xbahyuylox .gt_font_bold {
+  font-weight: bold;
+}
+
+#xbahyuylox .gt_font_italic {
+  font-style: italic;
+}
+
+#xbahyuylox .gt_super {
+  font-size: 65%;
+}
+
+#xbahyuylox .gt_two_val_uncert {
+  display: inline-block;
+  line-height: 1em;
+  text-align: right;
+  font-size: 60%;
+  vertical-align: -0.25em;
+  margin-left: 0.1em;
+}
+
+#xbahyuylox .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+#xbahyuylox .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#xbahyuylox .gt_slash_mark {
+  font-size: 0.7em;
+  line-height: 0.7em;
+  vertical-align: 0.15em;
+}
+
+#xbahyuylox .gt_fraction_numerator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: 0.45em;
+}
+
+#xbahyuylox .gt_fraction_denominator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: -0.05em;
+}
+</style>
+<table class="gt_table" style="table-layout: fixed;; width: 0px">
+  <colgroup>
+    <col style="width:25px;"/>
+    <col style="width:375px;"/>
+    <col style="width:210px;"/>
+    <col style="width:210px;"/>
+    <col style="width:210px;"/>
+  </colgroup>
+  
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">No.</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">Description</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">Input</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">Scripts</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">Output</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td class="gt_row gt_right" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>1</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>The plot_measure_cor_overview.R script  reads  the complete_retest.csv file and plots the number of measures across retest intervals and the distributions of retest correlations.</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>processing/output/temp_stability/complezeretest</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>figures/code/temp_stability/plot_measure_cor_overview.R</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>figures/output/temp_stability/meas_count.png</p>
+</div></td></tr>
+    <tr><td class="gt_row gt_right" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>2</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>The plot_var_decomposition.R script  reads  the shapley_values_.<em>retest.csv and shapley_values</em>._retest_boot.csv to plot the proportion of variance explained by different factors</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>analysis/output/temp_stability/shapley_values_.<em>retest.csv<br>analysis/output/temp_stability/shapley_values</em>._retest_boot.csv</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>figures/code/temp_stability/plot_var_decomposition.R</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>figures/output/temp_stability/shapley_decomp_retest_fig.png</p>
+</div></td></tr>
+    <tr><td class="gt_row gt_right" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>3</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>The plot_masc_pred.R script reads the masc_..rds files and plots the parameter estimates and model predictions.</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>analysis/output/temp_stability/fit_masc_..rds</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>figures/code/temp_stability/plot_masc_pred.R</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>figures/output/temp_stability/masc_pred_fig.png</p>
+</div></td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+<p><br></p>
+</div>
+<div id="inter-correlations-2" class="section level3">
+<h3>Inter-correlations</h3>
+<div id="ocyeuwgtpw" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: Helvetica;
+}
+
+#ocyeuwgtpw .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 11px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #D7C8E4;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 1.5px;
+  border-top-color: #000000;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 1.5px;
+  border-bottom-color: #000000;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#ocyeuwgtpw .gt_heading {
+  background-color: #D7C8E4;
+  text-align: center;
+  border-bottom-color: #D7C8E4;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ocyeuwgtpw .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #D7C8E4;
+  border-bottom-width: 0;
+}
+
+#ocyeuwgtpw .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #D7C8E4;
+  border-top-width: 0;
+}
+
+#ocyeuwgtpw .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ocyeuwgtpw .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ocyeuwgtpw .gt_col_heading {
+  color: #FFFFFF;
+  background-color: #000000;
+  font-size: 100%;
+  font-weight: bold;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#ocyeuwgtpw .gt_column_spanner_outer {
+  color: #FFFFFF;
+  background-color: #000000;
+  font-size: 100%;
+  font-weight: bold;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#ocyeuwgtpw .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#ocyeuwgtpw .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#ocyeuwgtpw .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#ocyeuwgtpw .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #D7C8E4;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#ocyeuwgtpw .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #D7C8E4;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#ocyeuwgtpw .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#ocyeuwgtpw .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#ocyeuwgtpw .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#ocyeuwgtpw .gt_stub {
+  color: #333333;
+  background-color: #D7C8E4;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ocyeuwgtpw .gt_stub_row_group {
+  color: #333333;
+  background-color: #D7C8E4;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#ocyeuwgtpw .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#ocyeuwgtpw .gt_summary_row {
+  color: #333333;
+  background-color: #D7C8E4;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ocyeuwgtpw .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#ocyeuwgtpw .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#ocyeuwgtpw .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ocyeuwgtpw .gt_grand_summary_row {
+  color: #333333;
+  background-color: #D7C8E4;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ocyeuwgtpw .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#ocyeuwgtpw .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#ocyeuwgtpw .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ocyeuwgtpw .gt_footnotes {
+  color: #333333;
+  background-color: #D7C8E4;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ocyeuwgtpw .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ocyeuwgtpw .gt_sourcenotes {
+  color: #333333;
+  background-color: #D7C8E4;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ocyeuwgtpw .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ocyeuwgtpw .gt_left {
+  text-align: left;
+}
+
+#ocyeuwgtpw .gt_center {
+  text-align: center;
+}
+
+#ocyeuwgtpw .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#ocyeuwgtpw .gt_font_normal {
+  font-weight: normal;
+}
+
+#ocyeuwgtpw .gt_font_bold {
+  font-weight: bold;
+}
+
+#ocyeuwgtpw .gt_font_italic {
+  font-style: italic;
+}
+
+#ocyeuwgtpw .gt_super {
+  font-size: 65%;
+}
+
+#ocyeuwgtpw .gt_two_val_uncert {
+  display: inline-block;
+  line-height: 1em;
+  text-align: right;
+  font-size: 60%;
+  vertical-align: -0.25em;
+  margin-left: 0.1em;
+}
+
+#ocyeuwgtpw .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+#ocyeuwgtpw .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#ocyeuwgtpw .gt_slash_mark {
+  font-size: 0.7em;
+  line-height: 0.7em;
+  vertical-align: 0.15em;
+}
+
+#ocyeuwgtpw .gt_fraction_numerator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: 0.45em;
+}
+
+#ocyeuwgtpw .gt_fraction_denominator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: -0.05em;
+}
+</style>
+<table class="gt_table" style="table-layout: fixed;; width: 0px">
+  <colgroup>
+    <col style="width:25px;"/>
+    <col style="width:375px;"/>
+    <col style="width:210px;"/>
+    <col style="width:210px;"/>
+    <col style="width:210px;"/>
+  </colgroup>
+  
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">No.</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">Description</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">Input</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">Scripts</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">Output</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td class="gt_row gt_right" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>1</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>The plot_var_decomposition.R script  reads  the shapley_values_intercor.csv and shapley_values_intercor_boot.csv files to plot the proportion of variance explained by different factors</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>analysis/output/convergent_val/shapley_values_.<em>intercor.csv<br>analysis/output/convergent_val/shapley_values</em>._intercor_boot.csv</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>figures/code/convergent_val/plot_var_decomposition.R</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>figures/output/convergent_val/shapley_decomp_convergent.png</p>
+</div></td></tr>
+    <tr><td class="gt_row gt_right" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>1</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>The plot_cor_matrix.R script reads the  fit_convergent_ma_..rds files and creates several correlation matrices with the pool estimates</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>analysis/output/fconvergent_val/fit_convergent_..rds</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>figures/code/convergent_val/plot_cor_matrix.R</p>
+</div></td>
+<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: solid; border-left-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: black; border-top-width: 1px; border-top-style: solid; border-top-color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black;"><div class='gt_from_md'><p>figures/output/convergent_val/cor_matrix_fig.png</p>
+</div></td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+<p><br><br></p>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

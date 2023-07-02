@@ -1,0 +1,694 @@
+---
+title: "Variance Decomposition"
+output: 
+  html_document:
+    toc: yes
+    toc_float: yes
+    date: "`r format(Sys.time(), '%d %B, %Y')`"
+---
+
+<!-- <style type="text/css"> -->
+<!-- .main-container { -->
+<!-- max-width: 1200px !important; -->
+<!-- margin-left: auto; -->
+<!-- margin-right: auto; -->
+<!-- } -->
+<!-- </style> -->
+
+
+<!-- <style type="text/css"> -->
+<!--   body{ -->
+<!--   font-size: 12pt; -->
+<!--   font-family: "Helvetica"; -->
+<!-- } -->
+<!-- </style> -->
+
+
+
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+
+# options(width = 3000)
+
+library(tidyverse)
+library(kableExtra)
+library(knitr)
+library(ggdist)
+library(brms)
+library(patchwork)
+library(posterior)
+library(bayesplot)
+library(ggplot2)
+library(rstanarm)
+library(data.table)
+library(boot)
+library(DT)
+library(GGally)
+library(MetBrewer)
+library(gt)
+
+```
+
+
+## Brief Description
+
+Overview of each of the predictors included in the variance decomposition analysis of the test-retest correlations and inter-correlations described in the Supplementary Information. We plot the distributions of the correlations split by the different levels of each categorical predictor, with the mean (light colored dot) and the median (dark colored dot) values.
+
+
+### Retest-Correlations { .tabset}
+
+#### Omnibus { .tabset}
+
+
+##### By Category
+```{r}
+ knitr::include_graphics("images/categ_overview_omnibus.png")
+```
+
+
+<br>
+
+##### By Domain
+```{r}
+ knitr::include_graphics("images/domain_overview_omnibus.png")
+```
+
+
+<br>
+
+##### By Scale Type
+```{r}
+ knitr::include_graphics("images/scale_overview_omnibus.png")
+```
+
+
+<br>
+
+##### By Age
+```{r}
+ knitr::include_graphics("images/age_overview_omnibus.png")
+```
+
+
+<br>
+
+
+##### By Gender
+```{r}
+ knitr::include_graphics("images/gender_overview_omnibus.png")
+```
+
+
+
+<br>
+
+##### By Panel
+```{r}
+ knitr::include_graphics("images/panel_overview_omnibus.png")
+```
+
+
+<br>
+
+##### By Sample Size
+```{r}
+ knitr::include_graphics("images/n_overview_omnibus.png")
+```
+
+<br>
+
+##### By Retest Interval
+```{r}
+ knitr::include_graphics("images/time_overview_omnibus.png")
+```
+
+<br>
+
+
+
+#### Propensity { .tabset}
+
+
+##### By Domain
+```{r}
+ knitr::include_graphics("images/domain_overview_pro.png")
+```
+
+
+<br>
+
+##### By Scale Type
+```{r}
+ knitr::include_graphics("images/scale_overview_pro.png")
+```
+
+
+<br>
+
+##### By Age
+```{r}
+ knitr::include_graphics("images/age_overview_pro.png")
+```
+
+
+<br>
+
+
+##### By Gender
+```{r}
+ knitr::include_graphics("images/gender_overview_pro.png")
+```
+
+
+
+<br>
+
+##### By Panel
+```{r}
+ knitr::include_graphics("images/panel_overview_pro.png")
+```
+
+
+<br>
+
+##### By Sample Size
+```{r}
+ knitr::include_graphics("images/n_overview_pro.png")
+```
+
+
+
+<br>
+
+##### By Retest Interval
+```{r}
+ knitr::include_graphics("images/time_overview_pro.png")
+```
+
+<br>
+
+
+#### Frequency { .tabset}
+
+
+##### By Domain
+```{r}
+ knitr::include_graphics("images/domain_overview_fre.png")
+```
+
+
+<br>
+
+##### By Scale Type
+```{r}
+ knitr::include_graphics("images/scale_overview_fre.png")
+```
+
+
+<br>
+
+##### By Age
+```{r}
+ knitr::include_graphics("images/age_overview_fre.png")
+```
+
+
+<br>
+
+
+##### By Gender
+```{r}
+ knitr::include_graphics("images/gender_overview_fre.png")
+```
+
+
+
+<br>
+
+##### By Panel
+```{r}
+ knitr::include_graphics("images/panel_overview_fre.png")
+```
+
+
+<br>
+
+##### By Sample Size
+```{r}
+ knitr::include_graphics("images/n_overview_fre.png")
+```
+
+
+<br>
+
+##### By Retest Interval
+```{r}
+ knitr::include_graphics("images/time_overview_fre.png")
+```
+
+<br>
+
+
+
+#### Behaviour { .tabset}
+
+
+
+##### By Domain
+```{r}
+ knitr::include_graphics("images/domain_overview_beh.png")
+```
+
+
+<br>
+
+##### By Scale Type
+```{r}
+ knitr::include_graphics("images/scale_overview_beh.png")
+```
+
+
+<br>
+
+##### By Age
+```{r}
+ knitr::include_graphics("images/age_overview_beh.png")
+```
+
+
+<br>
+
+
+##### By Gender
+```{r}
+ knitr::include_graphics("images/gender_overview_beh.png")
+```
+
+
+
+<br>
+
+##### By Panel
+```{r}
+ knitr::include_graphics("images/panel_overview_beh.png")
+```
+
+
+<br>
+
+##### By Sample Size
+```{r}
+ knitr::include_graphics("images/n_overview_beh.png")
+```
+
+
+<br>
+
+##### By Retest Interval
+```{r}
+ knitr::include_graphics("images/time_overview_beh.png")
+```
+
+<br>
+
+### Inter-Correlations { .tabset}
+
+
+#### By Matching Domain
+```{r}
+ knitr::include_graphics("images/domain_overview_intercor.png")
+```
+
+
+<br>
+
+#### By Matching Scale Type
+```{r}
+ knitr::include_graphics("images/scale_overview_intercor.png")
+```
+
+<br>
+
+#### By Matching Category
+```{r}
+ knitr::include_graphics("images/categ_overview_intercor.png")
+```
+
+
+<br>
+
+#### By Age
+```{r}
+ knitr::include_graphics("images/age_overview_intercor.png")
+```
+
+
+<br>
+
+
+#### By Gender
+```{r}
+ knitr::include_graphics("images/gender_overview_intercor.png")
+```
+
+
+
+<br>
+
+#### By Panel
+```{r}
+ knitr::include_graphics("images/panel_overview_intercor.png")
+```
+
+
+<br>
+
+#### By Sample Size
+```{r}
+ knitr::include_graphics("images/n_overview_intercor.png")
+```
+
+
+<br>
+
+
+#### By Reliability
+```{r}
+ knitr::include_graphics("images/rel_overview_intercor.png")
+```
+
+
+<br>
+
+
+
+
+
+<!-- #### Propensity -->
+
+
+<!-- ```{r} -->
+<!-- tbl <- read_csv("images/vardecomp_effect_overview.csv") -->
+<!-- tbl %>%  -->
+<!--   filter(analysis == "propensity") %>%  -->
+<!--   filter(dv == "retest") %>%  -->
+<!--   select(-c(dv,analysis)) %>%  -->
+<!--   rename("Effect" = "effect",  -->
+<!--          "Description" = "description", -->
+<!--          "Values" = "values_range") %>%  -->
+<!--   gt() %>%  -->
+<!--   fmt_markdown(columns = everything()) %>%  -->
+<!--   # cols_width( -->
+<!--   #   Values ~ px(250), -->
+<!--   #   everything() ~ px(200)) %>%  -->
+<!--   tab_options(column_labels.background.color = "#005E66", -->
+<!--               column_labels.font.weight = "bold", -->
+<!--                table.width = pct(100), -->
+<!--               table.border.bottom.width = px(1.5), -->
+<!--               table.border.top.width = px(1.5), -->
+<!--               table.border.bottom.color = "black", -->
+<!--               table.border.top.color = "black", -->
+<!--               table.font.size = 11, -->
+<!--               table.font.names = "Helvetica") %>%  -->
+<!--   tab_style( -->
+<!--     style = cell_borders( -->
+<!--       sides = c("all"), -->
+<!--       color = "black", -->
+<!--       weight = px(1), -->
+<!--       style = "solid" -->
+<!--     ), -->
+<!--     locations = cells_body( -->
+<!--       columns = everything(), -->
+<!--       rows = everything() -->
+<!--     ) -->
+<!--   ) %>%  -->
+<!--   tab_style( -->
+<!--     style = cell_text(whitespace = "break-spaces"), -->
+<!--     locations = cells_body( -->
+<!--       columns = everything(), -->
+<!--       rows = everything() -->
+<!--     ) -->
+<!--   ) -->
+<!-- ``` -->
+
+
+
+
+
+<!-- <br> -->
+
+
+<!-- ```{r} -->
+<!-- tbl <- read_csv("images/var_decomp_retest_count.csv") -->
+<!-- tbl %>% filter(reg_type == "pro") -->
+<!--   gt(rowname_col = "lvls", groupname_col = "eff") %>%  -->
+<!--     tab_options(row_group.background.color  = "#005E66", -->
+<!--               column_labels.font.weight = "bold", -->
+<!--                table.width = pct(100), -->
+<!--               table.border.bottom.width = px(1.5), -->
+<!--               table.border.top.width = px(1.5), -->
+<!--               table.border.bottom.color = "black", -->
+<!--               table.border.top.color = "black", -->
+<!--               table.font.size = 11, -->
+<!--               table.font.names = "Helvetica") %>%  -->
+<!--   tab_style( -->
+<!--     style = cell_text(whitespace = "break-spaces"), -->
+<!--     locations = cells_body( -->
+<!--       columns = everything(), -->
+<!--       rows = everything() -->
+<!--     ) -->
+<!--   ) -->
+
+
+<!-- ``` -->
+
+
+<!-- <br> -->
+
+
+
+
+
+<!-- #### Frequency -->
+
+
+
+<!-- ```{r} -->
+<!-- tbl <- read_csv("images/vardecomp_effect_overview.csv") -->
+<!-- tbl %>%  -->
+<!--   filter(analysis == "frequency") %>%  -->
+<!--   filter(dv == "retest") %>%  -->
+<!--   select(-c(dv,analysis)) %>%  -->
+<!--   rename("Effect" = "effect",  -->
+<!--          "Description" = "description", -->
+<!--          "Values" = "values_range") %>%  -->
+<!--   gt() %>%  -->
+<!--   fmt_markdown(columns = TRUE) %>%  -->
+<!--   # cols_width( -->
+<!--   #   Values ~ px(250), -->
+<!--   #   everything() ~ px(200)) %>%  -->
+<!--   tab_options(column_labels.background.color = "#005E66", -->
+<!--               column_labels.font.weight = "bold", -->
+<!--                table.width = pct(100), -->
+<!--               table.border.bottom.width = px(1.5), -->
+<!--               table.border.top.width = px(1.5), -->
+<!--               table.border.bottom.color = "black", -->
+<!--               table.border.top.color = "black", -->
+<!--               table.font.size = 11, -->
+<!--               table.font.names = "Helvetica") %>%  -->
+<!--   tab_style( -->
+<!--     style = cell_borders( -->
+<!--       sides = c("all"), -->
+<!--       color = "black", -->
+<!--       weight = px(1), -->
+<!--       style = "solid" -->
+<!--     ), -->
+<!--     locations = cells_body( -->
+<!--       columns = everything(), -->
+<!--       rows = everything() -->
+<!--     ) -->
+<!--   ) %>%  -->
+<!--   tab_style( -->
+<!--     style = cell_text(whitespace = "break-spaces"), -->
+<!--     locations = cells_body( -->
+<!--       columns = everything(), -->
+<!--       rows = everything() -->
+<!--     ) -->
+<!--   ) -->
+<!-- ``` -->
+
+
+
+
+
+<!-- <br> -->
+
+
+<!-- ```{r} -->
+<!-- tbl <- read_csv("images/var_decomp_retest_count.csv") -->
+<!-- tbl %>% filter(reg_type == "fre") -->
+<!--   gt(rowname_col = "lvls", groupname_col = "eff") %>%  -->
+<!--     tab_options(row_group.background.color  = "#005E66", -->
+<!--               column_labels.font.weight = "bold", -->
+<!--                table.width = pct(100), -->
+<!--               table.border.bottom.width = px(1.5), -->
+<!--               table.border.top.width = px(1.5), -->
+<!--               table.border.bottom.color = "black", -->
+<!--               table.border.top.color = "black", -->
+<!--               table.font.size = 11, -->
+<!--               table.font.names = "Helvetica") %>%  -->
+<!--   tab_style( -->
+<!--     style = cell_text(whitespace = "break-spaces"), -->
+<!--     locations = cells_body( -->
+<!--       columns = everything(), -->
+<!--       rows = everything() -->
+<!--     ) -->
+<!--   ) -->
+
+
+<!-- ``` -->
+
+
+<!-- <br> -->
+
+
+
+<!-- #### Behaviour -->
+
+
+<!-- ```{r} -->
+<!-- tbl <- read_csv("images/vardecomp_effect_overview.csv") -->
+<!-- tbl %>%  -->
+<!--   filter(analysis == "behaviour") %>%  -->
+<!--   filter(dv == "retest") %>%  -->
+<!--   select(-c(dv,analysis)) %>%  -->
+<!--   rename("Effect" = "effect",  -->
+<!--          "Description" = "description", -->
+<!--          "Values" = "values_range") %>%  -->
+<!--   gt() %>%  -->
+<!--   fmt_markdown(columns = everything()) %>%  -->
+<!--   # cols_width( -->
+<!--   #   Values ~ px(250), -->
+<!--   #   everything() ~ px(200)) %>%  -->
+<!--   tab_options(column_labels.background.color = "#005E66", -->
+<!--               column_labels.font.weight = "bold", -->
+<!--                table.width = pct(100), -->
+<!--               table.border.bottom.width = px(1.5), -->
+<!--               table.border.top.width = px(1.5), -->
+<!--               table.border.bottom.color = "black", -->
+<!--               table.border.top.color = "black", -->
+<!--               table.font.size = 11, -->
+<!--               table.font.names = "Helvetica") %>%  -->
+<!--   tab_style( -->
+<!--     style = cell_borders( -->
+<!--       sides = c("all"), -->
+<!--       color = "black", -->
+<!--       weight = px(1), -->
+<!--       style = "solid" -->
+<!--     ), -->
+<!--     locations = cells_body( -->
+<!--       columns = everything(), -->
+<!--       rows = everything() -->
+<!--     ) -->
+<!--   ) %>%  -->
+<!--   tab_style( -->
+<!--     style = cell_text(whitespace = "break-spaces"), -->
+<!--     locations = cells_body( -->
+<!--       columns = everything(), -->
+<!--       rows = everything() -->
+<!--     ) -->
+<!--   ) -->
+<!-- ``` -->
+
+
+
+
+
+<!-- <br> -->
+
+
+
+<!-- ```{r} -->
+<!-- tbl <- read_csv("images/var_decomp_retest_count.csv") -->
+<!-- tbl %>% filter(reg_type == "beh") -->
+<!--   gt(rowname_col = "lvls", groupname_col = "eff") %>%  -->
+<!--     tab_options(row_group.background.color  = "#005E66", -->
+<!--               column_labels.font.weight = "bold", -->
+<!--                table.width = pct(100), -->
+<!--               table.border.bottom.width = px(1.5), -->
+<!--               table.border.top.width = px(1.5), -->
+<!--               table.border.bottom.color = "black", -->
+<!--               table.border.top.color = "black", -->
+<!--               table.font.size = 11, -->
+<!--               table.font.names = "Helvetica") %>%  -->
+<!--   tab_style( -->
+<!--     style = cell_text(whitespace = "break-spaces"), -->
+<!--     locations = cells_body( -->
+<!--       columns = everything(), -->
+<!--       rows = everything() -->
+<!--     ) -->
+<!--   ) -->
+
+
+<!-- ``` -->
+
+
+<!-- <br> -->
+
+
+<!-- ### Inter-Correlations  -->
+
+
+
+<!-- ```{r} -->
+<!-- tbl %>%  -->
+<!--   filter(dv == "bivar") %>%  -->
+<!--   filter(analysis == "all") %>%  -->
+<!--   select(-c(dv,analysis)) %>%  -->
+<!--   rename("Effect" = "effect",  -->
+<!--          "Description" = "description", -->
+<!--          "Values" = "values_range") %>%  -->
+<!--   gt() %>%  -->
+<!--   fmt_markdown(columns = everything()) %>%  -->
+<!--   # cols_width( -->
+<!--   #   Values ~ px(250), -->
+<!--   #   everything() ~ px(200)) %>%  -->
+<!--   tab_options(column_labels.background.color = "#005E66", -->
+<!--               column_labels.font.weight = "bold", -->
+<!--                table.width = pct(100), -->
+<!--               table.border.bottom.width = px(1.5), -->
+<!--               table.border.top.width = px(1.5), -->
+<!--               table.border.bottom.color = "black", -->
+<!--               table.border.top.color = "black", -->
+<!--               table.font.size = 11, -->
+<!--               table.font.names = "Helvetica") %>%  -->
+<!--   tab_style( -->
+<!--     style = cell_borders( -->
+<!--       sides = c("all"), -->
+<!--       color = "black", -->
+<!--       weight = px(1), -->
+<!--       style = "solid" -->
+<!--     ), -->
+<!--     locations = cells_body( -->
+<!--       columns = everything(), -->
+<!--       rows = everything() -->
+<!--     ) -->
+<!--   ) %>%  -->
+<!--   tab_style( -->
+<!--     style = cell_text(whitespace = "break-spaces"), -->
+<!--     locations = cells_body( -->
+<!--       columns = everything(), -->
+<!--       rows = everything() -->
+<!--     ) -->
+<!--   ) -->
+<!-- ``` -->
+
+
+
+
+
+<!-- <br> -->
+
+
+

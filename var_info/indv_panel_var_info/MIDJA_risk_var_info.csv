@@ -1,0 +1,7 @@
+panel,varcode,measure_category,general_domain,domain_name,scale_type,scale_length,time_frame,behav_type,behav_paid,var_consider,var_include
+MIDJA,ADVENTU_ORD4A,pro,gen,gen,ord,4,NA,NA,NA,1,1
+MIDJA,ALC_5DRINKS_MO_OEA,fre,dom,alc,oe,NA,30,NA,NA,1,1
+MIDJA,ALC_DRINKS_DAY_OEB,fre,dom,alc,oe,NA,1,NA,NA,1,1
+MIDJA,ALC_EFFECT_YR_ORD6A,fre,dom,alc,ord,6,365,NA,NA,1,1
+MIDJA,ALC_MO_ORD6A,fre,dom,alc,ord,6,30,NA,NA,1,1
+MIDJA,ALC_OVERCONS_YR_ORD6A,fre,dom,alc,ord,6,365,NA,NA,1,1

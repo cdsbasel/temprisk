@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Convergent Validity</title>
+
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link rel="shortcut icon" href="/Volumes/CDS-Data/08_Projects/TSRP/companion_site/images/magnifying-glass-chart-solid.svg">
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
+<style type="text/css" data-origin="pandoc">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Bagaïni et al. (2023)</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="workflow_overview.html">Workflow</a>
+</li>
+<li>
+  <a href="data_desc.html">Data</a>
+</li>
+<li>
+  <a href="processing_overview.html">Processing</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Analyses
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="var_decomp_overview.html">Variance Decomposition</a>
+    </li>
+    <li>
+      <a href="masc_overview.html">Temporal Stability</a>
+    </li>
+    <li>
+      <a href="ma_bivar_overview.html">Convergent Validity</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="multiverse_overview.html">Multiverse</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Convergent Validity</h1>
+
+</div>
+
+
+<!-- <style type="text/css"> -->
+<!-- .main-container { -->
+<!-- max-width: 1200px !important; -->
+<!-- margin-left: auto; -->
+<!-- margin-right: auto; -->
+<!-- } -->
+<!-- </style> -->
+<!-- <style type="text/css"> -->
+<!--   body{ -->
+<!--   font-size: 12pt; -->
+<!--   font-family: "Source Sans 3"; -->
+<!-- } -->
+<!-- </style> -->
+<div id="brief-description" class="section level2">
+<h2>Brief Description</h2>
+<p>Below we provide information on the specifications of the Bayesian random-effects meta-analysis and meta-regressions, as well as an overview of the model fits, with posterior predictive checks (PPCs), approximate leave-one-out (LOO) cross-validation output, and convergence diagnostics (i.e., rhat values, trace plots, effect sample size).</p>
+<p><strong><em>To replicate these analyses, refer to the Workflow page</em></strong></p>
+<p><br></p>
+</div>
+<div id="bayesian-random-effects-meta-analysis-and-meta-regressions" class="section level2 tabset">
+<h2>Bayesian random-effects meta-analysis and meta-regressions</h2>
+<div id="intercept-only" class="section level3 tabset">
+<h3>Intercept-Only</h3>
+<div id="model-specification-in-brms" class="section level4">
+<h4>Model specification in <code>brms</code></h4>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>family &lt;-<span class="st"> </span><span class="kw">brmsfamily</span>(</span>
+<span id="cb1-2"><a href="#cb1-2"></a>  <span class="dt">family =</span> <span class="st">&quot;student&quot;</span>, </span>
+<span id="cb1-3"><a href="#cb1-3"></a>  <span class="dt">link =</span> <span class="st">&quot;identity&quot;</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a>)</span>
+<span id="cb1-5"><a href="#cb1-5"></a></span>
+<span id="cb1-6"><a href="#cb1-6"></a>formula &lt;-<span class="st">  </span><span class="kw">bf</span>(wcor_z<span class="op">|</span><span class="kw">se</span>(sei_z, <span class="dt">sigma =</span> <span class="ot">TRUE</span>) <span class="op">~</span><span class="st"> </span><span class="dv">0</span> <span class="op">+</span><span class="st"> </span>Intercept <span class="op">+</span><span class="st"> </span>(<span class="dv">1</span><span class="op">|</span>sample),</span>
+<span id="cb1-7"><a href="#cb1-7"></a>               sigma <span class="op">~</span><span class="st"> </span><span class="dv">0</span> <span class="op">+</span><span class="st"> </span>Intercept <span class="op">+</span><span class="st"> </span>(<span class="dv">1</span> <span class="op">|</span><span class="st"> </span>sample))</span>
+<span id="cb1-8"><a href="#cb1-8"></a></span>
+<span id="cb1-9"><a href="#cb1-9"></a>priors &lt;-<span class="st">  </span><span class="kw">c</span>(<span class="kw">prior</span>(<span class="kw">normal</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="dt">class =</span> <span class="st">&quot;b&quot;</span>, <span class="dt">coef =</span> <span class="st">&quot;Intercept&quot;</span>),</span>
+<span id="cb1-10"><a href="#cb1-10"></a>             <span class="kw">prior</span>(<span class="kw">normal</span>(<span class="dv">0</span>, <span class="dv">2</span>), <span class="dt">class =</span> <span class="st">&quot;b&quot;</span>, <span class="dt">dpar =</span> <span class="st">&quot;sigma&quot;</span>, <span class="dt">coef =</span> <span class="st">&quot;Intercept&quot;</span>),</span>
+<span id="cb1-11"><a href="#cb1-11"></a>             <span class="kw">prior</span>(<span class="kw">cauchy</span>(<span class="dv">0</span>, <span class="fl">0.3</span>), <span class="dt">class =</span> <span class="st">&quot;sd&quot;</span>),</span>
+<span id="cb1-12"><a href="#cb1-12"></a>             <span class="kw">prior</span>(<span class="kw">cauchy</span>(<span class="dv">0</span>, <span class="fl">0.3</span>), <span class="dt">class =</span> <span class="st">&quot;sd&quot;</span>, <span class="dt">dpar =</span> <span class="st">&quot;sigma&quot;</span>))</span></code></pre></div>
+</div>
+<div id="model-summary" class="section level4">
+<h4>Model Summary</h4>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">summary</span>(fit_ma)</span></code></pre></div>
+<pre><code>##  Family: student 
+##   Links: mu = identity; sigma = log; nu = identity 
+## Formula: wcor_z | se(sei_z, sigma = TRUE) ~ 0 + Intercept + (1 | sample) 
+##          sigma ~ 0 + Intercept + (1 | sample)
+##    Data: dt_ma (Number of observations: 5556) 
+##   Draws: 2 chains, each with iter = 7000; warmup = 2000; thin = 1;
+##          total post-warmup draws = 10000
+## 
+## Group-Level Effects: 
+## ~sample (Number of levels: 45) 
+##                     Estimate Est.Error l-95% CI u-95% CI
+## sd(Intercept)           0.08      0.01     0.06     0.10
+## sd(sigma_Intercept)     0.41      0.06     0.31     0.54
+##                     Rhat Bulk_ESS Tail_ESS
+## sd(Intercept)       1.00     1596     3450
+## sd(sigma_Intercept) 1.00     1660     2944
+## 
+## Population-Level Effects: 
+##                 Estimate Est.Error l-95% CI u-95% CI Rhat
+## Intercept           0.16      0.01     0.13     0.18 1.00
+## sigma_Intercept    -2.00      0.07    -2.15    -1.87 1.00
+##                 Bulk_ESS Tail_ESS
+## Intercept            746     1406
+## sigma_Intercept     1124     2133
+## 
+## Family Specific Parameters: 
+##    Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS
+## nu     3.23      0.16     2.93     3.55 1.00     6506
+##    Tail_ESS
+## nu     7812
+## 
+## Draws were sampled using sample(hmc). For each parameter, Bulk_ESS
+## and Tail_ESS are effective sample size measures, and Rhat is the potential
+## scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
+<p><br><br><br></p>
+</div>
+<div id="mcmc-diagnostics" class="section level4">
+<h4>MCMC diagnostics</h4>
+<p><img src="ma_bivar_overview_files/figure-html/unnamed-chunk-5-1.png" width="1152" /></p>
+<p><br></p>
+<p><img src="ma_bivar_overview_files/figure-html/unnamed-chunk-6-1.png" width="1152" /></p>
+<p><br></p>
+<p><img src="ma_bivar_overview_files/figure-html/unnamed-chunk-7-1.png" width="768" /></p>
+<p><br><br><br></p>
+</div>
+<div id="ppcs-loo" class="section level4">
+<h4>PPCs &amp; LOO</h4>
+<p><strong>Graphical posterior predictive checks</strong></p>
+<p><img src="ma_bivar_overview_files/figure-html/unnamed-chunk-8-1.png" width="33%" /><img src="ma_bivar_overview_files/figure-html/unnamed-chunk-8-2.png" width="33%" /><img src="ma_bivar_overview_files/figure-html/unnamed-chunk-8-3.png" width="33%" /></p>
+<p><br></p>
+<pre><code>## 
+## Computed from 10000 by 5556 log-likelihood matrix
+## 
+##          Estimate    SE
+## elpd_loo    637.8  86.2
+## p_loo        91.3   2.7
+## looic     -1275.7 172.4
+## ------
+## Monte Carlo SE of elpd_loo is 0.1.
+## 
+## All Pareto k estimates are good (k &lt; 0.5).
+## See help(&#39;pareto-k-diagnostic&#39;) for details.</code></pre>
+<p><img src="ma_bivar_overview_files/figure-html/unnamed-chunk-9-1.png" width="50%" /><img src="ma_bivar_overview_files/figure-html/unnamed-chunk-9-2.png" width="50%" /></p>
+<p><br><br><br></p>
+</div>
+</div>
+<div id="measure-pair-as-covariate" class="section level3 tabset">
+<h3>Measure-Pair as Covariate</h3>
+<div id="model-specification-in-brms-1" class="section level4">
+<h4>Model specification in <code>brms</code></h4>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>family &lt;-<span class="st"> </span><span class="kw">brmsfamily</span>(</span>
+<span id="cb5-2"><a href="#cb5-2"></a>  <span class="dt">family =</span> <span class="st">&quot;student&quot;</span>, </span>
+<span id="cb5-3"><a href="#cb5-3"></a>  <span class="dt">link =</span> <span class="st">&quot;identity&quot;</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a>)</span>
+<span id="cb5-5"><a href="#cb5-5"></a></span>
+<span id="cb5-6"><a href="#cb5-6"></a>formula &lt;-<span class="st">  </span><span class="kw">bf</span>(wcor_z<span class="op">|</span><span class="kw">se</span>(sei_z, <span class="dt">sigma =</span> <span class="ot">TRUE</span>) <span class="op">~</span><span class="st"> </span><span class="dv">0</span> <span class="op">+</span><span class="st"> </span>meas_pair_id <span class="op">+</span><span class="st"> </span>(<span class="dv">1</span><span class="op">|</span>sample),</span>
+<span id="cb5-7"><a href="#cb5-7"></a>               sigma <span class="op">~</span><span class="st"> </span><span class="dv">0</span> <span class="op">+</span><span class="st"> </span>meas_pair_id <span class="op">+</span><span class="st"> </span>(<span class="dv">1</span><span class="op">|</span>sample))</span>
+<span id="cb5-8"><a href="#cb5-8"></a></span>
+<span id="cb5-9"><a href="#cb5-9"></a>priors &lt;-<span class="st">  </span><span class="kw">c</span>(<span class="kw">prior</span>(<span class="kw">normal</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="dt">class =</span> <span class="st">&quot;b&quot;</span>),</span>
+<span id="cb5-10"><a href="#cb5-10"></a>             <span class="kw">prior</span>(<span class="kw">normal</span>(<span class="dv">0</span>, <span class="dv">2</span>), <span class="dt">class =</span> <span class="st">&quot;b&quot;</span>, <span class="dt">dpar =</span> <span class="st">&quot;sigma&quot;</span>),</span>
+<span id="cb5-11"><a href="#cb5-11"></a>             <span class="kw">prior</span>(<span class="kw">cauchy</span>(<span class="dv">0</span>, <span class="fl">0.3</span>), <span class="dt">class =</span> <span class="st">&quot;sd&quot;</span>),</span>
+<span id="cb5-12"><a href="#cb5-12"></a>             <span class="kw">prior</span>(<span class="kw">cauchy</span>(<span class="dv">0</span>, <span class="fl">0.3</span>), <span class="dt">class =</span> <span class="st">&quot;sd&quot;</span>, <span class="dt">dpar =</span> <span class="st">&quot;sigma&quot;</span>))</span></code></pre></div>
+<p><br><br><br></p>
+</div>
+<div id="model-summary-1" class="section level4">
+<h4>Model Summary</h4>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">summary</span>(fit_ma)</span></code></pre></div>
+<pre><code>##  Family: student 
+##   Links: mu = identity; sigma = log; nu = identity 
+## Formula: wcor_z | se(sei_z, sigma = TRUE) ~ 0 + meas_pair_id + (1 | sample) 
+##          sigma ~ 0 + meas_pair_id + (1 | sample)
+##    Data: dt_ma (Number of observations: 5556) 
+##   Draws: 2 chains, each with iter = 7000; warmup = 2000; thin = 1;
+##          total post-warmup draws = 10000
+## 
+## Group-Level Effects: 
+## ~sample (Number of levels: 45) 
+##                     Estimate Est.Error l-95% CI u-95% CI
+## sd(Intercept)           0.05      0.01     0.03     0.06
+## sd(sigma_Intercept)     0.29      0.04     0.22     0.39
+##                     Rhat Bulk_ESS Tail_ESS
+## sd(Intercept)       1.00     3103     6202
+## sd(sigma_Intercept) 1.00     3316     5235
+## 
+## Population-Level Effects: 
+##                     Estimate Est.Error l-95% CI u-95% CI
+## meas_pair_id1           0.15      0.02     0.11     0.19
+## meas_pair_id2           0.02      0.01     0.01     0.04
+## meas_pair_id3           0.20      0.01     0.17     0.22
+## meas_pair_id4           0.13      0.01     0.11     0.15
+## meas_pair_id5           0.06      0.01     0.04     0.08
+## meas_pair_id6           0.41      0.01     0.38     0.43
+## sigma_meas_pair_id1    -1.66      0.11    -1.89    -1.44
+## sigma_meas_pair_id2    -3.58      0.14    -3.86    -3.31
+## sigma_meas_pair_id3    -1.56      0.06    -1.69    -1.44
+## sigma_meas_pair_id4    -3.01      0.09    -3.19    -2.82
+## sigma_meas_pair_id5    -2.98      0.07    -3.11    -2.85
+## sigma_meas_pair_id6    -1.71      0.06    -1.84    -1.58
+##                     Rhat Bulk_ESS Tail_ESS
+## meas_pair_id1       1.00     5771     7011
+## meas_pair_id2       1.00     1459     3187
+## meas_pair_id3       1.00     2504     4766
+## meas_pair_id4       1.00     1513     3334
+## meas_pair_id5       1.00     1340     2817
+## meas_pair_id6       1.00     1886     3762
+## sigma_meas_pair_id1 1.00     5255     6763
+## sigma_meas_pair_id2 1.00     7100     6707
+## sigma_meas_pair_id3 1.00     2941     5046
+## sigma_meas_pair_id4 1.00     4342     6313
+## sigma_meas_pair_id5 1.00     2988     4594
+## sigma_meas_pair_id6 1.00     2483     4191
+## 
+## Family Specific Parameters: 
+##    Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS
+## nu     5.10      0.34     4.47     5.82 1.00    14079
+##    Tail_ESS
+## nu     7516
+## 
+## Draws were sampled using sample(hmc). For each parameter, Bulk_ESS
+## and Tail_ESS are effective sample size measures, and Rhat is the potential
+## scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
+<p><br><br><br></p>
+</div>
+<div id="mcmc-diagnostics-1" class="section level4">
+<h4>MCMC diagnostics</h4>
+<p><img src="ma_bivar_overview_files/figure-html/unnamed-chunk-13-1.png" width="1152" /></p>
+<p><br></p>
+<p><img src="ma_bivar_overview_files/figure-html/unnamed-chunk-14-1.png" width="1152" /></p>
+<p><br></p>
+<p><img src="ma_bivar_overview_files/figure-html/unnamed-chunk-15-1.png" width="1152" /></p>
+<p><br><br><br></p>
+</div>
+<div id="ppcs-loo-1" class="section level4">
+<h4>PPCs &amp; LOO</h4>
+<p><strong>Graphical posterior predictive checks</strong></p>
+<p><img src="ma_bivar_overview_files/figure-html/unnamed-chunk-16-1.png" width="33%" /><img src="ma_bivar_overview_files/figure-html/unnamed-chunk-16-2.png" width="33%" /><img src="ma_bivar_overview_files/figure-html/unnamed-chunk-16-3.png" width="33%" /></p>
+<p><br></p>
+<pre><code>## 
+## Computed from 10000 by 5556 log-likelihood matrix
+## 
+##          Estimate    SE
+## elpd_loo   2401.7  84.7
+## p_loo        83.8   2.5
+## looic     -4803.4 169.5
+## ------
+## Monte Carlo SE of elpd_loo is 0.1.
+## 
+## All Pareto k estimates are good (k &lt; 0.5).
+## See help(&#39;pareto-k-diagnostic&#39;) for details.</code></pre>
+<p><img src="ma_bivar_overview_files/figure-html/unnamed-chunk-17-1.png" width="50%" /><img src="ma_bivar_overview_files/figure-html/unnamed-chunk-17-2.png" width="50%" /></p>
+<p><br><br><br></p>
+</div>
+</div>
+<div id="domain-pair-as-covariate" class="section level3 tabset">
+<h3>Domain-Pair as Covariate</h3>
+<div id="model-specification-in-brms-2" class="section level4">
+<h4>Model specification in <code>brms</code></h4>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>family &lt;-<span class="st"> </span><span class="kw">brmsfamily</span>(</span>
+<span id="cb9-2"><a href="#cb9-2"></a>  <span class="dt">family =</span> <span class="st">&quot;student&quot;</span>, </span>
+<span id="cb9-3"><a href="#cb9-3"></a>  <span class="dt">link =</span> <span class="st">&quot;identity&quot;</span>)</span>
+<span id="cb9-4"><a href="#cb9-4"></a></span>
+<span id="cb9-5"><a href="#cb9-5"></a>formula &lt;-<span class="st">  </span><span class="kw">bf</span>(wcor_z<span class="op">|</span><span class="kw">se</span>(sei_z, <span class="dt">sigma =</span> <span class="ot">TRUE</span>) <span class="op">~</span><span class="st"> </span><span class="dv">0</span> <span class="op">+</span><span class="st"> </span>name_pair_id <span class="op">+</span><span class="st"> </span>(<span class="dv">1</span><span class="op">|</span>sample),</span>
+<span id="cb9-6"><a href="#cb9-6"></a>               sigma <span class="op">~</span><span class="st"> </span><span class="dv">0</span> <span class="op">+</span><span class="st"> </span>name_pair_id <span class="op">+</span><span class="st"> </span>(<span class="dv">1</span><span class="op">|</span>sample))</span>
+<span id="cb9-7"><a href="#cb9-7"></a></span>
+<span id="cb9-8"><a href="#cb9-8"></a>priors &lt;-<span class="st">  </span><span class="kw">c</span>(<span class="kw">prior</span>(<span class="kw">normal</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="dt">class =</span> <span class="st">&quot;b&quot;</span>),</span>
+<span id="cb9-9"><a href="#cb9-9"></a>             <span class="kw">prior</span>(<span class="kw">normal</span>(<span class="dv">0</span>, <span class="dv">2</span>), <span class="dt">class =</span> <span class="st">&quot;b&quot;</span>, <span class="dt">dpar =</span> <span class="st">&quot;sigma&quot;</span>),</span>
+<span id="cb9-10"><a href="#cb9-10"></a>             <span class="kw">prior</span>(<span class="kw">cauchy</span>(<span class="dv">0</span>, <span class="fl">0.3</span>), <span class="dt">class =</span> <span class="st">&quot;sd&quot;</span>),</span>
+<span id="cb9-11"><a href="#cb9-11"></a>             <span class="kw">prior</span>(<span class="kw">cauchy</span>(<span class="dv">0</span>, <span class="fl">0.3</span>), <span class="dt">class =</span> <span class="st">&quot;sd&quot;</span>, <span class="dt">dpar =</span> <span class="st">&quot;sigma&quot;</span>))</span></code></pre></div>
+<p><br><br><br></p>
+</div>
+<div id="model-summary-2" class="section level4">
+<h4>Model Summary</h4>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="kw">summary</span>(fit_ma)</span></code></pre></div>
+<pre><code>##  Family: student 
+##   Links: mu = identity; sigma = log; nu = identity 
+## Formula: wcor_z | se(sei_z, sigma = TRUE) ~ 0 + name_pair_id + (1 | sample) 
+##          sigma ~ 0 + name_pair_id + (1 | sample)
+##    Data: dt_ma (Number of observations: 5556) 
+##   Draws: 2 chains, each with iter = 7000; warmup = 2000; thin = 1;
+##          total post-warmup draws = 10000
+## 
+## Group-Level Effects: 
+## ~sample (Number of levels: 45) 
+##                     Estimate Est.Error l-95% CI u-95% CI
+## sd(Intercept)           0.04      0.01     0.03     0.06
+## sd(sigma_Intercept)     4.33      0.55     3.44     5.52
+##                     Rhat Bulk_ESS Tail_ESS
+## sd(Intercept)       1.00     2321     4032
+## sd(sigma_Intercept) 1.01      259      687
+## 
+## Population-Level Effects: 
+##                       Estimate Est.Error l-95% CI u-95% CI
+## name_pair_id1             0.25      0.02     0.22     0.28
+## name_pair_id10            0.04      0.03    -0.03     0.09
+## name_pair_id100           0.15      0.02     0.11     0.20
+## name_pair_id101           0.06      0.02     0.02     0.11
+## name_pair_id102           0.25      0.09     0.11     0.40
+## name_pair_id103           0.17      0.04     0.09     0.25
+## name_pair_id104           0.08      0.02     0.04     0.12
+## name_pair_id105           0.19      0.02     0.16     0.23
+## name_pair_id106           0.11      0.01     0.09     0.14
+## name_pair_id107           0.04      0.02     0.01     0.08
+## name_pair_id108           0.11      0.02     0.07     0.15
+## name_pair_id109           0.07      0.02     0.03     0.11
+## name_pair_id11            0.04      0.01     0.01     0.07
+## name_pair_id110           0.11      0.03     0.06     0.18
+## name_pair_id111           0.04      0.02    -0.00     0.09
+## name_pair_id112           0.12      0.05     0.03     0.22
+## name_pair_id113           0.23      0.02     0.19     0.28
+## name_pair_id114           0.07      0.02     0.04     0.11
+## name_pair_id115           0.18      0.03     0.13     0.23
+## name_pair_id116           0.04      0.02     0.00     0.07
+## name_pair_id117           0.12      0.02     0.08     0.17
+## name_pair_id118           0.13      0.03     0.07     0.20
+## name_pair_id119           0.11      0.02     0.07     0.15
+## name_pair_id12            0.05      0.01     0.02     0.07
+## name_pair_id120          -0.03      0.01    -0.05    -0.00
+## name_pair_id121           0.14      0.04     0.04     0.20
+## name_pair_id122           0.21      0.07     0.10     0.32
+## name_pair_id123           0.09      0.04     0.01     0.18
+## name_pair_id124           0.22      0.02     0.18     0.27
+## name_pair_id125          -0.03      0.01    -0.05    -0.01
+## name_pair_id126          -0.00      0.06    -0.12     0.12
+## name_pair_id127           0.01      0.01    -0.01     0.03
+## name_pair_id128           0.00      0.01    -0.02     0.02
+## name_pair_id129          -0.03      0.01    -0.05    -0.01
+## name_pair_id13            0.03      0.01     0.00     0.05
+## name_pair_id130          -0.03      0.01    -0.05    -0.01
+## name_pair_id131          -0.04      0.01    -0.06    -0.02
+## name_pair_id132          -0.06      0.01    -0.08    -0.04
+## name_pair_id133           1.19      0.02     1.15     1.25
+## name_pair_id134           0.48      0.02     0.45     0.51
+## name_pair_id135           0.35      0.02     0.31     0.38
+## name_pair_id136           0.46      0.02     0.42     0.50
+## name_pair_id137           0.44      0.02     0.41     0.48
+## name_pair_id138           0.50      0.02     0.46     0.53
+## name_pair_id139           0.25      0.02     0.22     0.29
+## name_pair_id14            0.05      0.01     0.03     0.08
+## name_pair_id140           0.16      0.02     0.11     0.20
+## name_pair_id141           0.18      0.11    -0.02     0.37
+## name_pair_id142           0.20      0.03     0.15     0.25
+## name_pair_id143           0.43      0.04     0.36     0.51
+## name_pair_id144           0.04      0.03    -0.02     0.09
+## name_pair_id145           0.21      0.02     0.17     0.25
+## name_pair_id146           0.25      0.03     0.19     0.33
+## name_pair_id147           0.27      0.03     0.21     0.33
+## name_pair_id148           0.22      0.05     0.12     0.32
+## name_pair_id149           0.44      0.02     0.40     0.48
+## name_pair_id15            0.10      0.01     0.08     0.12
+## name_pair_id150           0.21      0.02     0.16     0.25
+## name_pair_id151           0.18      0.04     0.10     0.27
+## name_pair_id152           0.15      0.02     0.12     0.18
+## name_pair_id153           0.14      0.02     0.09     0.19
+## name_pair_id154           0.28      0.02     0.24     0.32
+## name_pair_id155           0.14      0.02     0.10     0.19
+## name_pair_id156           0.19      0.02     0.15     0.24
+## name_pair_id157           0.04      0.02    -0.00     0.07
+## name_pair_id158           0.09      0.05    -0.02     0.19
+## name_pair_id159           0.65      0.02     0.61     0.69
+## name_pair_id16            0.08      0.02     0.05     0.11
+## name_pair_id160           0.36      0.02     0.33     0.39
+## name_pair_id161           0.43      0.02     0.40     0.46
+## name_pair_id162           0.51      0.01     0.48     0.53
+## name_pair_id163           0.46      0.01     0.43     0.49
+## name_pair_id164           0.35      0.01     0.33     0.38
+## name_pair_id165          -0.04      0.02    -0.07    -0.01
+## name_pair_id166           0.09      0.02     0.05     0.13
+## name_pair_id167           0.48      0.08     0.31     0.65
+## name_pair_id168           0.44      0.02     0.40     0.48
+## name_pair_id169           0.45      0.02     0.42     0.48
+## name_pair_id17            0.08      0.02     0.05     0.11
+## name_pair_id170           0.28      0.01     0.25     0.31
+## name_pair_id171           0.38      0.02     0.35     0.41
+## name_pair_id172           0.33      0.03     0.26     0.39
+## name_pair_id173           0.47      0.02     0.43     0.51
+## name_pair_id174           0.44      0.02     0.40     0.48
+## name_pair_id175           0.31      0.02     0.27     0.35
+## name_pair_id176           0.93      0.03     0.86     0.98
+## name_pair_id177           0.54      0.02     0.50     0.57
+## name_pair_id178           0.32      0.01     0.29     0.34
+## name_pair_id179           0.10      0.05     0.00     0.20
+## name_pair_id18            0.09      0.01     0.06     0.11
+## name_pair_id180           0.37      0.03     0.31     0.43
+## name_pair_id181           0.30      0.01     0.27     0.33
+## name_pair_id182          -0.03      0.05    -0.13     0.07
+## name_pair_id183           0.54      0.02     0.50     0.57
+## name_pair_id19            0.06      0.01     0.04     0.08
+## name_pair_id2            -0.21      0.02    -0.26    -0.16
+## name_pair_id20            0.08      0.02     0.05     0.12
+## name_pair_id21            0.35      0.06     0.23     0.47
+## name_pair_id22            0.05      0.02     0.00     0.10
+## name_pair_id23            0.05      0.06    -0.08     0.13
+## name_pair_id24            0.02      0.02    -0.03     0.06
+## name_pair_id25            0.07      0.04    -0.04     0.13
+## name_pair_id26            0.06      0.02     0.02     0.11
+## name_pair_id27           -0.04      0.01    -0.06    -0.02
+## name_pair_id28            0.11      0.01     0.09     0.13
+## name_pair_id29            0.14      0.02     0.09     0.18
+## name_pair_id3             0.14      0.02     0.10     0.17
+## name_pair_id30            0.10      0.01     0.08     0.12
+## name_pair_id31            0.16      0.01     0.14     0.18
+## name_pair_id32            0.24      0.01     0.22     0.27
+## name_pair_id33            0.11      0.01     0.09     0.13
+## name_pair_id34            0.14      0.01     0.11     0.17
+## name_pair_id35           -0.12      0.02    -0.16    -0.09
+## name_pair_id36            0.43      0.04     0.36     0.50
+## name_pair_id37           -0.01      0.01    -0.04     0.02
+## name_pair_id38            0.03      0.02    -0.01     0.08
+## name_pair_id39            0.11      0.01     0.08     0.14
+## name_pair_id4             0.03      0.04    -0.06     0.12
+## name_pair_id40            0.11      0.01     0.09     0.13
+## name_pair_id41            0.01      0.02    -0.04     0.05
+## name_pair_id42            0.06      0.02     0.03     0.09
+## name_pair_id43            0.07      0.01     0.04     0.09
+## name_pair_id44            0.47      0.01     0.44     0.49
+## name_pair_id45            0.15      0.01     0.12     0.18
+## name_pair_id46            0.18      0.02     0.15     0.21
+## name_pair_id47            0.13      0.02     0.09     0.17
+## name_pair_id48            0.08      0.04     0.02     0.19
+## name_pair_id49            0.16      0.03     0.10     0.21
+## name_pair_id5             0.04      0.01     0.02     0.07
+## name_pair_id50            0.20      0.03     0.15     0.25
+## name_pair_id51            0.06      0.01     0.05     0.08
+## name_pair_id52            0.07      0.01     0.05     0.10
+## name_pair_id53            0.15      0.02     0.10     0.19
+## name_pair_id54            0.11      0.02     0.08     0.14
+## name_pair_id55            0.10      0.02     0.07     0.14
+## name_pair_id56            0.09      0.01     0.07     0.11
+## name_pair_id57            0.08      0.01     0.06     0.09
+## name_pair_id58            0.07      0.01     0.05     0.10
+## name_pair_id59            0.10      0.01     0.08     0.13
+## name_pair_id6             0.04      0.01     0.01     0.07
+## name_pair_id60            0.13      0.03     0.07     0.19
+## name_pair_id61            0.14      0.03     0.07     0.20
+##                       Rhat Bulk_ESS Tail_ESS
+## name_pair_id1         1.00      854     2725
+## name_pair_id10        1.00     3031     6538
+## name_pair_id100       1.00     1643     4733
+## name_pair_id101       1.00     1332     4021
+## name_pair_id102       1.00     2290     2172
+## name_pair_id103       1.00     3981     5915
+## name_pair_id104       1.00      910     3138
+## name_pair_id105       1.00      793     2992
+## name_pair_id106       1.01      467     1617
+## name_pair_id107       1.00      753     2439
+## name_pair_id108       1.00      927     3152
+## name_pair_id109       1.00      917     3276
+## name_pair_id11        1.00      523     1314
+## name_pair_id110       1.00     1564     3324
+## name_pair_id111       1.00     1298     4096
+## name_pair_id112       1.00     4170     4832
+## name_pair_id113       1.00     1458     4431
+## name_pair_id114       1.00     1006     3685
+## name_pair_id115       1.00     1757     4867
+## name_pair_id116       1.00      842     2888
+## name_pair_id117       1.00     1467     4812
+## name_pair_id118       1.00     1953     5439
+## name_pair_id119       1.00     1050     3325
+## name_pair_id12        1.01      399     1212
+## name_pair_id120       1.01      472     1503
+## name_pair_id121       1.00     2671     4509
+## name_pair_id122       1.00     1538     1661
+## name_pair_id123       1.00     4204     5928
+## name_pair_id124       1.00     2266     4925
+## name_pair_id125       1.01      233      772
+## name_pair_id126       1.00     8603     6073
+## name_pair_id127       1.01      240      788
+## name_pair_id128       1.01      256      768
+## name_pair_id129       1.01      353      943
+## name_pair_id13        1.01      349      912
+## name_pair_id130       1.01      265      819
+## name_pair_id131       1.01      249      838
+## name_pair_id132       1.01      273      853
+## name_pair_id133       1.00     1704     4403
+## name_pair_id134       1.00      880     2198
+## name_pair_id135       1.00     1115     3257
+## name_pair_id136       1.00     1146     2953
+## name_pair_id137       1.00      882     2562
+## name_pair_id138       1.00      796     2138
+## name_pair_id139       1.00     1065     3036
+## name_pair_id14        1.01      342     1396
+## name_pair_id140       1.00     1096     3634
+## name_pair_id141       1.00     3281     2756
+## name_pair_id142       1.00     1437     3991
+## name_pair_id143       1.00     3811     6363
+## name_pair_id144       1.00     2602     6298
+## name_pair_id145       1.00      967     2448
+## name_pair_id146       1.00     2252     5342
+## name_pair_id147       1.00     2716     5813
+## name_pair_id148       1.00     5779     6557
+## name_pair_id149       1.00      927     2893
+## name_pair_id15        1.01      371     1166
+## name_pair_id150       1.00     1656     5590
+## name_pair_id151       1.00     3833     5345
+## name_pair_id152       1.00      880     2751
+## name_pair_id153       1.00     1526     4955
+## name_pair_id154       1.00     1427     2703
+## name_pair_id155       1.00     1426     4319
+## name_pair_id156       1.00     1813     4811
+## name_pair_id157       1.00      785     1832
+## name_pair_id158       1.00     7258     6155
+## name_pair_id159       1.00     1058     3501
+## name_pair_id16        1.00      842     2355
+## name_pair_id160       1.00      683     2471
+## name_pair_id161       1.00      790     2936
+## name_pair_id162       1.00      499     1542
+## name_pair_id163       1.00      570     1785
+## name_pair_id164       1.00      580     1706
+## name_pair_id165       1.00      777     2729
+## name_pair_id166       1.00     1110     3417
+## name_pair_id167       1.00    11138     7480
+## name_pair_id168       1.00     1110     3485
+## name_pair_id169       1.00      831     3401
+## name_pair_id17        1.00      837     2235
+## name_pair_id170       1.00      689     2061
+## name_pair_id171       1.00      962     2960
+## name_pair_id172       1.00     3441     6797
+## name_pair_id173       1.00     1251     4264
+## name_pair_id174       1.00     1382     3651
+## name_pair_id175       1.00     1217     3325
+## name_pair_id176       1.00     1929     3410
+## name_pair_id177       1.00     1020     3188
+## name_pair_id178       1.01      286     1029
+## name_pair_id179       1.00     5880     6179
+## name_pair_id18        1.01      412     1303
+## name_pair_id180       1.00     2558     6422
+## name_pair_id181       1.00      603     2069
+## name_pair_id182       1.00     5969     6456
+## name_pair_id183       1.00      901     2704
+## name_pair_id19        1.01      298      911
+## name_pair_id2         1.00     2033     4887
+## name_pair_id20        1.00      608     1809
+## name_pair_id21        1.00     7709     6739
+## name_pair_id22        1.00     1601     4903
+## name_pair_id23        1.00     3741     4993
+## name_pair_id24        1.00     1515     3493
+## name_pair_id25        1.00     2839     4773
+## name_pair_id26        1.00     1547     5035
+## name_pair_id27        1.01      255      808
+## name_pair_id28        1.01      275      823
+## name_pair_id29        1.00     1413     3418
+## name_pair_id3         1.00     1559     4476
+## name_pair_id30        1.01      245      776
+## name_pair_id31        1.01      284      793
+## name_pair_id32        1.00      464     1387
+## name_pair_id33        1.01      277      867
+## name_pair_id34        1.00      483     1664
+## name_pair_id35        1.00      975     3930
+## name_pair_id36        1.00     5647     6735
+## name_pair_id37        1.01      672     2177
+## name_pair_id38        1.00     1691     3621
+## name_pair_id39        1.01      571     1990
+## name_pair_id4         1.00     5601     6275
+## name_pair_id40        1.01      272      754
+## name_pair_id41        1.00     1595     3270
+## name_pair_id42        1.00      741     1929
+## name_pair_id43        1.01      330     1123
+## name_pair_id44        1.00      794     2256
+## name_pair_id45        1.00      595     1821
+## name_pair_id46        1.00      725     3261
+## name_pair_id47        1.00     1124     4264
+## name_pair_id48        1.00     2548     5971
+## name_pair_id49        1.00     2011     5565
+## name_pair_id5         1.00      594     2190
+## name_pair_id50        1.00     1680     4088
+## name_pair_id51        1.01      434      995
+## name_pair_id52        1.01      363     1227
+## name_pair_id53        1.00     1504     5437
+## name_pair_id54        1.00      983     3048
+## name_pair_id55        1.00      716     2727
+## name_pair_id56        1.01      257      816
+## name_pair_id57        1.01      313      860
+## name_pair_id58        1.01      341     1342
+## name_pair_id59        1.01      472     1503
+## name_pair_id6         1.00      552     1981
+## name_pair_id60        1.00     2096     5707
+## name_pair_id61        1.00     2616     4551
+##  [ reached getOption(&quot;max.print&quot;) -- omitted 224 rows ]
+## 
+## Family Specific Parameters: 
+##    Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS
+## nu    28.53      9.12    16.49    51.70 1.00     4613
+##    Tail_ESS
+## nu     6545
+## 
+## Draws were sampled using sample(hmc). For each parameter, Bulk_ESS
+## and Tail_ESS are effective sample size measures, and Rhat is the potential
+## scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
+<p><br><br><br></p>
+</div>
+<div id="mcmc-diagnostics-2" class="section level4">
+<h4>MCMC diagnostics</h4>
+<p><img src="ma_bivar_overview_files/figure-html/unnamed-chunk-21-1.png" width="1152" /></p>
+<p><br></p>
+<p><img src="ma_bivar_overview_files/figure-html/unnamed-chunk-22-1.png" width="1152" /></p>
+<p><br></p>
+<p><img src="ma_bivar_overview_files/figure-html/unnamed-chunk-23-1.png" width="960" /></p>
+<p><br><br><br></p>
+</div>
+<div id="ppcs-loo-2" class="section level4">
+<h4>PPCs &amp; LOO</h4>
+<p><strong>Graphical posterior predictive checks</strong></p>
+<p><img src="ma_bivar_overview_files/figure-html/unnamed-chunk-24-1.png" width="33%" /><img src="ma_bivar_overview_files/figure-html/unnamed-chunk-24-2.png" width="33%" /><img src="ma_bivar_overview_files/figure-html/unnamed-chunk-24-3.png" width="33%" /></p>
+<p><br></p>
+<pre><code>## 
+## Computed from 10000 by 5556 log-likelihood matrix
+## 
+##          Estimate    SE
+## elpd_loo   4822.8  78.7
+## p_loo       403.1  13.1
+## looic     -9645.5 157.4
+## ------
+## Monte Carlo SE of elpd_loo is NA.
+## 
+## Pareto k diagnostic values:
+##                          Count Pct.    Min. n_eff
+## (-Inf, 0.5]   (good)     5487  98.8%   579       
+##  (0.5, 0.7]   (ok)         59   1.1%   265       
+##    (0.7, 1]   (bad)        10   0.2%   16        
+##    (1, Inf)   (very bad)    0   0.0%   &lt;NA&gt;      
+## See help(&#39;pareto-k-diagnostic&#39;) for details.</code></pre>
+<p><img src="ma_bivar_overview_files/figure-html/unnamed-chunk-25-1.png" width="50%" /><img src="ma_bivar_overview_files/figure-html/unnamed-chunk-25-2.png" width="50%" /></p>
+<p><br><br><br></p>
+</div>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

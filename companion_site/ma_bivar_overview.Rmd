@@ -1,0 +1,426 @@
+---
+title: "Convergent Validity"
+output: 
+  html_document:
+    toc: yes
+    toc_float: yes
+    date: "`r format(Sys.time(), '%d %B, %Y')`"
+    includes:
+      in_header: "favicon.html" 
+---
+
+<!-- <style type="text/css"> -->
+<!-- .main-container { -->
+<!-- max-width: 1200px !important; -->
+<!-- margin-left: auto; -->
+<!-- margin-right: auto; -->
+<!-- } -->
+<!-- </style> -->
+
+
+<!-- <style type="text/css"> -->
+<!--   body{ -->
+<!--   font-size: 12pt; -->
+<!--   font-family: "Source Sans 3"; -->
+<!-- } -->
+<!-- </style> -->
+
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+
+# options(width = 3000)
+
+library(tidyverse)
+library(kableExtra)
+library(knitr)
+library(ggdist)
+library(brms)
+library(patchwork)
+library(posterior)
+library(bayesplot)
+library(ggplot2)
+library(rstanarm)
+library(data.table)
+library(boot)
+library(DT)
+library(MetBrewer)
+library(GGally)
+
+model_path <- "/Volumes/CDS-Data/08_Projects/temprisk/analysis/output/convergent_val/"
+color_scheme_set("teal")
+source("/Volumes/CDS-Data/08_Projects/temprisk/helper_functions.R")
+
+ma_list <- list(dom = readRDS(paste0(model_path, "fit_convergent_ma_domain.rds")),
+                  categ = readRDS(paste0(model_path, "fit_convergent_ma_measure.rds")),
+                  overall = readRDS(paste0(model_path, "fit_convergent_ma_overall.rds")))
+
+
+
+```
+
+
+
+## Brief Description
+
+
+Below we provide information on the specifications of the Bayesian random-effects meta-analysis and meta-regressions, as well as an overview of the model fits, with posterior predictive checks (PPCs), approximate leave-one-out (LOO) cross-validation output, and convergence diagnostics (i.e., rhat values, trace plots, effect sample size). 
+
+
+***To replicate these analyses, refer to the Workflow page***
+
+<br>
+
+
+## Bayesian random-effects meta-analysis and meta-regressions {.tabset}
+
+### Intercept-Only {.tabset}
+```{r, eval=TRUE, echo=FALSE}
+fit_ma <- ma_list[["overall"]]
+```
+
+#### Model specification in `brms` 
+
+```{r, echo=TRUE, eval=FALSE}
+family <- brmsfamily(
+  family = "student", 
+  link = "identity"
+)
+
+formula <-  bf(wcor_z|se(sei_z, sigma = TRUE) ~ 0 + Intercept + (1|sample),
+               sigma ~ 0 + Intercept + (1 | sample))
+
+priors <-  c(prior(normal(0, 1), class = "b", coef = "Intercept"),
+             prior(normal(0, 2), class = "b", dpar = "sigma", coef = "Intercept"),
+             prior(cauchy(0, 0.3), class = "sd"),
+             prior(cauchy(0, 0.3), class = "sd", dpar = "sigma"))
+
+```
+
+#### Model Summary 
+
+```{r, eval=TRUE, echo=TRUE}
+summary(fit_ma)
+```
+
+
+<br><br><br>
+
+
+#### MCMC diagnostics 
+
+```{r, eval=TRUE, echo=FALSE, fig.height=4, fig.width=12}
+p <- bayesplot::mcmc_trace(fit_ma, facet_args = list(ncol = 5), regex_pars = "^b|^sigma|^sd") 
+p + theme_minimal() + theme(strip.text = element_text(size = 9.5, face = "bold"),
+                            panel.background = element_rect(fill = "NA", color = "grey40", linewidth = .5),
+                            text = element_text(size = 8.5),
+                            title = element_text(size = 10, face = "bold")) + labs(title = "Trace Plots")
+
+```
+
+
+<br>
+
+```{r, eval=TRUE, echo=FALSE, fig.height=4, fig.width=12}
+plot_change_ess(fit_ma, variable = "^b|^sigma|^sd",
+                regex = TRUE, 
+                breaks = seq(0.1, 1, 0.05), 
+                yaxis = "relative",
+                ncol = 5) 
+```
+
+<br>
+
+
+```{r, eval=TRUE, echo=FALSE, fig.height=2, fig.width=8}
+plot_rhat(fit_ma, regex = "^b|^sigma|^sd") + labs(title = "Rhat")
+```
+
+
+
+<br><br><br>
+
+
+
+
+
+#### PPCs & LOO
+
+**Graphical posterior predictive checks**
+
+```{r, eval=TRUE, echo=FALSE, fig.show="hold", out.width="33%"}
+pp_check(fit_ma, ndraws = 50) + theme_minimal()  + theme(panel.background = element_rect(fill = "NA", color = "grey50", linewidth = .25))
+
+
+
+pp_check(fit_ma,
+         type ="stat",
+         stat = "mean",
+         ndraws = 1000,
+         binwidth = .001) + theme_minimal() + theme(panel.background = element_rect(fill = "NA", color = "grey50", linewidth = .25))
+
+pp_check(fit_ma,
+         type ="stat",
+         stat = "sd",
+         ndraws = 1000,
+         binwidth = .001) + theme_minimal()+ theme(panel.background = element_rect(fill = "NA", color = "grey50", linewidth = .25))
+
+```
+
+
+<br>
+
+```{r, eval=TRUE, echo=FALSE, fig.show="hold", out.width="50%"}
+model_loo <- loo(fit_ma, save_psis = TRUE)
+model_loo
+plot_psis_loo(model_loo)
+w <- weights(model_loo$psis_object)
+ppc_loo_pit_overlay(y = fit_ma$data$wcor,
+                    yrep = posterior_predict(fit_ma),
+                    lw = w) + theme_minimal() + labs(title = "LOO-PIT values") + theme(title = element_text(face = "bold", hjust = .5))
+```
+
+
+
+<br><br><br>
+
+
+
+### Measure-Pair as Covariate {.tabset}
+```{r, eval=TRUE, echo=FALSE}
+fit_ma <- ma_list[["categ"]]
+```
+
+#### Model specification in `brms` 
+
+```{r, echo=TRUE, eval=FALSE}
+family <- brmsfamily(
+  family = "student", 
+  link = "identity"
+)
+
+formula <-  bf(wcor_z|se(sei_z, sigma = TRUE) ~ 0 + meas_pair_id + (1|sample),
+               sigma ~ 0 + meas_pair_id + (1|sample))
+
+priors <-  c(prior(normal(0, 1), class = "b"),
+             prior(normal(0, 2), class = "b", dpar = "sigma"),
+             prior(cauchy(0, 0.3), class = "sd"),
+             prior(cauchy(0, 0.3), class = "sd", dpar = "sigma"))
+  
+```
+
+
+
+
+
+<br><br><br>
+
+
+#### Model Summary 
+
+```{r, eval=TRUE, echo=TRUE}
+summary(fit_ma)
+```
+
+
+<br><br><br>
+
+
+#### MCMC diagnostics 
+
+```{r, eval=TRUE, echo=FALSE, fig.height=6, fig.width=12}
+p <- bayesplot::mcmc_trace(fit_ma, facet_args = list(ncol = 5), regex_pars = "^b|^sigma|^sd") 
+p + theme_minimal() + theme(strip.text = element_text(size = 9.5, face = "bold"),
+                            panel.background = element_rect(fill = "NA", color = "grey40", linewidth = .5),
+                            text = element_text(size = 8.5),
+                            title = element_text(size = 10, face = "bold")) + labs(title = "Trace Plots")
+
+```
+
+
+<br>
+
+```{r, eval=TRUE, echo=FALSE, fig.height=6, fig.width=12}
+plot_change_ess(fit_ma, variable = "^b|^sigma|^sd",
+                regex = TRUE, 
+                breaks = seq(0.1, 1, 0.05), 
+                yaxis = "relative",
+                ncol = 5) 
+```
+
+<br>
+
+
+```{r, eval=TRUE, echo=FALSE, fig.height=6, fig.width=12}
+plot_rhat(fit_ma, regex = "^b|^sigma|^sd") + labs(title = "Rhat")
+```
+
+
+
+<br><br><br>
+
+
+
+
+
+#### PPCs & LOO
+
+**Graphical posterior predictive checks**
+
+```{r, eval=TRUE, echo=FALSE, fig.show="hold", out.width="33%"}
+pp_check(fit_ma, ndraws = 50) + theme_minimal()  + theme(panel.background = element_rect(fill = "NA", color = "grey50", linewidth = .25))
+
+
+pp_check(fit_ma,
+         type ="stat_grouped",
+         stat = "mean",
+         group = "meas_pair_id",
+         binwidth = .001,
+         ndraws = 1000) + theme_minimal() + theme(panel.background = element_rect(fill = "NA", color = "grey50", linewidth = .25))
+
+pp_check(fit_ma,
+         type ="stat_grouped",
+         stat = "mean",
+         group = "meas_pair_id",
+         binwidth = .001,
+         ndraws = 1000) + theme_minimal()+ theme(panel.background = element_rect(fill = "NA", color = "grey50", linewidth = .25))
+
+```
+
+
+<br>
+
+```{r, eval=TRUE, echo=FALSE, fig.show="hold", out.width="50%"}
+model_loo <- loo(fit_ma, save_psis = TRUE)
+model_loo
+plot_psis_loo(model_loo)
+w <- weights(model_loo$psis_object)
+ppc_loo_pit_overlay(y = fit_ma$data$wcor,
+                    yrep = posterior_predict(fit_ma),
+                    lw = w) + theme_minimal() + labs(title = "LOO-PIT values") + theme(title = element_text(face = "bold", hjust = .5))
+```
+
+
+
+<br><br><br>
+
+
+
+### Domain-Pair as Covariate {.tabset}
+```{r, eval=TRUE, echo=FALSE}
+fit_ma <- ma_list[["dom"]]
+```
+
+
+
+#### Model specification in `brms` 
+
+```{r, echo=TRUE, eval=FALSE}
+
+family <- brmsfamily(
+  family = "student", 
+  link = "identity")
+
+formula <-  bf(wcor_z|se(sei_z, sigma = TRUE) ~ 0 + name_pair_id + (1|sample),
+               sigma ~ 0 + name_pair_id + (1|sample))
+
+priors <-  c(prior(normal(0, 1), class = "b"),
+             prior(normal(0, 2), class = "b", dpar = "sigma"),
+             prior(cauchy(0, 0.3), class = "sd"),
+             prior(cauchy(0, 0.3), class = "sd", dpar = "sigma"))
+  
+```
+
+
+
+<br><br><br>
+
+#### Model Summary 
+
+```{r, eval=TRUE, echo=TRUE}
+summary(fit_ma)
+```
+
+
+<br><br><br>
+
+
+
+#### MCMC diagnostics 
+
+```{r, eval=TRUE, echo=FALSE, fig.height=35, fig.width=12}
+p <- bayesplot::mcmc_trace(fit_ma, facet_args = list(ncol = 5), regex_pars = "^b|^sigma|^sd") 
+p + theme_minimal() + theme(strip.text = element_text(size = 9.5, face = "bold"),
+                            panel.background = element_rect(fill = "NA", color = "grey40", linewidth = .5),
+                            text = element_text(size = 8.5),
+                            title = element_text(size = 10, face = "bold")) + labs(title = "Trace Plots")
+
+```
+
+
+<br>
+
+```{r, eval=TRUE, echo=FALSE, fig.height=35, fig.width=12}
+plot_change_ess(fit_ma, variable = "^b|^sigma|^sd",
+                regex = TRUE, 
+                breaks = seq(0.1, 1, 0.05), 
+                yaxis = "relative",
+                ncol = 5) 
+```
+
+<br>
+
+
+```{r, eval=TRUE, echo=FALSE, fig.height=20, fig.width=10}
+plot_rhat(fit_ma, regex = "^b|^sigma|^sd") + labs(title = "Rhat")
+```
+
+
+
+<br><br><br>
+
+
+
+
+
+#### PPCs & LOO
+
+**Graphical posterior predictive checks**
+
+```{r, eval=TRUE, echo=FALSE, fig.show="hold", out.width="33%"}
+pp_check(fit_ma, ndraws = 50) + theme_minimal()  + theme(panel.background = element_rect(fill = "NA", color = "grey50", linewidth = .25))
+
+
+
+pp_check(fit_ma,
+         type ="stat",
+         stat = "mean",
+         ndraws = 1000,
+         binwidth = .001) + theme_minimal() + theme(panel.background = element_rect(fill = "NA", color = "grey50", linewidth = .25))
+
+pp_check(fit_ma,
+         type ="stat",
+         stat = "sd",
+         ndraws = 1000,
+         binwidth = .001) + theme_minimal()+ theme(panel.background = element_rect(fill = "NA", color = "grey50", linewidth = .25))
+
+```
+
+
+<br>
+
+```{r, eval=TRUE, echo=FALSE, fig.show="hold", out.width="50%"}
+model_loo <- loo(fit_ma, save_psis = TRUE)
+model_loo
+plot_psis_loo(model_loo)
+w <- weights(model_loo$psis_object)
+ppc_loo_pit_overlay(y = fit_ma$data$wcor,
+                    yrep = posterior_predict(fit_ma),
+                    lw = w) + theme_minimal() + labs(title = "LOO-PIT values") + theme(title = element_text(face = "bold", hjust = .5))
+```
+
+
+
+<br><br><br>
+
+
