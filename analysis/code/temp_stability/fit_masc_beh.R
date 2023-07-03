@@ -50,7 +50,7 @@ data_w <- dat %>%
       age_bin == 10 & 
       min_n == 30 &
       cor_metric == "pearson" &
-      measure_category == "beh") %>% 
+      measure_category == "beh") %>%  
   mutate(time_diff_dec = time_diff_bin/10,
          female_prop_c = case_when(gender_group == "male" ~ -0.5,
                                    gender_group == "female" ~ 0.5),
