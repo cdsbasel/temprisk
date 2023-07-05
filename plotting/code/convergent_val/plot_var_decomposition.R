@@ -59,13 +59,9 @@ boot_t <- boot_shapley_vals %>%
   group_by(x, boot_num, measure_category) %>% 
   summarise(m = weighted.mean(r2adj_increment, w = w)) %>% 
   group_by(x, measure_category) %>% 
-  summarise(m_l95 = quantile(m, .025),
-            m_u95 = quantile(m, .975),
-            m_50 = quantile(m, .5),
-            m_l50 = quantile(m, .25),
-            m_u50 = quantile(m, .75),
-            m_l80 = quantile(m, .10),
-            m_u80 = quantile(m, .90)) %>% 
+  mean_qi(m, .width = c(.5,.8, .95)) %>% 
+  pivot_wider(names_from = .width, values_from = c(.lower,.upper)) %>% 
+  ungroup() %>% 
   rowwise() %>% 
   mutate(x_lbl = lbl_pred_replace(x),
          categ_lbl = lbl_categ_replace(x)) %>% 
@@ -75,18 +71,18 @@ boot_t <- boot_shapley_vals %>%
 boot_t$categ_lbl <-  factor(boot_t$categ_lbl, levels= rev(c('Panel','Respondent','Measure')))
 t$categ_lbl <-  factor(t$categ_lbl, levels= rev(c('Panel','Respondent','Measure')))
 
-p_omni <- ggplot(boot_t, aes(x=reorder(x_lbl,m_50),y = m_50 )) +
-  geom_crossbar(aes(ymin = m_l95, ymax = m_u95), color = "NA", fill = "white", linewidth = .15,
+p_omni <- ggplot(boot_t, aes(x=reorder(x_lbl,m),y = m )) +
+  geom_crossbar(aes(ymin = .lower_0.95, ymax = .upper_0.95), color = "NA", fill = "white", linewidth = .15,
                 width = 0.3, alpha =  1) +
-  geom_crossbar(aes(ymin = m_l95, ymax = m_u95), color = "NA", fill = "#23583A", linewidth = .15,
+  geom_crossbar(aes(ymin = .lower_0.95, ymax = .upper_0.95), color = "NA", fill = "#184e77", linewidth = .15,
                 width = 0.3, alpha =  .4) +
-  geom_crossbar(aes(ymin = m_l80, ymax = m_u80), color = "NA", fill = "white",linewidth = .15,
+  geom_crossbar(aes(ymin = .lower_0.8, ymax = .upper_0.8), color = "NA", fill = "white",linewidth = .15,
                 width = 0.3, alpha =  1) +
-  geom_crossbar(aes(ymin = m_l80, ymax = m_u80), color = "NA", fill = "#23583A",linewidth = .15,
+  geom_crossbar(aes(ymin = .lower_0.8, ymax = .upper_0.8), color = "NA", fill = "#184e77",linewidth = .15,
                 width = 0.3, alpha =  .7) +
-  geom_crossbar(aes(ymin = m_l50, ymax = m_u50), color = "NA", fill = "white",linewidth = .15,
+  geom_crossbar(aes(ymin =.lower_0.5, ymax = .upper_0.5), color = "NA", fill = "white",linewidth = .15,
                 width = 0.3, alpha =  1) +
-  geom_crossbar(aes(ymin = m_l50, ymax = m_u50), color = "NA", fill = "#23583A",linewidth = .15,
+  geom_crossbar(aes(ymin =.lower_0.5, ymax = .upper_0.5), color = "NA", fill = "#184e77",linewidth = .15,
                 width = 0.3, alpha =  1) +
   geom_point(data = t,
              aes(x = reorder(x_lbl,m), y = m),

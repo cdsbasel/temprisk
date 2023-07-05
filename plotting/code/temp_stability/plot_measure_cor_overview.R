@@ -24,7 +24,7 @@ retest_file <- "complete_retest.csv" # name of merged retest data
 output_path <- c("plotting/output/temp_stability/") # where to store the output 
 
 data_path_inter <- c("processing/output/convergent_val/") # where is the input file stored
-intercor_file <- "complete_intercor.csv" # name of merged retest data 
+intercor_file <- "complete_intercor.csv" # name of merged intercorrel data 
 
 
 
@@ -218,7 +218,7 @@ pC <- dtC %>%
         strip.placement = "outside",
         plot.tag = element_text(family = "Source Sans 3", face = "bold", size = 11),
         legend.position = "none",
-        axis.title =  element_text(family = "Source Sans 3 Light", size = 10, hjust = 0.1, color = "grey20"),
+        axis.title =  element_text(family = "Source Sans 3 Light", size = 10, hjust = 0.1, color = "black"),
         axis.text.y  = element_blank(),
         plot.margin = margin(r = 20, t = 5, l = 5, b = 15),
         axis.text.x.top = element_markdown(angle = 45, hjust = 0,
@@ -257,15 +257,15 @@ pA <- dtA %>%
   scale_x_continuous(expand = c(0.0,0.0)) +
   scale_y_continuous(expand = c(0.0,0.0)) +
   theme(legend.position = "none",
-        axis.line.x = element_line(size = .35, color = "grey20"),
-        axis.line.y = element_line(size = .35, color = "grey20"),
+        axis.line.x = element_line(size = .35, color = "black"),
+        axis.line.y = element_line(size = .35, color = "black"),
         # panel.background = element_rect(color = "grey50", size = .25),
         text = element_text(family = "Source Sans 3", size = 9, color = "grey40"),
         axis.text.y = element_text( vjust=seq(0,1, length.out = 5)),
         axis.text.x = element_text( hjust=c(0,1)),
         plot.margin = margin(r = 30, b = 30),
         plot.tag = element_text(family = "Source Sans 3", face = "bold", size = 11),
-        title = element_text(family = "Source Sans 3 Light", size = 9, color = "grey20"),
+        title = element_text(family = "Source Sans 3 Light", size = 9, color = "black"),
         panel.grid = element_blank()) +
   scale_size(range = c(.00,10)) +
   scale_alpha(range = c(0.1,.8)) +

@@ -57,37 +57,16 @@ dt_ma <- dat %>%
            min_n == 30 &
            cor_metric == "spearman")
 
-# renaming & harmonizing some pairs to be consistent with prev. analyses
-labels_harmo_name <- dt_ma %>% 
-  mutate(temp_lbl_name = str_arrange(name_pair_lbl)) %>% 
-  distinct(temp_lbl_name,name_pair_lbl) %>% 
-  group_by(temp_lbl_name) %>% 
-  slice(1) %>% 
-  rename(harmonized_pair_name = name_pair_lbl)
-
-labels_harmo_meas <- dt_ma %>% 
-  mutate(temp_lbl_meas = str_arrange(meas_pair_lbl)) %>% 
-  distinct(temp_lbl_meas,meas_pair_lbl) %>% 
-  group_by(temp_lbl_meas) %>% 
-  slice(1) %>% 
-  rename(harmonized_pair_meas = meas_pair_lbl)
-
-
 
 dt_ma <- dt_ma %>% 
-  mutate(temp_lbl_name = str_arrange(name_pair_lbl)) %>% 
-  mutate(temp_lbl_meas = str_arrange(meas_pair_lbl)) %>% 
-  left_join(labels_harmo_name, by = "temp_lbl_name") %>% 
-  left_join(labels_harmo_meas, by = "temp_lbl_meas") %>% 
-  select(-c(temp_lbl_name, temp_lbl_meas)) %>%
-  group_by(harmonized_pair_name) %>% 
-  mutate(name_pair_id = as.character(cur_group_id())) %>% 
+  group_by(domain_pair_lbl) %>% 
+  mutate(domain_pair_id = as.character(cur_group_id())) %>% 
   ungroup()  %>% 
-  group_by(harmonized_pair_meas) %>% 
+  group_by(meas_pair_lbl) %>% 
   mutate(meas_pair_id = as.character(cur_group_id())) %>% 
   ungroup()   
-sort(unique(dt_ma$harmonized_pair_meas))
-sort(unique(dt_ma$harmonized_pair_name))
+sort(unique(dt_ma$domain_pair_lbl))
+sort(unique(dt_ma$meas_pair_lbl))
 
 # MA OVERALL --------------------------------------------------------
 
@@ -223,7 +202,7 @@ t <- ma_fit %>%
 
 
 
-ma_dat_pair <- dt_ma %>% distinct(meas_pair_id,harmonized_pair_meas)
+ma_dat_pair <- dt_ma %>% distinct(meas_pair_id,meas_pair_lbl)
 ma_dat_ncor <- dt_ma %>% group_by(meas_pair_id) %>% summarise(n_cor = sum(cor_num),
                                                               n_wcor = n())
 
@@ -235,8 +214,8 @@ dt <- t %>%
   ungroup() %>% 
   left_join(ma_dat_pair, by = "meas_pair_id") %>% 
   rowwise()  %>% 
-  mutate( x = unlist(str_split(harmonized_pair_meas, "_"))[1],
-          y = unlist(str_split(harmonized_pair_meas, "_"))[2]) %>% 
+  mutate( x = unlist(str_split(meas_pair_lbl, "_"))[1],
+          y = unlist(str_split(meas_pair_lbl, "_"))[2]) %>% 
   ungroup() %>% 
   left_join(ma_dat_ncor, by = "meas_pair_id") %>% 
   mutate(pooled_est_lbl =paste0("",as.character(format(round(((estimate)), digits=2), nsmall = 2)),""),
@@ -260,7 +239,7 @@ write_csv(dt, paste0(output_data_path, "cor_mat_convergent_measure_dat", ".csv")
 
 
 
-# MA DOMAIN ---------------------------------------------------------
+# MA BY DOMAIN ---------------------------------------------------------
 
 
 family <- brmsfamily(
@@ -269,8 +248,8 @@ family <- brmsfamily(
 )
 
 
-formula <-  bf(wcor_z|se(sei_z, sigma = TRUE) ~ 0 + name_pair_id + (1|sample),
-               sigma ~ 0 + name_pair_id + (1|sample))
+formula <-  bf(wcor_z|se(sei_z, sigma = TRUE) ~ 0 + domain_pair_id + (1|sample),
+               sigma ~ 0 + domain_pair_id + (1|sample))
 
 priors <-  c(prior(normal(0, 1), class = "b"),
              prior(normal(0, 2), class = "b", dpar = "sigma"),
@@ -303,11 +282,8 @@ write_rds(ma_fit, paste0(output_data_path, "fit_convergent_ma_domain", ".rds"))
 
 # save output for plotting
 
-
-
-
 ma_fit <- read_rds( paste0(output_data_path, "fit_convergent_ma_domain", ".rds"))
-my_vars = str_subset(variables(ma_fit), "b_name_pair*")
+my_vars = str_subset(variables(ma_fit), "b_domain_pair*")
 my_regex = paste0(my_vars, collapse="|")
 t <- ma_fit %>%
   spread_draws(!!sym(my_regex), regex=TRUE) %>% 
@@ -316,8 +292,8 @@ t <- ma_fit %>%
   group_by(param) %>%
   mean_hdci(estimate) 
 
-agg_pair <- dt_ma %>% ungroup() %>%  select(harmonized_pair_name,name_pair_id) %>% distinct(harmonized_pair_name,name_pair_id)
-agg_ncor <- dt_ma %>% group_by(name_pair_id) %>% summarise(n_cor = sum(cor_num),
+agg_pair <- dt_ma %>% ungroup() %>%  select(domain_pair_lbl,domain_pair_id) %>% distinct(domain_pair_lbl,domain_pair_id)
+agg_ncor <- dt_ma %>% group_by(domain_pair_id) %>% summarise(n_cor = sum(cor_num),
                                                            n_wcor = n())
 
 
@@ -326,14 +302,14 @@ agg_ncor <- dt_ma %>% group_by(name_pair_id) %>% summarise(n_cor = sum(cor_num),
 
 dt <- t %>% 
   rowwise()  %>% 
-  mutate(name_pair_id = as.factor(parse_number(param))) %>% 
+  mutate(domain_pair_id = as.factor(parse_number(param))) %>% 
   ungroup() %>% 
-  left_join(agg_pair, by = "name_pair_id") %>% 
+  left_join(agg_pair, by = "domain_pair_id") %>% 
   rowwise()  %>% 
-  mutate( x = unlist(str_split(harmonized_pair_name, "_"))[1],
-          y = unlist(str_split(harmonized_pair_name, "_"))[2]) %>% 
+  mutate( x = unlist(str_split(domain_pair_lbl, "_"))[1],
+          y = unlist(str_split(domain_pair_lbl, "_"))[2]) %>% 
   ungroup() %>% 
-  left_join(agg_ncor, by = "name_pair_id") %>% 
+  left_join(agg_ncor, by = "domain_pair_id") %>% 
   mutate(pooled_est_lbl =paste0("",as.character(format(round(((estimate)), digits=2), nsmall = 2)),""),
          cred_int_lbl =  paste0("<br>", "[", format(round((.lower), digits=2), nsmall = 2) ,
                                 ", ", format(round((.upper), digits=2), nsmall = 2) ,"]",
@@ -346,37 +322,6 @@ dt <- t %>%
          y = gsub("^([[:alpha:]]+)", "**\\1**", y),
          y = gsub(" - ", "<br>", y))%>% 
   mutate(lbls = str_arrange(paste0(x, "_", y)))
-
-
-# creating labels to plot upper triangle of matrix  
-labs <- crossing(x = unique(dt$y),
-                 y =  unique(dt$y)) %>% 
-  mutate(d = rnorm(n()))
-
-dt_simple <- labs %>% select(x,y,d)
-mat <- reshape2::dcast(data = dt_simple,formula = x~y,fun.aggregate = sum,value.var = "d")
-mat <- column_to_rownames(mat, var = "x")
-cor_mat <- as.matrix(mat)
-cor_mat[lower.tri(cor_mat, diag = FALSE)] <- NA
-cor_mat[ cor_mat == 0 ] <- NA
-
-
-melted_cormat <- reshape::melt(cor_mat)
-melted_cormat <- melted_cormat %>% filter(!is.na(value )) %>% 
-  mutate(lbls = str_arrange(paste0(X1, "_", X2))) %>% 
-  rename(re_x = X1, re_y = X2) %>% select(-value)
-
-
-dt <- dt %>% left_join(melted_cormat, by = c("lbls")) %>% 
-  # because of matching domains across categories
-  # some pairs of measures contain the same characters 
-  # but are not equivalent,and rows get duplicated, thus adding 
-  # estimates for pairs we do not have data for 
-  # (e.g., Propensity-Gambling_Frequency-Occupational vs. 
-  # Propensity-Occupational_Frequency-Gambling)
-  filter((x == re_x & y == re_y) | 
-        (x == re_y & y == re_x) )
-
 
 
 write_csv(dt, paste0(output_data_path, "cor_mat_convergent_domain_dat.csv"))

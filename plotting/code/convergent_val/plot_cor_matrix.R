@@ -28,11 +28,11 @@ ma <- list(overall = read_csv(paste0(data_path, "cor_mat_convergent_overall_dat.
 melted_cormat <- ma[["domain"]]
 
 #data not available for all pairs; filling in  with NAs
-melted_cormatNA <- crossing(re_x = melted_cormat$re_x,
-                            re_y = melted_cormat$re_y) %>% 
+melted_cormatNA <- crossing(x = melted_cormat$x,
+                            y = melted_cormat$y) %>% 
   mutate(d = rnorm(n()))
-mat <- reshape2::dcast(data = melted_cormatNA,formula = re_x~re_y,fun.aggregate = sum,value.var = "d")
-mat <- column_to_rownames(mat, var = "re_x")
+mat <- reshape2::dcast(data = melted_cormatNA,formula = x~y,fun.aggregate = sum,value.var = "d")
+mat <- column_to_rownames(mat, var = "x")
 cor_mat <- as.matrix(mat)
 cor_mat[lower.tri(cor_mat, diag = FALSE)] <- NA
 cor_mat[ cor_mat == 0 ] <- NA
@@ -40,12 +40,21 @@ melted_cormatNA <- reshape::melt(cor_mat)
 melted_cormatNA <- reshape::melt(cor_mat)
 melted_cormatNA <- melted_cormatNA %>% filter(!is.na(value )) %>% 
   mutate(lbls = str_arrange(paste0(X1, "_", X2))) %>% 
-  rename(re_x = X1, re_y = X2) %>% select(-value)
+  rename(x = X1, y = X2) %>% select(-value)
 
-melted_cormatB <- melted_cormat %>% full_join(melted_cormatNA, by = c("re_x", "re_y"))
+melted_cormatB <- melted_cormat %>% full_join(melted_cormatNA, by = c("x", "y"))
+
+#abbreviate label
+melted_cormatB <- melted_cormatB %>% 
+  rowwise() %>% 
+  mutate(x = case_when(grepl("Sexual.Intercourse", x) ~  gsub("Sexual.Intercourse", "Sex.Intercour.",x),
+                                                          TRUE ~ x),
+                                            y = case_when(grepl("Sex", y) ~ gsub("Sexual.Intercourse", "Sex.Intercour.",y),
+                                                          TRUE ~ y)) %>% 
+  ungroup()
 
 
-p1 <- ggplot(data = melted_cormatB, aes(re_x, re_y, fill = (estimate)))+
+p1 <- ggplot(data = melted_cormatB, aes(x, y, fill = (estimate)))+
   geom_tile(color = "grey50", linewidth = .2)+
   geom_richtext(lineheight = .75, family = "Source Sans 3", 
                 fill = NA, label.color = NA, fontface = "bold",
@@ -103,17 +112,17 @@ p2 <- ggplot(data = melted_cormat, aes(x = y, y = x, fill = estimate))+
                 fill = NA, label.color = NA, fontface = "bold",
                 aes(color = lbl_color, label = pooled_est_lbl), 
                 position = position_nudge(y =.3),
-                size = 4) +
+                size = 5) +
   geom_richtext(lineheight = .75, family = "Source Sans 3", ##Light" 
                 fill = NA, label.color = NA,
                 aes(color = lbl_color, label = cred_int_lbl), 
                 position = position_nudge(y =0),
-                size = 4) +
+                size = 5) +
   geom_richtext(lineheight = .75, family = "Source Sans 3 Light", 
                 fill = NA, label.color = NA,
                 aes(color = lbl_color, label = k_lbl), 
                 position = position_nudge(y = -.3),
-                size = 4) +
+                size = 5) +
   scale_color_identity() +
   scale_fill_gradient2(low = "white", high = "#0F4C5C", mid = "#9FCBD6", 
                        na.value = 'grey70',
@@ -124,9 +133,9 @@ p2 <- ggplot(data = melted_cormat, aes(x = y, y = x, fill = estimate))+
   scale_x_discrete(position = "top", expand = c(0,0)) +
   scale_y_discrete(expand = c(0,0), position = "left") +
   theme(axis.text.x.top = element_markdown(angle = 0, family = "Source Sans 3", face = "bold",
-                                           color = "black", size = 11),
+                                           color = "black", size = 12),
         axis.text.y.left = element_markdown(angle = 0, family = "Source Sans 3", face = "bold",
-                                            color = "black", size = 11, hjust=1),
+                                            color = "black", size = 12, hjust=1),
         text = element_text(family = "Source Sans 3"),
         axis.title = element_blank(),
         plot.title = element_text(family = "Source Sans 3 Medium", face = "italic",

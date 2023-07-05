@@ -25,7 +25,7 @@ abbrev_domain <- function(vec) {
 
 
 
-# PLOT AXIS LABELS --------------------------------------------------------
+# DOMAIN LABELS --------------------------------------------------------
 
 
 
@@ -196,7 +196,7 @@ name_lbl <- function(domain, measure) {
                     domain == "eth" & measure == "fre" ~ "Frequency - Ethical",
                     domain == "gam" & measure == "fre" ~ "Frequency - Gambling",
                     domain == "occ" & measure == "fre" ~ "Frequency - Occupational",
-                    domain == "sex" & measure == "fre" ~ "Frequency - Sex",
+                    domain == "sex" & measure == "fre" ~ "Frequency - Sexual.Intercourse",
                     domain == "smo" & measure == "fre" ~ "Frequency - Smoking")
   return(lbl)
 }

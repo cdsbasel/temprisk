@@ -110,11 +110,9 @@ dt <- data %>%
   mutate(meas_pair_lbl = measure_pair_lbl(m1 = measure_category_a, m2 = measure_category_b),
          name_a_lbl = name_lbl(measure = measure_category_a, domain = domain_name_a),
          name_b_lbl = name_lbl(measure = measure_category_b, domain = domain_name_b),
-         name_pair_lbl = paste0(name_a_lbl, "_", name_b_lbl))
-
-
- 
-
+         # pairs with the same measures, regardless of the order, have the same labels
+         domain_pair_lbl =  pmap_chr(list(name_a_lbl, name_b_lbl), ~ paste(sort(c(...)), collapse = "_")))
+  
 
 # CALCULATE AGGREGATE --------------------------------------------------------
 
@@ -180,9 +178,7 @@ for (i in 1:nrow(comb_dt)) {
   agg_ma <- ma_dat %>% 
     group_by(panel, sample, continent, country, language, data_collect_mode, sample_type, # panel info
              age_group, gender_group, # sample info
-             meas_pair_lbl, name_pair_lbl, name_a_lbl, name_b_lbl,
-             measure_category_a, domain_name_a,
-             measure_category_b, domain_name_b) %>% # measure info
+             meas_pair_lbl, domain_pair_lbl) %>% # measure info
     # aggregating
     summarise(n_mean = mean(n),
               n_sd = sd(n), # SD of the sample sizes of the ""raw" correlations included to calculate the effect size
