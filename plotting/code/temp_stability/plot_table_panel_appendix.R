@@ -20,7 +20,7 @@ library(patchwork)
 
 data_path <- c("processing/output/temp_stability/") # where is the input file stored
 retest_file <- "complete_retest.csv" # name of merged retest data 
-output_path <- c("companion_site/images/") # where to store the output 
+output_path <- c("docs/images/") # where to store the output 
 source("helper_functions.R")
 
 # READ DATA ---------------------------------------------------------------

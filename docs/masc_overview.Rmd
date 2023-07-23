@@ -5,7 +5,6 @@ output:
     toc: yes
     toc_float: yes
     toc_depth: 4
-    date: "`r format(Sys.time(), '%d %B, %Y')`"
 ---
 
 <!-- <style type="text/css"> -->
@@ -100,10 +99,10 @@ knitr::include_graphics("images/masc_plot.png")
 <br>
 
 
-Below we provide information on the model specifications and an overview of the model fits, with posterior predictive checks (PPCs), approximate leave-one-out (LOO) cross-validation output, and convergence diagnostics (i.e., rhat values, trace plots, effective sample size). We fitted the same model separately to the set of test-retest correlations of each risk preference measure category (i.e., propensity, frequency and behavior).
+Below, we provide information on the model specifications and an overview of the model summaries, including posterior predictive checks (PPCs), approximate leave-one-out (LOO) cross-validation output, and convergence diagnostics (i.e., rhat values, trace plots, effective sample size). We fitted the same model separately to the set of test-retest correlations for each risk preference measure category (i.e., propensity, frequency, and behavior).
 
 
-***To replicate these analyses, refer to the Workflow page***
+***To replicate these analyses, refer to the [Workflow](https://cdsbasel.github.io/temprisk/workflow_overview.html) page***
 
 <br>
 

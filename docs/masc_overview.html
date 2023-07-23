@@ -33,7 +33,6 @@
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <script src="site_libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
-<link rel="shortcut icon" href="/Volumes/CDS-Data/08_Projects/TSRP/companion_site/images/magnifying-glass-chart-solid.svg">
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -495,8 +494,8 @@ Illustration of MASC parameters. Adapted from Anusic and Schimack, 2015
 </p>
 </div>
 <p><br></p>
-<p>Below we provide information on the model specifications and an overview of the model fits, with posterior predictive checks (PPCs), approximate leave-one-out (LOO) cross-validation output, and convergence diagnostics (i.e., rhat values, trace plots, effective sample size). We fitted the same model separately to the set of test-retest correlations of each risk preference measure category (i.e., propensity, frequency and behavior).</p>
-<p><strong><em>To replicate these analyses, refer to the Workflow page</em></strong></p>
+<p>Below, we provide information on the model specifications and an overview of the model summaries, including posterior predictive checks (PPCs), approximate leave-one-out (LOO) cross-validation output, and convergence diagnostics (i.e., rhat values, trace plots, effective sample size). We fitted the same model separately to the set of test-retest correlations for each risk preference measure category (i.e., propensity, frequency, and behavior).</p>
+<p><strong><em>To replicate these analyses, refer to the <a href="https://cdsbasel.github.io/temprisk/workflow_overview.html">Workflow</a> page</em></strong></p>
 <p><br></p>
 </div>
 <div id="model-specification-in-brms" class="section level2">
@@ -635,261 +634,431 @@ Illustration of MASC parameters. Adapted from Anusic and Schimack, 2015
 ## cor(logitrel_age_dec_c2,logitrel_female_prop_c)     3250
 ## 
 ## Population-Level Effects: 
-##                                       Estimate Est.Error
-## logitrel_Intercept                        0.05      0.19
-## logitrel_age_dec_c                       -0.01      0.09
-## logitrel_domain_namedri                   0.07      0.11
-## logitrel_domain_nameeth                   0.61      0.65
-## logitrel_domain_namegam                  -0.01      0.24
-## logitrel_domain_namegen                   0.08      0.11
-## logitrel_domain_nameinv                  -0.06      0.10
-## logitrel_domain_nameocc                  -0.42      0.11
-## logitrel_domain_namerec                   0.19      0.13
-## logitrel_domain_namesoc                  -0.32      0.19
-## logitrel_age_dec_c2                       0.15      0.10
-## logitrel_female_prop_c                   -0.12      0.06
-## logitrel_age_dec_c:domain_namedri        -0.17      0.10
-## logitrel_age_dec_c:domain_nameeth         0.07      0.55
-## logitrel_age_dec_c:domain_namegam         0.05      0.27
-## logitrel_age_dec_c:domain_namegen         0.09      0.09
-## logitrel_age_dec_c:domain_nameinv         0.01      0.09
-## logitrel_age_dec_c:domain_nameocc         0.19      0.09
-## logitrel_age_dec_c:domain_namerec        -0.11      0.12
-## logitrel_age_dec_c:domain_namesoc         0.00      0.13
-## logitrel_domain_namedri:age_dec_c2       -0.11      0.10
-## logitrel_domain_nameeth:age_dec_c2        0.79      0.76
-## logitrel_domain_namegam:age_dec_c2        0.25      0.17
-## logitrel_domain_namegen:age_dec_c2       -0.19      0.10
-## logitrel_domain_nameinv:age_dec_c2       -0.18      0.10
-## logitrel_domain_nameocc:age_dec_c2       -0.18      0.10
-## logitrel_domain_namerec:age_dec_c2       -0.10      0.10
-## logitrel_domain_namesoc:age_dec_c2       -0.20      0.11
-## logitchange_Intercept                    -0.24      0.27
-## logitchange_age_dec_c                     0.33      0.21
-## logitchange_domain_namedri               -0.17      0.54
-## logitchange_domain_nameeth               -0.03      0.47
-## logitchange_domain_namegam                1.10      0.85
-## logitchange_domain_namegen                0.09      0.34
-## logitchange_domain_nameinv               -0.21      0.28
-## logitchange_domain_nameocc               -0.15      0.74
-## logitchange_domain_namerec               -0.13      0.45
-## logitchange_domain_namesoc               -0.52      0.74
-## logitchange_age_dec_c2                    0.41      0.19
-## logitchange_female_prop_c                 0.06      0.06
-## logitchange_age_dec_c:domain_namedri     -0.02      0.47
-## logitchange_age_dec_c:domain_nameeth     -0.52      0.40
-## logitchange_age_dec_c:domain_namegam      0.08      0.82
-## logitchange_age_dec_c:domain_namegen     -0.19      0.27
-## logitchange_age_dec_c:domain_nameinv      0.85      0.27
-## logitchange_age_dec_c:domain_nameocc      0.50      0.66
-## logitchange_age_dec_c:domain_namerec     -0.29      0.29
-## logitchange_age_dec_c:domain_namesoc     -0.11      0.71
-## logitchange_domain_namedri:age_dec_c2     0.03      0.31
-## logitchange_domain_nameeth:age_dec_c2    -0.27      0.34
-## logitchange_domain_namegam:age_dec_c2     0.97      0.74
-## logitchange_domain_namegen:age_dec_c2    -0.26      0.20
-## logitchange_domain_nameinv:age_dec_c2     0.32      0.20
-## logitchange_domain_nameocc:age_dec_c2     0.12      0.59
-## logitchange_domain_namerec:age_dec_c2    -0.31      0.31
-## logitchange_domain_namesoc:age_dec_c2    -0.48      0.65
-## logitstabch_Intercept                    -0.86      0.42
-## logitstabch_age_dec_c                     0.63      0.25
-## logitstabch_domain_namedri                0.62      0.66
-## logitstabch_domain_nameeth               -0.17      0.84
-## logitstabch_domain_namegam               -1.51      0.82
-## logitstabch_domain_namegen                0.59      0.49
-## logitstabch_domain_nameinv                0.47      0.43
-## logitstabch_domain_nameocc                1.05      0.79
-## logitstabch_domain_namerec               -0.40      0.75
-## logitstabch_domain_namesoc                0.59      1.00
-## logitstabch_age_dec_c2                   -0.42      0.17
-## logitstabch_female_prop_c                -0.29      0.08
-## logitstabch_age_dec_c:domain_namedri      0.41      0.42
-## logitstabch_age_dec_c:domain_nameeth      0.13      0.75
-## logitstabch_age_dec_c:domain_namegam     -1.03      0.73
-## logitstabch_age_dec_c:domain_namegen     -0.26      0.28
-## logitstabch_age_dec_c:domain_nameinv      0.93      0.28
-## logitstabch_age_dec_c:domain_nameocc     -0.43      0.52
-## logitstabch_age_dec_c:domain_namerec     -0.07      0.52
-## logitstabch_age_dec_c:domain_namesoc     -0.09      0.83
-## logitstabch_domain_namedri:age_dec_c2     0.13      0.20
-## logitstabch_domain_nameeth:age_dec_c2    -1.31      0.81
-## logitstabch_domain_namegam:age_dec_c2    -0.05      0.35
-## logitstabch_domain_namegen:age_dec_c2     0.39      0.18
-## logitstabch_domain_nameinv:age_dec_c2     0.08      0.17
-## logitstabch_domain_nameocc:age_dec_c2     0.33      0.21
-## logitstabch_domain_namerec:age_dec_c2     0.02      0.35
-## logitstabch_domain_namesoc:age_dec_c2     0.38      0.76
-##                                       l-95% CI u-95% CI
-## logitrel_Intercept                       -0.33     0.44
-## logitrel_age_dec_c                       -0.19     0.16
-## logitrel_domain_namedri                  -0.17     0.27
-## logitrel_domain_nameeth                  -0.46     2.07
-## logitrel_domain_namegam                  -0.46     0.47
-## logitrel_domain_namegen                  -0.15     0.28
-## logitrel_domain_nameinv                  -0.28     0.12
-## logitrel_domain_nameocc                  -0.66    -0.22
-## logitrel_domain_namerec                  -0.07     0.43
-## logitrel_domain_namesoc                  -0.62     0.11
-## logitrel_age_dec_c2                      -0.01     0.35
-## logitrel_female_prop_c                   -0.24    -0.00
-## logitrel_age_dec_c:domain_namedri        -0.37     0.04
-## logitrel_age_dec_c:domain_nameeth        -1.08     1.24
-## logitrel_age_dec_c:domain_namegam        -0.52     0.54
-## logitrel_age_dec_c:domain_namegen        -0.08     0.27
-## logitrel_age_dec_c:domain_nameinv        -0.17     0.19
-## logitrel_age_dec_c:domain_nameocc         0.02     0.39
-## logitrel_age_dec_c:domain_namerec        -0.35     0.13
-## logitrel_age_dec_c:domain_namesoc        -0.25     0.25
-## logitrel_domain_namedri:age_dec_c2       -0.31     0.06
-## logitrel_domain_nameeth:age_dec_c2       -0.33     2.26
-## logitrel_domain_namegam:age_dec_c2       -0.06     0.62
-## logitrel_domain_namegen:age_dec_c2       -0.39    -0.03
-## logitrel_domain_nameinv:age_dec_c2       -0.37    -0.02
-## logitrel_domain_nameocc:age_dec_c2       -0.38    -0.01
-## logitrel_domain_namerec:age_dec_c2       -0.31     0.08
-## logitrel_domain_namesoc:age_dec_c2       -0.40    -0.01
-## logitchange_Intercept                    -0.71     0.39
-## logitchange_age_dec_c                    -0.06     0.79
-## logitchange_domain_namedri               -1.09     1.07
-## logitchange_domain_nameeth               -0.85     1.17
-## logitchange_domain_namegam               -0.65     2.70
-## logitchange_domain_namegen               -0.57     0.78
-## logitchange_domain_nameinv               -0.84     0.30
-## logitchange_domain_nameocc               -1.47     1.47
-## logitchange_domain_namerec               -0.84     0.97
-## logitchange_domain_namesoc               -1.95     1.08
-## logitchange_age_dec_c2                    0.10     0.88
-## logitchange_female_prop_c                -0.06     0.18
-## logitchange_age_dec_c:domain_namedri     -0.79     1.01
-## logitchange_age_dec_c:domain_nameeth     -1.29     0.51
-## logitchange_age_dec_c:domain_namegam     -1.47     1.72
-## logitchange_age_dec_c:domain_namegen     -0.70     0.38
-## logitchange_age_dec_c:domain_nameinv      0.33     1.37
-## logitchange_age_dec_c:domain_nameocc     -0.84     1.76
-## logitchange_age_dec_c:domain_namerec     -0.84     0.31
-## logitchange_age_dec_c:domain_namesoc     -1.41     1.42
-## logitchange_domain_namedri:age_dec_c2    -0.48     0.66
-## logitchange_domain_nameeth:age_dec_c2    -0.91     0.54
-## logitchange_domain_namegam:age_dec_c2    -0.46     2.46
-## logitchange_domain_namegen:age_dec_c2    -0.73     0.06
-## logitchange_domain_nameinv:age_dec_c2    -0.15     0.66
-## logitchange_domain_nameocc:age_dec_c2    -0.74     1.59
-## logitchange_domain_namerec:age_dec_c2    -0.79     0.19
-## logitchange_domain_namesoc:age_dec_c2    -1.87     1.03
-## logitstabch_Intercept                    -1.69    -0.05
-## logitstabch_age_dec_c                     0.13     1.12
-## logitstabch_domain_namedri               -0.76     1.80
-## logitstabch_domain_nameeth               -1.84     1.43
-## logitstabch_domain_namegam               -3.11     0.13
-## logitstabch_domain_namegen               -0.38     1.58
-## logitstabch_domain_nameinv               -0.37     1.34
-## logitstabch_domain_nameocc               -0.71     2.33
-## logitstabch_domain_namerec               -1.87     1.12
-## logitstabch_domain_namesoc               -1.52     2.32
-## logitstabch_age_dec_c2                   -0.75    -0.07
-## logitstabch_female_prop_c                -0.45    -0.14
-## logitstabch_age_dec_c:domain_namedri     -0.38     1.26
-## logitstabch_age_dec_c:domain_nameeth     -1.40     1.57
-## logitstabch_age_dec_c:domain_namegam     -2.56     0.29
-## logitstabch_age_dec_c:domain_namegen     -0.81     0.28
-## logitstabch_age_dec_c:domain_nameinv      0.38     1.49
-## logitstabch_age_dec_c:domain_nameocc     -1.38     0.71
-## logitstabch_age_dec_c:domain_namerec     -1.09     0.95
-## logitstabch_age_dec_c:domain_namesoc     -1.73     1.53
-## logitstabch_domain_namedri:age_dec_c2    -0.26     0.50
-## logitstabch_domain_nameeth:age_dec_c2    -2.60     0.44
-## logitstabch_domain_namegam:age_dec_c2    -0.75     0.61
-## logitstabch_domain_namegen:age_dec_c2     0.02     0.73
-## logitstabch_domain_nameinv:age_dec_c2    -0.28     0.41
-## logitstabch_domain_nameocc:age_dec_c2    -0.09     0.74
-## logitstabch_domain_namerec:age_dec_c2    -0.84     0.55
-## logitstabch_domain_namesoc:age_dec_c2    -1.23     1.93
-##                                       Rhat Bulk_ESS
-## logitrel_Intercept                    1.00      448
-## logitrel_age_dec_c                    1.00     1128
-## logitrel_domain_namedri               1.00     1051
-## logitrel_domain_nameeth               1.00      631
-## logitrel_domain_namegam               1.00     4846
-## logitrel_domain_namegen               1.00      740
-## logitrel_domain_nameinv               1.00      879
-## logitrel_domain_nameocc               1.00      830
-## logitrel_domain_namerec               1.00     1230
-## logitrel_domain_namesoc               1.00      975
-## logitrel_age_dec_c2                   1.00      250
-## logitrel_female_prop_c                1.00     1677
-## logitrel_age_dec_c:domain_namedri     1.00     1781
-## logitrel_age_dec_c:domain_nameeth     1.00     1305
-## logitrel_age_dec_c:domain_namegam     1.00     3381
-## logitrel_age_dec_c:domain_namegen     1.00     1100
-## logitrel_age_dec_c:domain_nameinv     1.00     1202
-## logitrel_age_dec_c:domain_nameocc     1.00     1209
-## logitrel_age_dec_c:domain_namerec     1.00     2219
-## logitrel_age_dec_c:domain_namesoc     1.00     1849
-## logitrel_domain_namedri:age_dec_c2    1.01      270
-## logitrel_domain_nameeth:age_dec_c2    1.01      245
-## logitrel_domain_namegam:age_dec_c2    1.00      926
-## logitrel_domain_namegen:age_dec_c2    1.00      245
-## logitrel_domain_nameinv:age_dec_c2    1.01      248
-## logitrel_domain_nameocc:age_dec_c2    1.00      250
-## logitrel_domain_namerec:age_dec_c2    1.00      294
-## logitrel_domain_namesoc:age_dec_c2    1.01      290
-## logitchange_Intercept                 1.00      777
-## logitchange_age_dec_c                 1.00     1950
-## logitchange_domain_namedri            1.00     2794
-## logitchange_domain_nameeth            1.00      822
-## logitchange_domain_namegam            1.00     4262
-## logitchange_domain_namegen            1.00     1560
-## logitchange_domain_nameinv            1.00      832
-## logitchange_domain_nameocc            1.00     3008
-## logitchange_domain_namerec            1.00      932
-## logitchange_domain_namesoc            1.00     3846
-## logitchange_age_dec_c2                1.01      578
-## logitchange_female_prop_c             1.00     1827
-## logitchange_age_dec_c:domain_namedri  1.00     3876
-## logitchange_age_dec_c:domain_nameeth  1.00     2214
-## logitchange_age_dec_c:domain_namegam  1.00     4935
-## logitchange_age_dec_c:domain_namegen  1.00     2529
-## logitchange_age_dec_c:domain_nameinv  1.00     3011
-## logitchange_age_dec_c:domain_nameocc  1.00     4345
-## logitchange_age_dec_c:domain_namerec  1.00     1847
-## logitchange_age_dec_c:domain_namesoc  1.00     3985
-## logitchange_domain_namedri:age_dec_c2 1.00     1446
-## logitchange_domain_nameeth:age_dec_c2 1.00     1080
-## logitchange_domain_namegam:age_dec_c2 1.00     2953
-## logitchange_domain_namegen:age_dec_c2 1.01      614
-## logitchange_domain_nameinv:age_dec_c2 1.01      663
-## logitchange_domain_nameocc:age_dec_c2 1.00     2530
-## logitchange_domain_namerec:age_dec_c2 1.00      753
-## logitchange_domain_namesoc:age_dec_c2 1.00     2922
-## logitstabch_Intercept                 1.00      688
-## logitstabch_age_dec_c                 1.00     1138
-## logitstabch_domain_namedri            1.00     2987
-## logitstabch_domain_nameeth            1.00     2614
-## logitstabch_domain_namegam            1.00     5355
-## logitstabch_domain_namegen            1.00     1274
-## logitstabch_domain_nameinv            1.00      916
-## logitstabch_domain_nameocc            1.00     2521
-## logitstabch_domain_namerec            1.00     1241
-## logitstabch_domain_namesoc            1.00     2113
-## logitstabch_age_dec_c2                1.00      308
-## logitstabch_female_prop_c             1.00     7543
-## logitstabch_age_dec_c:domain_namedri  1.00     3313
-## logitstabch_age_dec_c:domain_nameeth  1.00     3390
-## logitstabch_age_dec_c:domain_namegam  1.00     3635
-## logitstabch_age_dec_c:domain_namegen  1.00     1110
-## logitstabch_age_dec_c:domain_nameinv  1.00     1519
-## logitstabch_age_dec_c:domain_nameocc  1.00     2901
-## logitstabch_age_dec_c:domain_namerec  1.00     3653
-## logitstabch_age_dec_c:domain_namesoc  1.00     3589
-## logitstabch_domain_namedri:age_dec_c2 1.00      408
-## logitstabch_domain_nameeth:age_dec_c2 1.00      270
-## logitstabch_domain_namegam:age_dec_c2 1.00     1891
-## logitstabch_domain_namegen:age_dec_c2 1.00      314
-## logitstabch_domain_nameinv:age_dec_c2 1.00      329
-## logitstabch_domain_nameocc:age_dec_c2 1.00      451
-## logitstabch_domain_namerec:age_dec_c2 1.00     1396
-## logitstabch_domain_namesoc:age_dec_c2 1.00     1826
+##                                       Estimate
+## logitrel_Intercept                        0.05
+## logitrel_age_dec_c                       -0.01
+## logitrel_domain_namedri                   0.07
+## logitrel_domain_nameeth                   0.61
+## logitrel_domain_namegam                  -0.01
+## logitrel_domain_namegen                   0.08
+## logitrel_domain_nameinv                  -0.06
+## logitrel_domain_nameocc                  -0.42
+## logitrel_domain_namerec                   0.19
+## logitrel_domain_namesoc                  -0.32
+## logitrel_age_dec_c2                       0.15
+## logitrel_female_prop_c                   -0.12
+## logitrel_age_dec_c:domain_namedri        -0.17
+## logitrel_age_dec_c:domain_nameeth         0.07
+## logitrel_age_dec_c:domain_namegam         0.05
+## logitrel_age_dec_c:domain_namegen         0.09
+## logitrel_age_dec_c:domain_nameinv         0.01
+## logitrel_age_dec_c:domain_nameocc         0.19
+## logitrel_age_dec_c:domain_namerec        -0.11
+## logitrel_age_dec_c:domain_namesoc         0.00
+## logitrel_domain_namedri:age_dec_c2       -0.11
+## logitrel_domain_nameeth:age_dec_c2        0.79
+## logitrel_domain_namegam:age_dec_c2        0.25
+## logitrel_domain_namegen:age_dec_c2       -0.19
+## logitrel_domain_nameinv:age_dec_c2       -0.18
+## logitrel_domain_nameocc:age_dec_c2       -0.18
+## logitrel_domain_namerec:age_dec_c2       -0.10
+## logitrel_domain_namesoc:age_dec_c2       -0.20
+## logitchange_Intercept                    -0.24
+## logitchange_age_dec_c                     0.33
+## logitchange_domain_namedri               -0.17
+## logitchange_domain_nameeth               -0.03
+## logitchange_domain_namegam                1.10
+## logitchange_domain_namegen                0.09
+## logitchange_domain_nameinv               -0.21
+## logitchange_domain_nameocc               -0.15
+## logitchange_domain_namerec               -0.13
+## logitchange_domain_namesoc               -0.52
+## logitchange_age_dec_c2                    0.41
+## logitchange_female_prop_c                 0.06
+## logitchange_age_dec_c:domain_namedri     -0.02
+## logitchange_age_dec_c:domain_nameeth     -0.52
+## logitchange_age_dec_c:domain_namegam      0.08
+## logitchange_age_dec_c:domain_namegen     -0.19
+## logitchange_age_dec_c:domain_nameinv      0.85
+## logitchange_age_dec_c:domain_nameocc      0.50
+## logitchange_age_dec_c:domain_namerec     -0.29
+## logitchange_age_dec_c:domain_namesoc     -0.11
+## logitchange_domain_namedri:age_dec_c2     0.03
+## logitchange_domain_nameeth:age_dec_c2    -0.27
+## logitchange_domain_namegam:age_dec_c2     0.97
+## logitchange_domain_namegen:age_dec_c2    -0.26
+## logitchange_domain_nameinv:age_dec_c2     0.32
+## logitchange_domain_nameocc:age_dec_c2     0.12
+## logitchange_domain_namerec:age_dec_c2    -0.31
+## logitchange_domain_namesoc:age_dec_c2    -0.48
+## logitstabch_Intercept                    -0.86
+## logitstabch_age_dec_c                     0.63
+## logitstabch_domain_namedri                0.62
+## logitstabch_domain_nameeth               -0.17
+## logitstabch_domain_namegam               -1.51
+## logitstabch_domain_namegen                0.59
+## logitstabch_domain_nameinv                0.47
+## logitstabch_domain_nameocc                1.05
+## logitstabch_domain_namerec               -0.40
+## logitstabch_domain_namesoc                0.59
+## logitstabch_age_dec_c2                   -0.42
+## logitstabch_female_prop_c                -0.29
+## logitstabch_age_dec_c:domain_namedri      0.41
+## logitstabch_age_dec_c:domain_nameeth      0.13
+## logitstabch_age_dec_c:domain_namegam     -1.03
+## logitstabch_age_dec_c:domain_namegen     -0.26
+## logitstabch_age_dec_c:domain_nameinv      0.93
+## logitstabch_age_dec_c:domain_nameocc     -0.43
+## logitstabch_age_dec_c:domain_namerec     -0.07
+## logitstabch_age_dec_c:domain_namesoc     -0.09
+## logitstabch_domain_namedri:age_dec_c2     0.13
+## logitstabch_domain_nameeth:age_dec_c2    -1.31
+## logitstabch_domain_namegam:age_dec_c2    -0.05
+## logitstabch_domain_namegen:age_dec_c2     0.39
+## logitstabch_domain_nameinv:age_dec_c2     0.08
+## logitstabch_domain_nameocc:age_dec_c2     0.33
+## logitstabch_domain_namerec:age_dec_c2     0.02
+## logitstabch_domain_namesoc:age_dec_c2     0.38
+##                                       Est.Error
+## logitrel_Intercept                         0.19
+## logitrel_age_dec_c                         0.09
+## logitrel_domain_namedri                    0.11
+## logitrel_domain_nameeth                    0.65
+## logitrel_domain_namegam                    0.24
+## logitrel_domain_namegen                    0.11
+## logitrel_domain_nameinv                    0.10
+## logitrel_domain_nameocc                    0.11
+## logitrel_domain_namerec                    0.13
+## logitrel_domain_namesoc                    0.19
+## logitrel_age_dec_c2                        0.10
+## logitrel_female_prop_c                     0.06
+## logitrel_age_dec_c:domain_namedri          0.10
+## logitrel_age_dec_c:domain_nameeth          0.55
+## logitrel_age_dec_c:domain_namegam          0.27
+## logitrel_age_dec_c:domain_namegen          0.09
+## logitrel_age_dec_c:domain_nameinv          0.09
+## logitrel_age_dec_c:domain_nameocc          0.09
+## logitrel_age_dec_c:domain_namerec          0.12
+## logitrel_age_dec_c:domain_namesoc          0.13
+## logitrel_domain_namedri:age_dec_c2         0.10
+## logitrel_domain_nameeth:age_dec_c2         0.76
+## logitrel_domain_namegam:age_dec_c2         0.17
+## logitrel_domain_namegen:age_dec_c2         0.10
+## logitrel_domain_nameinv:age_dec_c2         0.10
+## logitrel_domain_nameocc:age_dec_c2         0.10
+## logitrel_domain_namerec:age_dec_c2         0.10
+## logitrel_domain_namesoc:age_dec_c2         0.11
+## logitchange_Intercept                      0.27
+## logitchange_age_dec_c                      0.21
+## logitchange_domain_namedri                 0.54
+## logitchange_domain_nameeth                 0.47
+## logitchange_domain_namegam                 0.85
+## logitchange_domain_namegen                 0.34
+## logitchange_domain_nameinv                 0.28
+## logitchange_domain_nameocc                 0.74
+## logitchange_domain_namerec                 0.45
+## logitchange_domain_namesoc                 0.74
+## logitchange_age_dec_c2                     0.19
+## logitchange_female_prop_c                  0.06
+## logitchange_age_dec_c:domain_namedri       0.47
+## logitchange_age_dec_c:domain_nameeth       0.40
+## logitchange_age_dec_c:domain_namegam       0.82
+## logitchange_age_dec_c:domain_namegen       0.27
+## logitchange_age_dec_c:domain_nameinv       0.27
+## logitchange_age_dec_c:domain_nameocc       0.66
+## logitchange_age_dec_c:domain_namerec       0.29
+## logitchange_age_dec_c:domain_namesoc       0.71
+## logitchange_domain_namedri:age_dec_c2      0.31
+## logitchange_domain_nameeth:age_dec_c2      0.34
+## logitchange_domain_namegam:age_dec_c2      0.74
+## logitchange_domain_namegen:age_dec_c2      0.20
+## logitchange_domain_nameinv:age_dec_c2      0.20
+## logitchange_domain_nameocc:age_dec_c2      0.59
+## logitchange_domain_namerec:age_dec_c2      0.31
+## logitchange_domain_namesoc:age_dec_c2      0.65
+## logitstabch_Intercept                      0.42
+## logitstabch_age_dec_c                      0.25
+## logitstabch_domain_namedri                 0.66
+## logitstabch_domain_nameeth                 0.84
+## logitstabch_domain_namegam                 0.82
+## logitstabch_domain_namegen                 0.49
+## logitstabch_domain_nameinv                 0.43
+## logitstabch_domain_nameocc                 0.79
+## logitstabch_domain_namerec                 0.75
+## logitstabch_domain_namesoc                 1.00
+## logitstabch_age_dec_c2                     0.17
+## logitstabch_female_prop_c                  0.08
+## logitstabch_age_dec_c:domain_namedri       0.42
+## logitstabch_age_dec_c:domain_nameeth       0.75
+## logitstabch_age_dec_c:domain_namegam       0.73
+## logitstabch_age_dec_c:domain_namegen       0.28
+## logitstabch_age_dec_c:domain_nameinv       0.28
+## logitstabch_age_dec_c:domain_nameocc       0.52
+## logitstabch_age_dec_c:domain_namerec       0.52
+## logitstabch_age_dec_c:domain_namesoc       0.83
+## logitstabch_domain_namedri:age_dec_c2      0.20
+## logitstabch_domain_nameeth:age_dec_c2      0.81
+## logitstabch_domain_namegam:age_dec_c2      0.35
+## logitstabch_domain_namegen:age_dec_c2      0.18
+## logitstabch_domain_nameinv:age_dec_c2      0.17
+## logitstabch_domain_nameocc:age_dec_c2      0.21
+## logitstabch_domain_namerec:age_dec_c2      0.35
+## logitstabch_domain_namesoc:age_dec_c2      0.76
+##                                       l-95% CI
+## logitrel_Intercept                       -0.33
+## logitrel_age_dec_c                       -0.19
+## logitrel_domain_namedri                  -0.17
+## logitrel_domain_nameeth                  -0.46
+## logitrel_domain_namegam                  -0.46
+## logitrel_domain_namegen                  -0.15
+## logitrel_domain_nameinv                  -0.28
+## logitrel_domain_nameocc                  -0.66
+## logitrel_domain_namerec                  -0.07
+## logitrel_domain_namesoc                  -0.62
+## logitrel_age_dec_c2                      -0.01
+## logitrel_female_prop_c                   -0.24
+## logitrel_age_dec_c:domain_namedri        -0.37
+## logitrel_age_dec_c:domain_nameeth        -1.08
+## logitrel_age_dec_c:domain_namegam        -0.52
+## logitrel_age_dec_c:domain_namegen        -0.08
+## logitrel_age_dec_c:domain_nameinv        -0.17
+## logitrel_age_dec_c:domain_nameocc         0.02
+## logitrel_age_dec_c:domain_namerec        -0.35
+## logitrel_age_dec_c:domain_namesoc        -0.25
+## logitrel_domain_namedri:age_dec_c2       -0.31
+## logitrel_domain_nameeth:age_dec_c2       -0.33
+## logitrel_domain_namegam:age_dec_c2       -0.06
+## logitrel_domain_namegen:age_dec_c2       -0.39
+## logitrel_domain_nameinv:age_dec_c2       -0.37
+## logitrel_domain_nameocc:age_dec_c2       -0.38
+## logitrel_domain_namerec:age_dec_c2       -0.31
+## logitrel_domain_namesoc:age_dec_c2       -0.40
+## logitchange_Intercept                    -0.71
+## logitchange_age_dec_c                    -0.06
+## logitchange_domain_namedri               -1.09
+## logitchange_domain_nameeth               -0.85
+## logitchange_domain_namegam               -0.65
+## logitchange_domain_namegen               -0.57
+## logitchange_domain_nameinv               -0.84
+## logitchange_domain_nameocc               -1.47
+## logitchange_domain_namerec               -0.84
+## logitchange_domain_namesoc               -1.95
+## logitchange_age_dec_c2                    0.10
+## logitchange_female_prop_c                -0.06
+## logitchange_age_dec_c:domain_namedri     -0.79
+## logitchange_age_dec_c:domain_nameeth     -1.29
+## logitchange_age_dec_c:domain_namegam     -1.47
+## logitchange_age_dec_c:domain_namegen     -0.70
+## logitchange_age_dec_c:domain_nameinv      0.33
+## logitchange_age_dec_c:domain_nameocc     -0.84
+## logitchange_age_dec_c:domain_namerec     -0.84
+## logitchange_age_dec_c:domain_namesoc     -1.41
+## logitchange_domain_namedri:age_dec_c2    -0.48
+## logitchange_domain_nameeth:age_dec_c2    -0.91
+## logitchange_domain_namegam:age_dec_c2    -0.46
+## logitchange_domain_namegen:age_dec_c2    -0.73
+## logitchange_domain_nameinv:age_dec_c2    -0.15
+## logitchange_domain_nameocc:age_dec_c2    -0.74
+## logitchange_domain_namerec:age_dec_c2    -0.79
+## logitchange_domain_namesoc:age_dec_c2    -1.87
+## logitstabch_Intercept                    -1.69
+## logitstabch_age_dec_c                     0.13
+## logitstabch_domain_namedri               -0.76
+## logitstabch_domain_nameeth               -1.84
+## logitstabch_domain_namegam               -3.11
+## logitstabch_domain_namegen               -0.38
+## logitstabch_domain_nameinv               -0.37
+## logitstabch_domain_nameocc               -0.71
+## logitstabch_domain_namerec               -1.87
+## logitstabch_domain_namesoc               -1.52
+## logitstabch_age_dec_c2                   -0.75
+## logitstabch_female_prop_c                -0.45
+## logitstabch_age_dec_c:domain_namedri     -0.38
+## logitstabch_age_dec_c:domain_nameeth     -1.40
+## logitstabch_age_dec_c:domain_namegam     -2.56
+## logitstabch_age_dec_c:domain_namegen     -0.81
+## logitstabch_age_dec_c:domain_nameinv      0.38
+## logitstabch_age_dec_c:domain_nameocc     -1.38
+## logitstabch_age_dec_c:domain_namerec     -1.09
+## logitstabch_age_dec_c:domain_namesoc     -1.73
+## logitstabch_domain_namedri:age_dec_c2    -0.26
+## logitstabch_domain_nameeth:age_dec_c2    -2.60
+## logitstabch_domain_namegam:age_dec_c2    -0.75
+## logitstabch_domain_namegen:age_dec_c2     0.02
+## logitstabch_domain_nameinv:age_dec_c2    -0.28
+## logitstabch_domain_nameocc:age_dec_c2    -0.09
+## logitstabch_domain_namerec:age_dec_c2    -0.84
+## logitstabch_domain_namesoc:age_dec_c2    -1.23
+##                                       u-95% CI Rhat
+## logitrel_Intercept                        0.44 1.00
+## logitrel_age_dec_c                        0.16 1.00
+## logitrel_domain_namedri                   0.27 1.00
+## logitrel_domain_nameeth                   2.07 1.00
+## logitrel_domain_namegam                   0.47 1.00
+## logitrel_domain_namegen                   0.28 1.00
+## logitrel_domain_nameinv                   0.12 1.00
+## logitrel_domain_nameocc                  -0.22 1.00
+## logitrel_domain_namerec                   0.43 1.00
+## logitrel_domain_namesoc                   0.11 1.00
+## logitrel_age_dec_c2                       0.35 1.00
+## logitrel_female_prop_c                   -0.00 1.00
+## logitrel_age_dec_c:domain_namedri         0.04 1.00
+## logitrel_age_dec_c:domain_nameeth         1.24 1.00
+## logitrel_age_dec_c:domain_namegam         0.54 1.00
+## logitrel_age_dec_c:domain_namegen         0.27 1.00
+## logitrel_age_dec_c:domain_nameinv         0.19 1.00
+## logitrel_age_dec_c:domain_nameocc         0.39 1.00
+## logitrel_age_dec_c:domain_namerec         0.13 1.00
+## logitrel_age_dec_c:domain_namesoc         0.25 1.00
+## logitrel_domain_namedri:age_dec_c2        0.06 1.01
+## logitrel_domain_nameeth:age_dec_c2        2.26 1.01
+## logitrel_domain_namegam:age_dec_c2        0.62 1.00
+## logitrel_domain_namegen:age_dec_c2       -0.03 1.00
+## logitrel_domain_nameinv:age_dec_c2       -0.02 1.01
+## logitrel_domain_nameocc:age_dec_c2       -0.01 1.00
+## logitrel_domain_namerec:age_dec_c2        0.08 1.00
+## logitrel_domain_namesoc:age_dec_c2       -0.01 1.01
+## logitchange_Intercept                     0.39 1.00
+## logitchange_age_dec_c                     0.79 1.00
+## logitchange_domain_namedri                1.07 1.00
+## logitchange_domain_nameeth                1.17 1.00
+## logitchange_domain_namegam                2.70 1.00
+## logitchange_domain_namegen                0.78 1.00
+## logitchange_domain_nameinv                0.30 1.00
+## logitchange_domain_nameocc                1.47 1.00
+## logitchange_domain_namerec                0.97 1.00
+## logitchange_domain_namesoc                1.08 1.00
+## logitchange_age_dec_c2                    0.88 1.01
+## logitchange_female_prop_c                 0.18 1.00
+## logitchange_age_dec_c:domain_namedri      1.01 1.00
+## logitchange_age_dec_c:domain_nameeth      0.51 1.00
+## logitchange_age_dec_c:domain_namegam      1.72 1.00
+## logitchange_age_dec_c:domain_namegen      0.38 1.00
+## logitchange_age_dec_c:domain_nameinv      1.37 1.00
+## logitchange_age_dec_c:domain_nameocc      1.76 1.00
+## logitchange_age_dec_c:domain_namerec      0.31 1.00
+## logitchange_age_dec_c:domain_namesoc      1.42 1.00
+## logitchange_domain_namedri:age_dec_c2     0.66 1.00
+## logitchange_domain_nameeth:age_dec_c2     0.54 1.00
+## logitchange_domain_namegam:age_dec_c2     2.46 1.00
+## logitchange_domain_namegen:age_dec_c2     0.06 1.01
+## logitchange_domain_nameinv:age_dec_c2     0.66 1.01
+## logitchange_domain_nameocc:age_dec_c2     1.59 1.00
+## logitchange_domain_namerec:age_dec_c2     0.19 1.00
+## logitchange_domain_namesoc:age_dec_c2     1.03 1.00
+## logitstabch_Intercept                    -0.05 1.00
+## logitstabch_age_dec_c                     1.12 1.00
+## logitstabch_domain_namedri                1.80 1.00
+## logitstabch_domain_nameeth                1.43 1.00
+## logitstabch_domain_namegam                0.13 1.00
+## logitstabch_domain_namegen                1.58 1.00
+## logitstabch_domain_nameinv                1.34 1.00
+## logitstabch_domain_nameocc                2.33 1.00
+## logitstabch_domain_namerec                1.12 1.00
+## logitstabch_domain_namesoc                2.32 1.00
+## logitstabch_age_dec_c2                   -0.07 1.00
+## logitstabch_female_prop_c                -0.14 1.00
+## logitstabch_age_dec_c:domain_namedri      1.26 1.00
+## logitstabch_age_dec_c:domain_nameeth      1.57 1.00
+## logitstabch_age_dec_c:domain_namegam      0.29 1.00
+## logitstabch_age_dec_c:domain_namegen      0.28 1.00
+## logitstabch_age_dec_c:domain_nameinv      1.49 1.00
+## logitstabch_age_dec_c:domain_nameocc      0.71 1.00
+## logitstabch_age_dec_c:domain_namerec      0.95 1.00
+## logitstabch_age_dec_c:domain_namesoc      1.53 1.00
+## logitstabch_domain_namedri:age_dec_c2     0.50 1.00
+## logitstabch_domain_nameeth:age_dec_c2     0.44 1.00
+## logitstabch_domain_namegam:age_dec_c2     0.61 1.00
+## logitstabch_domain_namegen:age_dec_c2     0.73 1.00
+## logitstabch_domain_nameinv:age_dec_c2     0.41 1.00
+## logitstabch_domain_nameocc:age_dec_c2     0.74 1.00
+## logitstabch_domain_namerec:age_dec_c2     0.55 1.00
+## logitstabch_domain_namesoc:age_dec_c2     1.93 1.00
+##                                       Bulk_ESS
+## logitrel_Intercept                         448
+## logitrel_age_dec_c                        1128
+## logitrel_domain_namedri                   1051
+## logitrel_domain_nameeth                    631
+## logitrel_domain_namegam                   4846
+## logitrel_domain_namegen                    740
+## logitrel_domain_nameinv                    879
+## logitrel_domain_nameocc                    830
+## logitrel_domain_namerec                   1230
+## logitrel_domain_namesoc                    975
+## logitrel_age_dec_c2                        250
+## logitrel_female_prop_c                    1677
+## logitrel_age_dec_c:domain_namedri         1781
+## logitrel_age_dec_c:domain_nameeth         1305
+## logitrel_age_dec_c:domain_namegam         3381
+## logitrel_age_dec_c:domain_namegen         1100
+## logitrel_age_dec_c:domain_nameinv         1202
+## logitrel_age_dec_c:domain_nameocc         1209
+## logitrel_age_dec_c:domain_namerec         2219
+## logitrel_age_dec_c:domain_namesoc         1849
+## logitrel_domain_namedri:age_dec_c2         270
+## logitrel_domain_nameeth:age_dec_c2         245
+## logitrel_domain_namegam:age_dec_c2         926
+## logitrel_domain_namegen:age_dec_c2         245
+## logitrel_domain_nameinv:age_dec_c2         248
+## logitrel_domain_nameocc:age_dec_c2         250
+## logitrel_domain_namerec:age_dec_c2         294
+## logitrel_domain_namesoc:age_dec_c2         290
+## logitchange_Intercept                      777
+## logitchange_age_dec_c                     1950
+## logitchange_domain_namedri                2794
+## logitchange_domain_nameeth                 822
+## logitchange_domain_namegam                4262
+## logitchange_domain_namegen                1560
+## logitchange_domain_nameinv                 832
+## logitchange_domain_nameocc                3008
+## logitchange_domain_namerec                 932
+## logitchange_domain_namesoc                3846
+## logitchange_age_dec_c2                     578
+## logitchange_female_prop_c                 1827
+## logitchange_age_dec_c:domain_namedri      3876
+## logitchange_age_dec_c:domain_nameeth      2214
+## logitchange_age_dec_c:domain_namegam      4935
+## logitchange_age_dec_c:domain_namegen      2529
+## logitchange_age_dec_c:domain_nameinv      3011
+## logitchange_age_dec_c:domain_nameocc      4345
+## logitchange_age_dec_c:domain_namerec      1847
+## logitchange_age_dec_c:domain_namesoc      3985
+## logitchange_domain_namedri:age_dec_c2     1446
+## logitchange_domain_nameeth:age_dec_c2     1080
+## logitchange_domain_namegam:age_dec_c2     2953
+## logitchange_domain_namegen:age_dec_c2      614
+## logitchange_domain_nameinv:age_dec_c2      663
+## logitchange_domain_nameocc:age_dec_c2     2530
+## logitchange_domain_namerec:age_dec_c2      753
+## logitchange_domain_namesoc:age_dec_c2     2922
+## logitstabch_Intercept                      688
+## logitstabch_age_dec_c                     1138
+## logitstabch_domain_namedri                2987
+## logitstabch_domain_nameeth                2614
+## logitstabch_domain_namegam                5355
+## logitstabch_domain_namegen                1274
+## logitstabch_domain_nameinv                 916
+## logitstabch_domain_nameocc                2521
+## logitstabch_domain_namerec                1241
+## logitstabch_domain_namesoc                2113
+## logitstabch_age_dec_c2                     308
+## logitstabch_female_prop_c                 7543
+## logitstabch_age_dec_c:domain_namedri      3313
+## logitstabch_age_dec_c:domain_nameeth      3390
+## logitstabch_age_dec_c:domain_namegam      3635
+## logitstabch_age_dec_c:domain_namegen      1110
+## logitstabch_age_dec_c:domain_nameinv      1519
+## logitstabch_age_dec_c:domain_nameocc      2901
+## logitstabch_age_dec_c:domain_namerec      3653
+## logitstabch_age_dec_c:domain_namesoc      3589
+## logitstabch_domain_namedri:age_dec_c2      408
+## logitstabch_domain_nameeth:age_dec_c2      270
+## logitstabch_domain_namegam:age_dec_c2     1891
+## logitstabch_domain_namegen:age_dec_c2      314
+## logitstabch_domain_nameinv:age_dec_c2      329
+## logitstabch_domain_nameocc:age_dec_c2      451
+## logitstabch_domain_namerec:age_dec_c2     1396
+## logitstabch_domain_namesoc:age_dec_c2     1826
 ##                                       Tail_ESS
 ## logitrel_Intercept                         843
 ## logitrel_age_dec_c                        1890
@@ -977,12 +1146,12 @@ Illustration of MASC parameters. Adapted from Anusic and Schimack, 2015
 ## logitstabch_domain_namesoc:age_dec_c2     2512
 ## 
 ## Family Specific Parameters: 
-##       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS
-## sigma     0.03      0.00     0.03     0.03 1.00     8254
-## nu        3.65      0.22     3.23     4.11 1.00     9249
-##       Tail_ESS
-## sigma     7382
-## nu        8190
+##       Estimate Est.Error l-95% CI u-95% CI Rhat
+## sigma     0.03      0.00     0.03     0.03 1.00
+## nu        3.65      0.22     3.23     4.11 1.00
+##       Bulk_ESS Tail_ESS
+## sigma     8254     7382
+## nu        9249     8190
 ## 
 ## Draws were sampled using sample(hmc). For each parameter, Bulk_ESS
 ## and Tail_ESS are effective sample size measures, and Rhat is the potential
@@ -1224,234 +1393,386 @@ Illustration of MASC parameters. Adapted from Anusic and Schimack, 2015
 ## cor(logitrel_age_dec_c2,logitrel_female_prop_c)     4812
 ## 
 ## Population-Level Effects: 
-##                                       Estimate Est.Error
-## logitrel_Intercept                       -0.11      0.32
-## logitrel_age_dec_c                        0.21      0.26
-## logitrel_domain_namealc                   0.68      0.26
-## logitrel_domain_namedri                  -1.71      0.49
-## logitrel_domain_namedru                   0.31      0.27
-## logitrel_domain_namegam                   0.39      0.90
-## logitrel_domain_nameocc                   0.45      0.83
-## logitrel_domain_namesex                   0.17      0.71
-## logitrel_domain_namesmo                   1.80      0.26
-## logitrel_age_dec_c2                       0.38      0.17
-## logitrel_female_prop_c                   -0.15      0.07
-## logitrel_age_dec_c:domain_namealc        -0.19      0.25
-## logitrel_age_dec_c:domain_namedri        -0.00      0.55
-## logitrel_age_dec_c:domain_namedru        -0.28      0.26
-## logitrel_age_dec_c:domain_namegam        -0.21      0.86
-## logitrel_age_dec_c:domain_nameocc        -0.36      0.78
-## logitrel_age_dec_c:domain_namesex        -0.10      0.81
-## logitrel_age_dec_c:domain_namesmo         0.30      0.26
-## logitrel_domain_namealc:age_dec_c2       -0.42      0.17
-## logitrel_domain_namedri:age_dec_c2        0.44      0.36
-## logitrel_domain_namedru:age_dec_c2       -0.27      0.17
-## logitrel_domain_namegam:age_dec_c2       -0.04      0.78
-## logitrel_domain_nameocc:age_dec_c2       -0.40      0.33
-## logitrel_domain_namesex:age_dec_c2        0.58      0.54
-## logitrel_domain_namesmo:age_dec_c2       -0.36      0.17
-## logitchange_Intercept                     0.09      0.42
-## logitchange_age_dec_c                     0.35      0.39
-## logitchange_domain_namealc               -0.58      0.43
-## logitchange_domain_namedri                0.13      0.94
-## logitchange_domain_namedru                0.19      0.56
-## logitchange_domain_namegam               -0.11      0.95
-## logitchange_domain_nameocc                0.01      0.95
-## logitchange_domain_namesex                0.32      0.73
-## logitchange_domain_namesmo               -0.44      0.43
-## logitchange_age_dec_c2                    0.56      0.26
-## logitchange_female_prop_c                 0.19      0.08
-## logitchange_age_dec_c:domain_namealc     -0.54      0.40
-## logitchange_age_dec_c:domain_namedri     -0.70      1.01
-## logitchange_age_dec_c:domain_namedru      0.71      0.58
-## logitchange_age_dec_c:domain_namegam     -0.11      0.94
-## logitchange_age_dec_c:domain_nameocc     -0.22      0.93
-## logitchange_age_dec_c:domain_namesex      0.28      0.66
-## logitchange_age_dec_c:domain_namesmo     -0.23      0.40
-## logitchange_domain_namealc:age_dec_c2    -0.41      0.26
-## logitchange_domain_namedri:age_dec_c2     0.45      0.85
-## logitchange_domain_namedru:age_dec_c2     0.58      0.37
-## logitchange_domain_namegam:age_dec_c2    -0.09      0.89
-## logitchange_domain_nameocc:age_dec_c2     0.01      0.77
-## logitchange_domain_namesex:age_dec_c2    -0.11      0.31
-## logitchange_domain_namesmo:age_dec_c2    -0.51      0.26
-## logitstabch_Intercept                    -1.18      0.51
-## logitstabch_age_dec_c                     0.60      0.37
-## logitstabch_domain_namealc               -1.19      0.57
-## logitstabch_domain_namedri               -0.67      1.00
-## logitstabch_domain_namedru                0.38      0.58
-## logitstabch_domain_namegam               -0.29      0.98
-## logitstabch_domain_nameocc               -0.42      0.97
-## logitstabch_domain_namesex               -1.45      0.88
-## logitstabch_domain_namesmo               -0.05      0.53
-## logitstabch_age_dec_c2                   -0.29      0.24
-## logitstabch_female_prop_c                 0.36      0.13
-## logitstabch_age_dec_c:domain_namealc     -0.26      0.38
-## logitstabch_age_dec_c:domain_namedri      1.20      0.91
-## logitstabch_age_dec_c:domain_namedru     -0.42      0.38
-## logitstabch_age_dec_c:domain_namegam      0.08      0.94
-## logitstabch_age_dec_c:domain_nameocc      0.18      0.90
-## logitstabch_age_dec_c:domain_namesex      1.16      0.85
-## logitstabch_age_dec_c:domain_namesmo     -0.64      0.37
-## logitstabch_domain_namealc:age_dec_c2     0.37      0.24
-## logitstabch_domain_namedri:age_dec_c2    -0.17      0.61
-## logitstabch_domain_namedru:age_dec_c2    -0.13      0.25
-## logitstabch_domain_namegam:age_dec_c2     0.18      0.90
-## logitstabch_domain_nameocc:age_dec_c2     0.22      0.69
-## logitstabch_domain_namesex:age_dec_c2     0.49      0.45
-## logitstabch_domain_namesmo:age_dec_c2     0.37      0.24
-##                                       l-95% CI u-95% CI
-## logitrel_Intercept                       -0.71     0.53
-## logitrel_age_dec_c                       -0.32     0.73
-## logitrel_domain_namealc                   0.14     1.17
-## logitrel_domain_namedri                  -2.61    -0.71
-## logitrel_domain_namedru                  -0.23     0.81
-## logitrel_domain_namegam                  -1.40     2.18
-## logitrel_domain_nameocc                  -1.16     2.11
-## logitrel_domain_namesex                  -1.06     1.73
-## logitrel_domain_namesmo                   1.26     2.27
-## logitrel_age_dec_c2                       0.07     0.73
-## logitrel_female_prop_c                   -0.30    -0.00
-## logitrel_age_dec_c:domain_namealc        -0.69     0.31
-## logitrel_age_dec_c:domain_namedri        -1.35     0.89
-## logitrel_age_dec_c:domain_namedru        -0.79     0.23
-## logitrel_age_dec_c:domain_namegam        -1.91     1.46
-## logitrel_age_dec_c:domain_nameocc        -1.90     1.16
-## logitrel_age_dec_c:domain_namesex        -1.75     1.42
-## logitrel_age_dec_c:domain_namesmo        -0.20     0.80
-## logitrel_domain_namealc:age_dec_c2       -0.77    -0.11
-## logitrel_domain_namedri:age_dec_c2       -0.13     1.32
-## logitrel_domain_namedru:age_dec_c2       -0.63     0.05
-## logitrel_domain_namegam:age_dec_c2       -1.43     1.63
-## logitrel_domain_nameocc:age_dec_c2       -1.05     0.23
-## logitrel_domain_namesex:age_dec_c2       -0.38     1.78
-## logitrel_domain_namesmo:age_dec_c2       -0.71    -0.05
-## logitchange_Intercept                    -0.73     0.90
-## logitchange_age_dec_c                    -0.40     1.15
-## logitchange_domain_namealc               -1.41     0.28
-## logitchange_domain_namedri               -1.73     1.97
-## logitchange_domain_namedru               -0.92     1.32
-## logitchange_domain_namegam               -1.98     1.72
-## logitchange_domain_nameocc               -1.86     1.84
-## logitchange_domain_namesex               -1.22     1.70
-## logitchange_domain_namesmo               -1.27     0.40
-## logitchange_age_dec_c2                    0.07     1.09
-## logitchange_female_prop_c                 0.04     0.34
-## logitchange_age_dec_c:domain_namealc     -1.34     0.22
-## logitchange_age_dec_c:domain_namedri     -2.51     1.29
-## logitchange_age_dec_c:domain_namedru     -0.36     1.92
-## logitchange_age_dec_c:domain_namegam     -1.99     1.71
-## logitchange_age_dec_c:domain_nameocc     -2.05     1.62
-## logitchange_age_dec_c:domain_namesex     -0.98     1.59
-## logitchange_age_dec_c:domain_namesmo     -1.03     0.53
-## logitchange_domain_namealc:age_dec_c2    -0.94     0.08
-## logitchange_domain_namedri:age_dec_c2    -0.98     2.15
-## logitchange_domain_namedru:age_dec_c2    -0.11     1.34
-## logitchange_domain_namegam:age_dec_c2    -1.81     1.68
-## logitchange_domain_nameocc:age_dec_c2    -1.44     1.69
-## logitchange_domain_namesex:age_dec_c2    -0.72     0.49
-## logitchange_domain_namesmo:age_dec_c2    -1.04    -0.02
-## logitstabch_Intercept                    -2.20    -0.22
-## logitstabch_age_dec_c                    -0.16     1.29
-## logitstabch_domain_namealc               -2.27    -0.04
-## logitstabch_domain_namedri               -2.59     1.30
-## logitstabch_domain_namedru               -0.75     1.54
-## logitstabch_domain_namegam               -2.20     1.66
-## logitstabch_domain_nameocc               -2.30     1.48
-## logitstabch_domain_namesex               -3.19     0.30
-## logitstabch_domain_namesmo               -1.06     1.00
-## logitstabch_age_dec_c2                   -0.78     0.18
-## logitstabch_female_prop_c                 0.12     0.63
-## logitstabch_age_dec_c:domain_namealc     -0.98     0.50
-## logitstabch_age_dec_c:domain_namedri     -0.88     2.71
-## logitstabch_age_dec_c:domain_namedru     -1.13     0.36
-## logitstabch_age_dec_c:domain_namegam     -1.77     1.95
-## logitstabch_age_dec_c:domain_nameocc     -1.60     1.94
-## logitstabch_age_dec_c:domain_namesex     -0.54     2.80
-## logitstabch_age_dec_c:domain_namesmo     -1.34     0.12
-## logitstabch_domain_namealc:age_dec_c2    -0.11     0.86
-## logitstabch_domain_namedri:age_dec_c2    -1.55     0.94
-## logitstabch_domain_namedru:age_dec_c2    -0.62     0.37
-## logitstabch_domain_namegam:age_dec_c2    -1.52     2.04
-## logitstabch_domain_nameocc:age_dec_c2    -1.30     1.55
-## logitstabch_domain_namesex:age_dec_c2    -0.43     1.36
-## logitstabch_domain_namesmo:age_dec_c2    -0.11     0.86
-##                                       Rhat Bulk_ESS
-## logitrel_Intercept                    1.00     1812
-## logitrel_age_dec_c                    1.00     1933
-## logitrel_domain_namealc               1.00     2932
-## logitrel_domain_namedri               1.00     6354
-## logitrel_domain_namedru               1.00     2934
-## logitrel_domain_namegam               1.00     7661
-## logitrel_domain_nameocc               1.00     6664
-## logitrel_domain_namesex               1.00     4615
-## logitrel_domain_namesmo               1.00     2914
-## logitrel_age_dec_c2                   1.00     1661
-## logitrel_female_prop_c                1.00     3751
-## logitrel_age_dec_c:domain_namealc     1.00     1928
-## logitrel_age_dec_c:domain_namedri     1.00     2924
-## logitrel_age_dec_c:domain_namedru     1.00     2012
-## logitrel_age_dec_c:domain_namegam     1.00     6059
-## logitrel_age_dec_c:domain_nameocc     1.00     4767
-## logitrel_age_dec_c:domain_namesex     1.00     4459
-## logitrel_age_dec_c:domain_namesmo     1.00     1948
-## logitrel_domain_namealc:age_dec_c2    1.00     1683
-## logitrel_domain_namedri:age_dec_c2    1.00     2415
-## logitrel_domain_namedru:age_dec_c2    1.00     1768
-## logitrel_domain_namegam:age_dec_c2    1.00     3268
-## logitrel_domain_nameocc:age_dec_c2    1.00     4193
-## logitrel_domain_namesex:age_dec_c2    1.00     3992
-## logitrel_domain_namesmo:age_dec_c2    1.00     1721
-## logitchange_Intercept                 1.00     2898
-## logitchange_age_dec_c                 1.00     2126
-## logitchange_domain_namealc            1.00     2962
-## logitchange_domain_namedri            1.00     8579
-## logitchange_domain_namedru            1.00     4883
-## logitchange_domain_namegam            1.00    11793
-## logitchange_domain_nameocc            1.00    11431
-## logitchange_domain_namesex            1.00     4605
-## logitchange_domain_namesmo            1.00     2903
-## logitchange_age_dec_c2                1.00     1339
-## logitchange_female_prop_c             1.00     7014
-## logitchange_age_dec_c:domain_namealc  1.00     2150
-## logitchange_age_dec_c:domain_namedri  1.00     2313
-## logitchange_age_dec_c:domain_namedru  1.00     4988
-## logitchange_age_dec_c:domain_namegam  1.00     9034
-## logitchange_age_dec_c:domain_nameocc  1.00     9520
-## logitchange_age_dec_c:domain_namesex  1.00     6109
-## logitchange_age_dec_c:domain_namesmo  1.00     2133
-## logitchange_domain_namealc:age_dec_c2 1.00     1356
-## logitchange_domain_namedri:age_dec_c2 1.00     1625
-## logitchange_domain_namedru:age_dec_c2 1.00     3156
-## logitchange_domain_namegam:age_dec_c2 1.00     5572
-## logitchange_domain_nameocc:age_dec_c2 1.00     4279
-## logitchange_domain_namesex:age_dec_c2 1.00     2366
-## logitchange_domain_namesmo:age_dec_c2 1.00     1353
-## logitstabch_Intercept                 1.00     3213
-## logitstabch_age_dec_c                 1.00     1768
-## logitstabch_domain_namealc            1.00     3886
-## logitstabch_domain_namedri            1.00    12059
-## logitstabch_domain_namedru            1.00     4084
-## logitstabch_domain_namegam            1.00    12394
-## logitstabch_domain_nameocc            1.00    11679
-## logitstabch_domain_namesex            1.00     8783
-## logitstabch_domain_namesmo            1.00     3262
-## logitstabch_age_dec_c2                1.00     1515
-## logitstabch_female_prop_c             1.00     7158
-## logitstabch_age_dec_c:domain_namealc  1.00     1947
-## logitstabch_age_dec_c:domain_namedri  1.00     2015
-## logitstabch_age_dec_c:domain_namedru  1.00     1817
-## logitstabch_age_dec_c:domain_namegam  1.00     9971
-## logitstabch_age_dec_c:domain_nameocc  1.00     8926
-## logitstabch_age_dec_c:domain_namesex  1.00     6339
-## logitstabch_age_dec_c:domain_namesmo  1.00     1855
-## logitstabch_domain_namealc:age_dec_c2 1.00     1523
-## logitstabch_domain_namedri:age_dec_c2 1.00     2177
-## logitstabch_domain_namedru:age_dec_c2 1.00     1606
-## logitstabch_domain_namegam:age_dec_c2 1.00     4732
-## logitstabch_domain_nameocc:age_dec_c2 1.00     3959
-## logitstabch_domain_namesex:age_dec_c2 1.00     4452
-## logitstabch_domain_namesmo:age_dec_c2 1.00     1499
+##                                       Estimate
+## logitrel_Intercept                       -0.11
+## logitrel_age_dec_c                        0.21
+## logitrel_domain_namealc                   0.68
+## logitrel_domain_namedri                  -1.71
+## logitrel_domain_namedru                   0.31
+## logitrel_domain_namegam                   0.39
+## logitrel_domain_nameocc                   0.45
+## logitrel_domain_namesex                   0.17
+## logitrel_domain_namesmo                   1.80
+## logitrel_age_dec_c2                       0.38
+## logitrel_female_prop_c                   -0.15
+## logitrel_age_dec_c:domain_namealc        -0.19
+## logitrel_age_dec_c:domain_namedri        -0.00
+## logitrel_age_dec_c:domain_namedru        -0.28
+## logitrel_age_dec_c:domain_namegam        -0.21
+## logitrel_age_dec_c:domain_nameocc        -0.36
+## logitrel_age_dec_c:domain_namesex        -0.10
+## logitrel_age_dec_c:domain_namesmo         0.30
+## logitrel_domain_namealc:age_dec_c2       -0.42
+## logitrel_domain_namedri:age_dec_c2        0.44
+## logitrel_domain_namedru:age_dec_c2       -0.27
+## logitrel_domain_namegam:age_dec_c2       -0.04
+## logitrel_domain_nameocc:age_dec_c2       -0.40
+## logitrel_domain_namesex:age_dec_c2        0.58
+## logitrel_domain_namesmo:age_dec_c2       -0.36
+## logitchange_Intercept                     0.09
+## logitchange_age_dec_c                     0.35
+## logitchange_domain_namealc               -0.58
+## logitchange_domain_namedri                0.13
+## logitchange_domain_namedru                0.19
+## logitchange_domain_namegam               -0.11
+## logitchange_domain_nameocc                0.01
+## logitchange_domain_namesex                0.32
+## logitchange_domain_namesmo               -0.44
+## logitchange_age_dec_c2                    0.56
+## logitchange_female_prop_c                 0.19
+## logitchange_age_dec_c:domain_namealc     -0.54
+## logitchange_age_dec_c:domain_namedri     -0.70
+## logitchange_age_dec_c:domain_namedru      0.71
+## logitchange_age_dec_c:domain_namegam     -0.11
+## logitchange_age_dec_c:domain_nameocc     -0.22
+## logitchange_age_dec_c:domain_namesex      0.28
+## logitchange_age_dec_c:domain_namesmo     -0.23
+## logitchange_domain_namealc:age_dec_c2    -0.41
+## logitchange_domain_namedri:age_dec_c2     0.45
+## logitchange_domain_namedru:age_dec_c2     0.58
+## logitchange_domain_namegam:age_dec_c2    -0.09
+## logitchange_domain_nameocc:age_dec_c2     0.01
+## logitchange_domain_namesex:age_dec_c2    -0.11
+## logitchange_domain_namesmo:age_dec_c2    -0.51
+## logitstabch_Intercept                    -1.18
+## logitstabch_age_dec_c                     0.60
+## logitstabch_domain_namealc               -1.19
+## logitstabch_domain_namedri               -0.67
+## logitstabch_domain_namedru                0.38
+## logitstabch_domain_namegam               -0.29
+## logitstabch_domain_nameocc               -0.42
+## logitstabch_domain_namesex               -1.45
+## logitstabch_domain_namesmo               -0.05
+## logitstabch_age_dec_c2                   -0.29
+## logitstabch_female_prop_c                 0.36
+## logitstabch_age_dec_c:domain_namealc     -0.26
+## logitstabch_age_dec_c:domain_namedri      1.20
+## logitstabch_age_dec_c:domain_namedru     -0.42
+## logitstabch_age_dec_c:domain_namegam      0.08
+## logitstabch_age_dec_c:domain_nameocc      0.18
+## logitstabch_age_dec_c:domain_namesex      1.16
+## logitstabch_age_dec_c:domain_namesmo     -0.64
+## logitstabch_domain_namealc:age_dec_c2     0.37
+## logitstabch_domain_namedri:age_dec_c2    -0.17
+## logitstabch_domain_namedru:age_dec_c2    -0.13
+## logitstabch_domain_namegam:age_dec_c2     0.18
+## logitstabch_domain_nameocc:age_dec_c2     0.22
+## logitstabch_domain_namesex:age_dec_c2     0.49
+## logitstabch_domain_namesmo:age_dec_c2     0.37
+##                                       Est.Error
+## logitrel_Intercept                         0.32
+## logitrel_age_dec_c                         0.26
+## logitrel_domain_namealc                    0.26
+## logitrel_domain_namedri                    0.49
+## logitrel_domain_namedru                    0.27
+## logitrel_domain_namegam                    0.90
+## logitrel_domain_nameocc                    0.83
+## logitrel_domain_namesex                    0.71
+## logitrel_domain_namesmo                    0.26
+## logitrel_age_dec_c2                        0.17
+## logitrel_female_prop_c                     0.07
+## logitrel_age_dec_c:domain_namealc          0.25
+## logitrel_age_dec_c:domain_namedri          0.55
+## logitrel_age_dec_c:domain_namedru          0.26
+## logitrel_age_dec_c:domain_namegam          0.86
+## logitrel_age_dec_c:domain_nameocc          0.78
+## logitrel_age_dec_c:domain_namesex          0.81
+## logitrel_age_dec_c:domain_namesmo          0.26
+## logitrel_domain_namealc:age_dec_c2         0.17
+## logitrel_domain_namedri:age_dec_c2         0.36
+## logitrel_domain_namedru:age_dec_c2         0.17
+## logitrel_domain_namegam:age_dec_c2         0.78
+## logitrel_domain_nameocc:age_dec_c2         0.33
+## logitrel_domain_namesex:age_dec_c2         0.54
+## logitrel_domain_namesmo:age_dec_c2         0.17
+## logitchange_Intercept                      0.42
+## logitchange_age_dec_c                      0.39
+## logitchange_domain_namealc                 0.43
+## logitchange_domain_namedri                 0.94
+## logitchange_domain_namedru                 0.56
+## logitchange_domain_namegam                 0.95
+## logitchange_domain_nameocc                 0.95
+## logitchange_domain_namesex                 0.73
+## logitchange_domain_namesmo                 0.43
+## logitchange_age_dec_c2                     0.26
+## logitchange_female_prop_c                  0.08
+## logitchange_age_dec_c:domain_namealc       0.40
+## logitchange_age_dec_c:domain_namedri       1.01
+## logitchange_age_dec_c:domain_namedru       0.58
+## logitchange_age_dec_c:domain_namegam       0.94
+## logitchange_age_dec_c:domain_nameocc       0.93
+## logitchange_age_dec_c:domain_namesex       0.66
+## logitchange_age_dec_c:domain_namesmo       0.40
+## logitchange_domain_namealc:age_dec_c2      0.26
+## logitchange_domain_namedri:age_dec_c2      0.85
+## logitchange_domain_namedru:age_dec_c2      0.37
+## logitchange_domain_namegam:age_dec_c2      0.89
+## logitchange_domain_nameocc:age_dec_c2      0.77
+## logitchange_domain_namesex:age_dec_c2      0.31
+## logitchange_domain_namesmo:age_dec_c2      0.26
+## logitstabch_Intercept                      0.51
+## logitstabch_age_dec_c                      0.37
+## logitstabch_domain_namealc                 0.57
+## logitstabch_domain_namedri                 1.00
+## logitstabch_domain_namedru                 0.58
+## logitstabch_domain_namegam                 0.98
+## logitstabch_domain_nameocc                 0.97
+## logitstabch_domain_namesex                 0.88
+## logitstabch_domain_namesmo                 0.53
+## logitstabch_age_dec_c2                     0.24
+## logitstabch_female_prop_c                  0.13
+## logitstabch_age_dec_c:domain_namealc       0.38
+## logitstabch_age_dec_c:domain_namedri       0.91
+## logitstabch_age_dec_c:domain_namedru       0.38
+## logitstabch_age_dec_c:domain_namegam       0.94
+## logitstabch_age_dec_c:domain_nameocc       0.90
+## logitstabch_age_dec_c:domain_namesex       0.85
+## logitstabch_age_dec_c:domain_namesmo       0.37
+## logitstabch_domain_namealc:age_dec_c2      0.24
+## logitstabch_domain_namedri:age_dec_c2      0.61
+## logitstabch_domain_namedru:age_dec_c2      0.25
+## logitstabch_domain_namegam:age_dec_c2      0.90
+## logitstabch_domain_nameocc:age_dec_c2      0.69
+## logitstabch_domain_namesex:age_dec_c2      0.45
+## logitstabch_domain_namesmo:age_dec_c2      0.24
+##                                       l-95% CI
+## logitrel_Intercept                       -0.71
+## logitrel_age_dec_c                       -0.32
+## logitrel_domain_namealc                   0.14
+## logitrel_domain_namedri                  -2.61
+## logitrel_domain_namedru                  -0.23
+## logitrel_domain_namegam                  -1.40
+## logitrel_domain_nameocc                  -1.16
+## logitrel_domain_namesex                  -1.06
+## logitrel_domain_namesmo                   1.26
+## logitrel_age_dec_c2                       0.07
+## logitrel_female_prop_c                   -0.30
+## logitrel_age_dec_c:domain_namealc        -0.69
+## logitrel_age_dec_c:domain_namedri        -1.35
+## logitrel_age_dec_c:domain_namedru        -0.79
+## logitrel_age_dec_c:domain_namegam        -1.91
+## logitrel_age_dec_c:domain_nameocc        -1.90
+## logitrel_age_dec_c:domain_namesex        -1.75
+## logitrel_age_dec_c:domain_namesmo        -0.20
+## logitrel_domain_namealc:age_dec_c2       -0.77
+## logitrel_domain_namedri:age_dec_c2       -0.13
+## logitrel_domain_namedru:age_dec_c2       -0.63
+## logitrel_domain_namegam:age_dec_c2       -1.43
+## logitrel_domain_nameocc:age_dec_c2       -1.05
+## logitrel_domain_namesex:age_dec_c2       -0.38
+## logitrel_domain_namesmo:age_dec_c2       -0.71
+## logitchange_Intercept                    -0.73
+## logitchange_age_dec_c                    -0.40
+## logitchange_domain_namealc               -1.41
+## logitchange_domain_namedri               -1.73
+## logitchange_domain_namedru               -0.92
+## logitchange_domain_namegam               -1.98
+## logitchange_domain_nameocc               -1.86
+## logitchange_domain_namesex               -1.22
+## logitchange_domain_namesmo               -1.27
+## logitchange_age_dec_c2                    0.07
+## logitchange_female_prop_c                 0.04
+## logitchange_age_dec_c:domain_namealc     -1.34
+## logitchange_age_dec_c:domain_namedri     -2.51
+## logitchange_age_dec_c:domain_namedru     -0.36
+## logitchange_age_dec_c:domain_namegam     -1.99
+## logitchange_age_dec_c:domain_nameocc     -2.05
+## logitchange_age_dec_c:domain_namesex     -0.98
+## logitchange_age_dec_c:domain_namesmo     -1.03
+## logitchange_domain_namealc:age_dec_c2    -0.94
+## logitchange_domain_namedri:age_dec_c2    -0.98
+## logitchange_domain_namedru:age_dec_c2    -0.11
+## logitchange_domain_namegam:age_dec_c2    -1.81
+## logitchange_domain_nameocc:age_dec_c2    -1.44
+## logitchange_domain_namesex:age_dec_c2    -0.72
+## logitchange_domain_namesmo:age_dec_c2    -1.04
+## logitstabch_Intercept                    -2.20
+## logitstabch_age_dec_c                    -0.16
+## logitstabch_domain_namealc               -2.27
+## logitstabch_domain_namedri               -2.59
+## logitstabch_domain_namedru               -0.75
+## logitstabch_domain_namegam               -2.20
+## logitstabch_domain_nameocc               -2.30
+## logitstabch_domain_namesex               -3.19
+## logitstabch_domain_namesmo               -1.06
+## logitstabch_age_dec_c2                   -0.78
+## logitstabch_female_prop_c                 0.12
+## logitstabch_age_dec_c:domain_namealc     -0.98
+## logitstabch_age_dec_c:domain_namedri     -0.88
+## logitstabch_age_dec_c:domain_namedru     -1.13
+## logitstabch_age_dec_c:domain_namegam     -1.77
+## logitstabch_age_dec_c:domain_nameocc     -1.60
+## logitstabch_age_dec_c:domain_namesex     -0.54
+## logitstabch_age_dec_c:domain_namesmo     -1.34
+## logitstabch_domain_namealc:age_dec_c2    -0.11
+## logitstabch_domain_namedri:age_dec_c2    -1.55
+## logitstabch_domain_namedru:age_dec_c2    -0.62
+## logitstabch_domain_namegam:age_dec_c2    -1.52
+## logitstabch_domain_nameocc:age_dec_c2    -1.30
+## logitstabch_domain_namesex:age_dec_c2    -0.43
+## logitstabch_domain_namesmo:age_dec_c2    -0.11
+##                                       u-95% CI Rhat
+## logitrel_Intercept                        0.53 1.00
+## logitrel_age_dec_c                        0.73 1.00
+## logitrel_domain_namealc                   1.17 1.00
+## logitrel_domain_namedri                  -0.71 1.00
+## logitrel_domain_namedru                   0.81 1.00
+## logitrel_domain_namegam                   2.18 1.00
+## logitrel_domain_nameocc                   2.11 1.00
+## logitrel_domain_namesex                   1.73 1.00
+## logitrel_domain_namesmo                   2.27 1.00
+## logitrel_age_dec_c2                       0.73 1.00
+## logitrel_female_prop_c                   -0.00 1.00
+## logitrel_age_dec_c:domain_namealc         0.31 1.00
+## logitrel_age_dec_c:domain_namedri         0.89 1.00
+## logitrel_age_dec_c:domain_namedru         0.23 1.00
+## logitrel_age_dec_c:domain_namegam         1.46 1.00
+## logitrel_age_dec_c:domain_nameocc         1.16 1.00
+## logitrel_age_dec_c:domain_namesex         1.42 1.00
+## logitrel_age_dec_c:domain_namesmo         0.80 1.00
+## logitrel_domain_namealc:age_dec_c2       -0.11 1.00
+## logitrel_domain_namedri:age_dec_c2        1.32 1.00
+## logitrel_domain_namedru:age_dec_c2        0.05 1.00
+## logitrel_domain_namegam:age_dec_c2        1.63 1.00
+## logitrel_domain_nameocc:age_dec_c2        0.23 1.00
+## logitrel_domain_namesex:age_dec_c2        1.78 1.00
+## logitrel_domain_namesmo:age_dec_c2       -0.05 1.00
+## logitchange_Intercept                     0.90 1.00
+## logitchange_age_dec_c                     1.15 1.00
+## logitchange_domain_namealc                0.28 1.00
+## logitchange_domain_namedri                1.97 1.00
+## logitchange_domain_namedru                1.32 1.00
+## logitchange_domain_namegam                1.72 1.00
+## logitchange_domain_nameocc                1.84 1.00
+## logitchange_domain_namesex                1.70 1.00
+## logitchange_domain_namesmo                0.40 1.00
+## logitchange_age_dec_c2                    1.09 1.00
+## logitchange_female_prop_c                 0.34 1.00
+## logitchange_age_dec_c:domain_namealc      0.22 1.00
+## logitchange_age_dec_c:domain_namedri      1.29 1.00
+## logitchange_age_dec_c:domain_namedru      1.92 1.00
+## logitchange_age_dec_c:domain_namegam      1.71 1.00
+## logitchange_age_dec_c:domain_nameocc      1.62 1.00
+## logitchange_age_dec_c:domain_namesex      1.59 1.00
+## logitchange_age_dec_c:domain_namesmo      0.53 1.00
+## logitchange_domain_namealc:age_dec_c2     0.08 1.00
+## logitchange_domain_namedri:age_dec_c2     2.15 1.00
+## logitchange_domain_namedru:age_dec_c2     1.34 1.00
+## logitchange_domain_namegam:age_dec_c2     1.68 1.00
+## logitchange_domain_nameocc:age_dec_c2     1.69 1.00
+## logitchange_domain_namesex:age_dec_c2     0.49 1.00
+## logitchange_domain_namesmo:age_dec_c2    -0.02 1.00
+## logitstabch_Intercept                    -0.22 1.00
+## logitstabch_age_dec_c                     1.29 1.00
+## logitstabch_domain_namealc               -0.04 1.00
+## logitstabch_domain_namedri                1.30 1.00
+## logitstabch_domain_namedru                1.54 1.00
+## logitstabch_domain_namegam                1.66 1.00
+## logitstabch_domain_nameocc                1.48 1.00
+## logitstabch_domain_namesex                0.30 1.00
+## logitstabch_domain_namesmo                1.00 1.00
+## logitstabch_age_dec_c2                    0.18 1.00
+## logitstabch_female_prop_c                 0.63 1.00
+## logitstabch_age_dec_c:domain_namealc      0.50 1.00
+## logitstabch_age_dec_c:domain_namedri      2.71 1.00
+## logitstabch_age_dec_c:domain_namedru      0.36 1.00
+## logitstabch_age_dec_c:domain_namegam      1.95 1.00
+## logitstabch_age_dec_c:domain_nameocc      1.94 1.00
+## logitstabch_age_dec_c:domain_namesex      2.80 1.00
+## logitstabch_age_dec_c:domain_namesmo      0.12 1.00
+## logitstabch_domain_namealc:age_dec_c2     0.86 1.00
+## logitstabch_domain_namedri:age_dec_c2     0.94 1.00
+## logitstabch_domain_namedru:age_dec_c2     0.37 1.00
+## logitstabch_domain_namegam:age_dec_c2     2.04 1.00
+## logitstabch_domain_nameocc:age_dec_c2     1.55 1.00
+## logitstabch_domain_namesex:age_dec_c2     1.36 1.00
+## logitstabch_domain_namesmo:age_dec_c2     0.86 1.00
+##                                       Bulk_ESS
+## logitrel_Intercept                        1812
+## logitrel_age_dec_c                        1933
+## logitrel_domain_namealc                   2932
+## logitrel_domain_namedri                   6354
+## logitrel_domain_namedru                   2934
+## logitrel_domain_namegam                   7661
+## logitrel_domain_nameocc                   6664
+## logitrel_domain_namesex                   4615
+## logitrel_domain_namesmo                   2914
+## logitrel_age_dec_c2                       1661
+## logitrel_female_prop_c                    3751
+## logitrel_age_dec_c:domain_namealc         1928
+## logitrel_age_dec_c:domain_namedri         2924
+## logitrel_age_dec_c:domain_namedru         2012
+## logitrel_age_dec_c:domain_namegam         6059
+## logitrel_age_dec_c:domain_nameocc         4767
+## logitrel_age_dec_c:domain_namesex         4459
+## logitrel_age_dec_c:domain_namesmo         1948
+## logitrel_domain_namealc:age_dec_c2        1683
+## logitrel_domain_namedri:age_dec_c2        2415
+## logitrel_domain_namedru:age_dec_c2        1768
+## logitrel_domain_namegam:age_dec_c2        3268
+## logitrel_domain_nameocc:age_dec_c2        4193
+## logitrel_domain_namesex:age_dec_c2        3992
+## logitrel_domain_namesmo:age_dec_c2        1721
+## logitchange_Intercept                     2898
+## logitchange_age_dec_c                     2126
+## logitchange_domain_namealc                2962
+## logitchange_domain_namedri                8579
+## logitchange_domain_namedru                4883
+## logitchange_domain_namegam               11793
+## logitchange_domain_nameocc               11431
+## logitchange_domain_namesex                4605
+## logitchange_domain_namesmo                2903
+## logitchange_age_dec_c2                    1339
+## logitchange_female_prop_c                 7014
+## logitchange_age_dec_c:domain_namealc      2150
+## logitchange_age_dec_c:domain_namedri      2313
+## logitchange_age_dec_c:domain_namedru      4988
+## logitchange_age_dec_c:domain_namegam      9034
+## logitchange_age_dec_c:domain_nameocc      9520
+## logitchange_age_dec_c:domain_namesex      6109
+## logitchange_age_dec_c:domain_namesmo      2133
+## logitchange_domain_namealc:age_dec_c2     1356
+## logitchange_domain_namedri:age_dec_c2     1625
+## logitchange_domain_namedru:age_dec_c2     3156
+## logitchange_domain_namegam:age_dec_c2     5572
+## logitchange_domain_nameocc:age_dec_c2     4279
+## logitchange_domain_namesex:age_dec_c2     2366
+## logitchange_domain_namesmo:age_dec_c2     1353
+## logitstabch_Intercept                     3213
+## logitstabch_age_dec_c                     1768
+## logitstabch_domain_namealc                3886
+## logitstabch_domain_namedri               12059
+## logitstabch_domain_namedru                4084
+## logitstabch_domain_namegam               12394
+## logitstabch_domain_nameocc               11679
+## logitstabch_domain_namesex                8783
+## logitstabch_domain_namesmo                3262
+## logitstabch_age_dec_c2                    1515
+## logitstabch_female_prop_c                 7158
+## logitstabch_age_dec_c:domain_namealc      1947
+## logitstabch_age_dec_c:domain_namedri      2015
+## logitstabch_age_dec_c:domain_namedru      1817
+## logitstabch_age_dec_c:domain_namegam      9971
+## logitstabch_age_dec_c:domain_nameocc      8926
+## logitstabch_age_dec_c:domain_namesex      6339
+## logitstabch_age_dec_c:domain_namesmo      1855
+## logitstabch_domain_namealc:age_dec_c2     1523
+## logitstabch_domain_namedri:age_dec_c2     2177
+## logitstabch_domain_namedru:age_dec_c2     1606
+## logitstabch_domain_namegam:age_dec_c2     4732
+## logitstabch_domain_nameocc:age_dec_c2     3959
+## logitstabch_domain_namesex:age_dec_c2     4452
+## logitstabch_domain_namesmo:age_dec_c2     1499
 ##                                       Tail_ESS
 ## logitrel_Intercept                        3064
 ## logitrel_age_dec_c                        3600
@@ -1530,12 +1851,12 @@ Illustration of MASC parameters. Adapted from Anusic and Schimack, 2015
 ## logitstabch_domain_namesmo:age_dec_c2     3129
 ## 
 ## Family Specific Parameters: 
-##       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS
-## sigma     0.07      0.00     0.06     0.07 1.00     7439
-## nu        2.95      0.19     2.61     3.35 1.00     8193
-##       Tail_ESS
-## sigma     7083
-## nu        6819
+##       Estimate Est.Error l-95% CI u-95% CI Rhat
+## sigma     0.07      0.00     0.06     0.07 1.00
+## nu        2.95      0.19     2.61     3.35 1.00
+##       Bulk_ESS Tail_ESS
+## sigma     7439     7083
+## nu        8193     6819
 ## 
 ## Draws were sampled using sample(hmc). For each parameter, Bulk_ESS
 ## and Tail_ESS are effective sample size measures, and Rhat is the potential
@@ -1770,126 +2091,206 @@ Illustration of MASC parameters. Adapted from Anusic and Schimack, 2015
 ## cor(logitrel_age_dec_c2,logitrel_female_prop_c)     8357
 ## 
 ## Population-Level Effects: 
-##                                       Estimate Est.Error
-## logitrel_Intercept                       -0.85      0.24
-## logitrel_age_dec_c                       -0.07      0.07
-## logitrel_domain_nameins                  -0.21      0.08
-## logitrel_domain_nameinv                   0.27      0.14
-## logitrel_domain_nameocc                  -0.12      0.07
-## logitrel_age_dec_c2                      -0.00      0.02
-## logitrel_female_prop_c                   -0.15      0.10
-## logitrel_age_dec_c:domain_nameins        -0.11      0.06
-## logitrel_age_dec_c:domain_nameinv         0.07      0.08
-## logitrel_age_dec_c:domain_nameocc        -0.05      0.06
-## logitrel_domain_nameins:age_dec_c2        0.05      0.03
-## logitrel_domain_nameinv:age_dec_c2       -0.03      0.04
-## logitrel_domain_nameocc:age_dec_c2       -0.02      0.02
-## logitchange_Intercept                    -0.40      0.89
-## logitchange_age_dec_c                     0.11      0.83
-## logitchange_domain_nameins                0.54      0.94
-## logitchange_domain_nameinv                0.49      0.96
-## logitchange_domain_nameocc               -0.14      0.95
-## logitchange_age_dec_c2                    0.26      0.81
-## logitchange_female_prop_c                -0.04      0.90
-## logitchange_age_dec_c:domain_nameins      0.22      0.93
-## logitchange_age_dec_c:domain_nameinv      0.47      0.91
-## logitchange_age_dec_c:domain_nameocc     -0.27      0.88
-## logitchange_domain_nameins:age_dec_c2     0.09      0.95
-## logitchange_domain_nameinv:age_dec_c2     0.46      0.86
-## logitchange_domain_nameocc:age_dec_c2     0.35      0.84
-## logitstabch_Intercept                     0.65      0.78
-## logitstabch_age_dec_c                     0.06      0.70
-## logitstabch_domain_nameins               -0.55      0.89
-## logitstabch_domain_nameinv               -0.35      0.88
-## logitstabch_domain_nameocc                0.17      0.89
-## logitstabch_age_dec_c2                    0.13      0.61
-## logitstabch_female_prop_c                -0.38      0.69
-## logitstabch_age_dec_c:domain_nameins     -0.22      0.88
-## logitstabch_age_dec_c:domain_nameinv     -0.42      0.77
-## logitstabch_age_dec_c:domain_nameocc      0.32      0.85
-## logitstabch_domain_nameins:age_dec_c2     0.01      0.82
-## logitstabch_domain_nameinv:age_dec_c2    -0.11      0.64
-## logitstabch_domain_nameocc:age_dec_c2    -0.42      0.74
-##                                       l-95% CI u-95% CI
-## logitrel_Intercept                       -1.32    -0.38
-## logitrel_age_dec_c                       -0.22     0.06
-## logitrel_domain_nameins                  -0.37    -0.04
-## logitrel_domain_nameinv                   0.00     0.56
-## logitrel_domain_nameocc                  -0.24     0.02
-## logitrel_age_dec_c2                      -0.04     0.04
-## logitrel_female_prop_c                   -0.37     0.02
-## logitrel_age_dec_c:domain_nameins        -0.24     0.01
-## logitrel_age_dec_c:domain_nameinv        -0.09     0.23
-## logitrel_age_dec_c:domain_nameocc        -0.17     0.07
-## logitrel_domain_nameins:age_dec_c2       -0.00     0.11
-## logitrel_domain_nameinv:age_dec_c2       -0.10     0.05
-## logitrel_domain_nameocc:age_dec_c2       -0.07     0.03
-## logitchange_Intercept                    -2.07     1.43
-## logitchange_age_dec_c                    -1.51     1.80
-## logitchange_domain_nameins               -1.29     2.34
-## logitchange_domain_nameinv               -1.40     2.35
-## logitchange_domain_nameocc               -1.99     1.78
-## logitchange_age_dec_c2                   -1.22     1.96
-## logitchange_female_prop_c                -1.90     1.62
-## logitchange_age_dec_c:domain_nameins     -1.61     2.01
-## logitchange_age_dec_c:domain_nameinv     -1.33     2.23
-## logitchange_age_dec_c:domain_nameocc     -1.97     1.54
-## logitchange_domain_nameins:age_dec_c2    -1.74     2.00
-## logitchange_domain_nameinv:age_dec_c2    -1.17     2.20
-## logitchange_domain_nameocc:age_dec_c2    -1.28     2.05
-## logitstabch_Intercept                    -0.97     2.13
-## logitstabch_age_dec_c                    -1.35     1.40
-## logitstabch_domain_nameins               -2.21     1.29
-## logitstabch_domain_nameinv               -2.06     1.42
-## logitstabch_domain_nameocc               -1.63     1.89
-## logitstabch_age_dec_c2                   -1.12     1.33
-## logitstabch_female_prop_c                -1.59     1.22
-## logitstabch_age_dec_c:domain_nameins     -1.94     1.55
-## logitstabch_age_dec_c:domain_nameinv     -1.96     1.12
-## logitstabch_age_dec_c:domain_nameocc     -1.42     1.94
-## logitstabch_domain_nameins:age_dec_c2    -1.66     1.63
-## logitstabch_domain_nameinv:age_dec_c2    -1.39     1.16
-## logitstabch_domain_nameocc:age_dec_c2    -1.94     1.03
-##                                       Rhat Bulk_ESS
-## logitrel_Intercept                    1.00     2319
-## logitrel_age_dec_c                    1.00     4250
-## logitrel_domain_nameins               1.00     7200
-## logitrel_domain_nameinv               1.00     6043
-## logitrel_domain_nameocc               1.00     7186
-## logitrel_age_dec_c2                   1.00     6090
-## logitrel_female_prop_c                1.00     5357
-## logitrel_age_dec_c:domain_nameins     1.00     6099
-## logitrel_age_dec_c:domain_nameinv     1.00     5865
-## logitrel_age_dec_c:domain_nameocc     1.00     5407
-## logitrel_domain_nameins:age_dec_c2    1.00     4929
-## logitrel_domain_nameinv:age_dec_c2    1.00     4915
-## logitrel_domain_nameocc:age_dec_c2    1.00     5049
-## logitchange_Intercept                 1.00     9151
-## logitchange_age_dec_c                 1.00     9388
-## logitchange_domain_nameins            1.00    12618
-## logitchange_domain_nameinv            1.00    10009
-## logitchange_domain_nameocc            1.00    10084
-## logitchange_age_dec_c2                1.00     3695
-## logitchange_female_prop_c             1.00     3925
-## logitchange_age_dec_c:domain_nameins  1.00    13906
-## logitchange_age_dec_c:domain_nameinv  1.00    13132
-## logitchange_age_dec_c:domain_nameocc  1.00     9698
-## logitchange_domain_nameins:age_dec_c2 1.00     8686
-## logitchange_domain_nameinv:age_dec_c2 1.00     8513
-## logitchange_domain_nameocc:age_dec_c2 1.00     4883
-## logitstabch_Intercept                 1.00     7551
-## logitstabch_age_dec_c                 1.00     7194
-## logitstabch_domain_nameins            1.00    10261
-## logitstabch_domain_nameinv            1.00     8889
-## logitstabch_domain_nameocc            1.00     8965
-## logitstabch_age_dec_c2                1.00     4354
-## logitstabch_female_prop_c             1.00     3788
-## logitstabch_age_dec_c:domain_nameins  1.00     8535
-## logitstabch_age_dec_c:domain_nameinv  1.00     9220
-## logitstabch_age_dec_c:domain_nameocc  1.00     8292
-## logitstabch_domain_nameins:age_dec_c2 1.00     7615
-## logitstabch_domain_nameinv:age_dec_c2 1.00     5885
-## logitstabch_domain_nameocc:age_dec_c2 1.00     4060
+##                                       Estimate
+## logitrel_Intercept                       -0.85
+## logitrel_age_dec_c                       -0.07
+## logitrel_domain_nameins                  -0.21
+## logitrel_domain_nameinv                   0.27
+## logitrel_domain_nameocc                  -0.12
+## logitrel_age_dec_c2                      -0.00
+## logitrel_female_prop_c                   -0.15
+## logitrel_age_dec_c:domain_nameins        -0.11
+## logitrel_age_dec_c:domain_nameinv         0.07
+## logitrel_age_dec_c:domain_nameocc        -0.05
+## logitrel_domain_nameins:age_dec_c2        0.05
+## logitrel_domain_nameinv:age_dec_c2       -0.03
+## logitrel_domain_nameocc:age_dec_c2       -0.02
+## logitchange_Intercept                    -0.40
+## logitchange_age_dec_c                     0.11
+## logitchange_domain_nameins                0.54
+## logitchange_domain_nameinv                0.49
+## logitchange_domain_nameocc               -0.14
+## logitchange_age_dec_c2                    0.26
+## logitchange_female_prop_c                -0.04
+## logitchange_age_dec_c:domain_nameins      0.22
+## logitchange_age_dec_c:domain_nameinv      0.47
+## logitchange_age_dec_c:domain_nameocc     -0.27
+## logitchange_domain_nameins:age_dec_c2     0.09
+## logitchange_domain_nameinv:age_dec_c2     0.46
+## logitchange_domain_nameocc:age_dec_c2     0.35
+## logitstabch_Intercept                     0.65
+## logitstabch_age_dec_c                     0.06
+## logitstabch_domain_nameins               -0.55
+## logitstabch_domain_nameinv               -0.35
+## logitstabch_domain_nameocc                0.17
+## logitstabch_age_dec_c2                    0.13
+## logitstabch_female_prop_c                -0.38
+## logitstabch_age_dec_c:domain_nameins     -0.22
+## logitstabch_age_dec_c:domain_nameinv     -0.42
+## logitstabch_age_dec_c:domain_nameocc      0.32
+## logitstabch_domain_nameins:age_dec_c2     0.01
+## logitstabch_domain_nameinv:age_dec_c2    -0.11
+## logitstabch_domain_nameocc:age_dec_c2    -0.42
+##                                       Est.Error
+## logitrel_Intercept                         0.24
+## logitrel_age_dec_c                         0.07
+## logitrel_domain_nameins                    0.08
+## logitrel_domain_nameinv                    0.14
+## logitrel_domain_nameocc                    0.07
+## logitrel_age_dec_c2                        0.02
+## logitrel_female_prop_c                     0.10
+## logitrel_age_dec_c:domain_nameins          0.06
+## logitrel_age_dec_c:domain_nameinv          0.08
+## logitrel_age_dec_c:domain_nameocc          0.06
+## logitrel_domain_nameins:age_dec_c2         0.03
+## logitrel_domain_nameinv:age_dec_c2         0.04
+## logitrel_domain_nameocc:age_dec_c2         0.02
+## logitchange_Intercept                      0.89
+## logitchange_age_dec_c                      0.83
+## logitchange_domain_nameins                 0.94
+## logitchange_domain_nameinv                 0.96
+## logitchange_domain_nameocc                 0.95
+## logitchange_age_dec_c2                     0.81
+## logitchange_female_prop_c                  0.90
+## logitchange_age_dec_c:domain_nameins       0.93
+## logitchange_age_dec_c:domain_nameinv       0.91
+## logitchange_age_dec_c:domain_nameocc       0.88
+## logitchange_domain_nameins:age_dec_c2      0.95
+## logitchange_domain_nameinv:age_dec_c2      0.86
+## logitchange_domain_nameocc:age_dec_c2      0.84
+## logitstabch_Intercept                      0.78
+## logitstabch_age_dec_c                      0.70
+## logitstabch_domain_nameins                 0.89
+## logitstabch_domain_nameinv                 0.88
+## logitstabch_domain_nameocc                 0.89
+## logitstabch_age_dec_c2                     0.61
+## logitstabch_female_prop_c                  0.69
+## logitstabch_age_dec_c:domain_nameins       0.88
+## logitstabch_age_dec_c:domain_nameinv       0.77
+## logitstabch_age_dec_c:domain_nameocc       0.85
+## logitstabch_domain_nameins:age_dec_c2      0.82
+## logitstabch_domain_nameinv:age_dec_c2      0.64
+## logitstabch_domain_nameocc:age_dec_c2      0.74
+##                                       l-95% CI
+## logitrel_Intercept                       -1.32
+## logitrel_age_dec_c                       -0.22
+## logitrel_domain_nameins                  -0.37
+## logitrel_domain_nameinv                   0.00
+## logitrel_domain_nameocc                  -0.24
+## logitrel_age_dec_c2                      -0.04
+## logitrel_female_prop_c                   -0.37
+## logitrel_age_dec_c:domain_nameins        -0.24
+## logitrel_age_dec_c:domain_nameinv        -0.09
+## logitrel_age_dec_c:domain_nameocc        -0.17
+## logitrel_domain_nameins:age_dec_c2       -0.00
+## logitrel_domain_nameinv:age_dec_c2       -0.10
+## logitrel_domain_nameocc:age_dec_c2       -0.07
+## logitchange_Intercept                    -2.07
+## logitchange_age_dec_c                    -1.51
+## logitchange_domain_nameins               -1.29
+## logitchange_domain_nameinv               -1.40
+## logitchange_domain_nameocc               -1.99
+## logitchange_age_dec_c2                   -1.22
+## logitchange_female_prop_c                -1.90
+## logitchange_age_dec_c:domain_nameins     -1.61
+## logitchange_age_dec_c:domain_nameinv     -1.33
+## logitchange_age_dec_c:domain_nameocc     -1.97
+## logitchange_domain_nameins:age_dec_c2    -1.74
+## logitchange_domain_nameinv:age_dec_c2    -1.17
+## logitchange_domain_nameocc:age_dec_c2    -1.28
+## logitstabch_Intercept                    -0.97
+## logitstabch_age_dec_c                    -1.35
+## logitstabch_domain_nameins               -2.21
+## logitstabch_domain_nameinv               -2.06
+## logitstabch_domain_nameocc               -1.63
+## logitstabch_age_dec_c2                   -1.12
+## logitstabch_female_prop_c                -1.59
+## logitstabch_age_dec_c:domain_nameins     -1.94
+## logitstabch_age_dec_c:domain_nameinv     -1.96
+## logitstabch_age_dec_c:domain_nameocc     -1.42
+## logitstabch_domain_nameins:age_dec_c2    -1.66
+## logitstabch_domain_nameinv:age_dec_c2    -1.39
+## logitstabch_domain_nameocc:age_dec_c2    -1.94
+##                                       u-95% CI Rhat
+## logitrel_Intercept                       -0.38 1.00
+## logitrel_age_dec_c                        0.06 1.00
+## logitrel_domain_nameins                  -0.04 1.00
+## logitrel_domain_nameinv                   0.56 1.00
+## logitrel_domain_nameocc                   0.02 1.00
+## logitrel_age_dec_c2                       0.04 1.00
+## logitrel_female_prop_c                    0.02 1.00
+## logitrel_age_dec_c:domain_nameins         0.01 1.00
+## logitrel_age_dec_c:domain_nameinv         0.23 1.00
+## logitrel_age_dec_c:domain_nameocc         0.07 1.00
+## logitrel_domain_nameins:age_dec_c2        0.11 1.00
+## logitrel_domain_nameinv:age_dec_c2        0.05 1.00
+## logitrel_domain_nameocc:age_dec_c2        0.03 1.00
+## logitchange_Intercept                     1.43 1.00
+## logitchange_age_dec_c                     1.80 1.00
+## logitchange_domain_nameins                2.34 1.00
+## logitchange_domain_nameinv                2.35 1.00
+## logitchange_domain_nameocc                1.78 1.00
+## logitchange_age_dec_c2                    1.96 1.00
+## logitchange_female_prop_c                 1.62 1.00
+## logitchange_age_dec_c:domain_nameins      2.01 1.00
+## logitchange_age_dec_c:domain_nameinv      2.23 1.00
+## logitchange_age_dec_c:domain_nameocc      1.54 1.00
+## logitchange_domain_nameins:age_dec_c2     2.00 1.00
+## logitchange_domain_nameinv:age_dec_c2     2.20 1.00
+## logitchange_domain_nameocc:age_dec_c2     2.05 1.00
+## logitstabch_Intercept                     2.13 1.00
+## logitstabch_age_dec_c                     1.40 1.00
+## logitstabch_domain_nameins                1.29 1.00
+## logitstabch_domain_nameinv                1.42 1.00
+## logitstabch_domain_nameocc                1.89 1.00
+## logitstabch_age_dec_c2                    1.33 1.00
+## logitstabch_female_prop_c                 1.22 1.00
+## logitstabch_age_dec_c:domain_nameins      1.55 1.00
+## logitstabch_age_dec_c:domain_nameinv      1.12 1.00
+## logitstabch_age_dec_c:domain_nameocc      1.94 1.00
+## logitstabch_domain_nameins:age_dec_c2     1.63 1.00
+## logitstabch_domain_nameinv:age_dec_c2     1.16 1.00
+## logitstabch_domain_nameocc:age_dec_c2     1.03 1.00
+##                                       Bulk_ESS
+## logitrel_Intercept                        2319
+## logitrel_age_dec_c                        4250
+## logitrel_domain_nameins                   7200
+## logitrel_domain_nameinv                   6043
+## logitrel_domain_nameocc                   7186
+## logitrel_age_dec_c2                       6090
+## logitrel_female_prop_c                    5357
+## logitrel_age_dec_c:domain_nameins         6099
+## logitrel_age_dec_c:domain_nameinv         5865
+## logitrel_age_dec_c:domain_nameocc         5407
+## logitrel_domain_nameins:age_dec_c2        4929
+## logitrel_domain_nameinv:age_dec_c2        4915
+## logitrel_domain_nameocc:age_dec_c2        5049
+## logitchange_Intercept                     9151
+## logitchange_age_dec_c                     9388
+## logitchange_domain_nameins               12618
+## logitchange_domain_nameinv               10009
+## logitchange_domain_nameocc               10084
+## logitchange_age_dec_c2                    3695
+## logitchange_female_prop_c                 3925
+## logitchange_age_dec_c:domain_nameins     13906
+## logitchange_age_dec_c:domain_nameinv     13132
+## logitchange_age_dec_c:domain_nameocc      9698
+## logitchange_domain_nameins:age_dec_c2     8686
+## logitchange_domain_nameinv:age_dec_c2     8513
+## logitchange_domain_nameocc:age_dec_c2     4883
+## logitstabch_Intercept                     7551
+## logitstabch_age_dec_c                     7194
+## logitstabch_domain_nameins               10261
+## logitstabch_domain_nameinv                8889
+## logitstabch_domain_nameocc                8965
+## logitstabch_age_dec_c2                    4354
+## logitstabch_female_prop_c                 3788
+## logitstabch_age_dec_c:domain_nameins      8535
+## logitstabch_age_dec_c:domain_nameinv      9220
+## logitstabch_age_dec_c:domain_nameocc      8292
+## logitstabch_domain_nameins:age_dec_c2     7615
+## logitstabch_domain_nameinv:age_dec_c2     5885
+## logitstabch_domain_nameocc:age_dec_c2     4060
 ##                                       Tail_ESS
 ## logitrel_Intercept                        3603
 ## logitrel_age_dec_c                        5075
@@ -1932,12 +2333,12 @@ Illustration of MASC parameters. Adapted from Anusic and Schimack, 2015
 ## logitstabch_domain_nameocc:age_dec_c2     6526
 ## 
 ## Family Specific Parameters: 
-##       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS
-## sigma     0.04      0.01     0.02     0.05 1.00     6201
-## nu        9.41      3.63     5.15    18.73 1.00     9155
-##       Tail_ESS
-## sigma     6292
-## nu        7532
+##       Estimate Est.Error l-95% CI u-95% CI Rhat
+## sigma     0.04      0.01     0.02     0.05 1.00
+## nu        9.41      3.63     5.15    18.73 1.00
+##       Bulk_ESS Tail_ESS
+## sigma     6201     6292
+## nu        9155     7532
 ## 
 ## Draws were sampled using sample(hmc). For each parameter, Bulk_ESS
 ## and Tail_ESS are effective sample size measures, and Rhat is the potential
@@ -2097,126 +2498,206 @@ Illustration of MASC parameters. Adapted from Anusic and Schimack, 2015
 ##          total post-warmup draws = 10000
 ## 
 ## Population-Level Effects: 
-##                                      Estimate Est.Error
-## logitrel_Intercept                       0.52      0.07
-## logitrel_age_dec_c                      -0.19      0.05
-## logitrel_constructaffe                  -0.30      0.11
-## logitrel_constructlife                  -0.14      0.09
-## logitrel_constructself                  -0.02      0.15
-## logitrel_age_dec_c2                      0.05      0.03
-## logitrel_female_prop_c                   0.01      0.10
-## logitrel_age_dec_c:constructaffe         0.02      0.06
-## logitrel_age_dec_c:constructlife         0.09      0.06
-## logitrel_age_dec_c:constructself        -0.19      0.12
-## logitrel_constructaffe:age_dec_c2       -0.01      0.03
-## logitrel_constructlife:age_dec_c2       -0.01      0.03
-## logitrel_constructself:age_dec_c2        0.02      0.06
-## logitchange_Intercept                   -0.16      0.43
-## logitchange_age_dec_c                   -0.06      0.39
-## logitchange_constructaffe                0.53      0.69
-## logitchange_constructlife                0.35      0.44
-## logitchange_constructself               -0.30      0.62
-## logitchange_age_dec_c2                   0.26      0.21
-## logitchange_female_prop_c               -0.18      0.10
-## logitchange_age_dec_c:constructaffe     -0.36      0.65
-## logitchange_age_dec_c:constructlife      0.12      0.40
-## logitchange_age_dec_c:constructself     -0.76      0.57
-## logitchange_constructaffe:age_dec_c2     0.40      0.57
-## logitchange_constructlife:age_dec_c2    -0.16      0.21
-## logitchange_constructself:age_dec_c2    -0.48      0.24
-## logitstabch_Intercept                   -0.27      0.54
-## logitstabch_age_dec_c                    0.98      0.50
-## logitstabch_constructaffe                0.30      0.67
-## logitstabch_constructlife               -0.83      0.60
-## logitstabch_constructself               -0.16      0.91
-## logitstabch_age_dec_c2                  -0.33      0.22
-## logitstabch_female_prop_c               -0.62      0.38
-## logitstabch_age_dec_c:constructaffe     -0.71      0.61
-## logitstabch_age_dec_c:constructlife     -0.10      0.51
-## logitstabch_age_dec_c:constructself     -0.10      0.80
-## logitstabch_constructaffe:age_dec_c2     0.19      0.27
-## logitstabch_constructlife:age_dec_c2     0.12      0.23
-## logitstabch_constructself:age_dec_c2    -0.20      0.42
-##                                      l-95% CI u-95% CI
-## logitrel_Intercept                       0.39     0.68
-## logitrel_age_dec_c                      -0.28    -0.07
-## logitrel_constructaffe                  -0.50    -0.08
-## logitrel_constructlife                  -0.32     0.05
-## logitrel_constructself                  -0.29     0.32
-## logitrel_age_dec_c2                      0.02     0.12
-## logitrel_female_prop_c                  -0.18     0.20
-## logitrel_age_dec_c:constructaffe        -0.10     0.15
-## logitrel_age_dec_c:constructlife        -0.04     0.20
-## logitrel_age_dec_c:constructself        -0.41     0.09
-## logitrel_constructaffe:age_dec_c2       -0.08     0.05
-## logitrel_constructlife:age_dec_c2       -0.08     0.03
-## logitrel_constructself:age_dec_c2       -0.06     0.15
-## logitchange_Intercept                   -0.97     0.70
-## logitchange_age_dec_c                   -0.82     0.71
-## logitchange_constructaffe               -0.71     2.00
-## logitchange_constructlife               -0.52     1.20
-## logitchange_constructself               -1.54     0.86
-## logitchange_age_dec_c2                  -0.05     0.74
-## logitchange_female_prop_c               -0.38     0.01
-## logitchange_age_dec_c:constructaffe     -1.66     0.95
-## logitchange_age_dec_c:constructlife     -0.63     0.95
-## logitchange_age_dec_c:constructself     -1.91     0.30
-## logitchange_constructaffe:age_dec_c2    -0.34     1.78
-## logitchange_constructlife:age_dec_c2    -0.65     0.16
-## logitchange_constructself:age_dec_c2    -1.02    -0.07
-## logitstabch_Intercept                   -1.46     0.66
-## logitstabch_age_dec_c                   -0.19     1.82
-## logitstabch_constructaffe               -1.16     1.55
-## logitstabch_constructlife               -1.96     0.41
-## logitstabch_constructself               -2.09     1.49
-## logitstabch_age_dec_c2                  -0.87     0.07
-## logitstabch_female_prop_c               -1.52    -0.02
-## logitstabch_age_dec_c:constructaffe     -1.95     0.60
-## logitstabch_age_dec_c:constructlife     -0.96     1.09
-## logitstabch_age_dec_c:constructself     -1.56     1.59
-## logitstabch_constructaffe:age_dec_c2    -0.36     0.78
-## logitstabch_constructlife:age_dec_c2    -0.29     0.66
-## logitstabch_constructself:age_dec_c2    -0.94     0.76
-##                                      Rhat Bulk_ESS
-## logitrel_Intercept                   1.00     5903
-## logitrel_age_dec_c                   1.00     2586
-## logitrel_constructaffe               1.00     7544
-## logitrel_constructlife               1.00     6484
-## logitrel_constructself               1.00     5643
-## logitrel_age_dec_c2                  1.00     1322
-## logitrel_female_prop_c               1.00     7821
-## logitrel_age_dec_c:constructaffe     1.00     2710
-## logitrel_age_dec_c:constructlife     1.00     3661
-## logitrel_age_dec_c:constructself     1.00     2486
-## logitrel_constructaffe:age_dec_c2    1.00     1626
-## logitrel_constructlife:age_dec_c2    1.00     1736
-## logitrel_constructself:age_dec_c2    1.00     2070
-## logitchange_Intercept                1.00     1388
-## logitchange_age_dec_c                1.00      998
-## logitchange_constructaffe            1.00     4539
-## logitchange_constructlife            1.00     1485
-## logitchange_constructself            1.00     2126
-## logitchange_age_dec_c2               1.00     1632
-## logitchange_female_prop_c            1.00    11830
-## logitchange_age_dec_c:constructaffe  1.00     2999
-## logitchange_age_dec_c:constructlife  1.00     1021
-## logitchange_age_dec_c:constructself  1.00     1572
-## logitchange_constructaffe:age_dec_c2 1.00     2548
-## logitchange_constructlife:age_dec_c2 1.00     1723
-## logitchange_constructself:age_dec_c2 1.00     2397
-## logitstabch_Intercept                1.00     2180
-## logitstabch_age_dec_c                1.00      662
-## logitstabch_constructaffe            1.00     2637
-## logitstabch_constructlife            1.00     2370
-## logitstabch_constructself            1.00     4440
-## logitstabch_age_dec_c2               1.00      644
-## logitstabch_female_prop_c            1.00     6567
-## logitstabch_age_dec_c:constructaffe  1.00      802
-## logitstabch_age_dec_c:constructlife  1.00      679
-## logitstabch_age_dec_c:constructself  1.00     1416
-## logitstabch_constructaffe:age_dec_c2 1.00      744
-## logitstabch_constructlife:age_dec_c2 1.00      676
-## logitstabch_constructself:age_dec_c2 1.00     1679
+##                                      Estimate
+## logitrel_Intercept                       0.52
+## logitrel_age_dec_c                      -0.19
+## logitrel_constructaffe                  -0.30
+## logitrel_constructlife                  -0.14
+## logitrel_constructself                  -0.02
+## logitrel_age_dec_c2                      0.05
+## logitrel_female_prop_c                   0.01
+## logitrel_age_dec_c:constructaffe         0.02
+## logitrel_age_dec_c:constructlife         0.09
+## logitrel_age_dec_c:constructself        -0.19
+## logitrel_constructaffe:age_dec_c2       -0.01
+## logitrel_constructlife:age_dec_c2       -0.01
+## logitrel_constructself:age_dec_c2        0.02
+## logitchange_Intercept                   -0.16
+## logitchange_age_dec_c                   -0.06
+## logitchange_constructaffe                0.53
+## logitchange_constructlife                0.35
+## logitchange_constructself               -0.30
+## logitchange_age_dec_c2                   0.26
+## logitchange_female_prop_c               -0.18
+## logitchange_age_dec_c:constructaffe     -0.36
+## logitchange_age_dec_c:constructlife      0.12
+## logitchange_age_dec_c:constructself     -0.76
+## logitchange_constructaffe:age_dec_c2     0.40
+## logitchange_constructlife:age_dec_c2    -0.16
+## logitchange_constructself:age_dec_c2    -0.48
+## logitstabch_Intercept                   -0.27
+## logitstabch_age_dec_c                    0.98
+## logitstabch_constructaffe                0.30
+## logitstabch_constructlife               -0.83
+## logitstabch_constructself               -0.16
+## logitstabch_age_dec_c2                  -0.33
+## logitstabch_female_prop_c               -0.62
+## logitstabch_age_dec_c:constructaffe     -0.71
+## logitstabch_age_dec_c:constructlife     -0.10
+## logitstabch_age_dec_c:constructself     -0.10
+## logitstabch_constructaffe:age_dec_c2     0.19
+## logitstabch_constructlife:age_dec_c2     0.12
+## logitstabch_constructself:age_dec_c2    -0.20
+##                                      Est.Error
+## logitrel_Intercept                        0.07
+## logitrel_age_dec_c                        0.05
+## logitrel_constructaffe                    0.11
+## logitrel_constructlife                    0.09
+## logitrel_constructself                    0.15
+## logitrel_age_dec_c2                       0.03
+## logitrel_female_prop_c                    0.10
+## logitrel_age_dec_c:constructaffe          0.06
+## logitrel_age_dec_c:constructlife          0.06
+## logitrel_age_dec_c:constructself          0.12
+## logitrel_constructaffe:age_dec_c2         0.03
+## logitrel_constructlife:age_dec_c2         0.03
+## logitrel_constructself:age_dec_c2         0.06
+## logitchange_Intercept                     0.43
+## logitchange_age_dec_c                     0.39
+## logitchange_constructaffe                 0.69
+## logitchange_constructlife                 0.44
+## logitchange_constructself                 0.62
+## logitchange_age_dec_c2                    0.21
+## logitchange_female_prop_c                 0.10
+## logitchange_age_dec_c:constructaffe       0.65
+## logitchange_age_dec_c:constructlife       0.40
+## logitchange_age_dec_c:constructself       0.57
+## logitchange_constructaffe:age_dec_c2      0.57
+## logitchange_constructlife:age_dec_c2      0.21
+## logitchange_constructself:age_dec_c2      0.24
+## logitstabch_Intercept                     0.54
+## logitstabch_age_dec_c                     0.50
+## logitstabch_constructaffe                 0.67
+## logitstabch_constructlife                 0.60
+## logitstabch_constructself                 0.91
+## logitstabch_age_dec_c2                    0.22
+## logitstabch_female_prop_c                 0.38
+## logitstabch_age_dec_c:constructaffe       0.61
+## logitstabch_age_dec_c:constructlife       0.51
+## logitstabch_age_dec_c:constructself       0.80
+## logitstabch_constructaffe:age_dec_c2      0.27
+## logitstabch_constructlife:age_dec_c2      0.23
+## logitstabch_constructself:age_dec_c2      0.42
+##                                      l-95% CI
+## logitrel_Intercept                       0.39
+## logitrel_age_dec_c                      -0.28
+## logitrel_constructaffe                  -0.50
+## logitrel_constructlife                  -0.32
+## logitrel_constructself                  -0.29
+## logitrel_age_dec_c2                      0.02
+## logitrel_female_prop_c                  -0.18
+## logitrel_age_dec_c:constructaffe        -0.10
+## logitrel_age_dec_c:constructlife        -0.04
+## logitrel_age_dec_c:constructself        -0.41
+## logitrel_constructaffe:age_dec_c2       -0.08
+## logitrel_constructlife:age_dec_c2       -0.08
+## logitrel_constructself:age_dec_c2       -0.06
+## logitchange_Intercept                   -0.97
+## logitchange_age_dec_c                   -0.82
+## logitchange_constructaffe               -0.71
+## logitchange_constructlife               -0.52
+## logitchange_constructself               -1.54
+## logitchange_age_dec_c2                  -0.05
+## logitchange_female_prop_c               -0.38
+## logitchange_age_dec_c:constructaffe     -1.66
+## logitchange_age_dec_c:constructlife     -0.63
+## logitchange_age_dec_c:constructself     -1.91
+## logitchange_constructaffe:age_dec_c2    -0.34
+## logitchange_constructlife:age_dec_c2    -0.65
+## logitchange_constructself:age_dec_c2    -1.02
+## logitstabch_Intercept                   -1.46
+## logitstabch_age_dec_c                   -0.19
+## logitstabch_constructaffe               -1.16
+## logitstabch_constructlife               -1.96
+## logitstabch_constructself               -2.09
+## logitstabch_age_dec_c2                  -0.87
+## logitstabch_female_prop_c               -1.52
+## logitstabch_age_dec_c:constructaffe     -1.95
+## logitstabch_age_dec_c:constructlife     -0.96
+## logitstabch_age_dec_c:constructself     -1.56
+## logitstabch_constructaffe:age_dec_c2    -0.36
+## logitstabch_constructlife:age_dec_c2    -0.29
+## logitstabch_constructself:age_dec_c2    -0.94
+##                                      u-95% CI Rhat
+## logitrel_Intercept                       0.68 1.00
+## logitrel_age_dec_c                      -0.07 1.00
+## logitrel_constructaffe                  -0.08 1.00
+## logitrel_constructlife                   0.05 1.00
+## logitrel_constructself                   0.32 1.00
+## logitrel_age_dec_c2                      0.12 1.00
+## logitrel_female_prop_c                   0.20 1.00
+## logitrel_age_dec_c:constructaffe         0.15 1.00
+## logitrel_age_dec_c:constructlife         0.20 1.00
+## logitrel_age_dec_c:constructself         0.09 1.00
+## logitrel_constructaffe:age_dec_c2        0.05 1.00
+## logitrel_constructlife:age_dec_c2        0.03 1.00
+## logitrel_constructself:age_dec_c2        0.15 1.00
+## logitchange_Intercept                    0.70 1.00
+## logitchange_age_dec_c                    0.71 1.00
+## logitchange_constructaffe                2.00 1.00
+## logitchange_constructlife                1.20 1.00
+## logitchange_constructself                0.86 1.00
+## logitchange_age_dec_c2                   0.74 1.00
+## logitchange_female_prop_c                0.01 1.00
+## logitchange_age_dec_c:constructaffe      0.95 1.00
+## logitchange_age_dec_c:constructlife      0.95 1.00
+## logitchange_age_dec_c:constructself      0.30 1.00
+## logitchange_constructaffe:age_dec_c2     1.78 1.00
+## logitchange_constructlife:age_dec_c2     0.16 1.00
+## logitchange_constructself:age_dec_c2    -0.07 1.00
+## logitstabch_Intercept                    0.66 1.00
+## logitstabch_age_dec_c                    1.82 1.00
+## logitstabch_constructaffe                1.55 1.00
+## logitstabch_constructlife                0.41 1.00
+## logitstabch_constructself                1.49 1.00
+## logitstabch_age_dec_c2                   0.07 1.00
+## logitstabch_female_prop_c               -0.02 1.00
+## logitstabch_age_dec_c:constructaffe      0.60 1.00
+## logitstabch_age_dec_c:constructlife      1.09 1.00
+## logitstabch_age_dec_c:constructself      1.59 1.00
+## logitstabch_constructaffe:age_dec_c2     0.78 1.00
+## logitstabch_constructlife:age_dec_c2     0.66 1.00
+## logitstabch_constructself:age_dec_c2     0.76 1.00
+##                                      Bulk_ESS
+## logitrel_Intercept                       5903
+## logitrel_age_dec_c                       2586
+## logitrel_constructaffe                   7544
+## logitrel_constructlife                   6484
+## logitrel_constructself                   5643
+## logitrel_age_dec_c2                      1322
+## logitrel_female_prop_c                   7821
+## logitrel_age_dec_c:constructaffe         2710
+## logitrel_age_dec_c:constructlife         3661
+## logitrel_age_dec_c:constructself         2486
+## logitrel_constructaffe:age_dec_c2        1626
+## logitrel_constructlife:age_dec_c2        1736
+## logitrel_constructself:age_dec_c2        2070
+## logitchange_Intercept                    1388
+## logitchange_age_dec_c                     998
+## logitchange_constructaffe                4539
+## logitchange_constructlife                1485
+## logitchange_constructself                2126
+## logitchange_age_dec_c2                   1632
+## logitchange_female_prop_c               11830
+## logitchange_age_dec_c:constructaffe      2999
+## logitchange_age_dec_c:constructlife      1021
+## logitchange_age_dec_c:constructself      1572
+## logitchange_constructaffe:age_dec_c2     2548
+## logitchange_constructlife:age_dec_c2     1723
+## logitchange_constructself:age_dec_c2     2397
+## logitstabch_Intercept                    2180
+## logitstabch_age_dec_c                     662
+## logitstabch_constructaffe                2637
+## logitstabch_constructlife                2370
+## logitstabch_constructself                4440
+## logitstabch_age_dec_c2                    644
+## logitstabch_female_prop_c                6567
+## logitstabch_age_dec_c:constructaffe       802
+## logitstabch_age_dec_c:constructlife       679
+## logitstabch_age_dec_c:constructself      1416
+## logitstabch_constructaffe:age_dec_c2      744
+## logitstabch_constructlife:age_dec_c2      676
+## logitstabch_constructself:age_dec_c2     1679
 ##                                      Tail_ESS
 ## logitrel_Intercept                       5586
 ## logitrel_age_dec_c                       2017
@@ -2259,12 +2740,12 @@ Illustration of MASC parameters. Adapted from Anusic and Schimack, 2015
 ## logitstabch_constructself:age_dec_c2     3111
 ## 
 ## Family Specific Parameters: 
-##       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS
-## sigma     0.08      0.00     0.07     0.09 1.00     7721
-## nu        4.52      1.05     3.06     7.09 1.00     8250
-##       Tail_ESS
-## sigma     6665
-## nu        6487
+##       Estimate Est.Error l-95% CI u-95% CI Rhat
+## sigma     0.08      0.00     0.07     0.09 1.00
+## nu        4.52      1.05     3.06     7.09 1.00
+##       Bulk_ESS Tail_ESS
+## sigma     7721     6665
+## nu        8250     6487
 ## 
 ## Draws were sampled using sample(hmc). For each parameter, Bulk_ESS
 ## and Tail_ESS are effective sample size measures, and Rhat is the potential

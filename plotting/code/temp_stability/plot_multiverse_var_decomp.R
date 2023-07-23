@@ -24,7 +24,7 @@ library(patchwork)
 
 
 data_path <- c("analysis/output/temp_stability/")
-output_path <- c("companion_site/images/")
+output_path <- c("docs/images/")
 
 shapley_list <- list(
   ominbus = read_csv(paste0(data_path, "shapley_values_multiv_omnibus.csv")),

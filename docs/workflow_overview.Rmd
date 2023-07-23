@@ -4,7 +4,6 @@ output:
   html_document:
     toc: TRUE
     toc_float: TRUE
-    date: "`r format(Sys.time(), '%d %B, %Y')`"
 ---
 
 ```{r setup, include=FALSE}
@@ -16,7 +15,7 @@ options(width = 3000)
 ```
 
 
-Below are step-by-step instructions on how the files in the OSF repository (link) are used in the analyses described in the paper. 
+Below are step-by-step instructions on how to use the files in the [OSF repository](https://osf.io/5kzgd/) to replicate the analyses described in the [manuscript](https://psyarxiv.com/d7nuj/).
 
 
 <br>
@@ -44,7 +43,7 @@ tbl %>%
   cols_width(
     Description ~ px(375),
     No. ~ px(25),
-    everything() ~ px(210)) %>% 
+    everything() ~ px(350)) %>% 
   tab_options(column_labels.background.color = "black",
               column_labels.font.weight = "bold",
               table.border.bottom.width = px(1.5),
@@ -93,7 +92,7 @@ tbl %>%
   cols_width(
     Description ~ px(375),
     No. ~ px(25),
-    everything() ~ px(210)) %>% 
+    everything() ~ px(350)) %>% 
   tab_options(column_labels.background.color = "black",
               column_labels.font.weight = "bold",
               table.border.bottom.width = px(1.5),
@@ -134,7 +133,7 @@ tbl %>%
   cols_width(
     Description ~ px(375),
     No. ~ px(25),
-    everything() ~ px(210)) %>% 
+    everything() ~ px(350)) %>% 
   tab_options(column_labels.background.color = "black",
               column_labels.font.weight = "bold",
               table.border.bottom.width = px(1.5),
@@ -177,7 +176,7 @@ tbl %>%
   cols_width(
     Description ~ px(375),
     No. ~ px(25),
-    everything() ~ px(210)) %>% 
+    everything() ~ px(350)) %>% 
   tab_options(column_labels.background.color = "black",
               column_labels.font.weight = "bold",
               table.border.bottom.width = px(1.5),
@@ -218,7 +217,7 @@ tbl %>%
   cols_width(
     Description ~ px(375),
     No. ~ px(25),
-    everything() ~ px(210)) %>% 
+    everything() ~ px(350)) %>% 
   tab_options(column_labels.background.color = "black",
               column_labels.font.weight = "bold",
               table.border.bottom.width = px(1.5),
@@ -268,7 +267,7 @@ tbl %>%
   cols_width(
     Description ~ px(375),
     No. ~ px(25),
-    everything() ~ px(210)) %>% 
+    everything() ~ px(350)) %>% 
   tab_options(column_labels.background.color = "black",
               column_labels.font.weight = "bold",
               table.border.bottom.width = px(1.5),
@@ -309,7 +308,7 @@ tbl %>%
   cols_width(
     Description ~ px(375),
     No. ~ px(25),
-    everything() ~ px(210)) %>% 
+    everything() ~ px(350)) %>% 
   tab_options(column_labels.background.color = "black",
               column_labels.font.weight = "bold",
               table.border.bottom.width = px(1.5),

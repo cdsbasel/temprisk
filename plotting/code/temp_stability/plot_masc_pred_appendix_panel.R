@@ -20,7 +20,7 @@ library(ggtext)
 # DATA --------------------------------------------------------------------
 
 data_w_path <- c("processing/output/temp_stability/") # where is the  data stored
-output_data_path <- c("companion_site/images/") # where to store the output data
+output_data_path <- c("docs/images/") # where to store the output data
 model_path <- c("analysis/output/temp_stability/") # where is the  data stored
 source("helper_functions.R")
 data_file <- "complete_agg_retest_yb10.csv" # name of retest data 

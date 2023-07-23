@@ -4,7 +4,6 @@ output:
   html_document:
     toc: yes
     toc_float: yes
-    date: "`r format(Sys.time(), '%d %B, %Y')`"
 ---
 
 <!-- <style type="text/css"> -->
@@ -57,7 +56,7 @@ color_scheme_set("teal")
 <br>
 
 
-Here we provide supplememtary information  on the test-retest correlations that were included in the analyses. Using the original test-retest correlations, we plot the distributions of the absolute mean skewness of the responses from the two data collection time points, split by measure category and domain.
+Below we provide supplementary information on the test-retest correlations that were included in the analyses. Using the original test-retest correlations, we plot the distributions of the absolute mean skewness of the responses from the two data collection time points, split by measure category and domain.
 
 
 <br>

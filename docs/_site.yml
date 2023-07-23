@@ -8,12 +8,6 @@ navbar:
       href: workflow_overview.html
     - text: "Data"
       href: data_desc.html
-    # - text: "Processing"
-    #   menu: 
-    #     - text: "Test-Retest Correlations"
-    #       href: retest_overview.html
-    #     - text: "Intercorrelations"
-    #       href: bivar_overview.html
     - text: "Processing"
       href: processing_overview.html
     - text: "Analyses"
@@ -30,7 +24,5 @@ output:
   html_document:
     theme: flatly
     highlight: tango
-    includes:
-      in_header: "favicon.html" 
 
 

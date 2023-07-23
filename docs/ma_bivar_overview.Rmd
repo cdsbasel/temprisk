@@ -4,9 +4,6 @@ output:
   html_document:
     toc: yes
     toc_float: yes
-    date: "`r format(Sys.time(), '%d %B, %Y')`"
-    includes:
-      in_header: "favicon.html" 
 ---
 
 <!-- <style type="text/css"> -->
@@ -64,10 +61,10 @@ ma_list <- list(dom = readRDS(paste0(model_path, "fit_convergent_ma_domain.rds")
 ## Brief Description
 
 
-Below we provide information on the specifications of the Bayesian random-effects meta-analysis and meta-regressions, as well as an overview of the model fits, with posterior predictive checks (PPCs), approximate leave-one-out (LOO) cross-validation output, and convergence diagnostics (i.e., rhat values, trace plots, effect sample size). 
+Below we provide information on the specifications of the Bayesian random-effects meta-analysis and meta-regressions, as well as an overview of the model summaries, including posterior predictive checks (PPCs), approximate leave-one-out (LOO) cross-validation output, and convergence diagnostics (i.e., rhat values, trace plots, effective sample size).
 
 
-***To replicate these analyses, refer to the Workflow page***
+***To replicate these analyses, refer to the [Workflow](https://cdsbasel.github.io/temprisk/workflow_overview.html) page***
 
 <br>
 
@@ -348,7 +345,7 @@ summary(fit_ma)
 
 #### MCMC diagnostics 
 
-```{r, eval=TRUE, echo=FALSE, fig.height=35, fig.width=12}
+```{r, eval=TRUE, echo=FALSE, fig.height=60, fig.width=15}
 p <- bayesplot::mcmc_trace(fit_ma, facet_args = list(ncol = 5), regex_pars = "^b|^sigma|^sd") 
 p + theme_minimal() + theme(strip.text = element_text(size = 9.5, face = "bold"),
                             panel.background = element_rect(fill = "NA", color = "grey40", linewidth = .5),
@@ -360,7 +357,7 @@ p + theme_minimal() + theme(strip.text = element_text(size = 9.5, face = "bold")
 
 <br>
 
-```{r, eval=TRUE, echo=FALSE, fig.height=35, fig.width=12}
+```{r, eval=TRUE, echo=FALSE, fig.height=60, fig.width=15}
 plot_change_ess(fit_ma, variable = "^b|^sigma|^sd",
                 regex = TRUE, 
                 breaks = seq(0.1, 1, 0.05), 
@@ -371,7 +368,7 @@ plot_change_ess(fit_ma, variable = "^b|^sigma|^sd",
 <br>
 
 
-```{r, eval=TRUE, echo=FALSE, fig.height=20, fig.width=10}
+```{r, eval=TRUE, echo=FALSE, fig.height=40, fig.width=10}
 plot_rhat(fit_ma, regex = "^b|^sigma|^sd") + labs(title = "Rhat")
 ```
 

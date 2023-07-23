@@ -4,9 +4,6 @@ output:
   html_document:
     toc: true
     toc_float: true
-    date: "`r format(Sys.time(), '%d %B, %Y')`"
-    includes:
-      in_header: "favicon.html" 
 ---
 
 
@@ -30,7 +27,7 @@ library(knitr)
 
 ## Risk Preference Measures
 
-Overview of the measures included in the analyses of the paper *The Temporal Stability of Risk Preference: A Meta-Analysis of Longitudinal Studies*.:
+Overview of the measures included in the analyses described in the [manuscript](https://psyarxiv.com/d7nuj/):
 
 
 <br>
@@ -42,14 +39,14 @@ knitr::include_graphics("images/panel_domain_table.png")
 <br>
 
 ### Codebook 
-For detailed information on each measure included in the analyses refer to the study's main codebook on the OSF/GitHub repository.
+Detailed information about each measure included in the analyses can be found in the [main codebook](https://osf.io/unz43).
 
 <br><br>
 
 
 ## Overview of the Dataset by Panel 
 
-This section offers an overview of the different samples included in the analyses of the paper *The Temporal Stability of Risk Preference: A Meta-Analysis of Longitudinal Studies*.
+This section offers an overview of the different samples included in the analyses described in the [manuscript](https://psyarxiv.com/d7nuj/).
 
 **Each panel is described in a separate subsection with the following information:**
 
@@ -59,9 +56,9 @@ This section offers an overview of the different samples included in the analyse
 
 - **Country/Countries.** Country or countries in which data are collected.
 
-- **Waves.** Waves available in the raw data set *(not all waves were necessarily included in the data analysis as not every wave had collected data on the variables of interest)*
+- **Waves included in the analyses:** Waves included in the analyses.
 
-- **Data collection period.** Data collection period of the waves available in the raw data set.
+**Data collection period (of waves included in the analyses):** Data collection period of the waves  included in the analyses.
 
 - **Dataset(s) version number/name.** Version number(s) or name(s) or raw dataset(s).
 
@@ -82,16 +79,16 @@ panel_name <- "ADDHEALTH"
 
 **Panel Name:** National Longitudinal Study of Adolescent to Adult Health (ADDHEALTH)
 
-**Description:** The National Study of Adolescent to Adult Health (Add Health; Harris & Udry, 2018) is an ongoing longitudinal study of U.S. adolescents in grades 7 through 12 during the 1994-1995 school year. The initial sample of participants was approximately 20,000 students who completed at home the study. Wave II included almost 15,000 follow-up-in-home interviews with adolescents from Wave I. Currently, five waves of data collection (1994-1995, 1996, 2001-2002, 2008-2009, 2016-2018) has been completed. 
-There is a set of public-use datasets available that contain all the survey data from In-Home Interviews for a subsample of the respondents.
+**Description:** The National Study of Adolescent to Adult Health (Add Health; Harris & Udry, 2018) is an ongoing longitudinal study of U.S. adolescents in grades 7 through 12 during the 1994-1995 school year. The initial sample of participants was approximately 20,000 students who completed at home the study. Wave II included almost 15,000 follow-up-in-home interviews with adolescents from Wave I. Currently, five waves of data collection (1994-1995, 1996, 2001-2002, 2008-2009, 2016-2018) have been completed. 
+There is a set of public-use datasets available that contain all the survey data for a subsample of the respondents.
 
 More information at: https://addhealth.cpc.unc.edu/
 
 **Country/Countries:** United States of America
 
-**Waves:** Wave I - Wave V
+**Waves included in the analyses:** Wave I - Wave V
 
-**Data collection period:** 1994-2018
+**Data collection period (of waves included in the analyses):** 1994-2018
 
 **Dataset(s) version number/name:** Waves 1-4 In-Home Questionnaire Data and Wave 5 Mixed-Mode Survey Data [Public-Use]
 
@@ -99,7 +96,8 @@ Harris, Kathleen Mullan, and Udry, J. Richard. National Longitudinal Study of Ad
 
  *(specific data files: DS1, DS5, DS8, DS22, DS32)*
 
-**Data access:** The Add Health public-use dataset can be downloaed via the [ICPSR Add Health page](https://www.icpsr.umich.edu/web/ICPSR/studies/21600?archive=ICPSR&q=21600). Further information on accessing the restricted datasets is available on the [Add Health Data webpage](https://addhealth.cpc.unc.edu/data/) as well as the[ Carolina Population Center Data Portal](https://data.cpc.unc.edu/projects/2/view)
+**Data access:** The Add Health public-use dataset can be downloaed via the [ICPSR Add Health page](https://www.icpsr.umich.edu/web/ICPSR/studies/21600?archive=ICPSR&q=21600). 
+<!-- Further information on accessing the restricted datasets is available on the [Add Health Data webpage](https://addhealth.cpc.unc.edu/data/) as well as the[ Carolina Population Center Data Portal](https://data.cpc.unc.edu/projects/2/view) -->
 
 
 <br>
@@ -114,7 +112,7 @@ panel_name <- "ALP"
 
 **Panel Name:** American Life Panel (ALP)
 
-**Description:** The RAND American Life Panel (ALP) is a nationally representative, probability-based panel of 6,000 individuals ages 18 and older who speak English or Spanish. Participants are regularly interviewed over the internet. The ALP has conducted more than 450 surveys covering diverse topics, such as financial decision-making, health decision-making, and numeracy.
+**Description:** The RAND American Life Panel (ALP) is a nationally representative, probability-based panel of 6,000 individuals ages 18 and older who speak English or Spanish. Participants are regularly completing surveys over the internet. The ALP has conducted more than 450 surveys covering diverse topics, such as financial decision-making, health decision-making, and numeracy.
 
 More information at: https://www.rand.org/research/data/alp.html
 
@@ -126,28 +124,46 @@ More information at: https://www.rand.org/research/data/alp.html
 **Data collection period (of waves included in the analyses):**  2004-2017
 
 **Dataset(s) version number/name used for the analyses:**
+
 Well Being 2 - Health, Risk, Expenditures (ms2). [Study page link](https://alpdata.rand.org/index.php?page=data&p=showsurvey&syid=2)
+
 Well Being 48 - Cognition and Aging in the USA Internet Decision Making Survey [W01] (ms48). [Study page link](https://alpdata.rand.org/index.php?page=data&p=showsurvey&syid=48)
+
 Well Being 50 - Cognition and Aging in the USA Internet Decision Making Survey [W02] (ms50). [Study page link](https://alpdata.rand.org/index.php?page=data&p=showsurvey&syid=50)
+
 Well Being 130 - NYFED Module (ms130).  [Study page link](https://alpdata.rand.org/index.php?page=data&p=showsurvey&syid=130)
+
 Well Being 133 - Health Expectations (ms133). [Study page link](https://alpdata.rand.org/index.php?page=data&p=showsurvey&syid=133)
+
 Well Being 167 - NYFED Module (ms167). [Study page link](https://alpdata.rand.org/index.php?page=data&p=showsurvey&syid=167)
-Well Being 169 - NYFED Module (ms169). [Study page link](https://alpdata.rand.org/index.php?page=data&p=showsurvey&syid=169)  
-Well Being 186 - Long-term Care Insurance (ms186). [Study page link](https://alpdata.rand.org/index.php?page=data&p=showsurvey&syid=186)  
-Well Being 189 - Savings Behavior (ms189). [Study page link](https://alpdata.rand.org/index.php?page=data&p=showsurvey&syid=189)  
-Well Being 197 - Risk Aversion and Cognitive Ability (ms197). [Study page link](https://alpdata.rand.org/index.php?page=data&p=showsurvey&syid=197)  
-Well Being 246 - Measuring Decision Quality (ms246). [Study page link](https://alpdata.rand.org/index.php?page=data&p=showsurvey&syid=246) 
+
+Well Being 169 - NYFED Module (ms169). [Study page link](https://alpdata.rand.org/index.php?page=data&p=showsurvey&syid=169) 
+
+Well Being 186 - Long-term Care Insurance (ms186). [Study page link](https://alpdata.rand.org/index.php?page=data&p=showsurvey&syid=186) 
+
+Well Being 189 - Savings Behavior (ms189). [Study page link](https://alpdata.rand.org/index.php?page=data&p=showsurvey&syid=189)
+
+Well Being 197 - Risk Aversion and Cognitive Ability (ms197). [Study page link](https://alpdata.rand.org/index.php?page=data&p=showsurvey&syid=197) 
+
+Well Being 246 - Measuring Decision Quality (ms246). [Study page link](https://alpdata.rand.org/index.php?page=data&p=showsurvey&syid=246)
+
 Well Being 260 - Social Norms Marketing Interventions in Portfolio Choice (ms260). [Study page link](https://alpdata.rand.org/index.php?page=data&p=showsurvey&syid=260) 
-Well Being 284 - National Financial Capability Study (ms284). [Study page link](https://alpdata.rand.org/index.php?page=data&p=showsurvey&syid=284) 
+
+Well Being 284 - National Financial Capability Study (ms284). [Study page link](https://alpdata.rand.org/index.php?page=data&p=showsurvey&syid=284)
+
 Well Being 315 - Decision Quality [Composite 1] (ms315). [Study page link](https://alpdata.rand.org/index.php?page=data&p=showsurvey&syid=315) 
-Well Being 342 - NBER [2] Followup to 341 Insurance (ms342). [Study page link](https://alpdata.rand.org/index.php?page=data&p=showsurvey&syid=342) 
-Well Being 349 - Affordable Care Act (ms349). [Study page link](https://alpdata.rand.org/index.php?page=data&p=showsurvey&syid=349) 
+Well Being 342 - NBER [2] Followup to 341 Insurance (ms342). [Study page link](https://alpdata.rand.org/index.php?page=data&p=showsurvey&syid=342)
+
+Well Being 349 - Affordable Care Act (ms349). [Study page link](https://alpdata.rand.org/index.php?page=data&p=showsurvey&syid=349)
+
 Well Being 352 - Decision Quality [Composite 2] (ms352). [Study page link](https://alpdata.rand.org/index.php?page=data&p=showsurvey&syid=352)
+
 Well Being 472 - Copy of ms352 - Decision Quality [Composite 2] (ms472). [Study page link](https://alpdata.rand.org/index.php?page=data&p=showsurvey&syid=472)
+
 Well Being 474 - Copy of ms315 - Decision Quality [Composite 1] (ms474). [Study page link](https://alpdata.rand.org/index.php?page=data&p=showsurvey&syid=474)
 
 
-**Data access:** To access ALP public release data one must first register as a user, more information available on the [Access ALP Data page] (https://www.rand.org/research/data/alp/data-access.html) The public release data can then be download via the [ALP data catalogue](https://alpdata.rand.org/?page=data)
+**Data access:** To access the ALP public release data one must first register as a user, more information is available on the [Access ALP Data page] (https://www.rand.org/research/data/alp/data-access.html) The public release data can then be download via the [ALP data catalogue](https://alpdata.rand.org/?page=data)
 
 <br>
 <br>
@@ -162,20 +178,22 @@ panel_name <- "ANPS_Spain"
 
 **Panel Name:** Study by Adema, Nikolka, Poutvaara, & Sunde (2022) (ANPS)
 
-**Description:** Study conducted by Adema et al., (2022) published in Economics Letters.  The study investigated the stability of risk preferences in the context of the COVID-19 pandemic. The survey was sent out to 9 universities located in 4 different countries (Czechia, India, Mexico, and Spain).
+**Description:** Study conducted by Adema et al., (2022) published in Economics Letters.  The study investigated the stability of risk preferences in the context of the COVID-19 pandemic. The survey was sent out to students attending one of nine universities located in four different countries (Czechia, India, Mexico, and Spain).
 
 Adema, J., Nikolka, T., Poutvaara, P., & Sunde, U. (2022). On the stability of risk preferences: Measurement matters. *Economics Letters, 210*, 110172.
 
 
 **Country/Countries:** Spain
 
-**Waves:** W1 and W2
+**Waves included in the analyses:** W1 and W2
 
-**Data collection period:** Around 2019-2021
+**Data collection period (of waves included in the analyses):** 2019-2021
 
-**Dataset(s) version number/name:** Main data set available on Mendely Data (ANPS_main.csv)
+**Dataset(s) version number/name:** Main data set available on Mendely Data (*ANPS_main.csv*)
 
-**Data access:** Nikolka, Till; Poutvaara, Panu; Sunde, Uwe ; Adema, Joop (2021), “Supplementary Data to "On the Stability of Risk Preferences: Measurement Matters"”, Mendeley Data, V2, doi: 10.17632/jzysn9brrb.2
+Nikolka, Till; Poutvaara, Panu; Sunde, Uwe ; Adema, Joop (2021), “Supplementary Data to "On the Stability of Risk Preferences: Measurement Matters"”, Mendeley Data, V2, doi: 10.17632/jzysn9brrb.2
+
+**Data access:** Data can be directly downloaded from [Mendely Data](https://data.mendeley.com/datasets/jzysn9brrb/2)
 
 
 
@@ -192,49 +210,49 @@ panel_name <- "ANPS_Czech_Rep"
 
 **Panel Name:** Study by Adema, Nikolka, Poutvaara, & Sunde (2022) (ANPS)
 
-**Description:** Study conducted by Adema et al., (2022) published in Economics Letters.  The study investigated the stability of risk preferences in the context of the COVID-19 pandemic. The survey was sent out to 9 universities located in 4 different countries (Czechia, India, Mexico, and Spain).
+**Description:** Study conducted by Adema et al., (2022) published in Economics Letters.  The study investigated the stability of risk preferences in the context of the COVID-19 pandemic. The survey was sent out to students attending one of nine universities located in four different countries (Czechia, India, Mexico, and Spain).
 
 Adema, J., Nikolka, T., Poutvaara, P., & Sunde, U. (2022). On the stability of risk preferences: Measurement matters. *Economics Letters, 210*, 110172.
 
 
 **Country/Countries:** Czech Republic
 
-**Waves:** W1 and W2
+**Waves included in the analyses:** W1 and W2
 
-**Data collection period:** Around 2019-2021
+**Data collection period (of waves included in the analyses):** 2019-2021
 
-**Dataset(s) version number/name:** Main data set available on Mendely Data (ANPS_main.csv)
+**Dataset(s) version number/name:** Main data set available on Mendely Data (*ANPS_main.csv*)
 
-**Data access:** Nikolka, Till; Poutvaara, Panu; Sunde, Uwe ; Adema, Joop (2021), “Supplementary Data to "On the Stability of Risk Preferences: Measurement Matters"”, Mendeley Data, V2, doi: 10.17632/jzysn9brrb.2
+Nikolka, Till; Poutvaara, Panu; Sunde, Uwe ; Adema, Joop (2021), “Supplementary Data to "On the Stability of Risk Preferences: Measurement Matters"”, Mendeley Data, V2, doi: 10.17632/jzysn9brrb.2
 
-
+**Data access:** Data can be directly downloaded from [Mendely Data](https://data.mendeley.com/datasets/jzysn9brrb/2)
 
 <br>
 <br>
 
 
-### BBRS CH 
+### BBRS-CH 
 ```{r, echo = F}
 panel_name <- "BBRS_Basel"
 ```
 
 #### ABOUT
 
-**Panel Name:** Basel-Berlin Risk Study - Basel Sample (BBRS_Basel)
+**Panel Name:** Basel-Berlin Risk Study - Basel Sample (BBRS-CH)
 
-**Description:** Study conducted by Frey et al., (2017) published in Science Advances (full reference below).  The study investigated to what extent there is a general factor of risk preference, and whether risk preference can be regarded as a stable psychological trait. In this study 1'507 healthy adults completed 39 risk-taking measures. A subsample completed a retest session. Data was collected in two cities (BBRS_Basel and BBRS_Berlin).
+**Description:** Study conducted by Frey et al., (2017) published in Science Advances (full reference below).  The study investigated to what extent there is a general factor of risk preference, and whether risk preference can be regarded as a stable psychological trait. In this study, 1'507 healthy adults completed 39 risk-taking measures. A subsample completed a retest session. Data was collected in two cities (BBRS_Basel and BBRS_Berlin).
 
 Frey, R., Pedroni, A., Mata, R., Rieskamp, J., & Hertwig, R. (2017). Risk preference shares the psychometric structure of major psychological traits. *Science Advances, 3,* e1701381.
 
 **Country/Countries:** Switzerland
 
-**Waves:** main_basel (W1), retest_basel (W2)
+**Waves included in the analyses:** main (W1), retest_basel (W2)
 
-**Data collection period:** Around 2015
+**Data collection period (of waves included in the analyses):** 2015
 
 **Dataset(s) version number/name:** From the main and retest_basel folders on the Open Science Framework repository  - *bart.csv, cct_overt.csv, dfd_perpers.csv, dfe_perpers.csv, lotteriesOvert.csv, mplBehavior.csv, mt.csv, participants.csv, quest_proc.csv*
 
-**Data access:** [Open Science Framework repository](https://osf.io/rce7g/)
+**Data access:** Data can be directly downloaded from the study's [Open Science Framework repository](https://osf.io/rce7g/)
 
 
 
@@ -242,28 +260,29 @@ Frey, R., Pedroni, A., Mata, R., Rieskamp, J., & Hertwig, R. (2017). Risk prefer
 <br>
 
 
-### BBRS DE 
+### BBRS-DE 
 ```{r, echo = F}
 panel_name <- "BBRS_Berlin"
 ```
 
 #### ABOUT
 
-**Panel Name:** Basel-Berlin Risk Study - Berlin Sample (BBRS_Berlin)
+**Panel Name:** Basel-Berlin Risk Study - Berlin Sample (BBRS-DE)
 
-**Description:** Study conducted by Frey et al., (2017) published in Science Advances (full reference below).  The study investigated to what extent there is a general factor of risk preference, and whether risk preference can be regarded as a stable psychological trait. In this study 1'507 healthy adults completed 39 risk-taking measures. A subsample completed a retest session. Data was collected in two cities (BBRS_Basel and BBRS_Berlin).
+**Description:** Study conducted by Frey et al., (2017) published in Science Advances (full reference below).  The study investigated to what extent there is a general factor of risk preference, and whether risk preference can be regarded as a stable psychological trait. In this study, 1'507 healthy adults completed 39 risk-taking measures. A subsample completed a retest session. Data was collected in two cities (BBRS_Basel and BBRS_Berlin).
 
 Frey, R., Pedroni, A., Mata, R., Rieskamp, J., & Hertwig, R. (2017). Risk preference shares the psychometric structure of major psychological traits. *Science Advances, 3,* e1701381.
 
 **Country/Countries:** Germany
 
-**Waves:** main_berlin (W1), retest_berlin (W2)
+**Waves included in the analyses:** main (W1), retest_berlin (W2)
 
-**Data collection period:** Around 2015
+**Data collection period (of waves included in the analyses):**  2015
 
 **Dataset(s) version number/name:** From the main and retest_berlin folders on the Open Science Framework repository  - *bart.csv, cct_overt.csv, dfd_perpers.csv, dfe_perpers.csv, lotteriesOvert.csv, mplBehavior.csv, mt.csv, participants.csv, quest_proc.csv*
 
-**Data access:** [Open Science Framework repository](https://osf.io/rce7g/)
+**Data access:** Data can be directly downloaded from the study's [Open Science Framework repository](https://osf.io/rce7g/)
+
 
 
 
@@ -286,13 +305,13 @@ More information on the [UK Data Service study catalogue](https://beta.ukdataser
 
 **Country/Countries:** United Kingdom
 
-**Waves:** Pre-Election 2005 (Internet) & Pre-Campaign 2010
+**Waves included in the analyses:** Pre-Election 2005 (Internet) & Pre-Campaign 2010
 
-**Data collection period:** 2005-2010
+**Data collection period (of waves included in the analyses):** 2005-2010
 
 **Dataset(s) version number/name:** Stewart, M., Sanders, D., Whiteley, P. F., Clarke, H. (2014). *British Election Study Nine-Wave Panel Survey, 2005-2010.* [data collection]. *2nd Edition*. UK Data Service. SN: 6607, http://doi.org/10.5255/UKDA-SN-6607-2
 
-**Data access:** Data can be requested and downloaded via the study specific page of the [UK Data Service study catalogue](https://beta.ukdataservice.ac.uk/datacatalogue/studies/study?id=6607#!/details) 
+**Data access:** Data can be requested and downloaded via the [UK Data Service study catalogue](https://beta.ukdataservice.ac.uk/datacatalogue/studies/study?id=6607#!/details) 
 
 
 <br>
@@ -314,13 +333,13 @@ More information on the  [British Election Study webpage](https://www.britishele
 
 **Country/Countries:** United Kingdom
 
-**Waves:** 2014-2020
+**Waves included in the analyses:** Wave 1, Wave 7, Wave 8, and Wave 20
 
-**Data collection period:** 2014-2020 *(data collection will continue until 2023)*
+**Data collection period (of waves included in the analyses):** 2014-2020
 
-**Dataset(s) version number/name:** Fieldhouse, E., J. Green, G. Evans, J. Mellon & C. Prosser, R. de Geus, J. Bailey, H. Schmitt and C. van der Eijk (2020) British Election Study Internet Panel Waves 1-20.
+**Dataset(s) version number/name:** Fieldhouse, E., J. Green, G. Evans, J. Mellon & C. Prosser, J. Bailey, R. de Geus, H. Schmitt and C. van der Eijk (2022) British Election Study Internet Panel Waves 1-23. DOI: 10.5255/UKDA-SN-8810-1
 
-**Data access:** Data can be requested and downloaded via the panel specific page of the [British Election Study panel data catalogue](https://www.britishelectionstudy.com/data-object/british-election-study-combined-wave-1-20-internet-panel/)
+**Data access:** Data can be requested and downloaded via the [British Election Study panel data catalogue](https://www.britishelectionstudy.com/data-objects/panel-study-data/)
 
 
 <br>
@@ -336,7 +355,7 @@ panel_name <- "CMC"
 
 **Panel Name:** Crime in the Modern City. A Longitudinal Study of Juvenile Delinquency in Münster (CMC)
 
-**Description:** This longitudinal study includes children and adolescents who attended school in Münster in the 7th grade in 2000. They were surveyed again in 2001, 2002 and 2003. The survey contain topics such as attitudes towards violence, crime and school as well as alcohol and drug consumption. The data collector is the Institute for Criminal Research at the Westfälische Wilhelms-Universität.
+**Description:** This longitudinal study includes children and adolescents who attended school in Münster in the 7th grade in 2000. They were surveyed again in 2001, 2002 and 2003. The survey contains topics such as attitudes towards violence, crime and school as well as alcohol and drug consumption. The data was collected by the Institute for Criminal Research at the Westfälische Wilhelms-Universität.
 
 More information at: https://search.gesis.org/research_data/ZA7480
 
@@ -349,7 +368,7 @@ More information at: https://search.gesis.org/research_data/ZA7480
 **Dataset(s) version number/name used for the analyses:**
 Boers, Klaus, & Reinecke, Jost (2019). Crime in the Modern City. A Longitudinal Study of Juvenile Delinquency in Münster - Panel Study in 4 Waves (2000 - 2003). GESIS Data Archive, Cologne. ZA7480 Data file Version 1.0.0, https://doi.org/10.4232/1.13287.
 
-**Data access:** Access to the data can be requested on the GESIS [CMC study webpage](https://search.gesis.org/research_data/ZA7480)
+**Data access:** Access to the data can be requested on the [GESIS  webpage](https://search.gesis.org/research_data/ZA7480)
 
 
 
@@ -367,7 +386,7 @@ panel_name <- "COGECON"
 
 **Panel Name:** Cognitive Economics Project (COGECON)
 
-**Description:** The Cognitive Economics Project is a panel study focusing on the decision-making of aging citizens. This project was designed the increase the understanding of the cognitive bases of economic decision-making. Researchers collect data on topics such as: wealth, income, risk preference, affect, and cognition. The study was conducted from 2008 until 2017, yielding 5 waves.
+**Description:** The Cognitive Economics Project is a panel study focusing on the decision-making of aging citizens. This project was designed the increase the understanding of the cognitive bases of economic decision-making. Researchers collected data on topics such as: wealth, income, risk preference, affect, and cognition. The study was conducted from 2008 until 2017, yielding 5 waves.
 
 More information at: https://ebp-projects.isr.umich.edu/CogEcon/
 
@@ -378,12 +397,15 @@ More information at: https://ebp-projects.isr.umich.edu/CogEcon/
 **Data collection period (of waves included in the analyses):** 2008 - 2013
 
 **Dataset(s) version number/name used for the analyses:**
-PCognitive Economics Study Data (*the list of datasets can be viewed [here](https://hrsdata.isr.umich.edu/data-products/cogecon)*)
+Cognitive Economics Study Data (*the list of datasets can be viewed [here](https://hrsdata.isr.umich.edu/data-products/cogecon)*)
+
 CogEcon 2008-2009: Latest release - Jan 2012 (Ver 1.0)
+
 CogEcon 2011: Latest release - Jan 2011 (Ver 1.2)
+
 CogEcon 2013: Latest release - Jan 2013 (Ver 1.0)
 
-**Data access:** Access to the data can be requested via the [HRS Data Portal](https://hrsdata.isr.umich.edu/). Additional informnation can be found on the Access to Cognitive Economics Project Data [page](https://ebp-projects.isr.umich.edu/CogEcon/data.html)
+**Data access:** Access to the data can be requested via the [HRS Data Portal](https://hrsdata.isr.umich.edu/). Additional information can be found on the Access to Cognitive Economics Project Data [page](https://ebp-projects.isr.umich.edu/CogEcon/data.html)
 
 
 <br>
@@ -399,15 +421,15 @@ panel_name <- "DHS"
 
 **Panel Name:** DNB Household Survey (DNB)
 
-**Description:** The DNB Household Survey, undertaken by CentERdata at Tilburg University since 1993, provides annual financial information on 2,000 Dutch households. DNB Household Survey include 6 questionnaires that cover topics such as : work, accommodation, health, assets and psychological concepts
+**Description:** The DNB Household Survey, undertaken by CentERdata at Tilburg University since 1993, provides annual financial information on 2,000 Dutch households. The DNB Household Survey includes 6 questionnaires that cover topics such as : work, accommodation, health, assets and psychological constructs.
 
 More information at: https://www.centerdata.eu/en/projects-by-centerdata/dnb-household-survey-dhs
 
 **Country/Countries:** Netherlands
 
-**Waves:** 1993-2022
+**Waves included in the analyses:** 1993-2022
 
-**Data collection period:** 1993-2022
+**Data collection period (of waves included in the analyses):** 1993-2022
 
 **Dataset(s) version number/name:** Used data from the PSY and HHI modules for years 1993-2022, for 1993 also used data from the WRK module
 
@@ -427,19 +449,18 @@ panel_name <- "DRICHOUTIS"
 
 #### ABOUT
 
-**Panel Name:** Study by Drichoutis & Vassilopoulos (2019)
+**Panel Name:** Study by Drichoutis & Vassilopoulos (2019) (DRICHOUTIS)
 
-**Description:** Study conducted by Drichoutis & Vassilopoulos (2019) published in Journal of Economics & Management Strategy.  The study investigated the intertemporal stability of six related survey‐based measures over a course of 3 waves. These survey measures assessed risk, time, and social preferences.
+**Description:** Study conducted by Drichoutis & Vassilopoulos (2019) published in Journal of Economics & Management Strategy.  The study investigated the intertemporal stability of six measures over the course of 3 waves. The survey included assessments of risk, time, and social preferences.
 
 Drichoutis, A. C., & Vassilopoulos, A. (2021). Intertemporal stability of survey‐based measures of risk and time preferences. *Journal of Economics & Management Strategy, 30*(3), 655-683.
 
 
-
 **Country/Countries:** Greece
 
-**Waves:** W1, W2, and W3
+**Waves included in the analyses:** W1, W2, and W3
 
-**Data collection period:** 2013-2015
+**Data collection period (of waves included in the analyses):** 2013-2015
 
 **Dataset(s) version number/name:** *data.dta* file from [Open Science Repository](https://osf.io/xkj43/)
 
@@ -459,10 +480,10 @@ panel_name <- "ENKAVI"
 
 #### ABOUT
 
-**Panel Name:** Study by Enkavi et al., (2019) Large-scale analysis of test–retest reliabilities of self-regulation measures (ENKAVI)
+**Panel Name:** Study by Enkavi et al., (2019) (ENKAVI)
 
-**Description:** Study conducted by Enkavi et al., (2019) published in Proceedings of the National Academy of Sciences (full reference below). The paper examined test-retest reliability across various self-report and behavioral measures relevant to self-regulation. 
-Retest data was collected from 150 participants who were a subset of a sample from another study (Eisenberg et al., 2018). Data was collected between 2016 and 2017 via MTurk.
+**Description:** Study conducted by Enkavi et al., (2019) published in Proceedings of the National Academy of Sciences (full reference below). The paper examined the test-retest reliability of various self-report and behavioral measures of self-regulation. 
+Retest data was collected from 150 participants who were a subset of a sample from another study (Eisenberg et al., 2018). Data was collected between 2016 and 2017 using Amazon MTurk.
 
 Enkavi, A. Z., Eisenberg, I. W., Bissett, P. G., Mazza, G. L., MacKinnon, D. P., Marsch, L. A., & Poldrack, R. A. (2019). Large-scale analysis of test-retest reliabilities of self-regulation measures. *Proceedings of the National Academy of Sciences of the United States of America, 116*(12), 5472–5477. https://doi.org/10.1073/pnas.1818430116
 
@@ -470,9 +491,9 @@ Eisenberg, I. W., et al. (2018). Applying novel technologies and methods to info
 
 **Country/Countries:** United States 
 
-**Waves:** *Wave 1 and Wave 2* 
+**Waves included in the analyses:** Wave 1 and Wave 2 
 
-**Data collection period:** 2016-2017
+**Data collection period (of waves included in the analyses):** 2016-2017
 
 **Dataset(s) version number/name:** Complete_02-16-2019 *(variables_exhaustive.csv, alcohol_drugs.csv, demographics.csv and demographics_survey.csv)* and Retest_02-16-2019 *(variables_exhaustive.csv, alcohol_drugs.csv, demographics.csv and demographics_survey.csv)*
 
@@ -619,6 +640,7 @@ panel_name <- "GIP"
 **Panel Name:** German Internet Panel (GIP)
 
 **Description:** The German Internet Panel (GIP) is a longitudinal study developped by the University of Mannheim and the central infrastructure project of the Collaborative Research Center (SFB) 884 “Political Economy of Reforms”, which is funded by the German Research Foundation (DFG). The panel studies attitudes and preferences relevant in political and economic decision-making processes. Approximately 4,000 people in Germany are regularly interviewed online on a variety of topics.
+
 More information at: https://www.uni-mannheim.de/en/gip/
 
 **Country/Countries:** Germany
@@ -628,7 +650,7 @@ More information at: https://www.uni-mannheim.de/en/gip/
 **Data collection period (of waves included in the analyses):** 2014 and 2021
 
 **Dataset(s) version number/name used for the analyses:**
-This article uses data from the wave(s) 9, 14, and 56 of the German Internet Panel (GIP; DOI: [10.4232/1.12615; 10.4232/1.12620; 10.4232/1.13945]; Blom et al. (2014)). A study description can be found in Blom et al. (2015). The GIP is funded by the German Research Foundation (DFG) as part of the Collaborative Research Center 884 (SFB 884; Project Number 139943784; Project Z1).
+This study uses data from the wave(s) 9, 14, and 56 of the German Internet Panel (GIP; DOI: [10.4232/1.12615; 10.4232/1.12620; 10.4232/1.13945]; Blom et al. (2014)). A study description can be found in Blom et al. (2015). The GIP is funded by the German Research Foundation (DFG) as part of the Collaborative Research Center 884 (SFB 884; Project Number 139943784; Project Z1).
 
 Blom, A. G., Gathmann, C., and Krieger, U. (2015). Setting Up an Online Panel Representative of the General Population: The German Internet Panel. Field Methods, 27(4), 391–408. DOI: 10.1177/1525822X15574494
 
@@ -639,7 +661,7 @@ Blom, A. G., Gathmann, C., and Krieger, U. (2015). Setting Up an Online Panel Re
 <br>
 
 
-### GLES LT 
+### GLES-LT 
 ```{r, echo = F}
 panel_name <- "GLES_LT"
 ```
@@ -648,18 +670,16 @@ panel_name <- "GLES_LT"
 
 **Panel Name:** GLES Panel 2016-2021 (Long-Term Panel; GLES-LT)
 
-**Description:** The German Longitudinal Election Study (GLES) collects data on the political attitudes and behaviour of voters and candidates. It is carried in close cooperation between the German Society for Electoral Studies (DGfW) and the GESIS – Leibniz Institute for the Social Sciences. GLES conducts surveys before and after the German federal elections, allowing data to be analyzed in a longitudinal as well as cross-sectional manner. 
+**Description:** The German Longitudinal Election Study (GLES) collects data on the political attitudes and behaviour of voters and candidates. It is carried in close cooperation with the German Society for Electoral Studies (DGfW) and the GESIS – Leibniz Institute for the Social Sciences. The GLES Panel conducts surveys before and after the German federal elections, allowing to track intra-individual changes in political attitudes and behaviors. Topics in the survey include political involvement, political attitudes, personality, and voting behaviour.
 
-This specific data set has data on respondents with German citizenship resident in the Federal Republic of Germany, who had a minimum age of 16 years and lived in private households at the time the survey was being conducted.
 
 More information is available on the [GLES website](https://gles-en.eu/)
 
 **Country/Countries:** Germany
 
-**Waves:**
- - GLES Panel 2016-2021, Waves 1-15, ZA6838. Waves:	1, a1, a2, 13, 14 and 15
+**Waves included in the analyses:** Wave	1, Wave a1, Wave a2, Wave 13, Wave 14 and Wave 15
 
-**Data collection period:** 2015 - 2020
+**Data collection period (of waves included in the analyses):** 2016 - 2021
 
 **Dataset(s) version number/name:** 
 GLES (2021). GLES Panel 2016-2021, Waves 1-15. GESIS Data Archive, Cologne. ZA6838 Data file Version 5.0.0, https://doi.org/10.4232/1.13783.
@@ -682,22 +702,17 @@ panel_name <- "GLES_ST"
 
 **Panel Name:** German Longitudinal Election Study - Short term Campaign (GLES-ST)
 
-**Description:** The German Longitudinal Election Study (GLES) collects data on the political attitudes and behaviour of voters and candidates. It is carried in close cooperation between the German Society for Electoral Studies (DGfW) and the GESIS – Leibniz Institute for the Social Sciences. GLES conducts surveys before and after the German federal elections, allowing data to be analyzed in a longitudinal as well as cross-sectional manner. 
-
-This specific data set has data on respondents who were eligible to vote in the election to the German Bundestag in 2013 and 2017 and who took part in the Campaign Panel.
+**Description:** The German Longitudinal Election Study (GLES) collects data on the political attitudes and behaviour of voters and candidates. It is carried in close cooperation with the German Society for Electoral Studies (DGfW) and the GESIS – Leibniz Institute for the Social Sciences. The Campaign Panel 2013-2017 is a repeat survey of internet-users eligible to vote in the election to the German Bundestag in 2013 and 2017. It allows to track intra-individual changes in political attitudes and behaviors. Topics in the survey include political involvement, political attitudes, personality, and voting behaviour.
 
 More information is available on the [GLES website](https://gles-en.eu/)
 
 **Country/Countries:** Germany
 
-**Waves:**
- - Repeatedly questioned respondents of the Short-term Campaign Panel 2013 and 2017 (GLES), ZA6827. Waves: 9 and 10
+**Waves included in the analyses:**  Wave 9 and Wave 10
 
-**Data collection period:** 2013 - 2017
+**Data collection period (of waves included in the analyses):** 2015 - 2016
 
-**Dataset(s) version number/name:** 
-
-GLES (2018). Repeatedly questioned respondents of the Short-term Campaign Panel 2013 and 2017 (GLES). GESIS Data Archive, Cologne. ZA6827 Data file Version 1.0.0, https://doi.org/10.4232/1.13129.
+**Dataset(s) version number/name:**  GLES (2018). Repeatedly questioned respondents of the Short-term Campaign Panel 2013 and 2017 (GLES). GESIS Data Archive, Cologne. ZA6827 Data file Version 1.0.0, https://doi.org/10.4232/1.13129.
 
 **Data access:** After registering on the [GESIS website](https://login.gesis.org/realms/gesis/login-actions/registration?client_id=soda-app&tab_id=nnSLvFUl08A), the data can be downloaded directly via the page of each data set
 
@@ -722,12 +737,16 @@ More information at: https://melbourneinstitute.unimelb.edu.au/hilda
 
 **Country/Countries:** Australia
 
-**Waves included in the analyses:**  Wave 1 - Wave 19
+**Waves included in the analyses:**  Wave 1 - Wave 21
 
-**Data collection period (of waves included in the analyses):** 2001-2019
+**Data collection period (of waves included in the analyses):** 2001-2021
 
-**Dataset(s) version number/name used for the analyses:** Department of Social Services; Melbourne Institute of Applied Economic and Social Research, 2020, "The Household, Income and Labour Dynamics in Australia (HILDA) Survey, GENERAL RELEASE 19 (Waves 1-19)", doi:10.26193/3QRFMZ, ADA Dataverse, V5
-*(specific data files: Rperson ***190c files)*
+**Dataset(s) version number/name used for the analyses:** 
+This paper uses unit record data from Household, Income and Labour Dynamics in Australia Survey (HILDA). HILDA conducted by the Australian Government Department of Social Services (DSS). The findings and views reported in this paper, however, are those of the author[s] and should not be attributed to the Australian Government, DSS, or any of DSS’ contractors or partners. DOI: doi:10.26193/KXNEBO
+
+
+Department of Social Services; Melbourne Institute of Applied Economic and Social Research, 2022, "The Household, Income and Labour Dynamics in Australia (HILDA) Survey, GENERAL RELEASE 21 (Waves 1-21)", doi:10.26193/KXNEBO, ADA Dataverse, V3
+
 
 **Data access:** Data can be requested and downloaded via the [National Centre for Longitudinal Data Dataverse](https://dataverse.ada.edu.au/dataverse/ncld). 
 
@@ -747,34 +766,50 @@ panel_name <- "HRS"
 
 **Description:** The Health and Retirement Study (HRS) is a longitudinal panel study that surveys a representative sample of approximately 20,000 individuals of 50+ years old living in the United States of America. A new cohort of individuals between 51 and 56 years old is added every 6 years. Individuals and their spouses/partners are followed until their death.  The survey focuses on financial and social factors. Data have been collected biannually since 1992.
 
+The HRS (Health and Retirement Study) is sponsored by the National Institute on Aging (grant number NIA U01AG009740) and is conducted by the University of Michigan.
+
 More information at: https://hrs.isr.umich.edu/about
 
 **Country/Countries:** United States of America
 
-**Waves included in the analyses:** Waves 1992 - 2018 
+**Waves included in the analyses:** Waves 1992 - 2020 
 
-**Data collection period (of waves included in the analyses):** 1992 - 2018 
+**Data collection period (of waves included in the analyses):** 1992 - 2021 
 
 **Dataset(s) version number/name used for the analyses:**
-Public Survey Data: Biennial Data - HRS Core (*the list of datasets can be viewed [here](https://hrsdata.isr.umich.edu/data-products/public-survey-data)*)
-1992 HRS Core: Latest Release - Sep 2004 (Final V2.0)
-1994 HRS Core: Latest Release - Sep 2004 (Final V2.0)
-1996 HRS Core: Latest Release - Mar 2007 (Final V4.00)
-1998 HRS Core: Latest Release - Nov 2003 (Final V2.3)
-2000 HRS Core: Latest Release - Apr 2004 (Final V1.0)
-2002 HRS Core: Latest Release - Jul 2006 (Final V2.0)
-2004 HRS Core: Latest Release - May 2016 (Final V1.0)
-2006 HRS Core: Latest Release - Aug 2021 (Final V4.0) 
-2008 HRS Core: Latest Release - Dec 2014 (Final V3.0)
-2010 HRS Core: Latest Release - Aug 2021 (Final V6.0)
-2012 HRS Core: Latest Release - Mar 2020 (Final V3.0)
-2014 HRS Core: Latest Release - Dec 2017 (Final V2.0)
-2016 HRS Core: Latest Release - Dec 2019 (Final V2.0)
-2016 HRS Core: Latest Release - Dec 2019 (Early V1.0)
+
+Health and Retirement Study, (1992 HRS Core: Latest Release - Sep 2004 (Final V2.0)) public use dataset. Produced and distributed by the University of Michigan with funding from the National Institute on Aging (grant number NIA U01AG009740). Ann Arbor, MI, (2004).
+
+Health and Retirement Study, (1994 HRS Core: Latest Release - Sep 2004 (Final V2.0)) public use dataset. Produced and distributed by the University of Michigan with funding from the National Institute on Aging (grant number NIA U01AG009740). Ann Arbor, MI, (2004).
+
+Health and Retirement Study, (1996 HRS Core: Latest Release - Mar 2007 (Final V4.00)) public use dataset. Produced and distributed by the University of Michigan with funding from the National Institute on Aging (grant number NIA U01AG009740). Ann Arbor, MI, (2007).
+
+Health and Retirement Study, (1998 HRS Core: Latest Release - Nov 2003 (Final V2.3)) public use dataset. Produced and distributed by the University of Michigan with funding from the National Institute on Aging (grant number NIA U01AG009740). Ann Arbor, MI, (2003).
+
+Health and Retirement Study, (2000 HRS Core: Latest Release - Apr 2004 (Final V1.0)) public use dataset. Produced and distributed by the University of Michigan with funding from the National Institute on Aging (grant number NIA U01AG009740). Ann Arbor, MI, (2004).
+
+Health and Retirement Study, (2002 HRS Core: Latest Release - Jul 2006 (Final V2.0)) public use dataset. Produced and distributed by the University of Michigan with funding from the National Institute on Aging (grant number NIA U01AG009740). Ann Arbor, MI, (2006).
+
+Health and Retirement Study, (2004 HRS Core: Latest Release - May 2016 (Final V1.0)) public use dataset. Produced and distributed by the University of Michigan with funding from the National Institute on Aging (grant number NIA U01AG009740). Ann Arbor, MI, (2016).
+
+Health and Retirement Study, (2006 HRS Core: Latest Release - Aug 2021 (Final V4.0)) public use dataset. Produced and distributed by the University of Michigan with funding from the National Institute on Aging (grant number NIA U01AG009740). Ann Arbor, MI, (2021).
+
+Health and Retirement Study, (2008 HRS Core: Latest Release - Dec 2014 (Final V3.0)) public use dataset. Produced and distributed by the University of Michigan with funding from the National Institute on Aging (grant number NIA U01AG009740). Ann Arbor, MI, (2014).
+
+Health and Retirement Study, (2010 HRS Core: Latest Release - Aug 2021 (Final V6.0)) public use dataset. Produced and distributed by the University of Michigan with funding from the National Institute on Aging (grant number NIA U01AG009740). Ann Arbor, MI, (2021).
+
+Health and Retirement Study, (2012 HRS Core: Latest Release - Mar 2020 (Final V3.0)) public use dataset. Produced and distributed by the University of Michigan with funding from the National Institute on Aging (grant number NIA U01AG009740). Ann Arbor, MI, (2020).
+
+Health and Retirement Study, (2014 HRS Core: Latest Release - Dec 2017 (Final V2.0)) public use dataset. Produced and distributed by the University of Michigan with funding from the National Institute on Aging (grant number NIA U01AG009740). Ann Arbor, MI, (2017).
+
+Health and Retirement Study, (2016 HRS Core: Latest Release - Dec 2019 (Final V2.0)) public use dataset. Produced and distributed by the University of Michigan with funding from the National Institute on Aging (grant number NIA U01AG009740). Ann Arbor, MI, (2019).
+
+Health and Retirement Study, (2018 HRS Core: Latest Release - Dec 2019 (Early V1.0)) public use dataset. Produced and distributed by the University of Michigan with funding from the National Institute on Aging (grant number NIA U01AG009740). Ann Arbor, MI, (2019). These data have not been cleaned and may contain errors that will be corrected in the Final Public Release version of the dataset.
+
+Health and Retirement Study, (2020 HRS Core: Latest Release - May 2023 (Final V1.0)) public use dataset. Produced and distributed by the University of Michigan with funding from the National Institute on Aging (grant number NIA U01AG009740). Ann Arbor, MI, (2023).
 
 
 **Data access:** Access to the data can be requested via the [HRS Data Portal](https://hrsdata.isr.umich.edu/). 
-
 
 
 <br>
@@ -791,20 +826,23 @@ panel_name <- "LIKS"
 
 **Panel Name:** Life in Kyrgyzstan Study (LIKS)
 
-**Description:** The ‘Life in Kyrgyzstan’ Study is a longitudinal survey of households and individuals in Kyrgyzstan. It tracks the same 3,000 households and 8,000 individuals over time in all seven Kyrgyz regions (oblasts) and the two cities of Bishkek and Osh. The data are representative nationally and at the regional level (East, West, North, South).
-The survey interviews all adult household members about household demographics, assets, expenditure, migration, employment, agricultural markets, shocks, social networks, subjective well-being, and many other topics. Some of these topics are addressed in each wave while other topics are only addressed in selected waves. All members of the households in 2010 are tracked for each wave and new household members are added to the survey and tracked as well. The survey was first conducted in 2010 and it has been repeated four times in 2011, 2012, 2013 and 2016. 
+**Description:** The ‘Life in Kyrgyzstan’ Study is a longitudinal survey of households and individuals in Kyrgyzstan. It tracks the same 3,000 households and 8,000 individuals over time in all seven Kyrgyz regions (oblasts) and the two cities of Bishkek and Osh. The data are representative at the national and regional level (East, West, North, South).
+The survey interviews all adult household members about household demographics, assets, expenditure, migration, employment, agricultural markets, shocks, social networks, subjective well-being, and many other topics. The survey was first conducted in 2010 and it has been repeated five times in 2011, 2012, 2013, 2016, and 2019. 
 
 More information at: https://lifeinkyrgyzstan.org/about/
 
 **Country/Countries:** Kyrgyzstan
 
-**Waves included in the analyses:** 2010, 2011, 2012, 2013, 2016
+**Waves included in the analyses:** Wave 2010, Wave 2011, Wave 2012, Wave 2013, Wave 2016, Wave 2019
 
-**Data collection period (of waves included in the analyses):** 2010-2016
+**Data collection period (of waves included in the analyses):** 2010-2019
 
 **Dataset(s) version number/name used for the analyses:**
+
+Brück, T., D. Esenaliev, A. Kroeger, A. Kudebayeva, B. Mirkasimov and S. Steiner (2014): “Household Survey Data for Research on Well-Being and Behavior in Central Asia”. Journal of Comparative Economics, vol. 42, no. 3, pp. 819-35.
+
 Life in Kyrgyzstan Study, 2013. Research Data Center of IZA (IDSC). Version 1.0, doi:10.15185/izadp.7055.1
-*When conducting the data analyses, the 2019 data was not available. (specific data files: individual data)*
+*Downloaded the Lik_2022 file*
 
 **Data access:** Access to the data can be requested via the International Data Service Center of the Institute for Study of Labour (IDSC IZA) [Data Set Repository](https://datasets.iza.org//dataset/124/life-in-kyrgyzstan-panel-study-2013). 
 
@@ -813,7 +851,7 @@ Life in Kyrgyzstan Study, 2013. Research Data Center of IZA (IDSC). Version 1.0,
 <br>
 
 
-### LSVAW M 
+### LSVAW-M 
 ```{r, echo = F}
 panel_name <- "LSVAW_M"
 ```
@@ -822,20 +860,21 @@ panel_name <- "LSVAW_M"
 
 **Panel Name:** Longitudinal Study of Violence Against Women: Victimization and Perpetration Among College Students in a State-Supported University in the United States (LSVAW - Men sample)
 
-**Description:** Study aimed at investigating the developmental antecedents of physical and sexual violence against young women. The sample was constituted of  males that woman who had responded to the survey reported having had sexual intercourse with.
+**Description:** A longitudinal study aimed at investigating the developmental antecedents of physical and sexual violence against young women. The survey included questions about the respondent's personality, dating behaviour, and other social behaviour. The sample was constituted of males that woman who had responded to the survey reported having had sexual intercourse with.
 
 More information on the [ICPSR website](https://www.icpsr.umich.edu/web/NACJD/studies/3212)
 
 **Country/Countries:** United States of America
 
-**Waves:** 1990-1995
+**Waves included in the analyses:** Waves 1-5
 
-**Data collection period:** 1990-1995
+**Data collection period (of waves included in the analyses):** 1991-1995
 
-**Dataset(s) version number/name:** *DS2 Male Data*
+**Dataset(s) version number/name:** 
 
 White, Jacquelyn W., University of North Carolina-Greensboro, and Humphrey, John A. Longitudinal Study of Violence Against Women: Victimization and Perpetration Among College Students in a State-Supported University in the United States, 1990-1995. Inter-university Consortium for Political and Social Research [distributor], 2015-09-11. https://doi.org/10.3886/ICPSR03212.v1
 
+*Specific file: DS2 Male Data*
 
 **Data access:** Data can be downloaded via the [ICPSR page of the study](https://www.icpsr.umich.edu/web/NACJD/studies/3212/datadocumentation)
 
@@ -845,7 +884,7 @@ White, Jacquelyn W., University of North Carolina-Greensboro, and Humphrey, John
 <br>
 
 
-### LSVAW W 
+### LSVAW-W 
 ```{r, echo = F}
 panel_name <- "LSVAW_W"
 ```
@@ -854,20 +893,21 @@ panel_name <- "LSVAW_W"
 
 **Panel Name:** Longitudinal Study of Violence Against Women: Victimization and Perpetration Among College Students in a State-Supported University in the United States (LSVAW - Women sample)
 
-**Description:** Study aimed at investigating the developmental antecedents of physical and sexual violence against young women. Data for the female sample were collected when women were aged 18 years old, and again when they were 19, 20, 21, and 22 years old. 
+**Description:** A longitudinal study aimed at investigating the developmental antecedents of physical and sexual violence against young women. Data for the female sample were collected when women were aged 18 years old, and again when they were 19, 20, 21, and 22 years old. The survey included questions about the respondent's personality, dating behaviour, and other social behaviour.
 
 More information on the [ICPSR website](https://www.icpsr.umich.edu/web/NACJD/studies/3212)
 
 **Country/Countries:** United States of America
 
-**Waves:** 1990-1995
+**Waves included in the analyses:** Waves 1-5
 
-**Data collection period:** 1990-1995
+**Data collection period (of waves included in the analyses):** 1990-1994
 
-**Dataset(s) version number/name:** *DS1 Female Data*
+**Dataset(s) version number/name:** 
 
 White, Jacquelyn W., University of North Carolina-Greensboro, and Humphrey, John A. Longitudinal Study of Violence Against Women: Victimization and Perpetration Among College Students in a State-Supported University in the United States, 1990-1995. Inter-university Consortium for Political and Social Research [distributor], 2015-09-11. https://doi.org/10.3886/ICPSR03212.v1
 
+*Specific file: DS1 Female Data*
 
 **Data access:** Data can be downloaded via the [ICPSR page of the study](https://www.icpsr.umich.edu/web/NACJD/studies/3212/datadocumentation)
 
@@ -886,34 +926,50 @@ panel_name <- "MEPS"
 
 **Panel Name:** Medical Expenditure Panel Survey (MEPS)
 
-**Description:** The Medical Expenditure Panel Survey (MEPS) is a set of large-scale surveys of families and individuals, their medical providers, and employers across the United States. MEPS collects data on the specific health services that Americans use, how frequently they use them, the cost of these services, and how they are paid for, as well as data on the cost, scope, and breadth of health insurance held by and available to U.S. workers. MEPS currently has two major components for which data are released: the Household Component and the Insurance Component. In the Household Component, the number of families recruited have ranged from around 8,000 to 15,000. The survey was launched in 1996 and continues to collect data until today on an annual basis. Data is also collected from respondents who participated in two surveys (approx. a year a part).
+**Description:** The Medical Expenditure Panel Survey (MEPS) is a set of large-scale surveys of families and individuals, their medical providers, and employers across the United States of America. MEPS collects data on the specific health services that Americans use, how frequently they use them, the cost of these services, and how they are paid for, as well as data on the cost, scope, and breadth of health insurance held by and available to U.S. workers. The number of families recruited have ranged from around 8,000 to 15,000. The survey was launched in 1996 and continues to collect data until today on an annual basis. Data is also collected from respondents who participated in two surveys (approx. a year a part).
 
 More information on the [MEPS website](https://www.meps.ahrq.gov/mepsweb/about_meps/survey_back.jsp)
 
 **Country/Countries:** United States of America
 
-**Waves:** 2000-2017
+**Waves included in the analyses:** *See waves listed below*
 
-**Data collection period:** 1996-present
+**Data collection period (of waves included in the analyses):** 2000-2017
 
 **Dataset(s) version number/name:** *See PUF No. and File name list below*
 
 HC-202:  MEPS Panel 21 Longitudinal Data File
+
 HC-193:  MEPS Panel 20 Longitudinal Data File
+
 HC-183:  MEPS Panel 19 Longitudinal Data File
+
 HC-172:  MEPS Panel 18 Longitudinal Data File
+
 HC-164:  MEPS Panel 17 Longitudinal Data File
+
 HC-156:  MEPS Panel 16 Longitudinal Data File
+
 HC-148:  MEPS Panel 15 Longitudinal Data File
+
 HC-139:  MEPS Panel 14 Longitudinal Data File
+
 HC-130:  MEPS Panel 13 Longitudinal Data File
+
 HC-122:  MEPS Panel 12 Longitudinal Data File
+
 HC-114:  MEPS Panel 11 Longitudinal Data File
+
 HC-106:  MEPS Panel 10 Longitudinal Data File
+
 HC-098:  MEPS Panel 9 Longitudinal Data File
+
 HC-086:  MEPS Panel 8 Longitudinal Data File
+
 HC-080:  MEPS Panel 7 Longitudinal Data File
+
 HC-071:  MEPS Panel 6 Longitudinal Data File
+
 HC-065:  MEPS Panel 5 Longitudinal Data File
 
 
@@ -934,15 +990,15 @@ panel_name <- "MIDJA"
 
 **Panel Name:** Midlife in Japan (MIDJA)
 
-**Description:**  Midlife in Japanese a longtiduate study conducted with the purpose to compare the results with the United States sample (MIDUS). Baseline and follow-up survey responses were collected from a sample of Japanese adults. The MIDJA survey contains a similar set of questions as MIDUS, it is interested in the associations between psychosocial factors and health.
+**Description:**  Midlife in Japan is a longitudinal study conducted with the aim of comparing the results to the Midlife in the United States sample (MIDUS). Baseline and follow-up survey responses were collected from a sample of Japanese adults. The MIDJA survey contains a similar set of questions as MIDUS, it is interested in the association between psycho-social factors and health.
 
 More information on the MIDJA page of the [MIDUS website](https://midus.wisc.edu/midja/index.php)
 
 **Country/Countries:** Japan
 
-**Waves:** MIDJA 1, MIDJA 2
+**Waves included in the analyses:** MIDJA 1, MIDJA 2
 
-**Data collection period:** 2008, 2012
+**Data collection period (of waves included in the analyses):** 2008, 2012
 
 **Dataset(s) version number/name:** 
 
@@ -974,9 +1030,9 @@ More information on the [MIDUS website](https://midus.wisc.edu/)
 
 **Country/Countries:** United States of America
 
-**Waves:** MIDUS 1 (Core), MIDUS 2 (Core), MIDUS 3 (Core)
+**Waves included in the analyses:** MIDUS 1 (Core), MIDUS 2 (Core), MIDUS 3 (Core)
 
-**Data collection period:** 1995-2013
+**Data collection period (of waves included in the analyses):** 1995-2013
 
 **Dataset(s) version number/name:** 
 
@@ -987,7 +1043,7 @@ MIDUS 2 - Project 1: via the [MIDUS collectica platform](https://midus.colectica
 
 MIDUS 3 - Project 1 (*DS1 Aggregate Data*): Ryff, Carol, Almeida, David, Ayanian, John, Binkley, Neil, Carr, Deborah S., Coe, Christopher, … Williams, David. Midlife in the United States (MIDUS 3), 2013-2014 . Ann Arbor, MI: Inter-university Consortium for Political and Social Research [distributor], 2019-04-30. https://doi.org/10.3886/ICPSR36346.v7
 
-**Data access:** Data can be downloaded via the [MIDUS collectica](https://midus.colectica.org/)
+**Data access:** Data can be downloaded via the [MIDUS collectica platform](https://midus.colectica.org/)
 
 
 
@@ -995,7 +1051,7 @@ MIDUS 3 - Project 1 (*DS1 Aggregate Data*): Ryff, Carol, Almeida, David, Ayanian
 <br>
 
 
-### NLSY79_CYA 
+### NLSY79-CYA 
 ```{r, echo = F}
 panel_name <- "NLSY79_CYA"
 ```
@@ -1010,12 +1066,12 @@ More information at: https://www.nlsinfo.org/content/cohorts/nlsy79-children
 
 **Country/Countries:** Unites States of America
 
-**Waves included in the analyses:** 1988 - 2014 (Child Self-Report) and 1994 - 2018 (Young Adult self-report)
+**Waves included in the analyses:** 1988 - 2014 (Child Self-Report) and 1994 - 2020 (Young Adult self-report)
 
-**Data collection period (of waves included in the analyses):** 1988 - 2014 (Child Self-Report) and 1994 - 2018 (Young adult self-report)
+**Data collection period (of waves included in the analyses):** 1988 - 2014 (Child Self-Report) and 1994 - 2020 (Young adult self-report)
 
 **Dataset(s) version number/name used for the analyses:**
-We created a dataset by selecting the relevant variables from the Child and Young Adult self-report surveys using the NLS Investigator tool (dataset created on the 8-9 September 2021) 
+We created a dataset by selecting the relevant variables from the Child and Young Adult self-report surveys using the NLS Investigator tool (dataset created on May 9th, 2023) 
 
 
 **Data access:** Data can be accessed and directly downloaded via the [NLS investigator tool](https://nlsinfo.org/content/cohorts/nlsy79-children/get-data)
@@ -1034,9 +1090,9 @@ panel_name <- "NSHAP"
 
 **Panel Name:** National Social Life, Health, and Aging Project (NSHAP)
 
-**Description:** The National Social Life, Health, and Aging Project (NSHAP) is a longitudinal, population-based study of health and social factors. It is done to understand the well-being of older adults by investigating associations bewtwen various factors, such aas physical health, emotional health, sensory function, social connectedness, sexuality, and relationship quality.
+**Description:** The National Social Life, Health, and Aging Project (NSHAP) is a longitudinal, population-based study of health and social factors. It is conducted to understand the well-being of older adults by investigating associations between various factors, such as physical health, emotional health,  social connectedness, sexuality, and relationship quality.
 
- Face-to-face interviews are conducted on more than 3,000 respondents, and data was collected in three waves
+ Face-to-face interviews were conducted on more than 3,000 respondents, and data was collected in three waves
 
 More information at: https://www.norc.org/content/norc-org/us/en/research/projects/national-social-life-health-and-aging-project.html
 
@@ -1050,7 +1106,6 @@ More information at: https://www.norc.org/content/norc-org/us/en/research/projec
 Round 1: Waite, Linda J., Laumann, Edward O., Levinson, Wendy S., Lindau, Stacy Tessler, and O’Muircheartaigh, Colm A. National Social Life, Health, and Aging Project (NSHAP): Round 1, [United States], 2005-2006. Inter-university Consortium for Political and Social Research [distributor], 2023-01-30. https://doi.org/10.3886/ICPSR20541.v10
 
 Round 2: Waite, Linda J., Cagney, Kathleen A., Dale, William, Huang, Elbert S., Laumann, Edward O., McClintock, Martha K., … Cornwell, Benjamin. National Social Life, Health, and Aging Project (NSHAP): Round 2 and Partner Data Collection, [United States], 2010-2011. Inter-university Consortium for Political and Social Research [distributor], 2023-05-24. https://doi.org/10.3886/ICPSR34921.v5
-
 
 Round 3: Waite, Linda J., Cagney, Kathleen A., Dale, William, Hawkley, Louise C., Huang, Elbert S., Lauderdale, Diane S., … Schumm, L. Philip. National Social Life, Health, and Aging Project (NSHAP): Round 3 and COVID-19 Study, [United States], 2015-2016, 2020-2021. Inter-university Consortium for Political and Social Research [distributor], 2022-11-17. https://doi.org/10.3886/ICPSR36873.v7
 
@@ -1072,6 +1127,8 @@ panel_name <- "PHF"
 
 **Description:** The German Panel on Household Finances (PHF) is a panel survey on household finance and wealth in Germany, covering the balance sheet, pension, income, work life and other demographic characteristics of private households living in Germany. The first wave of the PHF was carried out in 2010/2011, the second and third wave in 2014 and 2017, respectively. In the first wave, around 3,500 randomly selected households participated, from which about 2,200 also participated in the second wave.
 
+This paper uses data from the Deutsche Bundesbank Panel on Household Finances. The results published and the related observations and analysis may not correspond to results or analysis of the data producers.
+
 More information at: https://www.bundesbank.de/en/bundesbank/research/panel-on-household-finances
 
 **Country/Countries:** Germany
@@ -1081,9 +1138,13 @@ More information at: https://www.bundesbank.de/en/bundesbank/research/panel-on-h
 **Data collection period (of waves included in the analyses):** 2010-2017
 
 **Dataset(s) version number/name used for the analyses:**
+
 PHF Scientific Use File data sets 
+
 Wave 1 Version 4.0 DOI: 10.12757/Bbk.PHF.01.04.01
+
 Wave 2 Version 4.0. DOI: 10.12757/Bbk.PHF.02.04.01
+
 Wave 3 Version 2.0. DOI: 10.12757/Bbk.PHF.03.02.01
 
 **Data access:** Access to the data can be requested via the  Deutsche Bundesbank Eurosystem PHF Data Access [page](https://www.bundesbank.de/en/bundesbank/research/panel-on-household-finances/data-access-and-data-protection)
@@ -1131,7 +1192,7 @@ Börsch-Supan, Axel, Coppola, Michela, & Ziegelmeyer, Michael (2011). Saving and
 
 Börsch-Supan, Axel, Coppola, Michela, Lamla, Bettina, & Bucher-Koenen, Tabea (2014). Saving and old-age provision in Germany (SAVE) 2013. GESIS Data Archive, Cologne. ZA5647 Data file Version 1.0.0, https://doi.org/10.4232/1.11886.
 
-**Data access:** Access to the data can be requested on the GESIS [SAVE study webpage](https://dbk.gesis.org/dbksearch/GDESC2.asp?no=0014&search=save&search2=&DB=d&tab=0&notabs=&nf=1&af=&ll=10)
+**Data access:** Access to the data can be requested on the GESIS [webpage](https://dbk.gesis.org/dbksearch/GDESC2.asp?no=0014&search=save&search2=&DB=d&tab=0&notabs=&nf=1&af=&ll=10)
 
 
 <br>
@@ -1151,27 +1212,27 @@ panel_name <- "SHARE"
 
 More information at: http://www.share-project.org/home0.html
 
-**Country/Countries:** Austria, Belgium, Bulgaria, Croatia, Cyprus, Czech_Rep, Denmark, Estonia, Finland, France, Germany, Greece, Hungary, Ireland, Israel, Italy, Latvia, Lithuania, Luxembourg, Malta, Netherlands, Poland, Portugal, Romania, Slovakia, Slovenia, Spain, Sweden, Switzerland
+**Country/Countries:** Austria, Belgium, Czech_Rep, Denmark, Estonia, France, Germany, Israel, Italy, Netherlands, Slovenia, Spain, Sweden, Switzerland.
 
-**Waves:** Wave 1 - Wave 8
+**Waves included in the analyses:** Wave 1, Wave 2, Wave 4, Wave 5, Wave 6, Wave 7, Wave 8 
 
-**Data collection period:** 2004-present
+**Data collection period (of waves included in the analyses):** 2004-2020
 
 **Dataset(s) version number/name:** 
-Wave 1 - Release 7.1.0 (DOI: 10.6103/SHARE.w1.710)
 
-Wave 2 - Release 7.1.0 (DOI: 10.6103/SHARE.w2.710)
+Börsch-Supan, A. (2020). Survey of Health, Ageing and Retirement in Europe (SHARE) Wave 1. Release version: 7.1.0. SHARE-ERIC. Data set. DOI: 10.6103/SHARE.w1.710
 
-Wave 4 - Release 7.1.0 (DOI: 10.6103/SHARE.w4.710)
+Börsch-Supan, A. (2020). Survey of Health, Ageing and Retirement in Europe (SHARE) Wave 2. Release version: 7.1.0. SHARE-ERIC. Data set. DOI: 10.6103/SHARE.w2.710
 
-Wave 5 - Release 7.1.0 (DOI: 10.6103/SHARE.w5.710)
+Börsch-Supan, A. (2020). Survey of Health, Ageing and Retirement in Europe (SHARE) Wave 4. Release version: 7.1.0. SHARE-ERIC. Data set. DOI: 10.6103/SHARE.w4.710
 
-Wave 6 - Release 7.1.0 (DOI: 10.6103/SHARE.w6.710)
+Börsch-Supan, A. (2020). Survey of Health, Ageing and Retirement in Europe (SHARE) Wave 5. Release version: 7.1.0. SHARE-ERIC. Data set. DOI: 10.6103/SHARE.w5.710
 
-Wave 7 - Release 7.1.1 (DOI: 10.6103/SHARE.w7.711)
+Börsch-Supan, A. (2020). Survey of Health, Ageing and Retirement in Europe (SHARE) Wave 6. Release version: 7.1.0. SHARE-ERIC. Data set. DOI: 10.6103/SHARE.w6.710
 
-Wave 8 - Release 1.0.0 (DOI: 10.6103/SHARE.w8.100)
+Börsch-Supan, A. (2020). Survey of Health, Ageing and Retirement in Europe (SHARE) Wave 7. Release version: 7.1.1. SHARE-ERIC. Data set. DOI: 10.6103/SHARE.w7.711
 
+Börsch-Supan, A. (2021). Survey of Health, Ageing and Retirement in Europe (SHARE) Wave 8. Release version: 1.0.0. SHARE-ERIC. Data set. DOI: 10.6103/SHARE.w8.100
 
 **Data access:** Data access can be requested via the [Data Access page of the SHARE website](http://www.share-project.org/data-access.html). 
 
@@ -1190,17 +1251,17 @@ panel_name <- "SOEP"
 
 **Panel Name:** German Socio-Economic Panel (SOEP)
 
-**Description:** The Socio-Economic Panel (SOEP) is a longitudinal study of private households in Germany. It is one of the largest and longest-running multidisciplinary household surveys worldwide. Every year, approximately 30,000 people in 15,000 households are interviewed. SOEP questionnaires cover various topics such as, healthcare, family life and personality assessments. Data collection began in 1984, and households are survey on a annual basis.
+**Description:** The Socio-Economic Panel (SOEP) is a longitudinal study of private households in Germany. It is one of the largest and longest-running multidisciplinary household surveys worldwide. Every year, approximately 30,000 people in 15,000 households are interviewed. SOEP questionnaires cover various topics such as, healthcare, family life and personality assessments. Data collection began in 1984, and households are surveyed on a annual basis.
 
 More information at: https://www.diw.de/en/diw_02.c.299726.en/soep_overview.html
 
 **Country/Countries:** Germany
 
-**Waves included in the analyses:** 1998, 2004, 2006, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017 and 2018
+**Waves:** 1984-2020
 
-**Data collection period (of waves included in the analyses):** 1998-2018
+**Data collection period:** 1984-2020
 
-**Dataset(s) version number/name used for the analyses:** Socio-Economic Panel (SOEP), data for years 1984-2018, version 35, SOEP, 2019, doi:10.5684/soep.v35.
+**Dataset(s) version number/name used for the analyses:** Socio-Economic Panel (SOEP), data for years 1984-2020, version 37, SOEP, 2020, 10.5684/soep.core.v37eu.
 
 **Data access:**  Access to the data can be requested on the DIW Berlin's [SOEP Research Data Center Data Access webpage](https://www.diw.de/en/diw_01.c.601584.en/data_access.html)
 
@@ -1227,7 +1288,7 @@ More information available at: https://www.twin-life.de/studie-twinlife
 
 **Waves included in the analyses:** Face-to-face 1 (F2F 1 [wid1]); Face-to-face 2 (F2F 2 [wid3]); Face-to-Face 3 (F2F 3 [wid5])
 
-**Data collection period (of waves included in the analyses):** 2014-2021 (also refer [here](https://www.twin-life.de/documentation/about-twinlife/study-design-and-sample))
+**Data collection period (of waves included in the analyses):** 2015-2019 (also refer [here](https://www.twin-life.de/documentation/about-twinlife/study-design-and-sample))
 
 **Dataset(s) version number/name used for the analyses:** Diewald, M., Riemann, R., Spinath, F. M., Gottschling, J., Hahn, E., Kornadt, A. E., … & Weigel, L. (2020). TwinLife. GESIS Data Archive, Cologne. ZA6701 Data file Version 6.1.0, https://doi.org/10.4232/1.13987
 
@@ -1249,19 +1310,19 @@ panel_name <- "UAS"
 
 **Panel Name:** Understanding America Study (UAS)
 
-**Description:** Understanding America Study (UAS) ) is a panel of about 12,000 respondents representing the entire United States. Respondents complet surveys on a varitey of topics via their computer, tablet, or smart phone, wherever they are and whenever they wish to participate.
+**Description:** The Understanding America Study (UAS) is a panel of about 12,000 respondents representing the entire United States of America. Respondents complete surveys on a variety of topics via their computer, tablet, or smart phone.
 
 More information at: https://uasdata.usc.edu/index.php
 
 **Country/Countries:** United States of America
 
-**Waves:** Surveys - UAS117, UAS164, UAS166, UAS182, UAS185, UAS193, UAS20, UAS226, UAS230, UAS235, UAS240, UAS242, UAS244, UAS246, UAS248, UAS250, UAS252, UAS254, UAS256, UAS258, UAS260, UAS262, UAS264, UAS266, UAS268, UAS270, UAS272, UAS274, UAS276, UAS278, UAS280, UAS282, UAS331, UAS340, UAS342, UAS344, UAS346, UAS348, UAS396, UAS411, UAS65, UAS95
+**Waves included in the analyses:** Surveys - UAS185, UAS20, UAS396, UAS95, UAS411, UAS242, UAS244, UAS246, UAS250, UAS254, UAS256, UAS258, UAS260, UAS262, UAS264, UAS266, UAS268, UAS270, UAS272, UAS274, UAS276, UAS278, UAS280, UAS282, UAS340, UAS342, UAS344, UAS346, UAS348, UAS240, UAS248, UAS252, UAS182, UAS230, UAS235, UAS164, UAS193, UAS331, UAS65, UAS166, UAS226, UAS117
 
-**Data collection period:** 2015-2021
+**Data collection period (of waves included in the analyses):** 2015-2021
 
 **Dataset(s) version number/name:** NA
 
-**Data access:** Refer to *About the data* page on https://uasdata.usc.edu/index.php
+**Data access:** To access the data, refer to *About the data* page on https://uasdata.usc.edu/index.php
 
 
 
@@ -1278,19 +1339,24 @@ panel_name <- "ULMS"
 
 **Panel Name:** Ukrainian Longitudinal Monitoring Survey (ULMS)
 
-**Description:** The survey was aimed at ontaining information on the active adult population of Ukraine about employment, education and health. 
+**Description:** The Ukrainian Longitudinal Monitoring Survey was aimed at obtaining information on the active adult population of Ukraine about employment, education and health. 
+
+
+H. Lehmann, A. Muravyev & Zimmermann, K.F.. (2012). “The Ukrainian Longitudinal Monitoring Survey: Towards a Better Understanding of Labor Markets in Transition”, in IZA Journal of Labor and Development, 1, Article 9.
 
 More information at: https://datasets.iza.org/dataset/56/ukrainian-longitudinal-monitoring-survey
 
 **Country/Countries:** Ukraine
 
-**Waves:** 2003, 2004, 2007 and 2012
+**Data collection period (of waves included in the analyses):** 2003, 2004, 2007 and 2012
 
 **Data collection period:** 2003-2012
 
-**Dataset(s) version number/name:** NA
+**Dataset(s) version number/name:**
 
-**Data access:** https://datasets.iza.org/dataset/56/ukrainian-longitudinal-monitoring-survey
+Institute of Labor Economics (IZA) (2014). The Ukrainian Longitudinal Monitoring Survey. Research Data Center of IZA (IDSC). Version 1.0. doi:10.15185/izadp.7090.1
+
+**Data access:** Data can be accessed via the [IZA portal](https://datasets.iza.org/dataset/56/ukrainian-longitudinal-monitoring-survey).
 
 
 <br>
@@ -1304,22 +1370,21 @@ panel_name <- "USOC_IP"
 
 #### ABOUT
 
-**Panel Name:** UK Household Longitudinal Survey Innovation Panel (USOC_IP)
+**Panel Name:** UK Household Longitudinal Survey-Innovation Panel (USOC-IP)
 
-**Description:** The Innovation Panel (IP) is a separate survey, conducted as part of the UK Household Longitudinal Study, Understanding Society. It is designed for experimental and methodological research relevant to longitudinal surveys. As far as practical its design, content, and data collection procedures are similar to the Understanding Society survey, but also includes experiments and methodological tests. One person completes the household questionnaire. Each person aged 16 or older answers the individual adult interview, including and self-completion questionnaire. Young people aged 10 to 15 years are asked to respond to a paper self-completion questionnaire. The survey started in 2008 and has been continuing to collect data annually.
+**Description:** The Innovation Panel (IP) is a separate survey, conducted as part of the UK Household Longitudinal Study, Understanding Society. It is designed for experimental and methodological research relevant to longitudinal surveys. Data collection procedures are similar to the Understanding Society survey. Each person aged 16 or older answers the individual adult interview, including and self-completion questionnaire. Young people aged 10 to 15 years are asked to respond to a paper self-completion questionnaire. The survey started in 2008 and has been continuing to collect data annually.
 
 More information at: https://www.understandingsociety.ac.uk/documentation/innovation-panel
 
 **Country/Countries:** United Kingdom
 
-**Waves:** Wave 1-Wave 11
+**Waves:** Wave 1-Wave 13
 
-**Data collection period:** 2008-present
+**Data collection period:** 2008-2020
 
-**Dataset(s) version number/name:** NA
+**Dataset(s) version number/name:** University of Essex, Institute for Social and Economic Research. (2023). Understanding Society: Innovation Panel, Waves 1-13, 2008-2020. [data collection]. 11th Edition. UK Data Service. SN: 6849, DOI: http://doi.org/10.5255/UKDA-SN-6849-14
 
-**Data access:** https://beta.ukdataservice.ac.uk/datacatalogue/studies/study?id=6849#!/access-data
-
+**Data access:**  Data can be requested and downloaded via the [UK Data Service catalogue](https://beta.ukdataservice.ac.uk/datacatalogue/studies/study?id=6849#!/access-data) 
 
 
 <br>

@@ -1,12 +1,9 @@
 ---
-title: "The Temporal Stability, and Convergent Validity of Risk Preference Measures"
+title: "Comparing the Temporal Stability and Convergent Validity of Risk Preference Measures: A Meta-Analytic Approach"
 output: 
   html_document:
     toc: false
     toc_float: false
-    date: "`r format(Sys.time(), '%d %B, %Y')`"
-    includes:
-      in_header: "favicon.html" 
 ---
 
 
@@ -26,6 +23,13 @@ library(knitr)
 ```
 
 
+### Alexandra Bagaïni<sup>1</sup>, Yunrui Liu<sup>1</sup>, Madlaina Kapoor<sup>1</sup>, Gayoung Son<sup>2</sup>, Paul-Christian Bürkner<sup>3</sup>, Loreen Tisdall<sup>1</sup>, and Rui Mata<sup>1</sup>
+
+<sup>1</sup>Center for Cognitive and Decision Sciences, University of Basel; <sup>2</sup>Department of Psychology, University of Bern; <sup>3</sup>Department of Statistics, TU Dortmund University
+
+
+<br>
+
 ## About the Study
 
 Understanding whether risk preference represents a stable, coherent trait is central to efforts aimed at explaining, predicting, and preventing risk-related behaviours. We help characterise the nature of the construct by adopting a meta-analytic approach to summarise the temporal stability and convergent validity of over 300 risk preference measures (29 panels, 51 samples, >500.000 respondents). Our findings reveal significant heterogeneity across and within measure categories (propensity, frequency, behaviour), domains (e.g., investment, occupational, alcohol consumption), and sample characteristics (e.g., age). Specifically, while self-reported propensity and frequency measures of risk preference show a higher degree of stability relative to behavioural
@@ -33,21 +37,26 @@ measures, these patterns are moderated by domain and age. Crucially, an analysis
 
 <br>
 
+A pre-print is accessible on [PsyArxiv](https://psyarxiv.com/d7nuj/). 
+We make the estimated test-retest correlations and inter-correlations from the primary data sources as well as all analysis scripts publicly available in an [OSF repository](https://osf.io/5kzgd/). 
+
+<br>
+
 ## About this Companion Website
 
-This is the Companion Website for the study ***Comparing the Temporal Stability and Convergent Validity of Risk Preference Measures: A Meta-Analytic Approach***. Here, we provide additional information on the data, analyses and results reported in the study:
+This is the Companion Website for the study ***Comparing the Temporal Stability and Convergent Validity of Risk Preference Measures: A Meta-Analytic Approach***. Here, we provide additional information on the data, analyses and results reported in the [manuscript](https://psyarxiv.com/d7nuj/):
 
- - **Data:** Information on the sources of the data included in the analyses.
- - **Workflow:** Step-by-step instructions on how to use the files in the OSF repository to replicate the analyses described in the paper.
- - **Processing:**  Supplementary overview of the test-retest correlations and inter-correlations.
+ - **[Data](https://cdsbasel.github.io/temprisk/data_desc.html):** Information on the sources of the data included in the analyses.
+ - **[Workflow](https://cdsbasel.github.io/temprisk/workflow_overview.html):** Step-by-step instructions on how to use the files in the OSF repository to replicate the analyses described in the paper.
+ - **[Processing](https://cdsbasel.github.io/temprisk/processing_overview.html):**  Supplementary overview of the test-retest correlations and inter-correlations.
  <!--    - ***Test-Retest Correlations*** -->
  <!--    - ***Inter-Correlations*** -->
  <!-- Overview of the data pre-processing steps as well as the computation of test-retest correlations and inter-correlations using the scripts available on the OSF repository. -->
  - **Analysis:** Supplementary information on the analyses and results.
-   - ***Variance Decomposition:*** Descriptions of the effects examined for the variance decomposition analysis of test-retest correlations and inter-correlations, separately.
-   - ***Temporal Stability:*** Model summaries, MCMC diagnostics and posterior predictive checks.
-   - ***Convergent Validity:*** Model summaries, MCMC diagnostics and posterior predictive checks.
- - **Multiverse:** Summary output showing the robustness of the results of the above-mentioned analyses to variations in the processed data.
+   - ***[Variance Decomposition](https://cdsbasel.github.io/temprisk/var_decomp_overview.html):*** Descriptions of the effects examined for the variance decomposition analysis of test-retest correlations and inter-correlations, separately.
+   - ***[Temporal Stability](https://cdsbasel.github.io/temprisk/masc_overview.html):*** Model summaries, MCMC diagnostics and posterior predictive checks.
+   - ***[Convergent Validity](https://cdsbasel.github.io/temprisk/ma_bivar_overview.html):*** Model summaries, MCMC diagnostics and posterior predictive checks.
+ - **[Multiverse](https://cdsbasel.github.io/temprisk/multiverse_overview.html):** Summary output showing the robustness of the results of the above-mentioned analyses to variations in the processed data.
 
 
 <br>
