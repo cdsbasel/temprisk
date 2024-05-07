@@ -7,21 +7,30 @@ output:
 ---
 
 <!-- <style type="text/css"> -->
-<!-- .main-container { -->
-<!-- max-width: 1200px !important; -->
-<!-- margin-left: auto; -->
-<!-- margin-right: auto; -->
-<!-- } -->
-<!-- </style> -->
 
+<!-- .main-container { -->
+
+<!-- max-width: 1200px !important; -->
+
+<!-- margin-left: auto; -->
+
+<!-- margin-right: auto; -->
+
+<!-- } -->
+
+<!-- </style> -->
 
 <!-- <style type="text/css"> -->
-<!--   body{ -->
-<!--   font-size: 12pt; -->
-<!--   font-family: "Source Sans 3"; -->
-<!-- } -->
-<!-- </style> -->
 
+<!--   body{ -->
+
+<!--   font-size: 12pt; -->
+
+<!--   font-family: "Source Sans 3"; -->
+
+<!-- } -->
+
+<!-- </style> -->
 
 ```{r, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
@@ -56,27 +65,23 @@ ma_list <- list(dom = readRDS(paste0(model_path, "fit_convergent_ma_domain.rds")
 
 ```
 
-
-
 ## Brief Description
 
-
-Below we provide information on the specifications of the Bayesian random-effects meta-analysis and meta-regressions, as well as an overview of the model summaries, including posterior predictive checks (PPCs), approximate leave-one-out (LOO) cross-validation output, and convergence diagnostics (i.e., rhat values, trace plots, effective sample size).
-
+Below we provide information on the specifications of the Bayesian random-effects meta-analysis and meta-regressions, as well as an overview of the model summaries, including posterior predictive checks (PPCs), approximate leave-one-out (LOO) cross-validation output, and convergence diagnostics (i.e., Rhat values, trace plots, effective sample size).
 
 ***To replicate these analyses, refer to the [Workflow](https://cdsbasel.github.io/temprisk/workflow_overview.html) page***
 
 <br>
 
-
 ## Bayesian random-effects meta-analysis and meta-regressions {.tabset}
 
 ### Intercept-Only {.tabset}
+
 ```{r, eval=TRUE, echo=FALSE}
 fit_ma <- ma_list[["overall"]]
 ```
 
-#### Model specification in `brms` 
+#### Model specification in `brms`
 
 ```{r, echo=TRUE, eval=FALSE}
 family <- brmsfamily(
@@ -94,17 +99,15 @@ priors <-  c(prior(normal(0, 1), class = "b", coef = "Intercept"),
 
 ```
 
-#### Model Summary 
+#### Model Summary
 
 ```{r, eval=TRUE, echo=TRUE}
 summary(fit_ma)
 ```
 
-
 <br><br><br>
 
-
-#### MCMC diagnostics 
+#### MCMC diagnostics
 
 ```{r, eval=TRUE, echo=FALSE, fig.height=4, fig.width=12}
 p <- bayesplot::mcmc_trace(fit_ma, facet_args = list(ncol = 5), regex_pars = "^b|^sigma|^sd") 
@@ -114,7 +117,6 @@ p + theme_minimal() + theme(strip.text = element_text(size = 9.5, face = "bold")
                             title = element_text(size = 10, face = "bold")) + labs(title = "Trace Plots")
 
 ```
-
 
 <br>
 
@@ -128,18 +130,11 @@ plot_change_ess(fit_ma, variable = "^b|^sigma|^sd",
 
 <br>
 
-
 ```{r, eval=TRUE, echo=FALSE, fig.height=2, fig.width=8}
 plot_rhat(fit_ma, regex = "^b|^sigma|^sd") + labs(title = "Rhat")
 ```
 
-
-
 <br><br><br>
-
-
-
-
 
 #### PPCs & LOO
 
@@ -164,7 +159,6 @@ pp_check(fit_ma,
 
 ```
 
-
 <br>
 
 ```{r, eval=TRUE, echo=FALSE, fig.show="hold", out.width="50%"}
@@ -177,18 +171,15 @@ ppc_loo_pit_overlay(y = fit_ma$data$wcor,
                     lw = w) + theme_minimal() + labs(title = "LOO-PIT values") + theme(title = element_text(face = "bold", hjust = .5))
 ```
 
-
-
 <br><br><br>
 
-
-
 ### Measure-Pair as Covariate {.tabset}
+
 ```{r, eval=TRUE, echo=FALSE}
 fit_ma <- ma_list[["categ"]]
 ```
 
-#### Model specification in `brms` 
+#### Model specification in `brms`
 
 ```{r, echo=TRUE, eval=FALSE}
 family <- brmsfamily(
@@ -206,24 +197,17 @@ priors <-  c(prior(normal(0, 1), class = "b"),
   
 ```
 
-
-
-
-
 <br><br><br>
 
-
-#### Model Summary 
+#### Model Summary
 
 ```{r, eval=TRUE, echo=TRUE}
 summary(fit_ma)
 ```
 
-
 <br><br><br>
 
-
-#### MCMC diagnostics 
+#### MCMC diagnostics
 
 ```{r, eval=TRUE, echo=FALSE, fig.height=6, fig.width=12}
 p <- bayesplot::mcmc_trace(fit_ma, facet_args = list(ncol = 5), regex_pars = "^b|^sigma|^sd") 
@@ -233,7 +217,6 @@ p + theme_minimal() + theme(strip.text = element_text(size = 9.5, face = "bold")
                             title = element_text(size = 10, face = "bold")) + labs(title = "Trace Plots")
 
 ```
-
 
 <br>
 
@@ -247,18 +230,11 @@ plot_change_ess(fit_ma, variable = "^b|^sigma|^sd",
 
 <br>
 
-
 ```{r, eval=TRUE, echo=FALSE, fig.height=6, fig.width=12}
 plot_rhat(fit_ma, regex = "^b|^sigma|^sd") + labs(title = "Rhat")
 ```
 
-
-
 <br><br><br>
-
-
-
-
 
 #### PPCs & LOO
 
@@ -284,7 +260,6 @@ pp_check(fit_ma,
 
 ```
 
-
 <br>
 
 ```{r, eval=TRUE, echo=FALSE, fig.show="hold", out.width="50%"}
@@ -297,20 +272,15 @@ ppc_loo_pit_overlay(y = fit_ma$data$wcor,
                     lw = w) + theme_minimal() + labs(title = "LOO-PIT values") + theme(title = element_text(face = "bold", hjust = .5))
 ```
 
-
-
 <br><br><br>
 
-
-
 ### Domain-Pair as Covariate {.tabset}
+
 ```{r, eval=TRUE, echo=FALSE}
 fit_ma <- ma_list[["dom"]]
 ```
 
-
-
-#### Model specification in `brms` 
+#### Model specification in `brms`
 
 ```{r, echo=TRUE, eval=FALSE}
 
@@ -328,22 +298,17 @@ priors <-  c(prior(normal(0, 1), class = "b"),
   
 ```
 
-
-
 <br><br><br>
 
-#### Model Summary 
+#### Model Summary
 
 ```{r, eval=TRUE, echo=TRUE}
 summary(fit_ma)
 ```
 
-
 <br><br><br>
 
-
-
-#### MCMC diagnostics 
+#### MCMC diagnostics
 
 ```{r, eval=TRUE, echo=FALSE, fig.height=60, fig.width=15}
 p <- bayesplot::mcmc_trace(fit_ma, facet_args = list(ncol = 5), regex_pars = "^b|^sigma|^sd") 
@@ -353,7 +318,6 @@ p + theme_minimal() + theme(strip.text = element_text(size = 9.5, face = "bold")
                             title = element_text(size = 10, face = "bold")) + labs(title = "Trace Plots")
 
 ```
-
 
 <br>
 
@@ -367,18 +331,11 @@ plot_change_ess(fit_ma, variable = "^b|^sigma|^sd",
 
 <br>
 
-
 ```{r, eval=TRUE, echo=FALSE, fig.height=40, fig.width=10}
 plot_rhat(fit_ma, regex = "^b|^sigma|^sd") + labs(title = "Rhat")
 ```
 
-
-
 <br><br><br>
-
-
-
-
 
 #### PPCs & LOO
 
@@ -403,7 +360,6 @@ pp_check(fit_ma,
 
 ```
 
-
 <br>
 
 ```{r, eval=TRUE, echo=FALSE, fig.show="hold", out.width="50%"}
@@ -416,8 +372,29 @@ ppc_loo_pit_overlay(y = fit_ma$data$wcor,
                     lw = w) + theme_minimal() + labs(title = "LOO-PIT values") + theme(title = element_text(face = "bold", hjust = .5))
 ```
 
+<br><br>
+
+## Robustness Checks {.tabset}
+
+### Behavioural Measure Categorization 
+
+We re-conducted the meta-analyses using a data set in which we treated behavioral measures as belonging to a single overarching "financial" domain (versus 4 domains: occupational, investment, gambling, and insurance). The overall estimate *(0.17, 95% HDI [0.15,0.20]; k = 4,810)* is comparable to the one reported in the main paper. Below are the correlation matrices of the results for this new categorization.
+
+```{r, eval=TRUE, echo=FALSE}
+knitr::include_graphics("images/cor_matrix_fig_beh_agg.png")
+```
+
+### Correction for Attenuation
+
+We corrected the 189 meta-analytic estimates of the intercorrelations reported in the main paper for attenuation due to measurement error by using the MASC reliability parameter estimates and Spearman's formula. 
+
+$$r_{true} = \frac{r_{obs}}{\sqrt{rel_{1}*rel_{2}}}$$
+
+Below are the matrices with the correlations corrected for attenuation, any correlation exceeding |1.00| was capped at |1.00|.
+
+```{r, eval=TRUE, echo=FALSE}
+knitr::include_graphics("images/cor_matrix_fig_correction.png")
+```
 
 
-<br><br><br>
-
-
+<br><br>

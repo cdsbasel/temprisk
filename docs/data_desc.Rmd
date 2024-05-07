@@ -27,7 +27,7 @@ library(knitr)
 
 ## Risk Preference Measures
 
-Overview of the measures included in the analyses described in the [manuscript](https://psyarxiv.com/d7nuj/):
+Overview of the measures included in the analyses are described in the [manuscript](https://psyarxiv.com/d7nuj/):
 
 
 <br>
@@ -504,6 +504,40 @@ Eisenberg, I. W., et al. (2018). Applying novel technologies and methods to info
 <br>
 
 
+
+### FICR 
+```{r, echo = F}
+panel_name <- "FICR"
+```
+
+#### ABOUT
+
+**Panel Name:** Financial Crisis: A Longitudinal Study of Public Response (FICR)
+
+**Description:** The Financial Crisis: A Longitudinal Study of Public Response (FICR) was conducted to understand hoe peopel percieved risk during the economic crisis in 2008. Eight (online) surveys were sent out between late September 2008 and August 2011. At least 600 respondents participated in each survey, with 325 completing all eight surveys. It ocntaned questions focused on  risk perception, nagetive emotions, and confidence in national leaders.
+
+Burns, William. Financial Crisis: A Longitudinal Study of Public Response. Ann Arbor, MI: Inter-university Consortium for Political and Social Research [distributor], 2016-01-25. https://doi.org/10.3886/ICPSR36341.v1
+
+
+**Country/Countries:** United States 
+
+**Waves included in the analyses:** Wave 3, Wave 5-7
+
+**Data collection period (of waves included in the analyses):** 2008-2009
+
+**Dataset(s) version number/name:** 
+
+DS1 Financial Crisis: A Longitudinal Study of Public Response
+
+**Data access:** * Data can be downloaded via the [ICPSR page of the study](https://www.icpsr.umich.edu/web/ICPSR/studies/36341/versions/V1/datadocumentation)
+
+
+<br>
+<br>
+
+
+
+
 ### GCOE (China Urban Sample) 
 ```{r, echo = F}
 panel_name <- "GCOE_CN"
@@ -535,6 +569,41 @@ More information at: https://www.iser.osaka-u.ac.jp/survey_data/eng_panelsummary
 <br>
 
 
+
+### GCOE (India Rural Sample) 
+```{r, echo = F}
+panel_name <- "GCOE_IN_RUR"
+```
+
+#### ABOUT
+
+**Panel Name:** Preference Parameters Study - India Rural Sample (GCOE_IN_RUR) 
+
+**Description:** The Preference Parameters Study of Osaka University is an extensive panel study conducted in 4 different countries (Japan, United States, China and India). The study includes measures to assess time preference, risk aversion, habit formation as well as externality. 
+
+
+For the survey in the Indian rural areas, the panel survey was conducted annually from 2012 to 2013. Samples of men and women aged 20-69 living in the rural areas of four cities (Delhi, Mumbai, Bangalore, Calcutta)  were interviewed.
+
+More information at: https://www.iser.osaka-u.ac.jp/survey_data/eng_panelsummary.html
+
+**Country/Countries:** India
+
+**Waves included in the analyses:** 2012 and 2013
+
+**Data collection period (of waves included in the analyses):** 2012-2013
+
+**Dataset(s) version number/name used for the analyses:** 
+2012Data_RURAL_INDIA, and 2013Data_RURAL_INDIA
+
+**Data access:** Access to the data can be requested via the form available on the [Data Application page](https://www.iser.osaka-u.ac.jp/survey_data/eng_application.html)
+
+
+<br>
+<br>
+
+
+
+
 ### GCOE (India Urban Sample) 
 ```{r, echo = F}
 panel_name <- "GCOE_IN"
@@ -564,6 +633,10 @@ More information at: https://www.iser.osaka-u.ac.jp/survey_data/eng_panelsummary
 
 <br>
 <br>
+
+
+
+
 
 
 ### GCOE (Japan Sample) 
@@ -816,6 +889,145 @@ Health and Retirement Study, (2020 HRS Core: Latest Release - May 2023 (Final V1
 <br>
 
 
+
+
+### IFLS 
+```{r, echo = F}
+panel_name <- "IFLS"
+```
+
+#### ABOUT
+
+**Panel Name:** Indonesia Family Life Survey (IFLS)
+
+**Description:** The Indonesian Family Life Survey (IFLS) is an on-going longitudinal survey in Indonesia. The sample consists of over 30,000 individuals. The first wave was conducted in 1993/94, then again in 1997/98. The third waves was conducted  in 2000,  the fourth wave in 2007/2008, and the fifth wave in 2014-15. Survey items include: personality,  well-being, positive and negative affect, health status, and education.
+
+
+More information at: https://www.rand.org/well-being/social-and-behavioral-policy/data/FLS/IFLS.html
+
+Strauss, J., F. Witoelar, and B. Sikoki. "The Fifth Wave of the Indonesia Family Life Survey (IFLS5): Overview and Field Report". March 2016. WR-1143/1-NIA/NICHD.
+Papers that use IFLS4 (2007):
+
+Strauss, J., F. Witoelar, B. Sikoki and A.M. Wattie.  "The Fourth Wave of the Indonesian Family Life Survey (IFLS4): Overview and Field Report". April 2009. WR-675/1-NIA/NICHD.
+Papers that use IFLS3 (2000):
+
+Strauss, J., K. Beegle, B. Sikoki, A. Dwiyanto, Y. Herawati and F. Witoelar. "The Third Wave of the Indonesia Family Life Survey (IFLS): Overview and Field Report", March 2004. WR-144/1-NIA/NICHD.
+
+Frankenberg, E. and D. Thomas. "The Indonesia Family Life Survey (IFLS): Study Design and Results from Waves 1 and 2." March 2000. RAND, Santa Monica, CA. DRU-2238/1-NIA/NICHD.
+Papers that use IFLS1 (1993):
+
+Frankenberg, E. and L. Karoly. "The 1993 Indonesian Family Life Survey: Overview and Field Report." November, 1995. RAND, Santa Monica, CA.
+
+
+**Country/Countries:** Indonesia
+
+**Waves included in the analyses:** Waves 1-5
+
+**Data collection period (of waves included in the analyses):** 1993-2015
+
+**Dataset(s) version number/name:** 
+
+ - Wave 1: hh93b3. (Individual adult)
+ 
+ - Wave 2: hh97b3 (Individual adult)
+
+- Wave 3: hh00_b3a_dta and hh00_b3b_dta (Individual adult Part A & B)
+  
+ - Wave 4: hh07_b3a_dta and hh07_b3b_dta  (Individual adult Part A & B)
+  
+ - Wave 5: hh14_b3a_dta and hh14_b3b_dta  (Individual adult Part A & B)
+
+
+**Data access:** Data can be requested and downloaded via the [study page on the RAND website](https://www.rand.org/well-being/social-and-behavioral-policy/data/FLS/IFLS/access.html)
+
+
+<br>
+<br>
+
+
+
+
+
+
+### JSTAR 
+```{r, echo = F}
+panel_name <- "JSTAR"
+```
+
+
+#### ABOUT
+
+**Panel Name:** Japanese Study of Aging and Retirement (JSTAR)
+
+**Description:** The Japanese Study of Aging and Retirement (JSTAR) is a panel survey of elderly people (+50 years old) conducted by the Research Institute of Economy, Trade and Industry of the Hitotsubashi University, and the University of Tokyo. It is a panel survey that collects data on people's economic, social, and health conditions. In addition, the survey is designed to ensure comparability with other retirement surveys such as the Health and Retirement Study (HRS) from the U.S.A.
+
+
+More information at: https://www.rieti.go.jp/en/projects/jstar/
+
+**Country/Countries:** Japan
+
+**Waves included in the analyses:** Wave 2007, Wave 2009, Wave 2011, Wave 2013
+
+**Data collection period (of waves included in the analyses):** 2007-2013
+
+**Dataset(s) version number/name used for the analyses:**
+
+- 2007 JSTAR (Japanese Study of Aging and Retirement)—High Level
+
+- 2009 JSTAR (Japanese Study of Aging and Retirement)—High Level
+
+- 2011 JSTAR (Japanese Study of Aging and Retirement)—High Level
+
+- 2013 JSTAR (Japanese Study of Aging and Retirement)—High Level
+
+**Data access:** Access to the data can be requested via the Research Institute of Economy, Trade and Industry (RIETY) [JSTAR study page](https://www.rieti.go.jp/en/projects/jstar/). 
+
+
+<br>
+<br>
+
+
+
+
+
+
+### KLIPS 
+```{r, echo = F}
+panel_name <- "KLIPS"
+```
+
+
+#### ABOUT
+
+**Panel Name:** Korean Labor & Income Panel Study (KLIPS)
+
+**Description:**  Korean Labor & Income Panel Study is a longitudinal survey of the income of households. The survey was launched by the Korea Labor Institute in 1998, and has been been collected data since then, and is currently on its 25th wave. Data is collected from 5'000 households, which includes over 13'000 individuals. Contents of the survey include questions on education, employment, housing, leisure, decision-making, and atitudes towards life.
+
+
+More information at: https://www.kli.re.kr/klips_eng
+
+**Country/Countries:** South Korea
+
+**Waves included in the analyses:** Wave 7, Wave 10, Wave 23-25
+
+**Data collection period (of waves included in the analyses):** 2007-2024
+
+**Dataset(s) version number/name used for the analyses:**
+
+- 1-25th wave SPSS version
+
+**Data access:** Access to the data can be requested via the Korea Labor Institute (KLI) [KLIPS page](https://www.kli.re.kr/klips_eng). 
+
+
+<br>
+<br>
+
+
+
+
+
+
+
 ### LIKS 
 ```{r, echo = F}
 panel_name <- "LIKS"
@@ -1049,6 +1261,38 @@ MIDUS 3 - Project 1 (*DS1 Aggregate Data*): Ryff, Carol, Almeida, David, Ayanian
 
 <br>
 <br>
+
+
+### NLSY79
+```{r, echo = F}
+panel_name <- "NLSY79"
+```
+
+#### ABOUT
+
+**Panel Name:** National Longitudinal Survey of Youth-1979 (NLSY79)
+
+**Description:** The NLSY79 is a longitudinal project that studies the lives of young Americans born between 1957-64. The project started in 1979 and included 12,686 respondents between the ages of 14 and 22. Afterwards certain participants were dropped from the project, leaving 9,964 respondents. Data are available from the 1979 to 2020 survey year.
+
+More information at: https://www.nlsinfo.org/content/cohorts/nlsy79
+
+**Country/Countries:** Unites States of America
+
+**Waves included in the analyses:** 1982 - 2018
+
+**Data collection period (of waves included in the analyses):** 1982 - 2018
+
+**Dataset(s) version number/name used for the analyses:**
+We created a dataset by selecting the relevant variables from the surveys using the NLS Investigator tool (dataset created on February 7th, 2024) 
+
+
+**Data access:** Data can be accessed and directly downloaded via the [NLS investigator tool](https://www.nlsinfo.org/content/cohorts/nlsy79/get-data)
+
+
+<br>
+<br>
+
+
 
 
 ### NLSY79-CYA 
