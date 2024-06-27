@@ -1,1 +1,4 @@
 *.zip filter=lfs diff=lfs merge=lfs -text
+complete_agg_* filter=lfs diff=lfs merge=lfs -text
+complete_intercor.csv filter=lfs diff=lfs merge=lfs -text
+complete_retest.csv filter=lfs diff=lfs merge=lfs -text
