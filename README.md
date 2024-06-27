@@ -66,7 +66,7 @@ Understanding whether risk preference represents a stable, coherent trait is cen
 
 ## Scripts
 
-A detailed description on how to run the scripts, on the output obtained, and on how to replicate the analyses reported in the manuscript can be found on the [companion website](https://cdsbasel.github.io/temprisk/workflow_overview.html).
+A detailed description on how to run the scripts, on the output obtained, and on how to replicate the analyses reported in the manuscript can be found on the [companion website](https://cdsbasel.github.io/temprisk/workflow_overview.html). Additionally, each script contains a "Description" section. Lastly,  refer to the *temprisk_info_session.txt* file for information on the packages required for the analyses.
 
 
 ## Codebook
@@ -228,7 +228,7 @@ Description of the structure and content of the different data files created/use
 |`continent`          |Continent where data collection took place                                                                                                                                                                                                                                          |character |
 |`country`            |Country where data collection took place                                                                                                                                                                                                                                            |character |
 |`language`           |Language of survey                                                                                                                                                                                                                                                                  |character |
-|`data_collect_mode`  |Mode of data collection used accross most waves: interview, online, laboratory, self-administered (e.g., survey sent via post)                                                                                                                                                      |character |
+|`data_collect_mode`  |Mode of data collection used across most waves: interview, online, laboratory, self-administered (e.g., survey sent via post)                                                                                                                                                      |character |
 |`sample_type`        |Type of population who partakes in the survey: adolescents, adults, older adults, lifespan                                                                                                                                                                                          |character |
 
  <br><br> 
@@ -252,7 +252,7 @@ Description of the structure and content of the different data files created/use
 |`continent`         |Continent where data collection took place                                                                                     |character |
 |`country`           |Country where data collection took place                                                                                       |character |
 |`language`          |Language of survey                                                                                                             |character |
-|`data_collect_mode` |Mode of data collection used accross most waves: interview, online, laboratory, self-administered (e.g., survey sent via post) |character |
+|`data_collect_mode` |Mode of data collection used across most waves: interview, online, laboratory, self-administered (e.g., survey sent via post) |character |
 |`sample_type`       |Type of population who partakes in the survey: adolescents, adults, older adults, lifespan                                     |character |
 |`age_group`         |Age group of respondents (e.g., "10-19")                                                                                       |character |
 |`gender_group`      |Gender of respondents (i.e., female, male, all)                                                                                |character |
@@ -341,7 +341,7 @@ Description of the structure and content of the different data files created/use
 |`continent`         |Continent where data collection took place                                                                                                                                                                                                                            |character |
 |`country`           |Country where data collection took place                                                                                                                                                                                                                              |character |
 |`language`          |Language of survey                                                                                                                                                                                                                                                    |character |
-|`data_collect_mode` |Mode of data collection used accross most waves: interview, online, laboratory, self-administered (e.g., survey sent via post)                                                                                                                                        |character |
+|`data_collect_mode` |Mode of data collection used across most waves: interview, online, laboratory, self-administered (e.g., survey sent via post)                                                                                                                                        |character |
 |`sample_type`       |Type of population who partakes in the survey: adolescents, adults, older adults, lifespan                                                                                                                                                                            |character |
 
  <br><br> 
@@ -365,7 +365,7 @@ Description of the structure and content of the different data files created/use
 |`continent`         |Continent where data collection took place                                                                                     |character |
 |`country`           |Country where data collection took place                                                                                       |character |
 |`language`          |Language of survey                                                                                                             |character |
-|`data_collect_mode` |Mode of data collection used accross most waves: interview, online, laboratory, self-administered (e.g., survey sent via post) |character |
+|`data_collect_mode` |Mode of data collection used across most waves: interview, online, laboratory, self-administered (e.g., survey sent via post) |character |
 |`sample_type`       |Type of population who partakes in the survey: adolescents, adults, older adults, lifespan                                     |character |
 |`time_diff_bin`     |Rounded mean time difference between T1 and T2                                                                                 |numeric   |
 |`age_group`         |Age group of respondents (e.g., "10-19")                                                                                       |character |
@@ -419,7 +419,7 @@ Description of the structure and content of the different data files created/use
 |`continent`         |Continent where data collection took place                                                                                     |character |
 |`country`           |Country where data collection took place                                                                                       |character |
 |`sample_type`       |Type of population who partakes in the survey: adolescents, adults, older adults, lifespan                                     |character |
-|`collect_mode`      |Mode of data collection used accross most waves: interview, online, laboratory, self-administered (e.g., survey sent via post) |character |
+|`collect_mode`      |Mode of data collection used across most waves: interview, online, laboratory, self-administered (e.g., survey sent via post) |character |
 |`measure_categ`     |List of the categories of the measures anaylsed (pro, fre, beh)                                                                |character |
 |`domain_name`       |List of the domains of the measures anaylsed (e.g., smo, alc)                                                                  |character |
 |`unique_meas`       |Number of unique measures                                                                                                      |numeric   |
@@ -452,9 +452,9 @@ Description of the structure and content of the different data files created/use
 |`sample`        |Name of sample                                                                                                                 |character |
 |`continent`     |Continent where data collection took place                                                                                     |character |
 |`country`       |Country where data collection took place                                                                                       |character |
-|`collect_mode`  |Mode of data collection used accross most waves: interview, online, laboratory, self-administered (e.g., survey sent via post) |character |
-|`measure_categ` |List of the categories of the measures anaylsed (pro, fre, beh)                                                                |character |
-|`domain_name`   |List of the domains of the measures anaylsed (e.g., smo, alc)                                                                  |character |
+|`collect_mode`  |Mode of data collection used across most waves: interview, online, laboratory, self-administered (e.g., survey sent via post) |character |
+|`measure_categ` |List of the categories of the measures analysed (pro, fre, beh)                                                                |character |
+|`domain_name`   |List of the domains of the measures analysed (e.g., smo, alc)                                                                  |character |
 |`unique_meas`   |Number of unique measures                                                                                                      |numeric   |
 |`cor_num`       |Number of correlations analysed                                                                                                |numeric   |
 |`unique_id`     |Number of unique respondents                                                                                                   |numeric   |
@@ -497,7 +497,7 @@ Description of the structure and content of the different data files created/use
 - **filename(s): convergent_val/masc_nlpar_pred.csv**
 
 
-- file description: Summary of  MASC parameter estimates for risk preference for different predictor values (used for variance decomp. analysis)
+- file description: Summary ofMASC parameter estimates for risk preference for different predictor values (used for variance decomp. analysis)
 
 
 - location: analysis/output/convergent_val/
@@ -510,8 +510,8 @@ Description of the structure and content of the different data files created/use
 |`measure`       |Measure category (Propensity, Behaviour, Frequency)  |character |
 |`age_group`     |Age group (e.g., "20-30")                            |character |
 |`gender_group`  |Gender group (male, female)                          |character |
-|`nlpar`         |Name of the non linear parameter                     |character |
-|`.epred`        |Mean value of the paramter estimate                  |numeric   |
+|`nlpar`         |Name of the non-linear parameter                     |character |
+|`.epred`        |Mean value of the parameter estimate                  |numeric   |
 |`.lower_0.95`   |Value of the lower 95% HDI of the parameter estimate |numeric   |
 |`.lower_0.8`    |Value of the lower 80% HDI of the parameter estimate |numeric   |
 |`.lower_0.5`    |Value of the lower 50% HDI of the parameter estimate |numeric   |
