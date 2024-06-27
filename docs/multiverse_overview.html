@@ -13,6 +13,7 @@
 
 <title>Multiverse Analysis Overview</title>
 
+<script src="site_libs/header-attrs-2.25/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
@@ -32,7 +33,6 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<script src="site_libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -302,7 +302,7 @@ div.tocify {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">Bagaïni et al. (2023)</a>
+      <a class="navbar-brand" href="index.html">temprisk</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -371,27 +371,50 @@ div.tocify {
 <!-- </style> -->
 <div id="brief-description" class="section level2">
 <h2>Brief Description</h2>
-<p>Below we provide an overview of how robust the results reported in the main paper are to different data processing and analysis decisions. To do so, we conducted the same (main) analyses using data sets derived from other combinations of data processing and model specification decisions (see diagram below). <strong><em>Refer to the <a href="https://cdsbasel.github.io/temprisk/workflow_overview.html">Workflow</a> page for more information on how these analyses were conducted</em></strong></p>
-<p>The plots in the different sections and tabs show in the upper panel the parameter estimate as a function of different data configurations and analysis decisions which are indicated in the lower panel (dashes indicate which option was used to process/analyse the data). The middle panel shows the number of effect sizes/correlations that were included in the analyses.</p>
-<p>The plots have a similar format as those used for Specification Curve Analysis (Hall et al., 2022; Simonsohn, Simmons, &amp; Nelson, 2020)</p>
+<p>Below we provide an overview of how robust the results reported in
+the main paper are to different data processing and analysis decisions.
+To do so, we conducted the same (main) analyses using data sets derived
+from other combinations of data processing and model specification
+decisions (see diagram below). <strong><em>Refer to the <a
+href="https://cdsbasel.github.io/temprisk/workflow_overview.html">Workflow</a>
+page for more information on how these analyses were
+conducted</em></strong></p>
+<p>The plots in the different sections and tabs show in the upper panel
+the parameter estimate as a function of different data
+configuration/analysis decisions described in the lower panel (dashes
+indicate which option was used to process/analyze the data). The middle
+panel shows the number of effect sizes/correlations that were included
+in the analyses.</p>
+<p>The plots have a similar format as those used for Specification Curve
+Analysis (Hall, Liu, Jansen, Dragicevic, Chevalier, &amp; Kay, 2022;
+Simonsohn, Simmons, &amp; Nelson, 2020)</p>
 <p><br></p>
 <div class="figure">
 <img src="images/multiverse_overview.png" alt="Overview of data processing and analysis options. Options in bold represent the results reported in the main paper." width="100%" />
 <p class="caption">
-Overview of data processing and analysis options. Options in bold represent the results reported in the main paper.
+Overview of data processing and analysis options. Options in bold
+represent the results reported in the main paper.
 </p>
 </div>
 <p><br></p>
 <p><strong>References</strong></p>
-<p>Hall, B.D., Liu, Y., Jansen, Y., Dragicevic, P., Chevalier, F. and Kay, M. (2022), A Survey of Tasks and Visualizations in Multiverse Analysis Reports. Computer Graphics Forum, 41: 402-426. doi: 10.1111/cgf.14443</p>
-<p>Simonsohn, U., Simmons, J. P., &amp; Nelson, L. D. (2020). Specification curve analysis. <em>Nature Human Behaviour, 4</em>(11), 1208-1214. doi: 10.1038/s41562-020-0912-z</p>
+<p>Hall, B.D., Liu, Y., Jansen, Y., Dragicevic, P., Chevalier, F. and
+Kay, M. (2022), A Survey of Tasks and Visualizations in Multiverse
+Analysis Reports. <em>Computer Graphics Forum, 41</em>, 402-426. doi:
+10.1111/cgf.14443</p>
+<p>Simonsohn, U., Simmons, J. P., &amp; Nelson, L. D. (2020).
+Specification curve analysis. <em>Nature Human Behaviour, 4</em>(11),
+1208-1214. doi: 10.1038/s41562-020-0912-z</p>
 <p><br></p>
 </div>
 <div id="size-of-datasets" class="section level2 tabset">
-<h2>Size of datasets</h2>
-<p>Based on the threshold used for the sample size (i.e., minimum of 30, 100 or 250 responses to compute the correlation) the size of the dataset varies. Below is an overview of the number of correlation coefficients for each age group for different thresholds of minimum sample size.</p>
+<h2 class="tabset">Size of datasets</h2>
+<p>Based on the threshold used for the sample size (i.e., minimum of 30,
+100 or 250 responses to compute the correlation) the size of the dataset
+varies. Below is an overview of the number of correlation coefficients
+for each age group for different thresholds of minimum sample size.</p>
 <div id="test-retest-correlations" class="section level3 tabset">
-<h3>Test-Retest Correlations</h3>
+<h3 class="tabset">Test-Retest Correlations</h3>
 <div id="non-aggregated-correlations" class="section level4">
 <h4>Non-Aggregated Correlations</h4>
 <p><img src="images/threshold_retest_plot.png" width="100%" /></p>
@@ -404,7 +427,7 @@ Overview of data processing and analysis options. Options in bold represent the 
 </div>
 </div>
 <div id="inter-correlations" class="section level3 tabset">
-<h3>Inter-Correlations</h3>
+<h3 class="tabset">Inter-Correlations</h3>
 <div id="non-aggregated-correlations-1" class="section level4">
 <h4>Non-Aggregated Correlations</h4>
 <p><img src="images/threshold_intercor_plot.png" width="100%" /></p>
@@ -421,8 +444,12 @@ Overview of data processing and analysis options. Options in bold represent the 
 <div id="temporal-stability" class="section level2">
 <h2>Temporal Stability</h2>
 <div id="variance-decomposition" class="section level3 tabset">
-<h3>Variance Decomposition</h3>
-<p>We could not estimate Shapley values for certain datasets given that certain data points would be removed from the dataset, and we would therefore encounter either issues related to singularities or lack of levels in a categorical variable. As a result, the number of possible dataset configurations vary between measure categories.</p>
+<h3 class="tabset">Variance Decomposition</h3>
+<p>We were unable to estimate Shapley values for certain data sets,
+given that certain data points would be removed from the dataset, and we
+would therefore encounter either issues related to singularities or lack
+of levels in a categorical variable. As a result, the number of possible
+dataset configurations vary between measure categories.</p>
 <div id="omnibus" class="section level4">
 <h4>Omnibus</h4>
 <p><img src="images/shapley_omni_multiverse.png" width="100%" /></p>
@@ -444,31 +471,251 @@ Overview of data processing and analysis options. Options in bold represent the 
 <p><br><br><br></p>
 </div>
 </div>
-<div id="meta-analytic-stability-and-change-model" class="section level3 tabset">
-<h3>Meta-Analytic Stability and Change model</h3>
-<p><strong>UNDER CONSTRUCTION</strong></p>
+<div id="meta-analytic-stability-and-change-model"
+class="section level3 tabset">
+<h3 class="tabset">Meta-Analytic Stability and Change model</h3>
+<p>Predicted MASC parameter estimates (mean and 95% HDI) for each
+measure category and domain of risk preference for a sample of 40-year
+old individuals (50% female) across different data formats (visualizing
+for each measure category a subset of 1’944 possible specifications)</p>
+<div id="propensity-1" class="section level4 tabset">
+<h4 class="tabset">Propensity</h4>
+<div id="driving" class="section level5">
+<h5>Driving</h5>
+</center>
+<img src="images/masc_pro_dri_multiverse.png" style="width:100.0%" />
+</center>
+<p><br><br><br></p>
+</div>
+<div id="ethical" class="section level5">
+<h5>Ethical</h5>
+</center>
+<img src="images/masc_pro_eth_multiverse.png" style="width:100.0%" />
+</center>
+<p><br><br><br></p>
+</div>
+<div id="gambling" class="section level5">
+<h5>Gambling</h5>
+</center>
+<img src="images/masc_pro_gam_multiverse.png" style="width:100.0%" />
+</center>
+<p><br><br><br></p>
+</div>
+<div id="general-risk" class="section level5">
+<h5>General Risk</h5>
+</center>
+<img src="images/masc_pro_gen_multiverse.png" style="width:100.0%" />
+</center>
+<p><br><br><br></p>
+</div>
+<div id="general-health" class="section level5">
+<h5>General Health</h5>
+</center>
+<img src="images/masc_pro_hea_gen_multiverse.png"
+style="width:100.0%" />
+</center>
+<p><br><br><br></p>
+</div>
+<div id="investment" class="section level5">
+<h5>Investment</h5>
+</center>
+<img src="images/masc_pro_inv_multiverse.png" style="width:100.0%" />
+</center>
+<p><br><br><br></p>
+</div>
+<div id="occupational" class="section level5">
+<h5>Occupational</h5>
+</center>
+<img src="images/masc_pro_occ_multiverse.png" style="width:100.0%" />
+</center>
+<p><br><br><br></p>
+</div>
+<div id="recreational" class="section level5">
+<h5>Recreational</h5>
+</center>
+<img src="images/masc_pro_rec_multiverse.png" style="width:100.0%" />
+</center>
+<p><br><br><br></p>
+</div>
+<div id="social" class="section level5">
+<h5>Social</h5>
+</center>
+<img src="images/masc_pro_soc_multiverse.png" style="width:100.0%" />
+</center>
+<p><br><br><br></p>
+<p><br><br><br></p>
+</div>
+</div>
+<div id="frequency-1" class="section level4 tabset">
+<h4 class="tabset">Frequency</h4>
+<div id="alcohol" class="section level5">
+<h5>Alcohol</h5>
+</center>
+<img src="images/masc_fre_alc_multiverse.png" style="width:100.0%" />
+</center>
+<p><br><br><br></p>
+</div>
+<div id="driving-1" class="section level5">
+<h5>Driving</h5>
+</center>
+<img src="images/masc_fre_dri_multiverse.png" style="width:100.0%" />
+</center>
+<p><br><br><br></p>
+</div>
+<div id="drugs" class="section level5">
+<h5>Drugs</h5>
+</center>
+<img src="images/masc_fre_dru_multiverse.png" style="width:100.0%" />
+</center>
+<p><br><br><br></p>
+</div>
+<div id="ethical-1" class="section level5">
+<h5>Ethical</h5>
+</center>
+<img src="images/masc_fre_eth_multiverse.png" style="width:100.0%" />
+</center>
+<p><br><br><br></p>
+</div>
+<div id="gambling-1" class="section level5">
+<h5>Gambling</h5>
+</center>
+<img src="images/masc_fre_gam_multiverse.png" style="width:100.0%" />
+</center>
+<p><br><br><br></p>
+</div>
+<div id="occupational-1" class="section level5">
+<h5>Occupational</h5>
+</center>
+<img src="images/masc_fre_occ_multiverse.png" style="width:100.0%" />
+</center>
+<p><br><br><br></p>
+</div>
+<div id="sexual-intercourse" class="section level5">
+<h5>Sexual Intercourse</h5>
+</center>
+<img src="images/masc_fre_sex_multiverse.png" style="width:100.0%" />
+</center>
+<p><br><br><br></p>
+</div>
+<div id="smoking" class="section level5">
+<h5>Smoking</h5>
+</center>
+<img src="images/masc_fre_smo_multiverse.png" style="width:100.0%" />
+</center>
+<p><br><br><br></p>
+<p><br><br>&lt;</p>
+</div>
+</div>
+<div id="behaviour-1" class="section level4 tabset">
+<h4 class="tabset">Behaviour</h4>
+<div id="gambling-2" class="section level5">
+<h5>Gambling</h5>
+</center>
+<img src="images/masc_beh_gam_multiverse.png" style="width:100.0%" />
+</center>
+<p><br><br><br></p>
+</div>
+<div id="insurance" class="section level5">
+<h5>Insurance</h5>
+</center>
+<img src="images/masc_beh_ins_multiverse.png" style="width:100.0%" />
+</center>
+<p><br><br><br></p>
+</div>
+<div id="investment-1" class="section level5">
+<h5>Investment</h5>
+</center>
+<img src="images/masc_beh_inv_multiverse.png" style="width:100.0%" />
+</center>
+<p><br><br><br></p>
+</div>
+<div id="occupational-2" class="section level5">
+<h5>Occupational</h5>
+</center>
+<img src="images/masc_beh_occ_multiverse.png" style="width:100.0%" />
+</center>
+<p><br><br><br></p>
+<p><br></p>
 <p><br><br></p>
+</div>
+</div>
 </div>
 </div>
 <div id="convergent-validity" class="section level2">
 <h2>Convergent Validity</h2>
 <div id="variance-decomposition-1" class="section level3">
 <h3>Variance Decomposition</h3>
-<p>We could not estimate Shapley values for certain datasets given that certain data points would be removed from the dataset, and we would therefore encounter either issues related to singularities or lack of levels in a categorical variable.</p>
+<p>We were unable to estimate Shapley values for certain data sets,
+given that certain data points would be removed from the dataset, and we
+would therefore encounter either issues related to singularities or lack
+of levels in a categorical variable.</p>
 <p><img src="images/shapley_intercor_multiverse.png" width="100%" /></p>
 <p><br><br><br></p>
 </div>
 <div id="meta-analysis" class="section level3 tabset">
-<h3>Meta-Analysis</h3>
+<h3 class="tabset">Meta-Analysis</h3>
 <div id="overall" class="section level4">
 <h4>Overall</h4>
 <p><img src="images/convergent_ma_overall_multiverse.png" width="100%" /></p>
 <p><br></p>
 </div>
-<div id="by-measure-pairs" class="section level4">
-<h4>By Measure Pairs</h4>
-<p><strong>UNDER CONSTRUCTION</strong></p>
+<div id="by-measure-pairs" class="section level4 tabset">
+<h4 class="tabset">By Measure Pairs</h4>
+<div id="behaviour-behaviour" class="section level5">
+<h5>Behaviour-Behaviour</h5>
+</center>
+<img
+src="images/convergent_ma_measure_Behaviour-Behaviour_multiverse.png"
+style="width:100.0%" />
+</center>
+<p><br><br><br></p>
+</div>
+<div id="frequency-behaviour" class="section level5">
+<h5>Frequency-Behaviour</h5>
+</center>
+<img
+src="images/convergent_ma_measure_Frequency-Behaviour_multiverse.png"
+style="width:100.0%" />
+</center>
+<p><br><br><br></p>
+</div>
+<div id="frequency-frequency" class="section level5">
+<h5>Frequency-Frequency</h5>
+</center>
+<img
+src="images/convergent_ma_measure_Frequency-Frequency_multiverse.png"
+style="width:100.0%" />
+</center>
+<p><br><br><br></p>
+</div>
+<div id="propensity-behaviour" class="section level5">
+<h5>Propensity-Behaviour</h5>
+</center>
+<img
+src="images/convergent_ma_measure_Propensity-Behaviour_multiverse.png"
+style="width:100.0%" />
+</center>
+<p><br><br><br></p>
+</div>
+<div id="propensity-frequency" class="section level5">
+<h5>Propensity-Frequency</h5>
+</center>
+<img
+src="images/convergent_ma_measure_Propensity-Frequency_multiverse.png"
+style="width:100.0%" />
+</center>
+<p><br><br><br></p>
+</div>
+<div id="propensity-propensity" class="section level5">
+<h5>Propensity-Propensity</h5>
+</center>
+<img
+src="images/convergent_ma_measure_Propensity-Propensity_multiverse.png"
+style="width:100.0%" />
+</center>
+<p><br><br><br></p>
 <p><br></p>
+</div>
 </div>
 </div>
 </div>
@@ -522,7 +769,7 @@ $(document).ready(function ()  {
 
     // establish options
     var options = {
-      selectors: "h1,h2,h3",
+      selectors: "h1,h2,h3,h4",
       theme: "bootstrap3",
       context: '.toc-content',
       hashGenerator: function (text) {

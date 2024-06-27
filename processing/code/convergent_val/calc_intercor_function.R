@@ -1,13 +1,13 @@
 # FUNCTION DESCRIPTION -------------------------------------------------------------
 
-# Function that reads (processed/clean) panel data (in long format) and computes for all time intervals the  intercorrelation betwen different measures for different groups of respondents. 
-# Correlations are only computed if there is at least 10 data points in the dataframe, the time interval does not exceed 20 years, and their is variance in the responses at both time points.
+# Function that reads (processed/clean) panel data (in long format) and computes for all waves of data the intercorrelation between different measures for different groups of respondents. 
+
 
 # It takes as INPUT:
 # panel = name of the panel (string; e.g., "SOEP")
 # data = clean/processed panel data (dataframe; in LONG format; output of PANEL_preproc.R scripts)
-# varcodes =  varcodes of pairs of measures for which the intercorrelations have to be calculated (character vector, must contain at least ONE string element; e.g., c("VAR_A", "VAR_B"))
-# wave_ids = ordered waves (character vector, must contain at least TWO string elements; e.g., c("W1", "W2", "W3"))
+# varcodes =  varcodes of pairs of measures for which the intercorrelations have to be calculated (character vector, must contain at least TWO string elements; e.g., c("VAR_A", "VAR_B"))
+# wave_ids = ordered waves (character vector, must contain at least ONE string element; e.g., c("W1", "W2", "W3"))
 # age_group = age group information (a data frame generated from the age_group.R script. Contains four columns and a row for each age group. first col = min age; second col = max age; third col = age group label; fourth col = age bin category)
 
 # The OUTPUT of the function:
@@ -18,26 +18,26 @@
 # wave_year <-  wave year of survey 
 # year_age_group <- XYZ-year age group category (e.g., 5(year age groups))
 # age_group <-  age group 
-# age_mean <- mean age of respondents at A
-# age_median <-  median age of respondents at A
-# age_min <-  min. age of respondents at A
-# age_max <-  max. age of respondents at A
-# age_sd <-  sd of age of respondents at A
+# age_mean <- mean age of respondents 
+# age_median <-  median age of respondents 
+# age_min <-  min. age of respondents 
+# age_max <-  max. age of respondents 
+# age_sd <-  sd of age of respondents 
 # gender_group <-  all, female only, male only respondents
 # prop_female <-  prop. of female respondents
-# n <-  num of respondents with complete observations at A  & B
-# varcode_a <- code/name of the variable at A
-# varcode_b <- code/name of the variable at B
-# cor_pearson <- pearson correlation coefficient
-# cor_spearman <- spearman correlation coefficient
-# icc2_1 <- Intra-class correlation coefficient
+# n <-  num of respondents with complete observations for var A  & B
+# varcode_a <- code/name of the variable A
+# varcode_b <- code/name of the variable B
+# cor_pearson <- pearson correlation coefficient between var A & B
+# cor_spearman <- spearman correlation coefficient  between var A & B
+# icc2_1 <- Intra-class correlation coefficient  between var A & B
 # cor_pearson_log <- pearson correlation coefficient w log-transformed data
 # cor_spearman_log <- spearman correlation coefficient w log-transformed data
 # icc2_1_log <- Intra-class correlation coefficient w log-transformed data
-# coeff_var_a <-  coefficient of variation at A
-# coeff_var_b <- coefficient of variation at B
-# skewness_a <- skewness of responses at A
-# skewness_b <-  skewness of responses at B
+# coeff_var_a <-  coefficient of variation of var A
+# coeff_var_b <- coefficient of variation of var B
+# skewness_a <- skewness of responses of var A
+# skewness_b <-  skewness of responses of var B
 
 
 # 2) intercor_w_id = same as intercor, but for each correlation it saves the id list of the respondents whose data was used.
@@ -142,7 +142,7 @@ calc_intercor <-function(panel,data,varcodes,wave_ids, age_group) {
           }
           
           
-          #_________________CALC TIME DIFFERENCE _________________________# 
+          #_________________SD CHECK _________________________# 
           sd_check <- sd(subset$response_a) & sd(subset$response_b) != 0 # check if sd for data A & B are not 0 
           
           
@@ -162,26 +162,26 @@ calc_intercor <-function(panel,data,varcodes,wave_ids, age_group) {
             sub_intercor$wave_year <- unique(subset$wave_year)  #  wave year of survey 
             sub_intercor$year_age_group <- unique(agerange$age_bin_categ) #  XYZ-year age group  
             sub_intercor$age_group <- CurrAgeGroup    #  age group  
-            sub_intercor$age_mean <- mean(subset$age) # mean age of respondents at a
-            sub_intercor$age_median <- median(subset$age) # median age of respondents at a
-            sub_intercor$age_min <- min(subset$age) # min. age of respondents at a
-            sub_intercor$age_max <- max(subset$age) # min. age of respondents at a
-            sub_intercor$age_sd <- sd(subset$age) # sd of age of respondents at a
+            sub_intercor$age_mean <- mean(subset$age) # mean age of respondents 
+            sub_intercor$age_median <- median(subset$age) # median age of respondents 
+            sub_intercor$age_min <- min(subset$age) # min. age of respondents 
+            sub_intercor$age_max <- max(subset$age) # min. age of respondents 
+            sub_intercor$age_sd <- sd(subset$age) # sd of age of respondents 
             sub_intercor$gender_group <- gender_group  # all, female only, male only respondents
             sub_intercor$prop_female <- sum(subset$gender==1)/nrow(subset) # prop. of female respondents
             sub_intercor$n <- nrow(subset)  # num of respondents with complete observations
-            sub_intercor$varcode_a <- varcodes0$var_a[CurrVarCode]  # code name of the variable at A
-            sub_intercor$varcode_b <- varcodes0$var_b[CurrVarCode]  # code name of the variable at B
+            sub_intercor$varcode_a <- varcodes0$var_a[CurrVarCode]  # code name of the variable of var A
+            sub_intercor$varcode_b <- varcodes0$var_b[CurrVarCode]  # code name of the variable of var B
             sub_intercor$cor_pearson <- cor(subset$response_a,subset$response_b,method="pearson")  # pearson correlation coefficient
             sub_intercor$cor_spearman <- cor(subset$response_a,subset$response_b,method="spearman")  # spearman correlation coefficient
             sub_intercor$icc2_1 <- icc(data.frame(subset$response_a,subset$response_b), model = "twoway", type = "agreement", unit = "single")$value #ICC2_1
             sub_intercor$cor_pearson_log <- cor(log(1+(subset$response_a)),log(1+(subset$response_b)), method="pearson")  # pearson correlation coefficient w log transformed data (adding 1 to avoid "0" values in the data)
             sub_intercor$cor_spearman_log <- cor(log(1+(subset$response_a)),log(1+(subset$response_b)), method="spearman")  # spearman correlation coefficient w log transformed data (adding 1 to avoid "0" values in the data)
             sub_intercor$icc2_1_log <- icc(data.frame(log(1+(subset$response_a)),log(1+(subset$response_b))), model = "twoway", type = "agreement", unit = "single")$value #ICC2_1 w log transformed data (adding 1 to avoid "0" values in the data)
-            sub_intercor$coeff_var_a <- sd(subset$response_a)/mean(subset$response_a) # calculate the coefficient of variation at A
-            sub_intercor$coeff_var_b <- sd(subset$response_b)/mean(subset$response_b) # calculate the coefficient of variation at B
-            sub_intercor$skewness_a <- skewness(subset$response_a, na.rm = FALSE) # calculate skewness of responses at A
-            sub_intercor$skewness_b <- skewness(subset$response_b, na.rm = FALSE) # calculate skewness of responses at B
+            sub_intercor$coeff_var_a <- sd(subset$response_a)/mean(subset$response_a) # calculate the coefficient of variation of var A
+            sub_intercor$coeff_var_b <- sd(subset$response_b)/mean(subset$response_b) # calculate the coefficient of variation of var B
+            sub_intercor$skewness_a <- skewness(subset$response_a, na.rm = FALSE) # calculate skewness of responses of var A
+            sub_intercor$skewness_b <- skewness(subset$response_b, na.rm = FALSE) # calculate skewness of responses of var B
             
             # converting NaN to NA 
             # sub_intercor[sapply(sub_intercor, is.nan)] <- NA

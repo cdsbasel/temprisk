@@ -2,7 +2,7 @@
 
 #  DESCRIPTION -------------------------------------------------------------
 
-# Script reads the aggregated set of  intercorrelations and conducts three Bayesian 
+# Script reads the aggregated set of intercorrelations and conducts three Bayesian 
 # meta-analyses/meta-regressions: 
 # Omnibus
 # By-Measure
@@ -91,11 +91,11 @@ ma_fit <- brm(
   prior = priors,
   cores = 2, 
   chains = 2,
-  threads = threading(2), 
+  # threads = threading(2), 
   iter = 7000,
   warmup = 2000, 
   backend = "cmdstanr", 
-  stan_model_args = list(stanc_options = list("O1")),
+   stan_model_args = list(stanc_options = list("O1")),
   sample_prior = TRUE,
   control = list(max_treedepth = 10, adapt_delta = 0.95), 
   seed = 458828 
@@ -170,7 +170,7 @@ ma_fit <-  brm(
   prior = priors,
   cores = 2, 
   chains = 2,
-  threads = threading(2), # i guess this helps someho
+  # threads = threading(2), 
   iter = 7000,
   warmup = 2000, 
   backend = "cmdstanr", #  works bett
@@ -251,8 +251,9 @@ family <- brmsfamily(
 formula <-  bf(wcor_z|se(sei_z, sigma = TRUE) ~ 0 + domain_pair_id + (1|sample),
                sigma ~ 0 + domain_pair_id + (1|sample))
 
-priors <-  c(prior(normal(0, 1), class = "b"),
-             prior(normal(0, 2), class = "b", dpar = "sigma"),
+# had to adjust priors dues to some problematic obs
+priors <-  c(prior(normal(0, 0.5), class = "b"),
+             prior(normal(0, 1), class = "b", dpar = "sigma"),
              prior(cauchy(0, 0.3), class = "sd"),
              prior(cauchy(0, 0.3), class = "sd", dpar = "sigma"))
 
@@ -264,7 +265,7 @@ ma_fit <-  brm(
   prior = priors,
   cores = 2, 
   chains = 2,
-  threads = threading(2), 
+  # threads = threading(2), 
   iter = 7000,
   warmup = 2000, 
   backend = "cmdstanr", #  works better
@@ -326,6 +327,7 @@ dt <- t %>%
 
 write_csv(dt, paste0(output_data_path, "cor_mat_convergent_domain_dat.csv"))
     
+
 
 
 

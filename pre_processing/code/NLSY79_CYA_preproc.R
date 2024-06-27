@@ -34,8 +34,8 @@ library(foreign) # open spss file
 
 var_book <- read_rds("var_info/panel_variable_info.rds")# panel risk measures
 measure_info_path <- c("var_info/indv_panel_var_info/") 
-panel_data_path <- c("") # where the raw panel data is stored
-preproc_data_path <- c("") # where to save processed panel data
+panel_data_path <- c("~/Documents/TSRP/Data/NLSY79_CYA/RawData/") # where the raw panel data is stored
+preproc_data_path <- c("~/Documents/TSRP/Data/NLSY79_CYA/ProcData/") # where to save processed panel data
 panel_name <- "NLSY79_CYA"
 
 # VARIABLE INFORMATION ----------------------------------------------------
@@ -329,7 +329,7 @@ main_yasr <- main_yasr %>% mutate(
 # 2. 2nd most risk averse 
 # 1. Most risk averse
 
-main_yasr <- main_yasr %>%  mutate(INCOME_CUT_RISK = case_when(
+main_yasr <- main_yasr %>%  mutate(INCOME_CUT_RISKB = case_when(
   
   # accepts job with 50% chance of 50% cut in income
   CHOICE_INCOME_33CUT == 2  & is.na(CHOICE_INCOME_20CUT) & CHOICE_INCOME_50CUT == 2 ~ 4,
@@ -457,10 +457,10 @@ vars_to_keep <- vars_to_keep  %>%
 
 # create a descriptive overview of vars to analyse
 risk_info_analyse <- risk_info %>% bind_rows(newvars_info) %>% distinct(panel, varcode, measure_category, general_domain, domain_name,
-                                                                        scale_type,scale_length, time_frame, behav_type, behav_paid) %>% 
+                                                                        scale_type,scale_length, time_frame, behav_type, behav_paid, item_num) %>% 
   mutate(var_consider = if_else(varcode %in% dependency_vars, 0, 1), # considering non-dependency vars (or binary vars) for calculating retest correlations
          var_include = if_else(varcode %in% vars_to_keep$var_name, 1,0)) # include or exclude from calculating retest correlations
-# dim(risk_info_analyse)  94 rows x  12 cols
+# dim(risk_info_analyse)  94 rows x  13 cols
 
 
 # CREATE CLEAN/PROCESSED DATAFRAME  --------------------------------------------------------------

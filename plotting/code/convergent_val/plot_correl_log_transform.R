@@ -1,6 +1,6 @@
 # DESCRIPTION -------------------------------------------------------------
 
-#Plotting assiciation between different correlation coefficients
+#Plotting assiciation between different correlations if the data was log-transformed or not   (suppl. material)
 
 
 # Author(s): Alexandra Bagaini, Centre for Cognitive and Decision Sciences, Faculty of Psychology, University of Basel.
@@ -132,7 +132,7 @@ p_labels <-  dat  %>%
          labs = str_remove(labs, "0+"))
 
 
-# warning about  17 "missing" ICC2,1 values, but there is no missing values in the data +
+# warning about  50 "missing" ICC2,1 values, but there is no missing values in the data +
 #  range is adequate (message disappears if we do not specify x and y ranges)
 p2 <- dat %>% 
   ggplot(aes(x = icc2_1, y = icc2_1_log)) +
@@ -195,5 +195,5 @@ p
 
 
 
-ggsave(filename = paste0(output_path,"log_metric_plot.png"), plot = p, height = 10, width = 30, units = "cm", dpi = 200)
+ggsave(filename = paste0(output_path,"log_metric_intercor_plot.png"), plot = p, height = 10, width = 30, units = "cm", dpi = 200)
 

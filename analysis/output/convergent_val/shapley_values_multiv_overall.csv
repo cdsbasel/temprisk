@@ -1,433 +1,433 @@
 x,measure_category,m,x_lbl,categ_lbl,age_bin,min_n,corr_metric,data_transform,n_obs
-age_group,Omnibus,0.0038482402279965324,Age,Respondent,20,250,spearman,none,31137
-domain_name_pair_same,Omnibus,0.11210340440843719,Same Domain,Measure,20,250,spearman,none,31137
-gender_group,Omnibus,7.368817367340462e-4,Gender,Respondent,20,250,spearman,none,31137
-mean_rel,Omnibus,0.0019309777877860484,Reliability,Measure,20,250,spearman,none,31137
-measure_category_pair_same,Omnibus,0.06938372679781976,Same Category,Measure,20,250,spearman,none,31137
-panel,Omnibus,0.08104656393751772,Panel,Panel,20,250,spearman,none,31137
-sample_size,Omnibus,4.824898761823733e-4,n,Respondent,20,250,spearman,none,31137
-scale_type_pair_same,Omnibus,0.0035856065204918045,Same Scale Type,Measure,20,250,spearman,none,31137
-age_group,Omnibus,0.0038482402279965324,Age,Respondent,20,250,pearson,none,31137
-domain_name_pair_same,Omnibus,0.11210340440843719,Same Domain,Measure,20,250,pearson,none,31137
-gender_group,Omnibus,7.368817367340462e-4,Gender,Respondent,20,250,pearson,none,31137
-mean_rel,Omnibus,0.0019309777877860484,Reliability,Measure,20,250,pearson,none,31137
-measure_category_pair_same,Omnibus,0.06938372679781976,Same Category,Measure,20,250,pearson,none,31137
-panel,Omnibus,0.08104656393751772,Panel,Panel,20,250,pearson,none,31137
-sample_size,Omnibus,4.824898761823733e-4,n,Respondent,20,250,pearson,none,31137
-scale_type_pair_same,Omnibus,0.0035856065204918045,Same Scale Type,Measure,20,250,pearson,none,31137
-age_group,Omnibus,0.004027234940617074,Age,Respondent,20,250,icc2_1,none,31137
-domain_name_pair_same,Omnibus,0.06455381331586661,Same Domain,Measure,20,250,icc2_1,none,31137
-gender_group,Omnibus,3.384424955761266e-4,Gender,Respondent,20,250,icc2_1,none,31137
-mean_rel,Omnibus,0.0013970231998909146,Reliability,Measure,20,250,icc2_1,none,31137
-measure_category_pair_same,Omnibus,0.0555854329223841,Same Category,Measure,20,250,icc2_1,none,31137
-panel,Omnibus,0.10867718621518796,Panel,Panel,20,250,icc2_1,none,31137
-sample_size,Omnibus,4.065148567082008e-4,n,Respondent,20,250,icc2_1,none,31137
-scale_type_pair_same,Omnibus,0.02678674443612862,Same Scale Type,Measure,20,250,icc2_1,none,31137
-age_group,Omnibus,0.0038482402279965324,Age,Respondent,20,250,spearman,log,31137
-domain_name_pair_same,Omnibus,0.11210340440843719,Same Domain,Measure,20,250,spearman,log,31137
-gender_group,Omnibus,7.368817367340462e-4,Gender,Respondent,20,250,spearman,log,31137
-mean_rel,Omnibus,0.0019309777877860484,Reliability,Measure,20,250,spearman,log,31137
-measure_category_pair_same,Omnibus,0.06938372679781976,Same Category,Measure,20,250,spearman,log,31137
-panel,Omnibus,0.08104656393751772,Panel,Panel,20,250,spearman,log,31137
-sample_size,Omnibus,4.824898761823733e-4,n,Respondent,20,250,spearman,log,31137
-scale_type_pair_same,Omnibus,0.0035856065204918045,Same Scale Type,Measure,20,250,spearman,log,31137
-age_group,Omnibus,0.004211432886902396,Age,Respondent,20,250,pearson,log,31137
-domain_name_pair_same,Omnibus,0.11142036739772875,Same Domain,Measure,20,250,pearson,log,31137
-gender_group,Omnibus,0.0010496267007395006,Gender,Respondent,20,250,pearson,log,31137
-mean_rel,Omnibus,0.001552859086422972,Reliability,Measure,20,250,pearson,log,31137
-measure_category_pair_same,Omnibus,0.0757008906177287,Same Category,Measure,20,250,pearson,log,31137
-panel,Omnibus,0.07669383752440266,Panel,Panel,20,250,pearson,log,31137
-sample_size,Omnibus,5.790110600530637e-4,n,Respondent,20,250,pearson,log,31137
-scale_type_pair_same,Omnibus,0.004790750423976247,Same Scale Type,Measure,20,250,pearson,log,31137
-age_group,Omnibus,0.005118382142823633,Age,Respondent,20,250,icc2_1,log,31137
-domain_name_pair_same,Omnibus,0.09868435674146561,Same Domain,Measure,20,250,icc2_1,log,31137
-gender_group,Omnibus,0.0012472415548840337,Gender,Respondent,20,250,icc2_1,log,31137
-mean_rel,Omnibus,0.0013032961063474146,Reliability,Measure,20,250,icc2_1,log,31137
-measure_category_pair_same,Omnibus,0.06703822711072455,Same Category,Measure,20,250,icc2_1,log,31137
-panel,Omnibus,0.1019626260407756,Panel,Panel,20,250,icc2_1,log,31137
-sample_size,Omnibus,0.0013694864634290962,n,Respondent,20,250,icc2_1,log,31137
-scale_type_pair_same,Omnibus,0.00965166770947878,Same Scale Type,Measure,20,250,icc2_1,log,31137
-age_group,Omnibus,0.004606526382173084,Age,Respondent,20,100,spearman,none,36100
-domain_name_pair_same,Omnibus,0.10778890332960418,Same Domain,Measure,20,100,spearman,none,36100
-gender_group,Omnibus,0.0014181031429760132,Gender,Respondent,20,100,spearman,none,36100
-mean_rel,Omnibus,0.0022511560216713607,Reliability,Measure,20,100,spearman,none,36100
-measure_category_pair_same,Omnibus,0.07037842392869288,Same Category,Measure,20,100,spearman,none,36100
-panel,Omnibus,0.08880014570431481,Panel,Panel,20,100,spearman,none,36100
-sample_size,Omnibus,5.158444151252786e-4,n,Respondent,20,100,spearman,none,36100
-scale_type_pair_same,Omnibus,0.003789995533857953,Same Scale Type,Measure,20,100,spearman,none,36100
-age_group,Omnibus,0.004606526382173084,Age,Respondent,20,100,pearson,none,36100
-domain_name_pair_same,Omnibus,0.10778890332960418,Same Domain,Measure,20,100,pearson,none,36100
-gender_group,Omnibus,0.0014181031429760132,Gender,Respondent,20,100,pearson,none,36100
-mean_rel,Omnibus,0.0022511560216713607,Reliability,Measure,20,100,pearson,none,36100
-measure_category_pair_same,Omnibus,0.07037842392869288,Same Category,Measure,20,100,pearson,none,36100
-panel,Omnibus,0.08880014570431481,Panel,Panel,20,100,pearson,none,36100
-sample_size,Omnibus,5.158444151252786e-4,n,Respondent,20,100,pearson,none,36100
-scale_type_pair_same,Omnibus,0.003789995533857953,Same Scale Type,Measure,20,100,pearson,none,36100
-age_group,Omnibus,0.0041572917591192506,Age,Respondent,20,100,icc2_1,none,36100
-domain_name_pair_same,Omnibus,0.0637366096955491,Same Domain,Measure,20,100,icc2_1,none,36100
-gender_group,Omnibus,8.472105032785763e-4,Gender,Respondent,20,100,icc2_1,none,36100
-mean_rel,Omnibus,0.001135852997337359,Reliability,Measure,20,100,icc2_1,none,36100
-measure_category_pair_same,Omnibus,0.05743375441355513,Same Category,Measure,20,100,icc2_1,none,36100
-panel,Omnibus,0.11677225872921296,Panel,Panel,20,100,icc2_1,none,36100
-sample_size,Omnibus,7.275135575717414e-4,n,Respondent,20,100,icc2_1,none,36100
-scale_type_pair_same,Omnibus,0.02571053232495186,Same Scale Type,Measure,20,100,icc2_1,none,36100
-age_group,Omnibus,0.004606526382173084,Age,Respondent,20,100,spearman,log,36100
-domain_name_pair_same,Omnibus,0.10778890332960418,Same Domain,Measure,20,100,spearman,log,36100
-gender_group,Omnibus,0.0014181031429760132,Gender,Respondent,20,100,spearman,log,36100
-mean_rel,Omnibus,0.0022511560216713607,Reliability,Measure,20,100,spearman,log,36100
-measure_category_pair_same,Omnibus,0.07037842392869288,Same Category,Measure,20,100,spearman,log,36100
-panel,Omnibus,0.08880014570431481,Panel,Panel,20,100,spearman,log,36100
-sample_size,Omnibus,5.158444151252786e-4,n,Respondent,20,100,spearman,log,36100
-scale_type_pair_same,Omnibus,0.003789995533857953,Same Scale Type,Measure,20,100,spearman,log,36100
-age_group,Omnibus,0.005084218077237192,Age,Respondent,20,100,pearson,log,36100
-domain_name_pair_same,Omnibus,0.10824344911588352,Same Domain,Measure,20,100,pearson,log,36100
-gender_group,Omnibus,0.0017509809632828663,Gender,Respondent,20,100,pearson,log,36100
-mean_rel,Omnibus,0.0017106992467291185,Reliability,Measure,20,100,pearson,log,36100
-measure_category_pair_same,Omnibus,0.07648086223681609,Same Category,Measure,20,100,pearson,log,36100
-panel,Omnibus,0.08324244529066813,Panel,Panel,20,100,pearson,log,36100
-sample_size,Omnibus,4.430794017855632e-4,n,Respondent,20,100,pearson,log,36100
-scale_type_pair_same,Omnibus,0.005037938070187061,Same Scale Type,Measure,20,100,pearson,log,36100
-age_group,Omnibus,0.005273173873310157,Age,Respondent,20,100,icc2_1,log,36100
-domain_name_pair_same,Omnibus,0.09576269959208956,Same Domain,Measure,20,100,icc2_1,log,36100
-gender_group,Omnibus,0.0019340603222119332,Gender,Respondent,20,100,icc2_1,log,36100
-mean_rel,Omnibus,0.0011595404224532839,Reliability,Measure,20,100,icc2_1,log,36100
-measure_category_pair_same,Omnibus,0.06864491841158205,Same Category,Measure,20,100,icc2_1,log,36100
-panel,Omnibus,0.11208270744635539,Panel,Panel,20,100,icc2_1,log,36100
-sample_size,Omnibus,4.618141145523872e-4,n,Respondent,20,100,icc2_1,log,36100
-scale_type_pair_same,Omnibus,0.01053622893299817,Same Scale Type,Measure,20,100,icc2_1,log,36100
-age_group,Omnibus,0.003570385410046165,Age,Respondent,20,30,spearman,none,43557
-domain_name_pair_same,Omnibus,0.09734867546412071,Same Domain,Measure,20,30,spearman,none,43557
-gender_group,Omnibus,6.260870068383318e-4,Gender,Respondent,20,30,spearman,none,43557
-mean_rel,Omnibus,0.0032283298602605484,Reliability,Measure,20,30,spearman,none,43557
-measure_category_pair_same,Omnibus,0.07493858471475316,Same Category,Measure,20,30,spearman,none,43557
-panel,Omnibus,0.08187521609018207,Panel,Panel,20,30,spearman,none,43557
-sample_size,Omnibus,5.724073088286546e-4,n,Respondent,20,30,spearman,none,43557
-scale_type_pair_same,Omnibus,0.00570915611117056,Same Scale Type,Measure,20,30,spearman,none,43557
-age_group,Omnibus,0.003570385410046165,Age,Respondent,20,30,pearson,none,43557
-domain_name_pair_same,Omnibus,0.09734867546412071,Same Domain,Measure,20,30,pearson,none,43557
-gender_group,Omnibus,6.260870068383318e-4,Gender,Respondent,20,30,pearson,none,43557
-mean_rel,Omnibus,0.0032283298602605484,Reliability,Measure,20,30,pearson,none,43557
-measure_category_pair_same,Omnibus,0.07493858471475316,Same Category,Measure,20,30,pearson,none,43557
-panel,Omnibus,0.08187521609018207,Panel,Panel,20,30,pearson,none,43557
-sample_size,Omnibus,5.724073088286546e-4,n,Respondent,20,30,pearson,none,43557
-scale_type_pair_same,Omnibus,0.00570915611117056,Same Scale Type,Measure,20,30,pearson,none,43557
-age_group,Omnibus,0.0030841925052009357,Age,Respondent,20,30,icc2_1,none,43557
-domain_name_pair_same,Omnibus,0.06182787079750606,Same Domain,Measure,20,30,icc2_1,none,43557
-gender_group,Omnibus,4.0367595404303694e-4,Gender,Respondent,20,30,icc2_1,none,43557
-mean_rel,Omnibus,0.0010486644616639795,Reliability,Measure,20,30,icc2_1,none,43557
-measure_category_pair_same,Omnibus,0.06639465951508626,Same Category,Measure,20,30,icc2_1,none,43557
-panel,Omnibus,0.10926600206695974,Panel,Panel,20,30,icc2_1,none,43557
-sample_size,Omnibus,7.591191334491203e-4,n,Respondent,20,30,icc2_1,none,43557
-scale_type_pair_same,Omnibus,0.030745218947141325,Same Scale Type,Measure,20,30,icc2_1,none,43557
-age_group,Omnibus,0.003570385410046165,Age,Respondent,20,30,spearman,log,43557
-domain_name_pair_same,Omnibus,0.09734867546412071,Same Domain,Measure,20,30,spearman,log,43557
-gender_group,Omnibus,6.260870068383318e-4,Gender,Respondent,20,30,spearman,log,43557
-mean_rel,Omnibus,0.0032283298602605484,Reliability,Measure,20,30,spearman,log,43557
-measure_category_pair_same,Omnibus,0.07493858471475316,Same Category,Measure,20,30,spearman,log,43557
-panel,Omnibus,0.08187521609018207,Panel,Panel,20,30,spearman,log,43557
-sample_size,Omnibus,5.724073088286546e-4,n,Respondent,20,30,spearman,log,43557
-scale_type_pair_same,Omnibus,0.00570915611117056,Same Scale Type,Measure,20,30,spearman,log,43557
-age_group,Omnibus,0.004340786627393865,Age,Respondent,20,30,pearson,log,43557
-domain_name_pair_same,Omnibus,0.09759341059221929,Same Domain,Measure,20,30,pearson,log,43557
-gender_group,Omnibus,7.287688463795636e-4,Gender,Respondent,20,30,pearson,log,43557
-mean_rel,Omnibus,0.0026532446345302963,Reliability,Measure,20,30,pearson,log,43557
-measure_category_pair_same,Omnibus,0.08013126786740883,Same Category,Measure,20,30,pearson,log,43557
-panel,Omnibus,0.07664453597889291,Panel,Panel,20,30,pearson,log,43557
-sample_size,Omnibus,5.627554578587269e-4,n,Respondent,20,30,pearson,log,43557
-scale_type_pair_same,Omnibus,0.0076638002804602316,Same Scale Type,Measure,20,30,pearson,log,43557
-age_group,Omnibus,0.003973593093805687,Age,Respondent,20,30,icc2_1,log,43557
-domain_name_pair_same,Omnibus,0.09102899992986924,Same Domain,Measure,20,30,icc2_1,log,43557
-gender_group,Omnibus,9.386645656598536e-4,Gender,Respondent,20,30,icc2_1,log,43557
-mean_rel,Omnibus,0.0013798896239087073,Reliability,Measure,20,30,icc2_1,log,43557
-measure_category_pair_same,Omnibus,0.07521243853202599,Same Category,Measure,20,30,icc2_1,log,43557
-panel,Omnibus,0.10915625630196632,Panel,Panel,20,30,icc2_1,log,43557
-sample_size,Omnibus,5.609728704167132e-4,n,Respondent,20,30,icc2_1,log,43557
-scale_type_pair_same,Omnibus,0.01556826448584499,Same Scale Type,Measure,20,30,icc2_1,log,43557
-age_group,Omnibus,0.007471587085536322,Age,Respondent,10,250,spearman,none,38315
-domain_name_pair_same,Omnibus,0.11573648591687957,Same Domain,Measure,10,250,spearman,none,38315
-gender_group,Omnibus,6.716929104644337e-4,Gender,Respondent,10,250,spearman,none,38315
-mean_rel,Omnibus,0.001189857012413487,Reliability,Measure,10,250,spearman,none,38315
-measure_category_pair_same,Omnibus,0.07425881260361741,Same Category,Measure,10,250,spearman,none,38315
-panel,Omnibus,0.0683858382880767,Panel,Panel,10,250,spearman,none,38315
-sample_size,Omnibus,4.934348977066709e-4,n,Respondent,10,250,spearman,none,38315
-scale_type_pair_same,Omnibus,0.0033911931413594426,Same Scale Type,Measure,10,250,spearman,none,38315
-age_group,Omnibus,0.007471587085536322,Age,Respondent,10,250,pearson,none,38315
-domain_name_pair_same,Omnibus,0.11573648591687957,Same Domain,Measure,10,250,pearson,none,38315
-gender_group,Omnibus,6.716929104644337e-4,Gender,Respondent,10,250,pearson,none,38315
-mean_rel,Omnibus,0.001189857012413487,Reliability,Measure,10,250,pearson,none,38315
-measure_category_pair_same,Omnibus,0.07425881260361741,Same Category,Measure,10,250,pearson,none,38315
-panel,Omnibus,0.0683858382880767,Panel,Panel,10,250,pearson,none,38315
-sample_size,Omnibus,4.934348977066709e-4,n,Respondent,10,250,pearson,none,38315
-scale_type_pair_same,Omnibus,0.0033911931413594426,Same Scale Type,Measure,10,250,pearson,none,38315
-age_group,Omnibus,0.005511885750762397,Age,Respondent,10,250,icc2_1,none,38315
-domain_name_pair_same,Omnibus,0.05802088740633705,Same Domain,Measure,10,250,icc2_1,none,38315
-gender_group,Omnibus,2.62964678508139e-4,Gender,Respondent,10,250,icc2_1,none,38315
-mean_rel,Omnibus,0.0020771096181725754,Reliability,Measure,10,250,icc2_1,none,38315
-measure_category_pair_same,Omnibus,0.060304729432032196,Same Category,Measure,10,250,icc2_1,none,38315
-panel,Omnibus,0.09096646004352163,Panel,Panel,10,250,icc2_1,none,38315
-sample_size,Omnibus,3.639022934811773e-4,n,Respondent,10,250,icc2_1,none,38315
-scale_type_pair_same,Omnibus,0.022916218543973656,Same Scale Type,Measure,10,250,icc2_1,none,38315
-age_group,Omnibus,0.007471587085536322,Age,Respondent,10,250,spearman,log,38315
-domain_name_pair_same,Omnibus,0.11573648591687957,Same Domain,Measure,10,250,spearman,log,38315
-gender_group,Omnibus,6.716929104644337e-4,Gender,Respondent,10,250,spearman,log,38315
-mean_rel,Omnibus,0.001189857012413487,Reliability,Measure,10,250,spearman,log,38315
-measure_category_pair_same,Omnibus,0.07425881260361741,Same Category,Measure,10,250,spearman,log,38315
-panel,Omnibus,0.0683858382880767,Panel,Panel,10,250,spearman,log,38315
-sample_size,Omnibus,4.934348977066709e-4,n,Respondent,10,250,spearman,log,38315
-scale_type_pair_same,Omnibus,0.0033911931413594426,Same Scale Type,Measure,10,250,spearman,log,38315
-age_group,Omnibus,0.009176881531760462,Age,Respondent,10,250,pearson,log,38315
-domain_name_pair_same,Omnibus,0.11362525127252382,Same Domain,Measure,10,250,pearson,log,38315
-gender_group,Omnibus,8.254660834446913e-4,Gender,Respondent,10,250,pearson,log,38315
-mean_rel,Omnibus,0.0011586776266310722,Reliability,Measure,10,250,pearson,log,38315
-measure_category_pair_same,Omnibus,0.0808221902378199,Same Category,Measure,10,250,pearson,log,38315
-panel,Omnibus,0.06671254805068401,Panel,Panel,10,250,pearson,log,38315
-sample_size,Omnibus,7.754571906584119e-4,n,Respondent,10,250,pearson,log,38315
-scale_type_pair_same,Omnibus,0.004109497321770245,Same Scale Type,Measure,10,250,pearson,log,38315
-age_group,Omnibus,0.006520786449009278,Age,Respondent,10,250,icc2_1,log,38315
-domain_name_pair_same,Omnibus,0.09647400210597616,Same Domain,Measure,10,250,icc2_1,log,38315
-gender_group,Omnibus,0.0011400113345371896,Gender,Respondent,10,250,icc2_1,log,38315
-mean_rel,Omnibus,0.0013753219155884576,Reliability,Measure,10,250,icc2_1,log,38315
-measure_category_pair_same,Omnibus,0.07080546453407706,Same Category,Measure,10,250,icc2_1,log,38315
-panel,Omnibus,0.08138362536464654,Panel,Panel,10,250,icc2_1,log,38315
-sample_size,Omnibus,0.0018138051095285808,n,Respondent,10,250,icc2_1,log,38315
-scale_type_pair_same,Omnibus,0.006930847561566563,Same Scale Type,Measure,10,250,icc2_1,log,38315
-age_group,Omnibus,0.005413161032054303,Age,Respondent,10,100,spearman,none,49614
-domain_name_pair_same,Omnibus,0.10843835414462456,Same Domain,Measure,10,100,spearman,none,49614
-gender_group,Omnibus,0.0010836399744618473,Gender,Respondent,10,100,spearman,none,49614
-mean_rel,Omnibus,0.0010220180312353936,Reliability,Measure,10,100,spearman,none,49614
-measure_category_pair_same,Omnibus,0.0750763509501406,Same Category,Measure,10,100,spearman,none,49614
-panel,Omnibus,0.08581533321655961,Panel,Panel,10,100,spearman,none,49614
-sample_size,Omnibus,4.2920610820793687e-4,n,Respondent,10,100,spearman,none,49614
-scale_type_pair_same,Omnibus,0.003930190538287102,Same Scale Type,Measure,10,100,spearman,none,49614
-age_group,Omnibus,0.005413161032054303,Age,Respondent,10,100,pearson,none,49614
-domain_name_pair_same,Omnibus,0.10843835414462456,Same Domain,Measure,10,100,pearson,none,49614
-gender_group,Omnibus,0.0010836399744618473,Gender,Respondent,10,100,pearson,none,49614
-mean_rel,Omnibus,0.0010220180312353936,Reliability,Measure,10,100,pearson,none,49614
-measure_category_pair_same,Omnibus,0.0750763509501406,Same Category,Measure,10,100,pearson,none,49614
-panel,Omnibus,0.08581533321655961,Panel,Panel,10,100,pearson,none,49614
-sample_size,Omnibus,4.2920610820793687e-4,n,Respondent,10,100,pearson,none,49614
-scale_type_pair_same,Omnibus,0.003930190538287102,Same Scale Type,Measure,10,100,pearson,none,49614
-age_group,Omnibus,0.004796263225047391,Age,Respondent,10,100,icc2_1,none,49614
-domain_name_pair_same,Omnibus,0.05702005465542751,Same Domain,Measure,10,100,icc2_1,none,49614
-gender_group,Omnibus,6.869657808980692e-4,Gender,Respondent,10,100,icc2_1,none,49614
-mean_rel,Omnibus,0.001498900560105497,Reliability,Measure,10,100,icc2_1,none,49614
-measure_category_pair_same,Omnibus,0.060648974976574545,Same Category,Measure,10,100,icc2_1,none,49614
-panel,Omnibus,0.11388539045368862,Panel,Panel,10,100,icc2_1,none,49614
-sample_size,Omnibus,6.24922713550852e-4,n,Respondent,10,100,icc2_1,none,49614
-scale_type_pair_same,Omnibus,0.02466611415243626,Same Scale Type,Measure,10,100,icc2_1,none,49614
-age_group,Omnibus,0.005413161032054303,Age,Respondent,10,100,spearman,log,49614
-domain_name_pair_same,Omnibus,0.10843835414462456,Same Domain,Measure,10,100,spearman,log,49614
-gender_group,Omnibus,0.0010836399744618473,Gender,Respondent,10,100,spearman,log,49614
-mean_rel,Omnibus,0.0010220180312353936,Reliability,Measure,10,100,spearman,log,49614
-measure_category_pair_same,Omnibus,0.0750763509501406,Same Category,Measure,10,100,spearman,log,49614
-panel,Omnibus,0.08581533321655961,Panel,Panel,10,100,spearman,log,49614
-sample_size,Omnibus,4.2920610820793687e-4,n,Respondent,10,100,spearman,log,49614
-scale_type_pair_same,Omnibus,0.003930190538287102,Same Scale Type,Measure,10,100,spearman,log,49614
-age_group,Omnibus,0.0062637734576266235,Age,Respondent,10,100,pearson,log,49614
-domain_name_pair_same,Omnibus,0.1076199829831191,Same Domain,Measure,10,100,pearson,log,49614
-gender_group,Omnibus,0.0014440751490441624,Gender,Respondent,10,100,pearson,log,49614
-mean_rel,Omnibus,9.787677243065427e-4,Reliability,Measure,10,100,pearson,log,49614
-measure_category_pair_same,Omnibus,0.08103219825648056,Same Category,Measure,10,100,pearson,log,49614
-panel,Omnibus,0.08270645216239828,Panel,Panel,10,100,pearson,log,49614
-sample_size,Omnibus,3.0303949024863234e-4,n,Respondent,10,100,pearson,log,49614
-scale_type_pair_same,Omnibus,0.004995981053299735,Same Scale Type,Measure,10,100,pearson,log,49614
-age_group,Omnibus,0.006017500513089269,Age,Respondent,10,100,icc2_1,log,49614
-domain_name_pair_same,Omnibus,0.09195407316598173,Same Domain,Measure,10,100,icc2_1,log,49614
-gender_group,Omnibus,0.0016391179949613386,Gender,Respondent,10,100,icc2_1,log,49614
-mean_rel,Omnibus,0.0011046826864698513,Reliability,Measure,10,100,icc2_1,log,49614
-measure_category_pair_same,Omnibus,0.07205422383795057,Same Category,Measure,10,100,icc2_1,log,49614
-panel,Omnibus,0.10865559543956814,Panel,Panel,10,100,icc2_1,log,49614
-sample_size,Omnibus,3.72869282866572e-4,n,Respondent,10,100,icc2_1,log,49614
-scale_type_pair_same,Omnibus,0.010018807273840647,Same Scale Type,Measure,10,100,icc2_1,log,49614
-age_group,Omnibus,0.0041931588872455424,Age,Respondent,10,30,spearman,none,61644
-domain_name_pair_same,Omnibus,0.1027786390553766,Same Domain,Measure,10,30,spearman,none,61644
-gender_group,Omnibus,2.8616908486771975e-4,Gender,Respondent,10,30,spearman,none,61644
-mean_rel,Omnibus,0.001668491732784278,Reliability,Measure,10,30,spearman,none,61644
-measure_category_pair_same,Omnibus,0.0731678876025803,Same Category,Measure,10,30,spearman,none,61644
-panel,Omnibus,0.07986859290074304,Panel,Panel,10,30,spearman,none,61644
-sample_size,Omnibus,3.8962696447194216e-4,n,Respondent,10,30,spearman,none,61644
-scale_type_pair_same,Omnibus,0.004636683132089891,Same Scale Type,Measure,10,30,spearman,none,61644
-age_group,Omnibus,0.0041931588872455424,Age,Respondent,10,30,pearson,none,61644
-domain_name_pair_same,Omnibus,0.1027786390553766,Same Domain,Measure,10,30,pearson,none,61644
-gender_group,Omnibus,2.8616908486771975e-4,Gender,Respondent,10,30,pearson,none,61644
-mean_rel,Omnibus,0.001668491732784278,Reliability,Measure,10,30,pearson,none,61644
-measure_category_pair_same,Omnibus,0.0731678876025803,Same Category,Measure,10,30,pearson,none,61644
-panel,Omnibus,0.07986859290074304,Panel,Panel,10,30,pearson,none,61644
-sample_size,Omnibus,3.8962696447194216e-4,n,Respondent,10,30,pearson,none,61644
-scale_type_pair_same,Omnibus,0.004636683132089891,Same Scale Type,Measure,10,30,pearson,none,61644
-age_group,Omnibus,0.003896789141336277,Age,Respondent,10,30,icc2_1,none,61644
-domain_name_pair_same,Omnibus,0.058550032837586134,Same Domain,Measure,10,30,icc2_1,none,61644
-gender_group,Omnibus,2.4317934186671413e-4,Gender,Respondent,10,30,icc2_1,none,61644
-mean_rel,Omnibus,7.993943003124624e-4,Reliability,Measure,10,30,icc2_1,none,61644
-measure_category_pair_same,Omnibus,0.06379687464379588,Same Category,Measure,10,30,icc2_1,none,61644
-panel,Omnibus,0.10313850431180102,Panel,Panel,10,30,icc2_1,none,61644
-sample_size,Omnibus,6.745740919166403e-4,n,Respondent,10,30,icc2_1,none,61644
-scale_type_pair_same,Omnibus,0.027017453164261077,Same Scale Type,Measure,10,30,icc2_1,none,61644
-age_group,Omnibus,0.0041931588872455424,Age,Respondent,10,30,spearman,log,61644
-domain_name_pair_same,Omnibus,0.1027786390553766,Same Domain,Measure,10,30,spearman,log,61644
-gender_group,Omnibus,2.8616908486771975e-4,Gender,Respondent,10,30,spearman,log,61644
-mean_rel,Omnibus,0.001668491732784278,Reliability,Measure,10,30,spearman,log,61644
-measure_category_pair_same,Omnibus,0.0731678876025803,Same Category,Measure,10,30,spearman,log,61644
-panel,Omnibus,0.07986859290074304,Panel,Panel,10,30,spearman,log,61644
-sample_size,Omnibus,3.8962696447194216e-4,n,Respondent,10,30,spearman,log,61644
-scale_type_pair_same,Omnibus,0.004636683132089891,Same Scale Type,Measure,10,30,spearman,log,61644
-age_group,Omnibus,0.005033738872972816,Age,Respondent,10,30,pearson,log,61644
-domain_name_pair_same,Omnibus,0.10196592562838638,Same Domain,Measure,10,30,pearson,log,61644
-gender_group,Omnibus,4.2239576935660517e-4,Gender,Respondent,10,30,pearson,log,61644
-mean_rel,Omnibus,0.0014494347888892073,Reliability,Measure,10,30,pearson,log,61644
-measure_category_pair_same,Omnibus,0.07760503263454112,Same Category,Measure,10,30,pearson,log,61644
-panel,Omnibus,0.07626057572859397,Panel,Panel,10,30,pearson,log,61644
-sample_size,Omnibus,3.276312402352303e-4,n,Respondent,10,30,pearson,log,61644
-scale_type_pair_same,Omnibus,0.006009030055154375,Same Scale Type,Measure,10,30,pearson,log,61644
-age_group,Omnibus,0.004995700610271529,Age,Respondent,10,30,icc2_1,log,61644
-domain_name_pair_same,Omnibus,0.09074721057696859,Same Domain,Measure,10,30,icc2_1,log,61644
-gender_group,Omnibus,6.22961724173244e-4,Gender,Respondent,10,30,icc2_1,log,61644
-mean_rel,Omnibus,9.490618906326914e-4,Reliability,Measure,10,30,icc2_1,log,61644
-measure_category_pair_same,Omnibus,0.07322784146983173,Same Category,Measure,10,30,icc2_1,log,61644
-panel,Omnibus,0.10257692513658123,Panel,Panel,10,30,icc2_1,log,61644
-sample_size,Omnibus,2.667991900573398e-4,n,Respondent,10,30,icc2_1,log,61644
-scale_type_pair_same,Omnibus,0.013198440289447125,Same Scale Type,Measure,10,30,icc2_1,log,61644
-age_group,Omnibus,0.010923803393616692,Age,Respondent,5,250,spearman,none,45721
-domain_name_pair_same,Omnibus,0.11260328648416769,Same Domain,Measure,5,250,spearman,none,45721
-gender_group,Omnibus,6.096795204534293e-4,Gender,Respondent,5,250,spearman,none,45721
-mean_rel,Omnibus,0.0016784906325150884,Reliability,Measure,5,250,spearman,none,45721
-measure_category_pair_same,Omnibus,0.0871618036662521,Same Category,Measure,5,250,spearman,none,45721
-panel,Omnibus,0.06653377214769958,Panel,Panel,5,250,spearman,none,45721
-sample_size,Omnibus,4.3568586652544813e-4,n,Respondent,5,250,spearman,none,45721
-scale_type_pair_same,Omnibus,0.004069497984550004,Same Scale Type,Measure,5,250,spearman,none,45721
-age_group,Omnibus,0.010923803393616692,Age,Respondent,5,250,pearson,none,45721
-domain_name_pair_same,Omnibus,0.11260328648416769,Same Domain,Measure,5,250,pearson,none,45721
-gender_group,Omnibus,6.096795204534293e-4,Gender,Respondent,5,250,pearson,none,45721
-mean_rel,Omnibus,0.0016784906325150884,Reliability,Measure,5,250,pearson,none,45721
-measure_category_pair_same,Omnibus,0.0871618036662521,Same Category,Measure,5,250,pearson,none,45721
-panel,Omnibus,0.06653377214769958,Panel,Panel,5,250,pearson,none,45721
-sample_size,Omnibus,4.3568586652544813e-4,n,Respondent,5,250,pearson,none,45721
-scale_type_pair_same,Omnibus,0.004069497984550004,Same Scale Type,Measure,5,250,pearson,none,45721
-age_group,Omnibus,0.010350221133925313,Age,Respondent,5,250,icc2_1,none,45721
-domain_name_pair_same,Omnibus,0.05349632330255481,Same Domain,Measure,5,250,icc2_1,none,45721
-gender_group,Omnibus,2.2585223565425213e-4,Gender,Respondent,5,250,icc2_1,none,45721
-mean_rel,Omnibus,0.003067703470970556,Reliability,Measure,5,250,icc2_1,none,45721
-measure_category_pair_same,Omnibus,0.06851094379497621,Same Category,Measure,5,250,icc2_1,none,45721
-panel,Omnibus,0.08653224644524769,Panel,Panel,5,250,icc2_1,none,45721
-sample_size,Omnibus,6.527504860553611e-4,n,Respondent,5,250,icc2_1,none,45721
-scale_type_pair_same,Omnibus,0.028791638543714054,Same Scale Type,Measure,5,250,icc2_1,none,45721
-age_group,Omnibus,0.010923803393616692,Age,Respondent,5,250,spearman,log,45721
-domain_name_pair_same,Omnibus,0.11260328648416769,Same Domain,Measure,5,250,spearman,log,45721
-gender_group,Omnibus,6.096795204534293e-4,Gender,Respondent,5,250,spearman,log,45721
-mean_rel,Omnibus,0.0016784906325150884,Reliability,Measure,5,250,spearman,log,45721
-measure_category_pair_same,Omnibus,0.0871618036662521,Same Category,Measure,5,250,spearman,log,45721
-panel,Omnibus,0.06653377214769958,Panel,Panel,5,250,spearman,log,45721
-sample_size,Omnibus,4.3568586652544813e-4,n,Respondent,5,250,spearman,log,45721
-scale_type_pair_same,Omnibus,0.004069497984550004,Same Scale Type,Measure,5,250,spearman,log,45721
-age_group,Omnibus,0.013829188957261183,Age,Respondent,5,250,pearson,log,45721
-domain_name_pair_same,Omnibus,0.10737025845412168,Same Domain,Measure,5,250,pearson,log,45721
-gender_group,Omnibus,9.178081296426216e-4,Gender,Respondent,5,250,pearson,log,45721
-mean_rel,Omnibus,0.0014478576755374024,Reliability,Measure,5,250,pearson,log,45721
-measure_category_pair_same,Omnibus,0.09383878532844275,Same Category,Measure,5,250,pearson,log,45721
-panel,Omnibus,0.06677509360345488,Panel,Panel,5,250,pearson,log,45721
-sample_size,Omnibus,5.953298075997492e-4,n,Respondent,5,250,pearson,log,45721
-scale_type_pair_same,Omnibus,0.005016751642912428,Same Scale Type,Measure,5,250,pearson,log,45721
-age_group,Omnibus,0.013393555288739862,Age,Respondent,5,250,icc2_1,log,45721
-domain_name_pair_same,Omnibus,0.09098769785021583,Same Domain,Measure,5,250,icc2_1,log,45721
-gender_group,Omnibus,0.0013113993908879576,Gender,Respondent,5,250,icc2_1,log,45721
-mean_rel,Omnibus,0.002131967673138637,Reliability,Measure,5,250,icc2_1,log,45721
-measure_category_pair_same,Omnibus,0.07989811389256757,Same Category,Measure,5,250,icc2_1,log,45721
-panel,Omnibus,0.07763947241635756,Panel,Panel,5,250,icc2_1,log,45721
-sample_size,Omnibus,0.0014870908917215904,n,Respondent,5,250,icc2_1,log,45721
-scale_type_pair_same,Omnibus,0.008068942362189722,Same Scale Type,Measure,5,250,icc2_1,log,45721
-age_group,Omnibus,0.005889376066667309,Age,Respondent,5,100,spearman,none,72765
-domain_name_pair_same,Omnibus,0.10732007930228549,Same Domain,Measure,5,100,spearman,none,72765
-gender_group,Omnibus,4.2345760161831134e-4,Gender,Respondent,5,100,spearman,none,72765
-mean_rel,Omnibus,0.0010494480413405153,Reliability,Measure,5,100,spearman,none,72765
-measure_category_pair_same,Omnibus,0.07907983085426507,Same Category,Measure,5,100,spearman,none,72765
-panel,Omnibus,0.07272523262512262,Panel,Panel,5,100,spearman,none,72765
-sample_size,Omnibus,1.777028864407229e-4,n,Respondent,5,100,spearman,none,72765
-scale_type_pair_same,Omnibus,0.003490635195449928,Same Scale Type,Measure,5,100,spearman,none,72765
-age_group,Omnibus,0.005889376066667309,Age,Respondent,5,100,pearson,none,72765
-domain_name_pair_same,Omnibus,0.10732007930228549,Same Domain,Measure,5,100,pearson,none,72765
-gender_group,Omnibus,4.2345760161831134e-4,Gender,Respondent,5,100,pearson,none,72765
-mean_rel,Omnibus,0.0010494480413405153,Reliability,Measure,5,100,pearson,none,72765
-measure_category_pair_same,Omnibus,0.07907983085426507,Same Category,Measure,5,100,pearson,none,72765
-panel,Omnibus,0.07272523262512262,Panel,Panel,5,100,pearson,none,72765
-sample_size,Omnibus,1.777028864407229e-4,n,Respondent,5,100,pearson,none,72765
-scale_type_pair_same,Omnibus,0.003490635195449928,Same Scale Type,Measure,5,100,pearson,none,72765
-age_group,Omnibus,0.0058649670814588896,Age,Respondent,5,100,icc2_1,none,72765
-domain_name_pair_same,Omnibus,0.04996586979696097,Same Domain,Measure,5,100,icc2_1,none,72765
-gender_group,Omnibus,1.8118002411667185e-4,Gender,Respondent,5,100,icc2_1,none,72765
-mean_rel,Omnibus,0.0024425949970757737,Reliability,Measure,5,100,icc2_1,none,72765
-measure_category_pair_same,Omnibus,0.06611765768120131,Same Category,Measure,5,100,icc2_1,none,72765
-panel,Omnibus,0.09702365271792975,Panel,Panel,5,100,icc2_1,none,72765
-sample_size,Omnibus,1.8024203051209247e-4,n,Respondent,5,100,icc2_1,none,72765
-scale_type_pair_same,Omnibus,0.02453982538435322,Same Scale Type,Measure,5,100,icc2_1,none,72765
-age_group,Omnibus,0.005889376066667309,Age,Respondent,5,100,spearman,log,72765
-domain_name_pair_same,Omnibus,0.10732007930228549,Same Domain,Measure,5,100,spearman,log,72765
-gender_group,Omnibus,4.2345760161831134e-4,Gender,Respondent,5,100,spearman,log,72765
-mean_rel,Omnibus,0.0010494480413405153,Reliability,Measure,5,100,spearman,log,72765
-measure_category_pair_same,Omnibus,0.07907983085426507,Same Category,Measure,5,100,spearman,log,72765
-panel,Omnibus,0.07272523262512262,Panel,Panel,5,100,spearman,log,72765
-sample_size,Omnibus,1.777028864407229e-4,n,Respondent,5,100,spearman,log,72765
-scale_type_pair_same,Omnibus,0.003490635195449928,Same Scale Type,Measure,5,100,spearman,log,72765
-age_group,Omnibus,0.007244341510036834,Age,Respondent,5,100,pearson,log,72765
-domain_name_pair_same,Omnibus,0.1049579689740252,Same Domain,Measure,5,100,pearson,log,72765
-gender_group,Omnibus,6.92896544989521e-4,Gender,Respondent,5,100,pearson,log,72765
-mean_rel,Omnibus,0.0012038518009527216,Reliability,Measure,5,100,pearson,log,72765
-measure_category_pair_same,Omnibus,0.0856317504927835,Same Category,Measure,5,100,pearson,log,72765
-panel,Omnibus,0.07061993494926828,Panel,Panel,5,100,pearson,log,72765
-sample_size,Omnibus,1.5774758278122185e-4,n,Respondent,5,100,pearson,log,72765
-scale_type_pair_same,Omnibus,0.004306978133557823,Same Scale Type,Measure,5,100,pearson,log,72765
-age_group,Omnibus,0.006998265981420335,Age,Respondent,5,100,icc2_1,log,72765
-domain_name_pair_same,Omnibus,0.08560852722163177,Same Domain,Measure,5,100,icc2_1,log,72765
-gender_group,Omnibus,8.465368132431008e-4,Gender,Respondent,5,100,icc2_1,log,72765
-mean_rel,Omnibus,0.0014986367570985106,Reliability,Measure,5,100,icc2_1,log,72765
-measure_category_pair_same,Omnibus,0.07737780258117569,Same Category,Measure,5,100,icc2_1,log,72765
-panel,Omnibus,0.09036474543651307,Panel,Panel,5,100,icc2_1,log,72765
-sample_size,Omnibus,2.0064151564513368e-4,n,Respondent,5,100,icc2_1,log,72765
-scale_type_pair_same,Omnibus,0.008613515010538678,Same Scale Type,Measure,5,100,icc2_1,log,72765
-age_group,Omnibus,0.004465047316899708,Age,Respondent,5,30,spearman,none,94150
-domain_name_pair_same,Omnibus,0.10275410032721796,Same Domain,Measure,5,30,spearman,none,94150
-gender_group,Omnibus,2.558705698964945e-4,Gender,Respondent,5,30,spearman,none,94150
-mean_rel,Omnibus,7.51050263163067e-4,Reliability,Measure,5,30,spearman,none,94150
-measure_category_pair_same,Omnibus,0.0739334456301923,Same Category,Measure,5,30,spearman,none,94150
-panel,Omnibus,0.08149250744241224,Panel,Panel,5,30,spearman,none,94150
-sample_size,Omnibus,5.11728354178698e-4,n,Respondent,5,30,spearman,none,94150
-scale_type_pair_same,Omnibus,0.0038463620368404394,Same Scale Type,Measure,5,30,spearman,none,94150
-age_group,Omnibus,0.004465047316899708,Age,Respondent,5,30,pearson,none,94150
-domain_name_pair_same,Omnibus,0.10275410032721796,Same Domain,Measure,5,30,pearson,none,94150
-gender_group,Omnibus,2.558705698964945e-4,Gender,Respondent,5,30,pearson,none,94150
-mean_rel,Omnibus,7.51050263163067e-4,Reliability,Measure,5,30,pearson,none,94150
-measure_category_pair_same,Omnibus,0.0739334456301923,Same Category,Measure,5,30,pearson,none,94150
-panel,Omnibus,0.08149250744241224,Panel,Panel,5,30,pearson,none,94150
-sample_size,Omnibus,5.11728354178698e-4,n,Respondent,5,30,pearson,none,94150
-scale_type_pair_same,Omnibus,0.0038463620368404394,Same Scale Type,Measure,5,30,pearson,none,94150
-age_group,Omnibus,0.0053619531765808645,Age,Respondent,5,30,icc2_1,none,94150
-domain_name_pair_same,Omnibus,0.051590969900521574,Same Domain,Measure,5,30,icc2_1,none,94150
-gender_group,Omnibus,2.0178469577612277e-4,Gender,Respondent,5,30,icc2_1,none,94150
-mean_rel,Omnibus,0.0012493371698818537,Reliability,Measure,5,30,icc2_1,none,94150
-measure_category_pair_same,Omnibus,0.06438537397977505,Same Category,Measure,5,30,icc2_1,none,94150
-panel,Omnibus,0.10391914470736603,Panel,Panel,5,30,icc2_1,none,94150
-sample_size,Omnibus,9.316952862161873e-4,n,Respondent,5,30,icc2_1,none,94150
-scale_type_pair_same,Omnibus,0.02421578569662077,Same Scale Type,Measure,5,30,icc2_1,none,94150
-age_group,Omnibus,0.004465047316899708,Age,Respondent,5,30,spearman,log,94150
-domain_name_pair_same,Omnibus,0.10275410032721796,Same Domain,Measure,5,30,spearman,log,94150
-gender_group,Omnibus,2.558705698964945e-4,Gender,Respondent,5,30,spearman,log,94150
-mean_rel,Omnibus,7.51050263163067e-4,Reliability,Measure,5,30,spearman,log,94150
-measure_category_pair_same,Omnibus,0.0739334456301923,Same Category,Measure,5,30,spearman,log,94150
-panel,Omnibus,0.08149250744241224,Panel,Panel,5,30,spearman,log,94150
-sample_size,Omnibus,5.11728354178698e-4,n,Respondent,5,30,spearman,log,94150
-scale_type_pair_same,Omnibus,0.0038463620368404394,Same Scale Type,Measure,5,30,spearman,log,94150
-age_group,Omnibus,0.005541736715145792,Age,Respondent,5,30,pearson,log,94150
-domain_name_pair_same,Omnibus,0.10044011830816214,Same Domain,Measure,5,30,pearson,log,94150
-gender_group,Omnibus,4.894686919661038e-4,Gender,Respondent,5,30,pearson,log,94150
-mean_rel,Omnibus,7.588974288813059e-4,Reliability,Measure,5,30,pearson,log,94150
-measure_category_pair_same,Omnibus,0.07904818469449158,Same Category,Measure,5,30,pearson,log,94150
-panel,Omnibus,0.07786918928442128,Panel,Panel,5,30,pearson,log,94150
-sample_size,Omnibus,3.473209879382741e-4,n,Respondent,5,30,pearson,log,94150
-scale_type_pair_same,Omnibus,0.004818632856071996,Same Scale Type,Measure,5,30,pearson,log,94150
-age_group,Omnibus,0.006277833900906692,Age,Respondent,5,30,icc2_1,log,94150
-domain_name_pair_same,Omnibus,0.08438752504520448,Same Domain,Measure,5,30,icc2_1,log,94150
-gender_group,Omnibus,6.880897199527683e-4,Gender,Respondent,5,30,icc2_1,log,94150
-mean_rel,Omnibus,9.057189472190147e-4,Reliability,Measure,5,30,icc2_1,log,94150
-measure_category_pair_same,Omnibus,0.07532569484630407,Same Category,Measure,5,30,icc2_1,log,94150
-panel,Omnibus,0.10258352012801887,Panel,Panel,5,30,icc2_1,log,94150
-sample_size,Omnibus,4.394351169166822e-4,n,Respondent,5,30,icc2_1,log,94150
-scale_type_pair_same,Omnibus,0.010984432804755905,Same Scale Type,Measure,5,30,icc2_1,log,94150
+age_group,Omnibus,0.002350183461483975,Age,Respondent,20,250,spearman,none,33731
+domain_name_pair_same,Omnibus,0.13095708300904238,Same Domain,Measure,20,250,spearman,none,33731
+gender_group,Omnibus,6.997888738001391e-4,Gender,Respondent,20,250,spearman,none,33731
+mean_rel,Omnibus,0.004489050383022933,Reliability,Measure,20,250,spearman,none,33731
+measure_category_pair_same,Omnibus,0.06793190024535897,Same Category,Measure,20,250,spearman,none,33731
+panel,Omnibus,0.07779713681919921,Panel,Panel,20,250,spearman,none,33731
+sample_size,Omnibus,0.005948090289859377,n,Respondent,20,250,spearman,none,33731
+scale_type_pair_same,Omnibus,0.003529138634947325,Same Scale Type,Measure,20,250,spearman,none,33731
+age_group,Omnibus,0.002350183461483975,Age,Respondent,20,250,pearson,none,33731
+domain_name_pair_same,Omnibus,0.13095708300904238,Same Domain,Measure,20,250,pearson,none,33731
+gender_group,Omnibus,6.997888738001391e-4,Gender,Respondent,20,250,pearson,none,33731
+mean_rel,Omnibus,0.004489050383022933,Reliability,Measure,20,250,pearson,none,33731
+measure_category_pair_same,Omnibus,0.06793190024535897,Same Category,Measure,20,250,pearson,none,33731
+panel,Omnibus,0.07779713681919921,Panel,Panel,20,250,pearson,none,33731
+sample_size,Omnibus,0.005948090289859377,n,Respondent,20,250,pearson,none,33731
+scale_type_pair_same,Omnibus,0.003529138634947325,Same Scale Type,Measure,20,250,pearson,none,33731
+age_group,Omnibus,0.0039042818150998443,Age,Respondent,20,250,icc2_1,none,33731
+domain_name_pair_same,Omnibus,0.081283514134002,Same Domain,Measure,20,250,icc2_1,none,33731
+gender_group,Omnibus,2.564938380969508e-4,Gender,Respondent,20,250,icc2_1,none,33731
+mean_rel,Omnibus,0.002734798203867166,Reliability,Measure,20,250,icc2_1,none,33731
+measure_category_pair_same,Omnibus,0.052604194745632035,Same Category,Measure,20,250,icc2_1,none,33731
+panel,Omnibus,0.09824587886909115,Panel,Panel,20,250,icc2_1,none,33731
+sample_size,Omnibus,0.005178417346135927,n,Respondent,20,250,icc2_1,none,33731
+scale_type_pair_same,Omnibus,0.03063939706905132,Same Scale Type,Measure,20,250,icc2_1,none,33731
+age_group,Omnibus,0.002350183461483975,Age,Respondent,20,250,spearman,log,33731
+domain_name_pair_same,Omnibus,0.13095708300904238,Same Domain,Measure,20,250,spearman,log,33731
+gender_group,Omnibus,6.997888738001391e-4,Gender,Respondent,20,250,spearman,log,33731
+mean_rel,Omnibus,0.004489050383022933,Reliability,Measure,20,250,spearman,log,33731
+measure_category_pair_same,Omnibus,0.06793190024535897,Same Category,Measure,20,250,spearman,log,33731
+panel,Omnibus,0.07779713681919921,Panel,Panel,20,250,spearman,log,33731
+sample_size,Omnibus,0.005948090289859377,n,Respondent,20,250,spearman,log,33731
+scale_type_pair_same,Omnibus,0.003529138634947325,Same Scale Type,Measure,20,250,spearman,log,33731
+age_group,Omnibus,0.002107050445889886,Age,Respondent,20,250,pearson,log,33731
+domain_name_pair_same,Omnibus,0.1324416359415272,Same Domain,Measure,20,250,pearson,log,33731
+gender_group,Omnibus,8.609747450745657e-4,Gender,Respondent,20,250,pearson,log,33731
+mean_rel,Omnibus,0.003452135175152673,Reliability,Measure,20,250,pearson,log,33731
+measure_category_pair_same,Omnibus,0.07383090187156173,Same Category,Measure,20,250,pearson,log,33731
+panel,Omnibus,0.07460502716350646,Panel,Panel,20,250,pearson,log,33731
+sample_size,Omnibus,0.007194980435875692,n,Respondent,20,250,pearson,log,33731
+scale_type_pair_same,Omnibus,0.004684067530554498,Same Scale Type,Measure,20,250,pearson,log,33731
+age_group,Omnibus,0.004290185784226209,Age,Respondent,20,250,icc2_1,log,33731
+domain_name_pair_same,Omnibus,0.11474592371929067,Same Domain,Measure,20,250,icc2_1,log,33731
+gender_group,Omnibus,0.0010553039289321715,Gender,Respondent,20,250,icc2_1,log,33731
+mean_rel,Omnibus,0.0022100980085939664,Reliability,Measure,20,250,icc2_1,log,33731
+measure_category_pair_same,Omnibus,0.06469488510423842,Same Category,Measure,20,250,icc2_1,log,33731
+panel,Omnibus,0.09132946801054821,Panel,Panel,20,250,icc2_1,log,33731
+sample_size,Omnibus,0.008896769062305371,n,Respondent,20,250,icc2_1,log,33731
+scale_type_pair_same,Omnibus,0.0099058597180748,Same Scale Type,Measure,20,250,icc2_1,log,33731
+age_group,Omnibus,0.002825560718564769,Age,Respondent,20,100,spearman,none,39259
+domain_name_pair_same,Omnibus,0.12358414100738534,Same Domain,Measure,20,100,spearman,none,39259
+gender_group,Omnibus,0.0014949812138648066,Gender,Respondent,20,100,spearman,none,39259
+mean_rel,Omnibus,0.005178941754856551,Reliability,Measure,20,100,spearman,none,39259
+measure_category_pair_same,Omnibus,0.0688805949674742,Same Category,Measure,20,100,spearman,none,39259
+panel,Omnibus,0.08333295120102377,Panel,Panel,20,100,spearman,none,39259
+sample_size,Omnibus,0.0034489867869721513,n,Respondent,20,100,spearman,none,39259
+scale_type_pair_same,Omnibus,0.0037012999442499117,Same Scale Type,Measure,20,100,spearman,none,39259
+age_group,Omnibus,0.002825560718564769,Age,Respondent,20,100,pearson,none,39259
+domain_name_pair_same,Omnibus,0.12358414100738534,Same Domain,Measure,20,100,pearson,none,39259
+gender_group,Omnibus,0.0014949812138648066,Gender,Respondent,20,100,pearson,none,39259
+mean_rel,Omnibus,0.005178941754856551,Reliability,Measure,20,100,pearson,none,39259
+measure_category_pair_same,Omnibus,0.0688805949674742,Same Category,Measure,20,100,pearson,none,39259
+panel,Omnibus,0.08333295120102377,Panel,Panel,20,100,pearson,none,39259
+sample_size,Omnibus,0.0034489867869721513,n,Respondent,20,100,pearson,none,39259
+scale_type_pair_same,Omnibus,0.0037012999442499117,Same Scale Type,Measure,20,100,pearson,none,39259
+age_group,Omnibus,0.0032131895932961296,Age,Respondent,20,100,icc2_1,none,39259
+domain_name_pair_same,Omnibus,0.07891187305849397,Same Domain,Measure,20,100,icc2_1,none,39259
+gender_group,Omnibus,7.919050053128726e-4,Gender,Respondent,20,100,icc2_1,none,39259
+mean_rel,Omnibus,0.002453101420357295,Reliability,Measure,20,100,icc2_1,none,39259
+measure_category_pair_same,Omnibus,0.05422573512431177,Same Category,Measure,20,100,icc2_1,none,39259
+panel,Omnibus,0.10499263440064012,Panel,Panel,20,100,icc2_1,none,39259
+sample_size,Omnibus,0.0024521371084888113,n,Respondent,20,100,icc2_1,none,39259
+scale_type_pair_same,Omnibus,0.029555585282674778,Same Scale Type,Measure,20,100,icc2_1,none,39259
+age_group,Omnibus,0.002825560718564769,Age,Respondent,20,100,spearman,log,39259
+domain_name_pair_same,Omnibus,0.12358414100738534,Same Domain,Measure,20,100,spearman,log,39259
+gender_group,Omnibus,0.0014949812138648066,Gender,Respondent,20,100,spearman,log,39259
+mean_rel,Omnibus,0.005178941754856551,Reliability,Measure,20,100,spearman,log,39259
+measure_category_pair_same,Omnibus,0.0688805949674742,Same Category,Measure,20,100,spearman,log,39259
+panel,Omnibus,0.08333295120102377,Panel,Panel,20,100,spearman,log,39259
+sample_size,Omnibus,0.0034489867869721513,n,Respondent,20,100,spearman,log,39259
+scale_type_pair_same,Omnibus,0.0037012999442499117,Same Scale Type,Measure,20,100,spearman,log,39259
+age_group,Omnibus,0.0027979788901263767,Age,Respondent,20,100,pearson,log,39259
+domain_name_pair_same,Omnibus,0.12618978475562276,Same Domain,Measure,20,100,pearson,log,39259
+gender_group,Omnibus,0.001640290383896944,Gender,Respondent,20,100,pearson,log,39259
+mean_rel,Omnibus,0.004045128686716439,Reliability,Measure,20,100,pearson,log,39259
+measure_category_pair_same,Omnibus,0.07452329467295925,Same Category,Measure,20,100,pearson,log,39259
+panel,Omnibus,0.07901268166814517,Panel,Panel,20,100,pearson,log,39259
+sample_size,Omnibus,0.004251841644795804,n,Respondent,20,100,pearson,log,39259
+scale_type_pair_same,Omnibus,0.004887765677472781,Same Scale Type,Measure,20,100,pearson,log,39259
+age_group,Omnibus,0.004060345919832584,Age,Respondent,20,100,icc2_1,log,39259
+domain_name_pair_same,Omnibus,0.10980180557979888,Same Domain,Measure,20,100,icc2_1,log,39259
+gender_group,Omnibus,0.0018506292144691734,Gender,Respondent,20,100,icc2_1,log,39259
+mean_rel,Omnibus,0.002133402115640986,Reliability,Measure,20,100,icc2_1,log,39259
+measure_category_pair_same,Omnibus,0.06615152620877707,Same Category,Measure,20,100,icc2_1,log,39259
+panel,Omnibus,0.100100302909386,Panel,Panel,20,100,icc2_1,log,39259
+sample_size,Omnibus,0.0053134031574265704,n,Respondent,20,100,icc2_1,log,39259
+scale_type_pair_same,Omnibus,0.010828437481025386,Same Scale Type,Measure,20,100,icc2_1,log,39259
+age_group,Omnibus,0.0020595281257164773,Age,Respondent,20,30,spearman,none,46753
+domain_name_pair_same,Omnibus,0.11159725001641603,Same Domain,Measure,20,30,spearman,none,46753
+gender_group,Omnibus,6.999177587658828e-4,Gender,Respondent,20,30,spearman,none,46753
+mean_rel,Omnibus,0.007055815838727891,Reliability,Measure,20,30,spearman,none,46753
+measure_category_pair_same,Omnibus,0.07312664054799281,Same Category,Measure,20,30,spearman,none,46753
+panel,Omnibus,0.0788534897358038,Panel,Panel,20,30,spearman,none,46753
+sample_size,Omnibus,0.0033853643031863632,n,Respondent,20,30,spearman,none,46753
+scale_type_pair_same,Omnibus,0.005485719774977966,Same Scale Type,Measure,20,30,spearman,none,46753
+age_group,Omnibus,0.0020595281257164773,Age,Respondent,20,30,pearson,none,46753
+domain_name_pair_same,Omnibus,0.11159725001641603,Same Domain,Measure,20,30,pearson,none,46753
+gender_group,Omnibus,6.999177587658828e-4,Gender,Respondent,20,30,pearson,none,46753
+mean_rel,Omnibus,0.007055815838727891,Reliability,Measure,20,30,pearson,none,46753
+measure_category_pair_same,Omnibus,0.07312664054799281,Same Category,Measure,20,30,pearson,none,46753
+panel,Omnibus,0.0788534897358038,Panel,Panel,20,30,pearson,none,46753
+sample_size,Omnibus,0.0033853643031863632,n,Respondent,20,30,pearson,none,46753
+scale_type_pair_same,Omnibus,0.005485719774977966,Same Scale Type,Measure,20,30,pearson,none,46753
+age_group,Omnibus,0.001837098781958258,Age,Respondent,20,30,icc2_1,none,46753
+domain_name_pair_same,Omnibus,0.07528217586695017,Same Domain,Measure,20,30,icc2_1,none,46753
+gender_group,Omnibus,3.758179733427898e-4,Gender,Respondent,20,30,icc2_1,none,46753
+mean_rel,Omnibus,0.002907671163657586,Reliability,Measure,20,30,icc2_1,none,46753
+measure_category_pair_same,Omnibus,0.06293130553682652,Same Category,Measure,20,30,icc2_1,none,46753
+panel,Omnibus,0.10158356046484443,Panel,Panel,20,30,icc2_1,none,46753
+sample_size,Omnibus,0.0022536692510867697,n,Respondent,20,30,icc2_1,none,46753
+scale_type_pair_same,Omnibus,0.03391024343109128,Same Scale Type,Measure,20,30,icc2_1,none,46753
+age_group,Omnibus,0.0020595281257164773,Age,Respondent,20,30,spearman,log,46753
+domain_name_pair_same,Omnibus,0.11159725001641603,Same Domain,Measure,20,30,spearman,log,46753
+gender_group,Omnibus,6.999177587658828e-4,Gender,Respondent,20,30,spearman,log,46753
+mean_rel,Omnibus,0.007055815838727891,Reliability,Measure,20,30,spearman,log,46753
+measure_category_pair_same,Omnibus,0.07312664054799281,Same Category,Measure,20,30,spearman,log,46753
+panel,Omnibus,0.0788534897358038,Panel,Panel,20,30,spearman,log,46753
+sample_size,Omnibus,0.0033853643031863632,n,Respondent,20,30,spearman,log,46753
+scale_type_pair_same,Omnibus,0.005485719774977966,Same Scale Type,Measure,20,30,spearman,log,46753
+age_group,Omnibus,0.0023075752039063493,Age,Respondent,20,30,pearson,log,46753
+domain_name_pair_same,Omnibus,0.11357658615430849,Same Domain,Measure,20,30,pearson,log,46753
+gender_group,Omnibus,7.147702986211464e-4,Gender,Respondent,20,30,pearson,log,46753
+mean_rel,Omnibus,0.006054496076031806,Reliability,Measure,20,30,pearson,log,46753
+measure_category_pair_same,Omnibus,0.07807023440937041,Same Category,Measure,20,30,pearson,log,46753
+panel,Omnibus,0.07481508684623006,Panel,Panel,20,30,pearson,log,46753
+sample_size,Omnibus,0.004003334162783742,n,Respondent,20,30,pearson,log,46753
+scale_type_pair_same,Omnibus,0.007367721038915295,Same Scale Type,Measure,20,30,pearson,log,46753
+age_group,Omnibus,0.0027718760889243774,Age,Respondent,20,30,icc2_1,log,46753
+domain_name_pair_same,Omnibus,0.10397960088664734,Same Domain,Measure,20,30,icc2_1,log,46753
+gender_group,Omnibus,9.26535579296418e-4,Gender,Respondent,20,30,icc2_1,log,46753
+mean_rel,Omnibus,0.002953463998934559,Reliability,Measure,20,30,icc2_1,log,46753
+measure_category_pair_same,Omnibus,0.07247878169605655,Same Category,Measure,20,30,icc2_1,log,46753
+panel,Omnibus,0.10071002459058305,Panel,Panel,20,30,icc2_1,log,46753
+sample_size,Omnibus,0.00492022737968517,n,Respondent,20,30,icc2_1,log,46753
+scale_type_pair_same,Omnibus,0.015641995384210176,Same Scale Type,Measure,20,30,icc2_1,log,46753
+age_group,Omnibus,0.004988614502893313,Age,Respondent,10,250,spearman,none,41436
+domain_name_pair_same,Omnibus,0.13368535598642417,Same Domain,Measure,10,250,spearman,none,41436
+gender_group,Omnibus,5.973914716267996e-4,Gender,Respondent,10,250,spearman,none,41436
+mean_rel,Omnibus,0.0029918617655102842,Reliability,Measure,10,250,spearman,none,41436
+measure_category_pair_same,Omnibus,0.07297712054467913,Same Category,Measure,10,250,spearman,none,41436
+panel,Omnibus,0.06754289768381355,Panel,Panel,10,250,spearman,none,41436
+sample_size,Omnibus,0.0058541879092536995,n,Respondent,10,250,spearman,none,41436
+scale_type_pair_same,Omnibus,0.0032145124428203152,Same Scale Type,Measure,10,250,spearman,none,41436
+age_group,Omnibus,0.004988614502893313,Age,Respondent,10,250,pearson,none,41436
+domain_name_pair_same,Omnibus,0.13368535598642417,Same Domain,Measure,10,250,pearson,none,41436
+gender_group,Omnibus,5.973914716267996e-4,Gender,Respondent,10,250,pearson,none,41436
+mean_rel,Omnibus,0.0029918617655102842,Reliability,Measure,10,250,pearson,none,41436
+measure_category_pair_same,Omnibus,0.07297712054467913,Same Category,Measure,10,250,pearson,none,41436
+panel,Omnibus,0.06754289768381355,Panel,Panel,10,250,pearson,none,41436
+sample_size,Omnibus,0.0058541879092536995,n,Respondent,10,250,pearson,none,41436
+scale_type_pair_same,Omnibus,0.0032145124428203152,Same Scale Type,Measure,10,250,pearson,none,41436
+age_group,Omnibus,0.004289204364724279,Age,Respondent,10,250,icc2_1,none,41436
+domain_name_pair_same,Omnibus,0.07308614536823967,Same Domain,Measure,10,250,icc2_1,none,41436
+gender_group,Omnibus,1.5971783245515887e-4,Gender,Respondent,10,250,icc2_1,none,41436
+mean_rel,Omnibus,0.0031628175777303207,Reliability,Measure,10,250,icc2_1,none,41436
+measure_category_pair_same,Omnibus,0.05763242608630975,Same Category,Measure,10,250,icc2_1,none,41436
+panel,Omnibus,0.08689814205379225,Panel,Panel,10,250,icc2_1,none,41436
+sample_size,Omnibus,0.00675640327746341,n,Respondent,10,250,icc2_1,none,41436
+scale_type_pair_same,Omnibus,0.02453204353679343,Same Scale Type,Measure,10,250,icc2_1,none,41436
+age_group,Omnibus,0.004988614502893313,Age,Respondent,10,250,spearman,log,41436
+domain_name_pair_same,Omnibus,0.13368535598642417,Same Domain,Measure,10,250,spearman,log,41436
+gender_group,Omnibus,5.973914716267996e-4,Gender,Respondent,10,250,spearman,log,41436
+mean_rel,Omnibus,0.0029918617655102842,Reliability,Measure,10,250,spearman,log,41436
+measure_category_pair_same,Omnibus,0.07297712054467913,Same Category,Measure,10,250,spearman,log,41436
+panel,Omnibus,0.06754289768381355,Panel,Panel,10,250,spearman,log,41436
+sample_size,Omnibus,0.0058541879092536995,n,Respondent,10,250,spearman,log,41436
+scale_type_pair_same,Omnibus,0.0032145124428203152,Same Scale Type,Measure,10,250,spearman,log,41436
+age_group,Omnibus,0.005717127178032312,Age,Respondent,10,250,pearson,log,41436
+domain_name_pair_same,Omnibus,0.13323441522703003,Same Domain,Measure,10,250,pearson,log,41436
+gender_group,Omnibus,6.422965953298653e-4,Gender,Respondent,10,250,pearson,log,41436
+mean_rel,Omnibus,0.0023581824545990094,Reliability,Measure,10,250,pearson,log,41436
+measure_category_pair_same,Omnibus,0.0790872761984863,Same Category,Measure,10,250,pearson,log,41436
+panel,Omnibus,0.0668949441788883,Panel,Panel,10,250,pearson,log,41436
+sample_size,Omnibus,0.007780652203380374,n,Respondent,10,250,pearson,log,41436
+scale_type_pair_same,Omnibus,0.0037973405809198996,Same Scale Type,Measure,10,250,pearson,log,41436
+age_group,Omnibus,0.00471362680006692,Age,Respondent,10,250,icc2_1,log,41436
+domain_name_pair_same,Omnibus,0.1131613872761559,Same Domain,Measure,10,250,icc2_1,log,41436
+gender_group,Omnibus,8.633118888590778e-4,Gender,Respondent,10,250,icc2_1,log,41436
+mean_rel,Omnibus,0.0023809595761202043,Reliability,Measure,10,250,icc2_1,log,41436
+measure_category_pair_same,Omnibus,0.06889134879823113,Same Category,Measure,10,250,icc2_1,log,41436
+panel,Omnibus,0.0756978438843616,Panel,Panel,10,250,icc2_1,log,41436
+sample_size,Omnibus,0.008849684872747699,n,Respondent,10,250,icc2_1,log,41436
+scale_type_pair_same,Omnibus,0.006462134525808389,Same Scale Type,Measure,10,250,icc2_1,log,41436
+age_group,Omnibus,0.003922810435302705,Age,Respondent,10,100,spearman,none,53323
+domain_name_pair_same,Omnibus,0.12219202969317583,Same Domain,Measure,10,100,spearman,none,53323
+gender_group,Omnibus,0.0010997923670102543,Gender,Respondent,10,100,spearman,none,53323
+mean_rel,Omnibus,0.002648852877190533,Reliability,Measure,10,100,spearman,none,53323
+measure_category_pair_same,Omnibus,0.07400469525892839,Same Category,Measure,10,100,spearman,none,53323
+panel,Omnibus,0.08257908038654088,Panel,Panel,10,100,spearman,none,53323
+sample_size,Omnibus,0.002327867894079002,n,Respondent,10,100,spearman,none,53323
+scale_type_pair_same,Omnibus,0.0036995206672084343,Same Scale Type,Measure,10,100,spearman,none,53323
+age_group,Omnibus,0.003922810435302705,Age,Respondent,10,100,pearson,none,53323
+domain_name_pair_same,Omnibus,0.12219202969317583,Same Domain,Measure,10,100,pearson,none,53323
+gender_group,Omnibus,0.0010997923670102543,Gender,Respondent,10,100,pearson,none,53323
+mean_rel,Omnibus,0.002648852877190533,Reliability,Measure,10,100,pearson,none,53323
+measure_category_pair_same,Omnibus,0.07400469525892839,Same Category,Measure,10,100,pearson,none,53323
+panel,Omnibus,0.08257908038654088,Panel,Panel,10,100,pearson,none,53323
+sample_size,Omnibus,0.002327867894079002,n,Respondent,10,100,pearson,none,53323
+scale_type_pair_same,Omnibus,0.0036995206672084343,Same Scale Type,Measure,10,100,pearson,none,53323
+age_group,Omnibus,0.004005743286487547,Age,Respondent,10,100,icc2_1,none,53323
+domain_name_pair_same,Omnibus,0.06888172849042946,Same Domain,Measure,10,100,icc2_1,none,53323
+gender_group,Omnibus,6.130079715796353e-4,Gender,Respondent,10,100,icc2_1,none,53323
+mean_rel,Omnibus,0.0017143268788170694,Reliability,Measure,10,100,icc2_1,none,53323
+measure_category_pair_same,Omnibus,0.0583217549724453,Same Category,Measure,10,100,icc2_1,none,53323
+panel,Omnibus,0.10672410916086317,Panel,Panel,10,100,icc2_1,none,53323
+sample_size,Omnibus,0.002156273368332424,n,Respondent,10,100,icc2_1,none,53323
+scale_type_pair_same,Omnibus,0.02633798362755539,Same Scale Type,Measure,10,100,icc2_1,none,53323
+age_group,Omnibus,0.003922810435302705,Age,Respondent,10,100,spearman,log,53323
+domain_name_pair_same,Omnibus,0.12219202969317583,Same Domain,Measure,10,100,spearman,log,53323
+gender_group,Omnibus,0.0010997923670102543,Gender,Respondent,10,100,spearman,log,53323
+mean_rel,Omnibus,0.002648852877190533,Reliability,Measure,10,100,spearman,log,53323
+measure_category_pair_same,Omnibus,0.07400469525892839,Same Category,Measure,10,100,spearman,log,53323
+panel,Omnibus,0.08257908038654088,Panel,Panel,10,100,spearman,log,53323
+sample_size,Omnibus,0.002327867894079002,n,Respondent,10,100,spearman,log,53323
+scale_type_pair_same,Omnibus,0.0036995206672084343,Same Scale Type,Measure,10,100,spearman,log,53323
+age_group,Omnibus,0.0042236538125189835,Age,Respondent,10,100,pearson,log,53323
+domain_name_pair_same,Omnibus,0.12285863227444174,Same Domain,Measure,10,100,pearson,log,53323
+gender_group,Omnibus,0.0013193911876856618,Gender,Respondent,10,100,pearson,log,53323
+mean_rel,Omnibus,0.0019846678661952933,Reliability,Measure,10,100,pearson,log,53323
+measure_category_pair_same,Omnibus,0.07962528982020359,Same Category,Measure,10,100,pearson,log,53323
+panel,Omnibus,0.08026834683860909,Panel,Panel,10,100,pearson,log,53323
+sample_size,Omnibus,0.0032775939640916534,n,Respondent,10,100,pearson,log,53323
+scale_type_pair_same,Omnibus,0.0046388533818112,Same Scale Type,Measure,10,100,pearson,log,53323
+age_group,Omnibus,0.0049355608308620765,Age,Respondent,10,100,icc2_1,log,53323
+domain_name_pair_same,Omnibus,0.10470816984152127,Same Domain,Measure,10,100,icc2_1,log,53323
+gender_group,Omnibus,0.001481232272991199,Gender,Respondent,10,100,icc2_1,log,53323
+mean_rel,Omnibus,0.0013818115001444143,Reliability,Measure,10,100,icc2_1,log,53323
+measure_category_pair_same,Omnibus,0.07038555157072847,Same Category,Measure,10,100,icc2_1,log,53323
+panel,Omnibus,0.10048445493145206,Panel,Panel,10,100,icc2_1,log,53323
+sample_size,Omnibus,0.00353442118223078,n,Respondent,10,100,icc2_1,log,53323
+scale_type_pair_same,Omnibus,0.00952215005061162,Same Scale Type,Measure,10,100,icc2_1,log,53323
+age_group,Omnibus,0.0029085363624519836,Age,Respondent,10,30,spearman,none,65432
+domain_name_pair_same,Omnibus,0.11443835087752731,Same Domain,Measure,10,30,spearman,none,65432
+gender_group,Omnibus,3.143471072985925e-4,Gender,Respondent,10,30,spearman,none,65432
+mean_rel,Omnibus,0.004195055393179674,Reliability,Measure,10,30,spearman,none,65432
+measure_category_pair_same,Omnibus,0.0724379728714803,Same Category,Measure,10,30,spearman,none,65432
+panel,Omnibus,0.07786725082674371,Panel,Panel,10,30,spearman,none,65432
+sample_size,Omnibus,0.001978330189072868,n,Respondent,10,30,spearman,none,65432
+scale_type_pair_same,Omnibus,0.0044314973822483575,Same Scale Type,Measure,10,30,spearman,none,65432
+age_group,Omnibus,0.0029085363624519836,Age,Respondent,10,30,pearson,none,65432
+domain_name_pair_same,Omnibus,0.11443835087752731,Same Domain,Measure,10,30,pearson,none,65432
+gender_group,Omnibus,3.143471072985925e-4,Gender,Respondent,10,30,pearson,none,65432
+mean_rel,Omnibus,0.004195055393179674,Reliability,Measure,10,30,pearson,none,65432
+measure_category_pair_same,Omnibus,0.0724379728714803,Same Category,Measure,10,30,pearson,none,65432
+panel,Omnibus,0.07786725082674371,Panel,Panel,10,30,pearson,none,65432
+sample_size,Omnibus,0.001978330189072868,n,Respondent,10,30,pearson,none,65432
+scale_type_pair_same,Omnibus,0.0044314973822483575,Same Scale Type,Measure,10,30,pearson,none,65432
+age_group,Omnibus,0.0026413084867492323,Age,Respondent,10,30,icc2_1,none,65432
+domain_name_pair_same,Omnibus,0.06858589963840007,Same Domain,Measure,10,30,icc2_1,none,65432
+gender_group,Omnibus,2.1261530376558198e-4,Gender,Respondent,10,30,icc2_1,none,65432
+mean_rel,Omnibus,0.001414413926938874,Reliability,Measure,10,30,icc2_1,none,65432
+measure_category_pair_same,Omnibus,0.06188899046202057,Same Category,Measure,10,30,icc2_1,none,65432
+panel,Omnibus,0.09881289404204624,Panel,Panel,10,30,icc2_1,none,65432
+sample_size,Omnibus,0.0014755780134707282,n,Respondent,10,30,icc2_1,none,65432
+scale_type_pair_same,Omnibus,0.028456261267148876,Same Scale Type,Measure,10,30,icc2_1,none,65432
+age_group,Omnibus,0.0029085363624519836,Age,Respondent,10,30,spearman,log,65432
+domain_name_pair_same,Omnibus,0.11443835087752731,Same Domain,Measure,10,30,spearman,log,65432
+gender_group,Omnibus,3.143471072985925e-4,Gender,Respondent,10,30,spearman,log,65432
+mean_rel,Omnibus,0.004195055393179674,Reliability,Measure,10,30,spearman,log,65432
+measure_category_pair_same,Omnibus,0.0724379728714803,Same Category,Measure,10,30,spearman,log,65432
+panel,Omnibus,0.07786725082674371,Panel,Panel,10,30,spearman,log,65432
+sample_size,Omnibus,0.001978330189072868,n,Respondent,10,30,spearman,log,65432
+scale_type_pair_same,Omnibus,0.0044314973822483575,Same Scale Type,Measure,10,30,spearman,log,65432
+age_group,Omnibus,0.0032581605148087637,Age,Respondent,10,30,pearson,log,65432
+domain_name_pair_same,Omnibus,0.11479290105172375,Same Domain,Measure,10,30,pearson,log,65432
+gender_group,Omnibus,3.9992383831706247e-4,Gender,Respondent,10,30,pearson,log,65432
+mean_rel,Omnibus,0.003542541550098565,Reliability,Measure,10,30,pearson,log,65432
+measure_category_pair_same,Omnibus,0.07673680308720304,Same Category,Measure,10,30,pearson,log,65432
+panel,Omnibus,0.07514571445704747,Panel,Panel,10,30,pearson,log,65432
+sample_size,Omnibus,0.002602895750992181,n,Respondent,10,30,pearson,log,65432
+scale_type_pair_same,Omnibus,0.005708020611862677,Same Scale Type,Measure,10,30,pearson,log,65432
+age_group,Omnibus,0.0038500460462680976,Age,Respondent,10,30,icc2_1,log,65432
+domain_name_pair_same,Omnibus,0.10185767291534407,Same Domain,Measure,10,30,icc2_1,log,65432
+gender_group,Omnibus,5.739774907524063e-4,Gender,Respondent,10,30,icc2_1,log,65432
+mean_rel,Omnibus,0.0018163199371440068,Reliability,Measure,10,30,icc2_1,log,65432
+measure_category_pair_same,Omnibus,0.07184021523712344,Same Category,Measure,10,30,icc2_1,log,65432
+panel,Omnibus,0.09708291619786498,Panel,Panel,10,30,icc2_1,log,65432
+sample_size,Omnibus,0.0026994200805364687,n,Respondent,10,30,icc2_1,log,65432
+scale_type_pair_same,Omnibus,0.012694374796424573,Same Scale Type,Measure,10,30,icc2_1,log,65432
+age_group,Omnibus,0.007968659978221262,Age,Respondent,5,250,spearman,none,50173
+domain_name_pair_same,Omnibus,0.1310701226431619,Same Domain,Measure,5,250,spearman,none,50173
+gender_group,Omnibus,6.62620729043553e-4,Gender,Respondent,5,250,spearman,none,50173
+mean_rel,Omnibus,0.0037975376901180752,Reliability,Measure,5,250,spearman,none,50173
+measure_category_pair_same,Omnibus,0.08452940718706549,Same Category,Measure,5,250,spearman,none,50173
+panel,Omnibus,0.06345341783998999,Panel,Panel,5,250,spearman,none,50173
+sample_size,Omnibus,0.006816253651134593,n,Respondent,5,250,spearman,none,50173
+scale_type_pair_same,Omnibus,0.003782706795824972,Same Scale Type,Measure,5,250,spearman,none,50173
+age_group,Omnibus,0.007968659978221262,Age,Respondent,5,250,pearson,none,50173
+domain_name_pair_same,Omnibus,0.1310701226431619,Same Domain,Measure,5,250,pearson,none,50173
+gender_group,Omnibus,6.62620729043553e-4,Gender,Respondent,5,250,pearson,none,50173
+mean_rel,Omnibus,0.0037975376901180752,Reliability,Measure,5,250,pearson,none,50173
+measure_category_pair_same,Omnibus,0.08452940718706549,Same Category,Measure,5,250,pearson,none,50173
+panel,Omnibus,0.06345341783998999,Panel,Panel,5,250,pearson,none,50173
+sample_size,Omnibus,0.006816253651134593,n,Respondent,5,250,pearson,none,50173
+scale_type_pair_same,Omnibus,0.003782706795824972,Same Scale Type,Measure,5,250,pearson,none,50173
+age_group,Omnibus,0.01046566692041679,Age,Respondent,5,250,icc2_1,none,50173
+domain_name_pair_same,Omnibus,0.0697714932186739,Same Domain,Measure,5,250,icc2_1,none,50173
+gender_group,Omnibus,1.9019462147714395e-4,Gender,Respondent,5,250,icc2_1,none,50173
+mean_rel,Omnibus,0.0046431288620166055,Reliability,Measure,5,250,icc2_1,none,50173
+measure_category_pair_same,Omnibus,0.06468643029621983,Same Category,Measure,5,250,icc2_1,none,50173
+panel,Omnibus,0.07774466910003139,Panel,Panel,5,250,icc2_1,none,50173
+sample_size,Omnibus,0.008564217710443358,n,Respondent,5,250,icc2_1,none,50173
+scale_type_pair_same,Omnibus,0.029620364345116435,Same Scale Type,Measure,5,250,icc2_1,none,50173
+age_group,Omnibus,0.007968659978221262,Age,Respondent,5,250,spearman,log,50173
+domain_name_pair_same,Omnibus,0.1310701226431619,Same Domain,Measure,5,250,spearman,log,50173
+gender_group,Omnibus,6.62620729043553e-4,Gender,Respondent,5,250,spearman,log,50173
+mean_rel,Omnibus,0.0037975376901180752,Reliability,Measure,5,250,spearman,log,50173
+measure_category_pair_same,Omnibus,0.08452940718706549,Same Category,Measure,5,250,spearman,log,50173
+panel,Omnibus,0.06345341783998999,Panel,Panel,5,250,spearman,log,50173
+sample_size,Omnibus,0.006816253651134593,n,Respondent,5,250,spearman,log,50173
+scale_type_pair_same,Omnibus,0.003782706795824972,Same Scale Type,Measure,5,250,spearman,log,50173
+age_group,Omnibus,0.009953790368472673,Age,Respondent,5,250,pearson,log,50173
+domain_name_pair_same,Omnibus,0.12801184033565494,Same Domain,Measure,5,250,pearson,log,50173
+gender_group,Omnibus,8.560751798665362e-4,Gender,Respondent,5,250,pearson,log,50173
+mean_rel,Omnibus,0.0032420369779458556,Reliability,Measure,5,250,pearson,log,50173
+measure_category_pair_same,Omnibus,0.09071263949157542,Same Category,Measure,5,250,pearson,log,50173
+panel,Omnibus,0.06383569107684585,Panel,Panel,5,250,pearson,log,50173
+sample_size,Omnibus,0.008431806368001333,n,Respondent,5,250,pearson,log,50173
+scale_type_pair_same,Omnibus,0.004543267109766218,Same Scale Type,Measure,5,250,pearson,log,50173
+age_group,Omnibus,0.010188975047390579,Age,Respondent,5,250,icc2_1,log,50173
+domain_name_pair_same,Omnibus,0.10888564666060656,Same Domain,Measure,5,250,icc2_1,log,50173
+gender_group,Omnibus,0.001123690356319068,Gender,Respondent,5,250,icc2_1,log,50173
+mean_rel,Omnibus,0.00450544367356905,Reliability,Measure,5,250,icc2_1,log,50173
+measure_category_pair_same,Omnibus,0.07678817946324071,Same Category,Measure,5,250,icc2_1,log,50173
+panel,Omnibus,0.06811239637725959,Panel,Panel,5,250,icc2_1,log,50173
+sample_size,Omnibus,0.009498957151659446,n,Respondent,5,250,icc2_1,log,50173
+scale_type_pair_same,Omnibus,0.00727898437870786,Same Scale Type,Measure,5,250,icc2_1,log,50173
+age_group,Omnibus,0.004319387476653277,Age,Respondent,5,100,spearman,none,78372
+domain_name_pair_same,Omnibus,0.12056381048660961,Same Domain,Measure,5,100,spearman,none,78372
+gender_group,Omnibus,4.519164163947714e-4,Gender,Respondent,5,100,spearman,none,78372
+mean_rel,Omnibus,0.0018217656881492892,Reliability,Measure,5,100,spearman,none,78372
+measure_category_pair_same,Omnibus,0.07775240014217726,Same Category,Measure,5,100,spearman,none,78372
+panel,Omnibus,0.07102311486683238,Panel,Panel,5,100,spearman,none,78372
+sample_size,Omnibus,0.0026069597067624427,n,Respondent,5,100,spearman,none,78372
+scale_type_pair_same,Omnibus,0.0033210488417311306,Same Scale Type,Measure,5,100,spearman,none,78372
+age_group,Omnibus,0.004319387476653277,Age,Respondent,5,100,pearson,none,78372
+domain_name_pair_same,Omnibus,0.12056381048660961,Same Domain,Measure,5,100,pearson,none,78372
+gender_group,Omnibus,4.519164163947714e-4,Gender,Respondent,5,100,pearson,none,78372
+mean_rel,Omnibus,0.0018217656881492892,Reliability,Measure,5,100,pearson,none,78372
+measure_category_pair_same,Omnibus,0.07775240014217726,Same Category,Measure,5,100,pearson,none,78372
+panel,Omnibus,0.07102311486683238,Panel,Panel,5,100,pearson,none,78372
+sample_size,Omnibus,0.0026069597067624427,n,Respondent,5,100,pearson,none,78372
+scale_type_pair_same,Omnibus,0.0033210488417311306,Same Scale Type,Measure,5,100,pearson,none,78372
+age_group,Omnibus,0.004655438403401364,Age,Respondent,5,100,icc2_1,none,78372
+domain_name_pair_same,Omnibus,0.0626148227840792,Same Domain,Measure,5,100,icc2_1,none,78372
+gender_group,Omnibus,1.5297635220735153e-4,Gender,Respondent,5,100,icc2_1,none,78372
+mean_rel,Omnibus,0.0024460354278944435,Reliability,Measure,5,100,icc2_1,none,78372
+measure_category_pair_same,Omnibus,0.0632919577004446,Same Category,Measure,5,100,icc2_1,none,78372
+panel,Omnibus,0.09202069771050136,Panel,Panel,5,100,icc2_1,none,78372
+sample_size,Omnibus,0.002567842504526797,n,Respondent,5,100,icc2_1,none,78372
+scale_type_pair_same,Omnibus,0.02605491745208577,Same Scale Type,Measure,5,100,icc2_1,none,78372
+age_group,Omnibus,0.004319387476653277,Age,Respondent,5,100,spearman,log,78372
+domain_name_pair_same,Omnibus,0.12056381048660961,Same Domain,Measure,5,100,spearman,log,78372
+gender_group,Omnibus,4.519164163947714e-4,Gender,Respondent,5,100,spearman,log,78372
+mean_rel,Omnibus,0.0018217656881492892,Reliability,Measure,5,100,spearman,log,78372
+measure_category_pair_same,Omnibus,0.07775240014217726,Same Category,Measure,5,100,spearman,log,78372
+panel,Omnibus,0.07102311486683238,Panel,Panel,5,100,spearman,log,78372
+sample_size,Omnibus,0.0026069597067624427,n,Respondent,5,100,spearman,log,78372
+scale_type_pair_same,Omnibus,0.0033210488417311306,Same Scale Type,Measure,5,100,spearman,log,78372
+age_group,Omnibus,0.004897707978321273,Age,Respondent,5,100,pearson,log,78372
+domain_name_pair_same,Omnibus,0.12025822042093463,Same Domain,Measure,5,100,pearson,log,78372
+gender_group,Omnibus,6.299001249937499e-4,Gender,Respondent,5,100,pearson,log,78372
+mean_rel,Omnibus,0.001536751809733076,Reliability,Measure,5,100,pearson,log,78372
+measure_category_pair_same,Omnibus,0.08386696299190545,Same Category,Measure,5,100,pearson,log,78372
+panel,Omnibus,0.06942321989547523,Panel,Panel,5,100,pearson,log,78372
+sample_size,Omnibus,0.003462100609030258,n,Respondent,5,100,pearson,log,78372
+scale_type_pair_same,Omnibus,0.0040742361576400505,Same Scale Type,Measure,5,100,pearson,log,78372
+age_group,Omnibus,0.005194787376211188,Age,Respondent,5,100,icc2_1,log,78372
+domain_name_pair_same,Omnibus,0.09856874702969404,Same Domain,Measure,5,100,icc2_1,log,78372
+gender_group,Omnibus,7.769691698352663e-4,Gender,Respondent,5,100,icc2_1,log,78372
+mean_rel,Omnibus,0.0017821122287888784,Reliability,Measure,5,100,icc2_1,log,78372
+measure_category_pair_same,Omnibus,0.07524441202672703,Same Category,Measure,5,100,icc2_1,log,78372
+panel,Omnibus,0.08420694776288569,Panel,Panel,5,100,icc2_1,log,78372
+sample_size,Omnibus,0.0034120540604744764,n,Respondent,5,100,icc2_1,log,78372
+scale_type_pair_same,Omnibus,0.008294162246719744,Same Scale Type,Measure,5,100,icc2_1,log,78372
+age_group,Omnibus,0.0033687543829229935,Age,Respondent,5,30,spearman,none,99933
+domain_name_pair_same,Omnibus,0.11317130614011656,Same Domain,Measure,5,30,spearman,none,99933
+gender_group,Omnibus,2.7825711852838114e-4,Gender,Respondent,5,30,spearman,none,99933
+mean_rel,Omnibus,0.002202845577635123,Reliability,Measure,5,30,spearman,none,99933
+measure_category_pair_same,Omnibus,0.07334888892885819,Same Category,Measure,5,30,spearman,none,99933
+panel,Omnibus,0.07904417802627359,Panel,Panel,5,30,spearman,none,99933
+sample_size,Omnibus,0.0012857037323583454,n,Respondent,5,30,spearman,none,99933
+scale_type_pair_same,Omnibus,0.0037414382499051913,Same Scale Type,Measure,5,30,spearman,none,99933
+age_group,Omnibus,0.0033687543829229935,Age,Respondent,5,30,pearson,none,99933
+domain_name_pair_same,Omnibus,0.11317130614011656,Same Domain,Measure,5,30,pearson,none,99933
+gender_group,Omnibus,2.7825711852838114e-4,Gender,Respondent,5,30,pearson,none,99933
+mean_rel,Omnibus,0.002202845577635123,Reliability,Measure,5,30,pearson,none,99933
+measure_category_pair_same,Omnibus,0.07334888892885819,Same Category,Measure,5,30,pearson,none,99933
+panel,Omnibus,0.07904417802627359,Panel,Panel,5,30,pearson,none,99933
+sample_size,Omnibus,0.0012857037323583454,n,Respondent,5,30,pearson,none,99933
+scale_type_pair_same,Omnibus,0.0037414382499051913,Same Scale Type,Measure,5,30,pearson,none,99933
+age_group,Omnibus,0.004258889726409305,Age,Respondent,5,30,icc2_1,none,99933
+domain_name_pair_same,Omnibus,0.061158253354225436,Same Domain,Measure,5,30,icc2_1,none,99933
+gender_group,Omnibus,1.747837731555124e-4,Gender,Respondent,5,30,icc2_1,none,99933
+mean_rel,Omnibus,0.0014112479528836377,Reliability,Measure,5,30,icc2_1,none,99933
+measure_category_pair_same,Omnibus,0.06256878393198237,Same Category,Measure,5,30,icc2_1,none,99933
+panel,Omnibus,0.09951551333419321,Panel,Panel,5,30,icc2_1,none,99933
+sample_size,Omnibus,8.591277006225023e-4,n,Respondent,5,30,icc2_1,none,99933
+scale_type_pair_same,Omnibus,0.02562244488058317,Same Scale Type,Measure,5,30,icc2_1,none,99933
+age_group,Omnibus,0.0033687543829229935,Age,Respondent,5,30,spearman,log,99933
+domain_name_pair_same,Omnibus,0.11317130614011656,Same Domain,Measure,5,30,spearman,log,99933
+gender_group,Omnibus,2.7825711852838114e-4,Gender,Respondent,5,30,spearman,log,99933
+mean_rel,Omnibus,0.002202845577635123,Reliability,Measure,5,30,spearman,log,99933
+measure_category_pair_same,Omnibus,0.07334888892885819,Same Category,Measure,5,30,spearman,log,99933
+panel,Omnibus,0.07904417802627359,Panel,Panel,5,30,spearman,log,99933
+sample_size,Omnibus,0.0012857037323583454,n,Respondent,5,30,spearman,log,99933
+scale_type_pair_same,Omnibus,0.0037414382499051913,Same Scale Type,Measure,5,30,spearman,log,99933
+age_group,Omnibus,0.003942613720564242,Age,Respondent,5,30,pearson,log,99933
+domain_name_pair_same,Omnibus,0.11234712698289576,Same Domain,Measure,5,30,pearson,log,99933
+gender_group,Omnibus,4.547366920978687e-4,Gender,Respondent,5,30,pearson,log,99933
+mean_rel,Omnibus,0.0018620301603692769,Reliability,Measure,5,30,pearson,log,99933
+measure_category_pair_same,Omnibus,0.0783169252709206,Same Category,Measure,5,30,pearson,log,99933
+panel,Omnibus,0.0760825399108631,Panel,Panel,5,30,pearson,log,99933
+sample_size,Omnibus,0.0016627470133078043,n,Respondent,5,30,pearson,log,99933
+scale_type_pair_same,Omnibus,0.004686675613456739,Same Scale Type,Measure,5,30,pearson,log,99933
+age_group,Omnibus,0.005024336369165336,Age,Respondent,5,30,icc2_1,log,99933
+domain_name_pair_same,Omnibus,0.09459758982107624,Same Domain,Measure,5,30,icc2_1,log,99933
+gender_group,Omnibus,6.442606422951965e-4,Gender,Respondent,5,30,icc2_1,log,99933
+mean_rel,Omnibus,0.0013800748586362398,Reliability,Measure,5,30,icc2_1,log,99933
+measure_category_pair_same,Omnibus,0.07394637301158716,Same Category,Measure,5,30,icc2_1,log,99933
+panel,Omnibus,0.09698846635044459,Panel,Panel,5,30,icc2_1,log,99933
+sample_size,Omnibus,0.0014182708507797298,n,Respondent,5,30,icc2_1,log,99933
+scale_type_pair_same,Omnibus,0.010776956308967252,Same Scale Type,Measure,5,30,icc2_1,log,99933

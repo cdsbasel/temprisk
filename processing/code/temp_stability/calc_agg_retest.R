@@ -106,21 +106,28 @@ dt <- data %>%
                             TRUE ~ icc2_1),
          icc2_1_log = case_when(icc2_1_log > 0.99 ~ 0.99, 
                                 icc2_1_log < 0 ~ 0,
-                                TRUE ~ icc2_1_log))
+                                TRUE ~ icc2_1_log),
+         item_num = if_else(item_num > 1, "multi_item", "one_item"))
 
 
 
 # CALCULATE AGGREGATE --------------------------------------------------------
 
 
+# age_bin<- c(10)
+# min_n <- c(30)
+# rho <- c(.5)
+# month_bin <- c(3)
+# metric <- c("pearson")
+# dt_transform <- c("none", "log")
+
+# account for different ways that the data can be aggregated based on how correlations were computed.
 age_bin<- c(5, 10, 20)
 min_n <- c(30, 100, 250)
 rho <- c(.1, .5, .9)
 month_bin <- c(3,6,12)
 metric <- c("pearson", "spearman", "icc2_1")
 dt_transform <- c("none", "log")
-
-
 
 comb_dt <- crossing(age_bin, min_n, month_bin,
                     rho, metric, dt_transform)
@@ -177,7 +184,7 @@ for (i in 1:nrow(comb_dt)) {
     group_by(panel, sample, continent, country, language, data_collect_mode, sample_type, # panel info
              time_diff_bin, # time info
              age_group, gender_group, # sample info
-             measure_category, domain_name) %>% # measure info
+             measure_category, domain_name, item_num) %>% # measure info
     summarise(n_mean = mean(n),# average sample size of the ""raw" correlations included to calculate the effect size
               n_sd = sd(n), # SD of the sample sizes of the ""raw" correlations included to calculate the effect size
               mean_age = mean(age_mean), # average of the average age of respondents

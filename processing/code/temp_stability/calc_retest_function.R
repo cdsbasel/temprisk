@@ -165,7 +165,7 @@ calc_retest<-function(panel,data,varcodes,wave_ids, age_group) {
             
             #_________________CALC TIME DIFFERENCE _________________________# 
             time_diff_mean <- mean(as.Date(subset$date_t2)-as.Date(subset$date_t1))/365  # mean of time difference between interview dates
-            sd_check <- sd(subset$response_t1) & sd(subset$response_t2) != 0 # check if sd at T1 & T2 are not 0 
+            sd_check <- sd(subset$response_t1) & sd(subset$response_t2) != 0 # check if sd of responses at T1 & T2 are not 0 
             
             
             # ONLY COMPUTE CORRELATIONS IF THERE IS DATA ON MORE THAN 10 RESPONDENTS + TIME INTERVAL IS WITHIN 20 YEARS + VARIANCE IN DATA 

@@ -1,10 +1,10 @@
 # DESCRIPTION -------------------------------------------------------------
 
-#This script reads the complete set of rintercorrelations and computes aggregated correlation coefficients 
+#This script reads the complete set of intercorrelations and computes aggregated correlation coefficients 
 # Saves the resulting data frame as a csv file
 
 # INPUT:
-# complete_retest.csv  (i.e., file created from merge_retest.R. Need to specify location of file)
+# complete_intercor.csv  (i.e., file created from merge_intercor.R. Need to specify location of file)
 # OUTPUT:
 # complete_agg_intercor.rds and .csv
 # 
@@ -28,7 +28,7 @@ source("helper_functions.R") # functions to aggregate effect sizes (adapted from
 
 data_path <- c("processing/output/convergent_val/")
 output_data_path <- c("processing/output/convergent_val/") # where will the plots be stored
-retest_file <- "complete_intercor.csv" # name of retest data 
+intercor_file <- "complete_intercor.csv" # name of intercor data 
 
 
 
@@ -87,7 +87,7 @@ col_spec <- cols(
 
 
 
-data <- read_csv(paste0(data_path,retest_file))
+data <- read_csv(paste0(data_path,intercor_file))
 
 
 # DATA PREP. --------------------------------------------------------------------
@@ -110,19 +110,24 @@ dt <- data %>%
   mutate(meas_pair_lbl = measure_pair_lbl(m1 = measure_category_a, m2 = measure_category_b),
          name_a_lbl = name_lbl(measure = measure_category_a, domain = domain_name_a),
          name_b_lbl = name_lbl(measure = measure_category_b, domain = domain_name_b),
-         # pairs with the same measures, regardless of the order, have the same labels
+         # pairs with the same measures, regardless of the order, have the same labels (e.g., "fre_beh" and "beh_fre" get the same label)
          domain_pair_lbl =  pmap_chr(list(name_a_lbl, name_b_lbl), ~ paste(sort(c(...)), collapse = "_")))
   
 
 # CALCULATE AGGREGATE --------------------------------------------------------
 
-
+# account for different ways that the data can be aggregated based on how correlations were computed.
 age_bin<- c(5, 20, 10)
 min_n <- c(30,100,250)
 rho <- c(.1, .9,.5)
 metric <- c("pearson", "spearman", "icc2_1")
 dt_transform <- c("none", "log")
 
+# age_bin<- c(10)
+# min_n <- c(30)
+# rho <- c(.5)
+# metric <- c("spearman")
+# dt_transform <- c("none", "log")
 
 
 comb_dt <- crossing(age_bin, min_n,

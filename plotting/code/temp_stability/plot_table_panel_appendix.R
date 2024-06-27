@@ -2,7 +2,7 @@
 # DESCRIPTION -------------------------------------------------------------
 
 
-# Overview of the avaialbe data (measures and domains) for each sample included in the analysis
+# Overview of the available data (measures and domains) for each sample included in the analysis. Table included in the companion website
 
 # Author(s): Alexandra Bagaini, Centre for Cognitive and Decision Sciences, Faculty of Psychology, University of Basel.
 
@@ -114,6 +114,12 @@ dt_l <- dt_w %>% pivot_longer(-sample, names_to = "item_list", values_to = "incl
 dt_l$dom_name <- paste0("<span style=\"color: ", dt_l$col, "\">", dt_l$dom_name, "</span>")
 dt_l$meas_categ <- paste0("<span style=\"color: ", dt_l$col, "\">", dt_l$meas_categ, "</span>")
 
+
+# CREATE TABLE ------------------------------------------------------------
+
+
+
+
 p <- dt_l %>% ggplot() + geom_tile(aes(y = reorder(sample, desc(sample)),
                                         x = (dom_name),  color = col, fill = col),  alpha = .1, size = .25) +
   geom_point(aes(y = sample, x = dom_name, size = (incl), color = col)) + 
@@ -141,6 +147,11 @@ p <- dt_l %>% ggplot() + geom_tile(aes(y = reorder(sample, desc(sample)),
 p
 
 
-ggsave(plot = p, filename = paste0(output_path, "panel_domain_table.png"), dpi = 300, width = 25, height = 27, units = "cm") 
+
+# SAVE --------------------------------------------------------------------
+
+
+
+ggsave(plot = p, filename = paste0(output_path, "panel_domain_table.png"), dpi = 300, width = 25, height = 28, units = "cm") 
 
 

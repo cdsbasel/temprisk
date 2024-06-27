@@ -34,8 +34,8 @@ library(summarytools) # data check
 
 var_book <- read_rds("var_info/panel_variable_info.rds")# panel risk measures
 measure_info_path <- c("var_info/indv_panel_var_info/") 
-panel_data_path <- c("") # where the raw panel data is stored
-preproc_data_path <- c("") # where to save processed panel data
+panel_data_path <- c("~/Documents/TSRP/Data/BBRS/RawData/") # where the raw panel data is stored
+preproc_data_path <- c("~/Documents/TSRP/Data/BBRS/ProcData/") # where to save processed panel data
 panel_name <- "BBRS_DE"
 
 # VARIABLE INFORMATION ----------------------------------------------------
@@ -213,10 +213,10 @@ vars_to_keep <- vars_to_keep  %>%
 
 # create a descriptive overview of vars to analyse
 risk_info_analyse <- panel_var$Measures %>% distinct(panel, varcode, measure_category, general_domain, domain_name,
-                                                     scale_type,scale_length, time_frame, behav_type, behav_paid) %>% 
+                                                     scale_type,scale_length, time_frame, behav_type, behav_paid, item_num) %>% 
   mutate(var_consider = 1, # considering all for calculating retest correlations
          var_include = if_else(varcode %in% vars_to_keep$var_name, 1,0)) # include or exclude from calculating retest correlations
-# dim(risk_info_analyse)  35 rows x  12 cols
+# dim(risk_info_analyse)  35 rows x  13 cols
 
 
 
@@ -230,7 +230,7 @@ proc_data <- main %>%
   select(id, age, gender, wave_id,wave_year,date, # dems
          all_of(vars_to_keep$var_name)) %>% #risk measures
   filter_at(all_of(vars_to_keep$var_name),any_vars(!is.na(.))) #keep rows that have at least one risk value
-# dim(proc_data) 1616 rows x 42 cols
+# dim(proc_data) 1616 rows x 41 cols
 
 
 # long format

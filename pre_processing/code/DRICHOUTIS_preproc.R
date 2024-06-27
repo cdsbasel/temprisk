@@ -35,8 +35,8 @@ library(haven) # read dta
 
 var_book <- read_rds("var_info/panel_variable_info.rds")# panel risk measures
 measure_info_path <- c("var_info/indv_panel_var_info/") 
-panel_data_path <- c("") # where the raw panel data is stored
-preproc_data_path <- c("") # where to save processed panel data
+panel_data_path <- c("~/Documents/TSRP/Data/DRICHOUTIS/RawData/") # where the raw panel data is stored
+preproc_data_path <- c("~/Documents/TSRP/Data/DRICHOUTIS/ProcData/") # where to save processed panel data
 panel_name <- "DRICHOUTIS"
 
 # VARIABLE INFORMATION ----------------------------------------------------
@@ -130,7 +130,7 @@ main <- main %>%
   mutate(non_unique_gender = length(unique(na.omit(gender))) >1) %>%  
   ungroup()
 
-main <- main %>%
+
   main <- main %>%
   mutate(gender = case_when(gender == 0 ~ 1,
                             gender == 1 ~ 0))
@@ -187,10 +187,10 @@ vars_to_keep <- vars_to_keep  %>%
 
 # create a descriptive overview of vars to analyse
 risk_info_analyse <- risk_info %>% distinct(panel, varcode, measure_category, general_domain, domain_name,
-                                            scale_type,scale_length, time_frame, behav_type, behav_paid) %>% 
+                                            scale_type,scale_length, time_frame, behav_type, behav_paid, item_num) %>% 
   mutate(var_consider = if_else(varcode %in% vars_to_keep$var_name, 1,0), # considering non-dependency vars (or binary vars) for calculating retest correlations
          var_include = if_else(varcode %in% vars_to_keep$var_name, 1,0)) # include or exclude from calculating retest correlations
-# dim(risk_info_analyse)  2 rows x  12 cols
+# dim(risk_info_analyse)  2 rows x  13 cols
 
 
 # CREATE CLEAN/PROCESSED DATAFRAME  --------------------------------------------------------------

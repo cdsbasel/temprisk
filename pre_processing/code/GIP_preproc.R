@@ -37,8 +37,8 @@ library(haven) # open dta file
 
 var_book <- read_rds("var_info/panel_variable_info.rds")# panel risk measures
 measure_info_path <- c("var_info/indv_panel_var_info/") 
-panel_data_path <- c("") # where the raw panel data is stored
-preproc_data_path <- c("") # where to save processed panel data
+panel_data_path <- c("~/Documents/TSRP/Data/GIP/RawData/") # where the raw panel data is stored
+preproc_data_path <- c("~/Documents/TSRP/Data/GIP/ProcData/") # where to save processed panel data
 panel_name <- "GIP"
 
 # VARIABLE INFORMATION ----------------------------------------------------
@@ -235,10 +235,10 @@ vars_to_keep <- vars_to_keep  %>%
 
 # create a descriptive overview of vars to analyse
 risk_info_analyse <- risk_info %>% distinct(panel, varcode, measure_category, general_domain, domain_name,
-                                            scale_type,scale_length, time_frame, behav_type, behav_paid) %>% 
+                                            scale_type,scale_length, time_frame, behav_type, behav_paid, item_num) %>% 
   mutate(var_consider = 1, # considering all for calculating retest correlations
          var_include = if_else(varcode %in% vars_to_keep$var_name, 1,0)) # include or exclude from calculating retest correlations
-# dim(risk_info_analyse)  1 rows x  12 cols
+# dim(risk_info_analyse)  1 rows x  13 cols
 
 
 

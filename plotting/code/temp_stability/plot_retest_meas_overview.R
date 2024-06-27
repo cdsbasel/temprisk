@@ -1,7 +1,9 @@
 # DESCRIPTION -------------------------------------------------------------
 
-# Plotting the number of measures (split by category) across different retest intervals. The distribution of test-retest correlations
-# split by measure category across different retest intervals
+# Plotting the 
+# - A number of measures (split by category) across different retest intervals. 
+# - B The distribution of test-retest correlations split by measure category across different retest intervals
+# Incldued in the suppl. material
 
 # Author(s): Alexandra Bagaini, Centre for Cognitive and Decision Sciences, Faculty of Psychology, University of Basel.
 
@@ -232,7 +234,7 @@ B <- dataA %>%
            position = "stack",
            alpha= 1,
            width = .9) +
-  scale_y_continuous(expand = c(0,0), limits = c(0,225), breaks = seq(50,200,50)) +
+  scale_y_continuous(expand = c(0,0), limits = c(0,255), breaks = seq(50,250,50)) +
 
   scale_x_discrete(labels = (c("<1",as.character(c(1:20)))),
                    expand = expansion(add = 0.1),

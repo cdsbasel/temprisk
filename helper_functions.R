@@ -92,7 +92,7 @@ return(v)}
 # PLOTTING DATA -----------------------------------------------------------
 
 
-
+# plotting num of correlations for each sample
 plot_obs_per_grp <-  function(dat) {
   
   p <- ggplot(dat, aes(fct_infreq(panel))) + 
@@ -123,14 +123,14 @@ age_binning <- function(x, age_bin) {
 
 # AGGREGATION: GENERAL -------------------------------------------------------------
 
-
+# creating time bins by rounding the retest intervals
+# (e.g., if year_bin = 0.25/0.5/1 then that means binning in 3/6/12 months intervals)
 time_binning <- function(x, year_bin) {
   t <- ceiling(x/year_bin)*year_bin
   return(t)}
 
+
 # function by Pustejovsky, J.E. (2019). Sometimes, aggregating effect sizes is fine. https://www.jepusto.com/sometimes-aggregating-effect-sizes-is-fine/)
-
-
 agg_cor <- function(yi, vi, r) {
   corr_mat <- r + diag(1 - r, nrow = length(vi))
   sd_mat <- tcrossprod(sqrt(vi))
@@ -157,7 +157,7 @@ agg_v <- function(yi, vi, r) {
 # INTERCORR LABELS --------------------------------------------------------
 
 
-
+# renaming measure pairs 
 measure_pair_lbl <- function(m1, m2) {
   
   lbl <- case_when(m1 == "fre" & m2 == "fre" ~ "Frequency_Frequency",
@@ -170,7 +170,7 @@ measure_pair_lbl <- function(m1, m2) {
   return(lbl)
 }
 
-
+# renaming domain-measure pairs 
 name_lbl <- function(domain, measure) {
   
   lbl <-  case_when(domain == "inv" & measure == "pro" ~ "Propensity - Investment",
@@ -182,14 +182,14 @@ name_lbl <- function(domain, measure) {
                     domain == "rec" & measure == "pro" ~ "Propensity - Recreational",
                     domain == "eth" & measure == "pro" ~ "Propensity - Ethical",
                     domain == "soc" & measure == "pro" ~ "Propensity - Social",
-
+                    
                     
                     domain == "ins" & measure == "beh" ~ "Behaviour - Insurance",
                     domain == "occ" & measure == "beh" ~ "Behaviour - Occupational",
                     domain == "inv" & measure == "beh" ~ "Behaviour - Investment",
                     domain == "gam" & measure == "beh" ~ "Behaviour - Gambling",
+                    domain == "fin" & measure == "beh" ~ "Behaviour - Financial",
                     
-   
                     domain == "alc" & measure == "fre" ~ "Frequency - Alcohol",
                     domain == "dri" & measure == "fre" ~ "Frequency - Driving",
                     domain == "dru" & measure == "fre" ~ "Frequency - Drugs",
@@ -211,12 +211,48 @@ str_arrange <- function(x){
 }
 
 
+# abbrev. labels
+abbrev_lbl <- function(lbl) {
+  
+  abbrev_lbl <-  case_when(lbl == "Propensity"~ "pro" ,
+                           lbl == "Frequency"~ "fre" ,
+                           lbl == "Behaviour"~ "beh" ,
+                           lbl == "Investment"~ "inv" ,
+                           lbl == "Gambling"~ "gam" ,
+                           lbl == "General"~ "gen" ,
+                           lbl == "Financial"~ "fin" ,
+                           lbl == "Driving"~ "dri" ,
+                           lbl == "Occupational"~ "occ" ,
+                           lbl == "Recreational"~ "rec" ,
+                           lbl == "Ethical"~ "eth" ,
+                           lbl == "Social"~ "soc" ,
+                           lbl == "Insurance"~ "ins" ,
+                           lbl == "Alcohol"~ "alc" ,
+                           lbl == "Drugs"~ "dru" ,
+                           lbl == "Sexual.Intercourse"~ "sex" ,
+                           lbl == "Smoking"~ "smo" ,
+                           lbl == "Gen.Health"~ "hea_gen")
+  return(abbrev_lbl)
+}
+
+
+
+abbrev_rev_lbl <- function(lbl) {
+  
+  abbrev_lbl <-  case_when(lbl == "pro" ~"Propensity" ,
+                           lbl == "fre" ~"Frequency" ,
+                           lbl == "beh" ~ "Behaviour")
+  return(abbrev_lbl)
+}
+
+
 # VARIANCE DECOMPOSITION ------------------------------------------
 
 lbl_pred_replace <- function(x){
   x_lbl = case_when( x == "panel" ~ "Panel",
                      x == "sample_size" ~ "n",
                      x == "age_group" ~ "Age",
+                     x == "item_num" ~ "Num. of Items",
                      x == "domain_name" ~ "Domain",
                      x == "gender_group" ~ "Gender",
                      x == "scale_type" ~ "Scale Type",
@@ -225,6 +261,7 @@ lbl_pred_replace <- function(x){
                      x == "measure_category_pair_same" ~ "Same Category",
                      x == "measure_category" ~ "Category",
                      x == "mean_rel" ~ "Reliability",
+                     x == "item_num_type" ~ "Item Num. Pair Type",
                      x == "time_diff_mean" ~ "Retest Interval")
   
   return(x_lbl)
@@ -237,12 +274,14 @@ lbl_categ_replace <- function(x){
                        x == "age_group" ~ "Respondent",
                        x == "gender_group" ~ "Respondent",
                        x == "domain_name" ~ "Measure",
+                       x == "item_num" ~ "Measure",
                        x == "scale_type" ~ "Measure",
                        x == "scale_type_pair_same" ~ "Measure",
                        x == "domain_name_pair_same" ~ "Measure",
                        x == "measure_category_pair_same" ~ "Measure",
                        x == "measure_category" ~ "Measure",
                        x == "mean_rel" ~ "Measure",
+                       x == "item_num_type" ~ "Measure",
                        x == "time_diff_mean" ~ "Measure")
   return(x_categ)
 }
@@ -426,3 +465,78 @@ plot_psis_loo <- function(model_loo) {
   p 
   
 }
+
+
+
+
+
+# README.MD FILE FORMATTING -----------------------------------------------
+
+
+
+# function that reads main_data_files_codebook.xlsx and creates markdown output for the readme-md file (adapted from chatGPT output)
+
+# Example usage
+#file_path <- "main_data_files_codebook.xlsx"  # Replace with your CSV file path
+#csv_to_markdown(file_path) # copy and paste console output into the readme-md file
+csv_to_markdown <- function(file_path) {
+  library(readxl)
+  library(knitr)
+  library(tidyverse)
+  library(data.table)
+  sheets <- length(excel_sheets(file_path))
+  titles <- NULL
+  for (i in 1:sheets) {
+    
+    suppressMessages({
+      
+      heading <- excel_sheets(file_path)[i]
+      header = paste0("#### ", heading)
+      
+      data <- read_xlsx(file_path, skip = 0, n_max = 1, col_names = F, sheet = i)
+      title = paste0("- **filename(s): ", data$...1, "**")
+      
+      
+      data <- read_xlsx(file_path, skip = 1, n_max = 1, col_names = F, sheet = i)
+      desc = paste0("- ", data$...1)
+      
+      data <- read_xlsx(file_path, skip = 2, n_max = 1, col_names = F, sheet = i)
+      loc = paste0("- ", data$...1)
+      
+      # read table with file desc
+      data <- read_xlsx(file_path, skip = 3, col_names = T, sheet = i)
+      data <- data %>% mutate(column = paste0("`", column, "`"))
+      
+      # Convert the data frame to a markdown table
+      markdown_table <- kable(data, format = "markdown")
+      
+      # Print the markdown table
+      cat(header, "\n", title,"\n",  desc,"\n", loc,"\n", markdown_table, "\n <br><br> \n", sep = "\n")
+      
+      
+      titles <-  tibble(file_name = paste0("- [", heading, "](#", tolower(heading), ")", "\n"),
+                        main_loc = case_when(loc %like% "analysis"~ "##### Analysis",
+                                             loc %like% "processing"~ "##### Processing", 
+                                             TRUE ~ "##### Variable Info")) %>% bind_rows(titles)
+    })
+  }
+  
+  ert <- split(titles, titles$main_loc)
+  result <- ""
+  for (category in names(ert)) {
+    # Add the category header
+    result <- paste0(result, category, "\n")
+    
+    # Add each file under the category
+    for (file in ert[[category]]$file_name) {
+      result <- paste0(result, file)
+    }
+    
+    # Add a newline for separation between categories
+    result <- paste0(result, "\n")
+  }
+  # Print the result
+  cat(result)
+}
+
+

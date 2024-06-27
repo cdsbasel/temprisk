@@ -382,4 +382,25 @@ Below, we present an overview of each predictor included in the variance decompo
 <br>
 
 
+#### Additional Analysis including Item Match Type
+
+We conducted an additional Variance Decomposition analysis including _"Item Number Pair Type"_ (*i.e., "both single item measures", "both multi item measures", "mixed"*) as a predictor. Below are the distributions of intercorrelations for each level of _"Item Number Pair Type"_ and the results of the analyses. Overall, the 9 predictors explained 28.54% of the variance, and _item number match_ explained 1.95%.
+
+
+```{r}
+ knitr::include_graphics("images/item_overview_intercor.png")
+```
+
+
+<br>
+
+
+
+```{r}
+ knitr::include_graphics("images/shapley_decomp_convergent_item.png")
+```
+
+
+<br>
+
 

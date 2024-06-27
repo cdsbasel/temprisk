@@ -1,4 +1,3 @@
-#### MERGE TEST RETEST CORRELATIONS #####
 
 # DESCRIPTION -------------------------------------------------------------
 
@@ -23,13 +22,13 @@ source("helper_functions.R")
 # FILES OF INTEREST ---------------------------------------------------
 
 retest_data_path <- c("processing/output/temp_stability/") # where are the retest data files stored
-retest_data_wid_path <-  c("ReTest/") # where are the retest data files stored
+retest_data_wid_path <-  c("~/Documents/TSRP/Data/", "/Volumes/usb_drive/") # where are the retest data files stored
 
 # csv file list 
 csv_file_list <-  list.files(path = retest_data_path, pattern = "retest_data.csv", full.names = TRUE) # list names of retest csv files
 
 # rds file list 
-rds_file_list <- list.files(path = retest_data_wid_path, pattern = "retest_data.rds",full.names = TRUE) # list names of retest rds files
+rds_file_list <- list.files(path = retest_data_wid_path, pattern = "retest_data.rds",full.names = TRUE, recursive = TRUE) # list names of retest rds files
 
 
 #_________________COMBINING FILES:  _________________________#
@@ -77,6 +76,7 @@ col_spec <- cols(
   time_frame = col_double(),
   behav_type = col_character(),
   behav_paid = col_character(),
+  item_num = col_double(),
   continent = col_character(),
   country = col_character(),
   language = col_character(),

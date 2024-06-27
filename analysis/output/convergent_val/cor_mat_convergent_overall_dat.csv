@@ -1,2 +1,2 @@
 x,y,value,b_Intercept,.lower,.upper,.width,.point,.interval,n_cor,n_wcor,pooled_est_lbl,cred_int_lbl,k_lbl,lbl_color
-**Overall**,**Overall**,0.15804127144431743,0.15804127144431743,0.13422999940162544,0.1825554791357731,0.95,mean,hdci,61644,5038,0.16,"<br>[0.13, 0.18]<br>",*k: 5'038*,black
+**Overall**,**Overall**,0.16598296795181477,0.16598296795181477,0.13886885201249236,0.19247006828718252,0.95,mean,hdci,65432,5149,0.17,"<br>[0.14, 0.19]<br>",*k: 5'149*,black

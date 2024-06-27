@@ -1,8 +1,8 @@
 
 # DESCRIPTION -------------------------------------------------------------
 
-#Plotting the MASC model predictions of test-retest correlations split by domain-category-sample.
-#Plotting MASC prediction for constrcuts
+#Plotting the MASC model predictions of test-retest correlations split by domain-category-sample as a function of retest interval .
+#Plotting MASC prediction for constructs. Included in the companion website.
 
 # Author(s): Alexandra Bagaini, Centre for Cognitive and Decision Sciences, Faculty of Psychology, University of Basel.
 
@@ -16,15 +16,18 @@ library(patchwork)
 library(tidybayes)
 library(geomtextpath)
 library(ggtext)
+source("helper_functions.R")
+inv_logit <- function(x) {plogis(x)}
 
-# DATA --------------------------------------------------------------------
+# PATHS & DATA --------------------------------------------------------------------
 
 data_w_path <- c("processing/output/temp_stability/") # where is the  data stored
 output_data_path <- c("docs/images/") # where to store the output data
 model_path <- c("analysis/output/temp_stability/") # where is the  data stored
-source("helper_functions.R")
 data_file <- "complete_agg_retest_yb10.csv" # name of retest data 
 data_file_as <- "anusic_schimmack_2015.csv"
+
+
 dat <- read_csv(paste0(data_w_path,data_file))
 dat_as <- read_csv(paste0(data_w_path,data_file_as)) 
 
@@ -45,6 +48,7 @@ domain_sample <- fit_masc$data %>% group_by(sample) %>%
 nd <- crossing(domain_sample,
                time_diff_dec = seq(0, 20, .25)/10,
                female_prop_c = 0,
+               item_num_c = -0.5, # "single item measure" more representative for pro measures
                sei = 0.1)
 nd <- nd %>% mutate(age_dec_c2 = age_dec_c^2)
 
@@ -160,6 +164,7 @@ domain_sample <- fit_masc$data %>% group_by(sample) %>%
 nd <- crossing(domain_sample,
                time_diff_dec = seq(0, 20, .25)/10,
                female_prop_c = 0,
+               item_num_c = -0.5, # "single item measure" more representative for fre measures
                sei = 0.1)
 nd <- nd %>% mutate(age_dec_c2 = age_dec_c^2)
 
@@ -282,6 +287,7 @@ domain_sample <- fit_masc$data %>% group_by(sample) %>%
 nd <- crossing(domain_sample,
                time_diff_dec = seq(0, 20, .25)/10,
                female_prop_c = 0,
+               item_num_c = 0,  #"overall predictions"  for beh measures as there was more variance in terms of item number
                sei = 0.1)
 nd <- nd %>% mutate(age_dec_c2 = age_dec_c^2)
 
@@ -399,6 +405,7 @@ construct_sample <- fit_masc$data %>% group_by(construct) %>%
 nd <- crossing(construct_sample,
                time_diff_dec = seq(0, 15, .25)/10,
                female_prop_c = 0,
+               item_num_c = 0,
                se = 0.1)
 nd <- nd %>% mutate(age_dec_c2 = age_dec_c^2)
 

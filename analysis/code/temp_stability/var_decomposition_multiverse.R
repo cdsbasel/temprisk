@@ -2,33 +2,24 @@
 #  DESCRIPTION -------------------------------------------------------------
 
 # Script reads the complete set of retest correlations and computes Shapley values for 
-# each predictor of interest for different subsets and formats of the data. Multiverse analysis.
+# each predictor of interest for different sets of the data. 
+# Saves as output the Shapley values for plotting.
 
 # Author(s): Alexandra Bagaini(1)
 # (1)Centre for Cognitive and Decision Sciences, Faculty of Psychology, University of Basel.
 
 
-# PACKAGE -----------------------------------------------------------------
-
+# PACKAGES ----------------------------------------------------------------
 
 
 library(tidyverse)
 
-
-# FUNCTIONS ---------------------------------------------------------------
-
-source("helper_functions.R")
-
-
-
-
-# PATHS  ---------------------------------------------------
+# FILES  ---------------------------------------------------
 
 data_path <- c("processing/output/temp_stability/") # where is the input file stored
 retest_file <- "complete_retest.csv" # name of merged retest data 
 output_path <- c("analysis/output/temp_stability/") # where to store the output 
-
-
+source("helper_functions.R")
 
 # READ DATA ---------------------------------------------------------------
 col_spec <-cols(
@@ -79,7 +70,7 @@ col_spec <-cols(
   sample_type = col_character()
 )
 
-dat <-read_csv(paste0(data_path,retest_file), col_types = col_spec)
+dat <- read_csv(paste0(data_path,retest_file), col_types = col_spec)
 
 
 # PREP. DATA ---------------------------------------------------------------
@@ -135,9 +126,11 @@ for (curr_comb in 1:nrow(comb_dt)) {
   data_fltr_all$row_id <- sample(1:nrow(data_fltr_all))
   
   
+  
   predictors <- c("panel", # panel characteristics
                   "age_group", "gender_group", "sample_size", # respondent characteristics
-                  "measure_category", "domain_name", "scale_type", "time_diff_mean") # measure charactiristics
+                  "measure_category", "domain_name", "scale_type", "time_diff_mean", "item_num") # measure characteristics
+  
   
   outcome <-  case_when(curr_metric == "pearson" & curr_transform == "none" ~ "cor_c", 
                         curr_metric == "pearson" & curr_transform == "log" ~ "cor_log_c", 
@@ -208,6 +201,7 @@ for (curr_comb in 1:nrow(comb_dt)) {
       print(curr_model)
     }
     
+    # CALCULATE R^2 INCREMENT
     dat_r_change <- NULL
     
     for (var_int in predictors){
@@ -319,9 +313,10 @@ for (curr_meas in c("pro", "fre", "beh")) {
              cor_c = as.vector(scale(cor_pearson, center = TRUE, scale = TRUE)),
              spear_c = as.vector(scale(cor_spearman, center = TRUE, scale = TRUE)))
     
+    
     predictors <- c("panel", # panel characteristics
                     "age_group", "gender_group", "sample_size", # respondent characteristics
-                    "domain_name", "scale_type", "time_diff_mean") # measure characteristics
+                    "domain_name", "scale_type", "time_diff_mean", "item_num") # measure characteristics
     
    
     
@@ -385,6 +380,7 @@ for (curr_meas in c("pro", "fre", "beh")) {
         print(curr_model) 
       }
       
+      # CALCULATE R^2 INCREMENT
       dat_r_change <- NULL
       
       for (var_int in predictors){

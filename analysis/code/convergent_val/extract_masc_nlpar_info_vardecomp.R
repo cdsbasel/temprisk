@@ -2,11 +2,9 @@
 
 # DESCRIPTION -------------------------------------------------------------
 
-# Script to extract the estimated values of the paramaters of the MASC model fitted
-# using the risk pref data and the data used by Anusic and Schimmack. 
-# Combines results into a dataframe. Used for plotting and other analyses
-# 
-# 
+# Script obtains the predicted values of the MASC model parameters for different samples,
+# measure categories, domains, age groups, and gender. To be used for the variance decomposition analysis.
+
 # Author(s): Alexandra Bagaini(1) 
 # (1)Centre for Cognitive and Decision Sciences, Faculty of Psychology, University of Basel.
 
@@ -39,11 +37,12 @@ intercor_sample <- unique(intercor_dat$sample)
 intercor_sample <- gsub(" ", "_",intercor_sample )
 # NLPAR PREDS ----------------------------------------------------------------
 
-
+inv_logit <-function(x){rstanarm::invlogit(x)}
 pred_df<- NULL
 for(curr_meas in c("Propensity", "Frequency", "Behaviour")) {
   
   fit_masc <- masc[[curr_meas]]
+  
   
   panel_dom  <- fit_masc$data %>% as_tibble() %>% distinct(sample, domain_name)
   
@@ -53,6 +52,7 @@ for(curr_meas in c("Propensity", "Frequency", "Behaviour")) {
     nd <-  crossing(panel_dom,
                     female_prop_c = c(-.5, .5),
                     time_diff_dec = 0,
+                    item_num_c = 0,
                     sei = 0.01,
                     age_dec_c = (c(15,25,35,45,55,65,75,85)-40)/10) %>% 
       mutate(age_dec_c2 = age_dec_c^2)

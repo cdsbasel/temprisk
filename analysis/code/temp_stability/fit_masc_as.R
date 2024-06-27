@@ -67,6 +67,8 @@ data_as <- data_as %>%
          female_prop_c = prop_female - .5,
          age_dec_c = (age - 40)/10, # setting another age as the mean
          age_dec_c2 = age_dec_c^2,
+         item_num_c = case_when(items > 1 ~.5,
+                                TRUE ~-.5),
          items_ln_c = as.vector(scale(log(items), scale = FALSE, center = TRUE)),
          age_group = age_binning(age, age_bin = 10),
          # using sum contrast coding
@@ -104,7 +106,7 @@ formula <- bf(
   nlf(rel ~ inv_logit(logitrel)),
   nlf(change ~ inv_logit(logitchange)),
   nlf(stabch ~ inv_logit(logitstabch)),
-  logitrel ~ 1 + age_dec_c*construct + age_dec_c2*construct +  female_prop_c,
+  logitrel ~ 1 + age_dec_c*construct + age_dec_c2*construct +  female_prop_c + item_num_c,
   logitchange ~ 1 + age_dec_c*construct + age_dec_c2*construct + female_prop_c, 
   logitstabch ~ 1  + age_dec_c*construct + age_dec_c2*construct + female_prop_c,
   nl = TRUE
@@ -128,7 +130,7 @@ fit_masc <- brm(
   data = data_as,
   cores = 2, 
   chains = 2,
-  threads = threading(2), 
+  # threads = threading(2), 
   iter = 7000,
   warmup = 2000, 
   backend = "cmdstanr",
@@ -137,7 +139,7 @@ fit_masc <- brm(
   sample_prior = TRUE,
   control = list(max_treedepth = 10, adapt_delta = 0.95), 
   init = "0",
-  seed = 1299
+  seed = 34229
 )
 
 
@@ -158,7 +160,7 @@ fit_masc
 plot(fit_masc, N = 5, ask = TRUE)
 
 
-
+inv_logit <- function(x) {plogis(x)}
 # MODEL EVAL: PP CHECKS --------------------------------------------------------
 
 
@@ -208,7 +210,7 @@ pp_check(fit_masc,
          ndraws = 25)
 
 
-pp_check(fit_masc2,
+pp_check(fit_masc,
          type ="stat_grouped",
          stat = "mean",
          group = "construct",

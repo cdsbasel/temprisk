@@ -49,7 +49,7 @@ data_as <- data_as %>%
   mutate(age_group = age_binning(age, age_bin = 10))
 
 data_as <- data_as[complete.cases(data_as),] # 4 rows removed because of missing sample size
-
+inv_logit <- function(x){return(boot::inv.logit(x))} 
 # NLPAR CALC --------------------------------------------------------------
 
 ### BY CONSTRUCT & FOR 40 YEAR OLDS  
@@ -63,6 +63,7 @@ for (curr_nlpar in c("stabch","rel","change")) {
   nd <-  crossing(construct = unique(fit_masc$data$construct),
                   female_prop_c = 0,
                   time_diff_dec = 0,
+                  item_num_c = 0,
                   se = 0.01,
                   age_dec_c = 0) %>% 
     mutate(age_dec_c2 = age_dec_c^2)
@@ -74,6 +75,7 @@ for (curr_nlpar in c("stabch","rel","change")) {
  
   
    if (curr_nlpar == "stabch") {
+     # convert 10yr change to 1 yr change
     pred_df <- pred_df %>%
       mutate(.epred = .epred^.1) 
   }
@@ -122,6 +124,7 @@ for (curr_nlpar in c("stabch","rel","change")) {
   nd <-  crossing(construct = unique(fit_masc$data$construct),
                   female_prop_c = 0,
                   time_diff_dec = 0,
+                  item_num_c = 0,
                   se = 0.01,
                   age_dec_c = (c(15,25,35,45,55,65,75)-40)/10) %>% 
     mutate(age_dec_c2 = age_dec_c^2) %>% 
@@ -132,6 +135,7 @@ for (curr_nlpar in c("stabch","rel","change")) {
  
   
    if (curr_nlpar == "stabch") {
+     # convert 10yr change to 1 yr change
     fit_nlpar_age <- fit_nlpar_age %>%
       mutate(.epred = .epred^.1) 
   }
@@ -190,6 +194,7 @@ for (curr_nlpar in c("stabch","rel","change")) {
                   female_prop_c = c(-.5,.5),
                   time_diff_dec = 0,
                   se = 0.01,
+                  item_num_c = 0,
                   age_dec_c = 0) %>% 
     mutate(age_dec_c2 = age_dec_c^2) %>% 
     mutate(row_id = paste0("V", 1:n()))
@@ -198,6 +203,7 @@ for (curr_nlpar in c("stabch","rel","change")) {
   fit_nlpar_gend <- nd %>%  add_epred_draws(fit_masc, nlpar = curr_nlpar, re_formula = NA)   
   
   if (curr_nlpar == "stabch") {
+    # convert 10yr change to 1 yr change
     fit_nlpar_gend <- fit_nlpar_gend %>%
       mutate(.epred = .epred^.1) 
   }
@@ -234,9 +240,77 @@ pred_df_gend <- pred_df_gend %>%
                            nlpar == "stabch" ~"Stab. Change"))
 
 
+# BY ITEM COLLAPSED ACROSS ALL DOMAINS FOR 40 YEAR OLDS (50% FEMALE)
 
 
-pred_df <- bind_rows(pred_df_gend, pred_df_construct, pred_df_age)
+pred_df_item <- NULL
+
+  for (curr_nlpar in c("stabch","rel","change")) {
+    
+    
+    nd <-  crossing(female_prop_c = 0,
+                    construct = unique(fit_masc$data$construct),
+                    time_diff_dec = 0,
+                    item_num_c = c(0.5,-0.5),
+                    se = 0.01,
+                    age_dec_c = 0) %>% 
+      mutate(age_dec_c2 = age_dec_c^2) 
+    
+    
+    fit_nlpar_item <- nd %>% 
+      add_epred_draws(fit_masc, nlpar = curr_nlpar, re_formula = NA) 
+    
+    
+    if (curr_nlpar == "stabch") {
+      # convert 10yr change to 1 yr change
+      fit_nlpar_item <- fit_nlpar_item %>%
+        mutate(.epred = .epred^.1) 
+    }
+    
+    
+    
+    fit_nlpar_item <- fit_nlpar_item %>%
+      group_by(item_num_c,construct) %>% 
+      mean_hdci(.epred,.width = c(.95,.8,.5)) %>% 
+      pivot_wider(names_from = .width, values_from = c(.lower,.upper)) %>% 
+      mutate(nlpar = curr_nlpar,
+             estimate = .epred,
+             categ = "item",
+             x = case_when(item_num_c == -.5 ~ "One-item",
+                           item_num_c == .5 ~ "Multi-item"))%>% 
+      select(categ, x,construct, nlpar, .epred, dplyr::contains("er_"))
+    
+    
+    
+    pred_df <- fit_nlpar_item
+    
+    
+    pred_df_item <- bind_rows(pred_df, pred_df_item) 
+  }
+
+
+
+pred_df_item <- pred_df_item %>% 
+  mutate(
+    .lower_0.95 = if_else(nlpar == "rel", .lower_0.95, NA),
+    .lower_0.8 = if_else(nlpar == "rel", .lower_0.8, NA),
+    .lower_0.5 = if_else(nlpar == "rel", .lower_0.5, NA),
+    .upper_0.95 = if_else(nlpar == "rel", .upper_0.95, NA),
+    .upper_0.8 = if_else(nlpar == "rel", .upper_0.8, NA),
+    .upper_0.5 = if_else(nlpar == "rel", .upper_0.5, NA),
+    .epred  = if_else(nlpar == "rel", .epred, NA)) 
+
+
+pred_df_item <- pred_df_item %>% 
+  mutate(construct = case_when(construct == "pers"  ~ "Personality",
+                               construct == "affe" ~ "Affect",
+                               construct == "life" ~ "Life-Satisfaction",
+                               construct == "self" ~ "Self-Esteem"),
+         nlpar = case_when(nlpar == "rel" ~ "Reliability",
+                           nlpar == "change" ~ "Change",
+                           nlpar == "stabch" ~"Stab. Change"))
+
+pred_df <- bind_rows(pred_df_gend, pred_df_construct, pred_df_age,pred_df_item)
 
 
 
@@ -246,6 +320,7 @@ pred_df <- bind_rows(pred_df_gend, pred_df_construct, pred_df_age)
 nd <- crossing(construct = unique(fit_masc$data$construct),
                time_diff_dec = seq(0, 20, .25)/10,
                female_prop_c = 0,
+               item_num_c = 0,
                se = 0.1,
                age_dec_c = (c(seq(15,65,10), 75)-40)/10)
 nd <- nd %>% mutate(age_dec_c2 = age_dec_c^2)
@@ -283,6 +358,7 @@ data_w_time <- data_as %>%
 nd <- crossing(construct = unique(fit_masc$data$construct),
                time_diff_dec = c(.5,1,2, 5,10,12, 15)/10,
                female_prop_c = 0,
+               item_num_c = 0,
                se = 0.1,
                age_dec_c = (c(seq(10,70,1))-40)/10)
 nd <- nd %>% mutate(age_dec_c2 = age_dec_c^2)
@@ -336,10 +412,10 @@ for (curr_domain in dom_vec) {
          title = "Propensity") +
     theme(strip.placement = "outside",
           legend.position = "none", # c(0,0) bottom left, c(1,1) top-right.
-          text = element_text(family = "Source Sans 3", size = 9, color = "grey40"),
+          text = element_text(family = "Source Sans 3", size = 11, color = "grey40"),
           axis.text.y = element_text( vjust=seq(0,1, length.out = 5)),
-          axis.text.x = element_text( hjust=c(0,1)),
-          title = element_text(family = "Source Sans 3", size = 9, color = "grey20"),
+          axis.text.x = element_text( hjust=c(0,1), size = 11,),
+          title = element_text(family = "Source Sans 3", size = 11, color = "grey20"),
           panel.spacing = unit(.5, "lines"),
           strip.text = element_text(family = "Source Sans 3", face = "bold", color = "grey20",
                                     margin = margin(b = 5)),
@@ -372,10 +448,10 @@ for (curr_domain in dom_vec) {
          title = "Propensity") +
     theme(strip.placement = "outside",
           legend.position = "none",
-          text = element_text(family = "Source Sans 3", size = 9, color = "grey40"),
+          text = element_text(family = "Source Sans 3", size = 11, color = "grey40"),
           axis.text.y = element_text( vjust=seq(0,1, length.out = 5)),
-          axis.text.x = element_text( hjust=c(0,1)),
-          title = element_text(family = "Source Sans 3", size = 9, color = "grey20"),
+          axis.text.x = element_text( hjust=c(0,1), size = 11),
+          title = element_text(family = "Source Sans 3", size = 11, color = "grey20"),
           panel.spacing = unit(.5, "lines"),
           strip.text = element_text(family = "Source Sans 3", face = "bold", color = "grey20",
                                     margin = margin(b = 5)),
@@ -401,7 +477,7 @@ for (curr_domain in dom_vec) {
   
   pred_df_pro <- pred_df %>% filter(construct == plot_title)
   
-  pred_df_pro$categ <- factor(pred_df_pro$categ, levels = c("age", "gender", "all"))
+  pred_df_pro$categ <- factor(pred_df_pro$categ,  levels = c("all", "age", "gender", "item"))
   
   pred_df_pro$nlpar <- factor(pred_df_pro$nlpar, levels = c("Reliability", "Change", "Stab. Change"))
   
@@ -414,7 +490,9 @@ for (curr_domain in dom_vec) {
                                                     ,"20-29"     
                                                     ,"10-19"      
                                                     ,"Female"    
-                                                    , "Male"      
+                                                    , "Male"
+                                                    ,"One-item"
+                                                    ,"Multi-item"       
                                                     , "**Overall**"))   
   
   
@@ -461,16 +539,16 @@ for (curr_domain in dom_vec) {
           plot.title.position = "plot",
           strip.placement = "outside",
           strip.text.y = element_blank(),
-          axis.title.x = element_text(family = "Source Sans 3", size = 9, color = "grey20"),
+          axis.title.x = element_text(family = "Source Sans 3", size = 11, color = "grey20"),
           plot.margin = margin(b = 10, t = 10, r = 15, l = 0),
           panel.spacing.x = unit(.3, "cm"),
           panel.background = element_rect(linewidth = .25, color = "grey50", fill = "NA"),
           strip.text =  element_text(family = "Source Sans 3", face = "bold"),
           plot.title = element_text(family = "Source Sans 3", face = "bold", hjust = 0,
                                     size = 11, colour = "grey20", margin = margin(b = 7)),
-          axis.text.x =  element_markdown(family = "Source Sans 3", color = "black", size = 8, hjust=c(0,.5, 1)),
-          axis.text.y.left =  element_markdown(family = "Source Sans 3", angle = 0, hjust = 1, color = "grey20", size = 8), # hjust = c(0,.5,.5,.5,1)
-          text = element_text(family = "Source Sans 3")) +
+          axis.text.x =  element_markdown(family = "Source Sans 3", color = "black", size = 10.5, hjust=c(0,.5, 1)),
+          axis.text.y.left =  element_markdown(family = "Source Sans 3", angle = 0, hjust = 1, color = "grey20", size = 12), # hjust = c(0,.5,.5,.5,1)
+          text = element_text(family = "Source Sans 3", size = 11)) +
     labs(y = "", x = "Parameter .epred", title = plot_title) 
   
   

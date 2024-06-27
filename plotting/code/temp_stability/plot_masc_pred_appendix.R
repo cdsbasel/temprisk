@@ -1,8 +1,9 @@
 
 # DESCRIPTION -------------------------------------------------------------
 
-# Script to plot predictions of MASC for different measure categories of risk and domains.
-# Creates separate plots (as a function of time and age as well as model parameters) and then combines them
+# Script to plot predictions of MASC for different measure categories of risk and domains (incld. data points).
+# Creates separate plots (as a function of time and age as well as model parameters) and then combines them. 
+# Added to the suppl. material
 
 
 # Author(s): Alexandra Bagaini, Centre for Cognitive and Decision Sciences, Faculty of Psychology, University of Basel.
@@ -37,7 +38,7 @@ masc <- list(Propensity = read_rds(paste0(model_path, "masc_pro.rds")),
 
 data_file <- "complete_agg_retest_yb10.csv"
 dat <-read_csv(paste0(data_path,data_file))
-
+inv_logit <- function(x) {plogis(x)}
 # NLPAR CALC --------------------------------------------------------------
 
 ### BY DOMAIN FOR 40 YEAR OLDS  
@@ -54,6 +55,7 @@ for(curr_meas in c("Propensity", "Frequency", "Behaviour")) {
     nd <-  crossing(domain_name = unique(fit_masc$data$domain_name),
                     female_prop_c = 0,
                     time_diff_dec = 0,
+                    item_num_c = 0,
                     sei = 0.01,
                     age_dec_c = 0) %>% 
       mutate(age_dec_c2 = age_dec_c^2)
@@ -117,6 +119,7 @@ for(curr_meas in c("Propensity", "Frequency", "Behaviour")) {
     nd <-  crossing(domain_name = unique(fit_masc$data$domain_name),
                     female_prop_c = 0,
                     time_diff_dec = 0,
+                    item_num_c = 0,
                     sei = 0.01,
                     age_dec_c = (c(15,25,35,45,55,65,75)-40)/10) %>% 
       mutate(age_dec_c2 = age_dec_c^2) %>% 
@@ -192,6 +195,7 @@ for(curr_meas in c("Propensity", "Frequency", "Behaviour")) {
                     female_prop_c = c(-.5,.5),
                     time_diff_dec = 0,
                     sei = 0.01,
+                    item_num_c = 0,
                     age_dec_c = 0) %>% 
       mutate(age_dec_c2 = age_dec_c^2)
     
@@ -240,8 +244,80 @@ pred_df_gend <- pred_df_gend %>%
 
 
 
+# BY ITEM COLLAPSED ACROSS ALL DOMAINS FOR 40 YEAR OLDS (50% FEMALE)
 
-pred_df <- bind_rows(pred_df_gend, pred_df_dom, pred_df_age)
+
+pred_df_item <- NULL
+for(curr_meas in c("Propensity", "Frequency", "Behaviour")) {
+  
+  fit_masc <- masc[[curr_meas]]
+  
+  
+  for (curr_nlpar in c("stabch","rel","change")) {
+    
+    
+    nd <-  crossing(domain_name = unique(fit_masc$data$domain_name),
+                    female_prop_c = 0,
+                    time_diff_dec = 0,
+                    item_num_c = c(0.5,-0.5),
+                    sei = 0.01,
+                    age_dec_c = 0) %>% 
+      mutate(age_dec_c2 = age_dec_c^2) 
+    
+    
+    fit_nlpar_item <- nd %>% 
+      add_epred_draws(fit_masc, nlpar = curr_nlpar, re_formula = NA) 
+    
+    
+    if (curr_nlpar == "stabch") {
+      fit_nlpar_item <- fit_nlpar_item %>%
+        mutate(.epred = .epred^.1) 
+    }
+    
+    
+    
+    fit_nlpar_item <- fit_nlpar_item %>%
+      group_by(item_num_c, domain_name) %>% 
+      mean_hdci(.epred,.width = c(.95,.8,.5)) %>% 
+      pivot_wider(names_from = .width, values_from = c(.lower,.upper)) %>% 
+      mutate(nlpar = curr_nlpar,
+             estimate = .epred,
+             measure = curr_meas,
+             categ = "item",
+             x = case_when(item_num_c == -.5 ~ "One-item",
+                           item_num_c == .5 ~ "Multi-item"))%>% 
+      select(categ, x,domain_name, measure, nlpar, .epred, dplyr::contains("er_"))
+    
+    
+    
+    pred_df <- fit_nlpar_item
+    
+    
+    pred_df_item <- bind_rows(pred_df, pred_df_item) 
+  }
+  
+}
+
+
+pred_df_item <- pred_df_item %>% 
+  mutate(
+    .lower_0.95 = if_else(nlpar == "rel", .lower_0.95, NA),
+    .lower_0.8 = if_else(nlpar == "rel", .lower_0.8, NA),
+    .lower_0.5 = if_else(nlpar == "rel", .lower_0.5, NA),
+    .upper_0.95 = if_else(nlpar == "rel", .upper_0.95, NA),
+    .upper_0.8 = if_else(nlpar == "rel", .upper_0.8, NA),
+    .upper_0.5 = if_else(nlpar == "rel", .upper_0.5, NA),
+    .epred  = if_else(nlpar == "rel", .epred, NA)) %>% 
+  mutate(domain_name = rename_domain(domain_name),
+         nlpar = case_when(nlpar == "rel" ~ "Reliability",
+                           nlpar == "change" ~ "Change",
+                           nlpar == "stabch" ~"Stab. Change"))
+
+
+
+
+
+pred_df <- bind_rows(pred_df_gend, pred_df_dom, pred_df_age, pred_df_item)
 
 
 
@@ -253,6 +329,7 @@ fit_masc <- masc[["Propensity"]]
 nd <- crossing(domain_name = unique(fit_masc$data$domain_name),
                time_diff_dec = seq(0, 20, .25)/10,
                female_prop_c = 0,
+               item_num_c = 0,
                sei = 0.1,
                age_dec_c = (c(seq(15,65,10), 75)-40)/10)
 nd <- nd %>% mutate(age_dec_c2 = age_dec_c^2)
@@ -292,6 +369,7 @@ nd <- crossing(domain_name = unique(fit_masc$data$domain_name),
                time_diff_dec = c(.5,1,2, 5,10,15, 20)/10,
                female_prop_c = 0,
                sei = 0.1,
+               item_num_c = 0,
                age_dec_c = (c(seq(10,70,1))-40)/10)
 nd <- nd %>% mutate(age_dec_c2 = age_dec_c^2)
 
@@ -443,7 +521,7 @@ for (curr_domain in dom_vec) {
   
   pred_df_pro <- pred_df %>% filter(measure == "Propensity" & domain_name == plot_title)
   
-  pred_df_pro$categ <- factor(pred_df_pro$categ, levels = c("age", "gender", "all"))
+  pred_df_pro$categ <- factor(pred_df_pro$categ, levels = c("age", "gender", "item", "all"))
   
   pred_df_pro$nlpar <- factor(pred_df_pro$nlpar, levels = c("Reliability", "Change", "Stab. Change"))
   
@@ -456,7 +534,9 @@ for (curr_domain in dom_vec) {
                                                     ,"20-29"     
                                                     ,"10-19"      
                                                     ,"Female"    
-                                                    , "Male"      
+                                                    , "Male"
+                                                    ,"One-item"
+                                                    ,"Multi-item"  
                                                     , "**Overall**"))   
   
   
@@ -559,6 +639,7 @@ nd <- crossing(domain_name = unique(fit_masc$data$domain_name),
                time_diff_dec = seq(0, 20, .25)/10,
                female_prop_c = 0,
                sei = 0.1,
+               item_num_c = 0,
                age_dec_c = (c(seq(15,65,10), 75)-40)/10)
 nd <- nd %>% mutate(age_dec_c2 = age_dec_c^2)
 
@@ -611,6 +692,7 @@ nd <- crossing(domain_name = unique(fit_masc$data$domain_name),
                time_diff_dec = c(.5,1,2, 5,10,15, 20)/10,
                female_prop_c = 0,
                sei = 0.1,
+               item_num_c = 0,
                age_dec_c = (c(seq(10,70,1))-40)/10)
 nd <- nd %>% mutate(age_dec_c2 = age_dec_c^2)
 
@@ -767,7 +849,7 @@ for (curr_domain in dom_vec) {
   
   pred_df_fre <- pred_df %>% filter(measure == "Frequency" & domain_name == plot_title)
   
-  pred_df_fre$categ <- factor(pred_df_fre$categ, levels = c("age", "gender", "all"))
+  pred_df_fre$categ <- factor(pred_df_fre$categ, levels = c("age", "gender", "item", "all"))
   
   pred_df_fre$nlpar <- factor(pred_df_fre$nlpar, levels = c("Reliability", "Change", "Stab. Change"))
   
@@ -780,7 +862,9 @@ for (curr_domain in dom_vec) {
                                                     ,"20-29"     
                                                     ,"10-19"      
                                                     ,"Female"    
-                                                    , "Male"      
+                                                    , "Male" 
+                                                    ,"One-item"
+                                                    ,"Multi-item"   
                                                     , "**Overall**"))   
   
   
@@ -888,6 +972,7 @@ nd <- crossing(domain_name = unique(fit_masc$data$domain_name),
                time_diff_dec = seq(0, 20, .25)/10,
                female_prop_c = 0,
                sei = 0.1,
+               item_num_c = 0,
                age_dec_c = (c(seq(15,65,10), 75)-40)/10)
 nd <- nd %>% mutate(age_dec_c2 = age_dec_c^2)
 
@@ -932,6 +1017,7 @@ nd <- crossing(domain_name = unique(fit_masc$data$domain_name),
                time_diff_dec = c(.5,1,2, 5,10,15, 20)/10,
                female_prop_c = 0,
                sei = 0.1,
+               item_num_c = 0,
                age_dec_c = (c(seq(10,70,1))-40)/10)
 nd <- nd %>% mutate(age_dec_c2 = age_dec_c^2)
 
@@ -1078,7 +1164,7 @@ for (curr_domain in dom_vec) {
   
   pred_df_beh <- pred_df %>% filter(measure == "Behaviour" & domain_name == plot_title)
   
-  pred_df_beh$categ <- factor(pred_df_beh$categ, levels = c("age", "gender", "all"))
+  pred_df_beh$categ <- factor(pred_df_beh$categ, levels = c("age", "gender", "item","all"))
   
   pred_df_beh$nlpar <- factor(pred_df_beh$nlpar, levels = c("Reliability", "Change", "Stab. Change"))
   
@@ -1091,7 +1177,9 @@ for (curr_domain in dom_vec) {
                                                     ,"20-29"     
                                                     ,"10-19"      
                                                     ,"Female"    
-                                                    , "Male"      
+                                                    , "Male"
+                                                    ,"One-item"
+                                                    ,"Multi-item"     
                                                     , "**Overall**"))   
   
   

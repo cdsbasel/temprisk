@@ -2,7 +2,7 @@
 
 # In this script we fit the MASC model (Anusic & Schimmack, 2016 JPSP). 
 # We also specify the dataset used to fit the MASC model and create new variables where required.
-# 
+# Focus on frequency measures.
 # Author(s): Alexandra Bagaini(1), Rui Mata(1), and Paul-Christian  Buerkner(2)  
 # (1)Centre for Cognitive and Decision Sciences, Faculty of Psychology, University of Basel.
 # (2)Department of Statistics, TU Dortmund University
@@ -56,9 +56,11 @@ data_w <- dat %>%
   mutate(time_diff_dec = time_diff_bin/10,
          female_prop_c = case_when(gender_group == "male" ~ -0.5,
                                    gender_group == "female" ~ 0.5),
+         item_num_c = case_when(item_num == "multi_item" ~ 0.5,
+                                TRUE ~ -0.5),
          age_dec_c = (mean_age - 40)/10,
          age_dec_c2 = age_dec_c^2,
-         wcor = if_else(wcor < 0, 0, wcor))%>%  # when aggregating, some correlations (15) were negative
+         wcor = if_else(wcor < 0, 0, wcor))%>%  # when aggregating, some correlations (14) were negative
   # using sum contrast coding
   mutate(domain_name = factor(domain_name),
          domain_name = relevel(domain_name, ref="eth"),
@@ -96,7 +98,7 @@ formula <- bf(
   nlf(rel ~ inv_logit(logitrel)),
   nlf(change ~ inv_logit(logitchange)),
   nlf(stabch ~ inv_logit(logitstabch)),
-  logitrel ~ 1 + age_dec_c*domain_name + age_dec_c2*domain_name +  female_prop_c + (1 + age_dec_c + age_dec_c2 + female_prop_c | sample),
+  logitrel ~ 1 + age_dec_c*domain_name + age_dec_c2*domain_name +  female_prop_c + item_num_c + (1 + age_dec_c + age_dec_c2 + female_prop_c | sample),
   logitchange ~ 1 + age_dec_c*domain_name + age_dec_c2*domain_name + female_prop_c, 
   logitstabch ~ 1  + age_dec_c*domain_name + age_dec_c2*domain_name + female_prop_c,
   nl = TRUE
@@ -121,7 +123,7 @@ fit_masc <- brm(
   data = data_w,
   cores = 2, 
   chains = 2,
-  threads = threading(2), 
+  # threads = threading(2), 
   iter = 7000,
   warmup = 2000, 
   backend = "cmdstanr",
@@ -130,7 +132,7 @@ fit_masc <- brm(
   sample_prior = TRUE,
   control = list(max_treedepth = 10, adapt_delta = 0.95), 
   init = "0",
-  seed = 1299
+  seed = 12599
 )
 
 
@@ -140,7 +142,9 @@ saveRDS(fit_masc, paste0(output_data_path,"masc_fre.rds"))
 
 
 # MODEL EVAL: MCMC DIAGNOSTICS --------------------------------------------------------
-
+inv_logit <- function(x){
+  y <- invlogit(x)
+  return(y)}
 # model summary 
 fit_masc
 

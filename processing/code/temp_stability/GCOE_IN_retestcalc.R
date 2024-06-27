@@ -31,8 +31,8 @@ panel <- "GCOE_IN"
 sample <- "GCOE_IN"
 
 # PATH INFORMATION ---------------------------------------------------
-preproc_data_path <- c("") # location of pre-processed panel data
-retest_data_wid_path <- c("") # retest data with ids storage path
+preproc_data_path <- c("~/Documents/TSRP/Data/GCOE/ProcData/") # location of pre-processed panel data
+retest_data_wid_path <- c("~/Documents/TSRP/Data/GCOE/ProcData/") # retest data with ids storage path
 measure_info_path <- c("var_info/") # location of rds file containing info on the panel's risk measures to analyse
 retest_data_path <- c("processing/output/temp_stability/") # retest data without ids storage path
 age_range_data_path <- c("processing/") # age bins
@@ -65,7 +65,7 @@ risk_info <- read_rds("var_info/panel_risk_info.rds") #  file that contains the 
 
 # keep rows that only have the variables that will be analyzed
 risk_info <- risk_info[[panel]] %>% filter(var_include == 1) %>% select(-c(panel, var_consider, var_include))
-# dim(risk_info)  5 rows x  10 cols
+
 
 
 
@@ -92,7 +92,7 @@ col_spec_proc_data <- cols(
 
 
 proc_data <- read_csv(paste0(preproc_data_path, panel, "_proc_data.csv"), col_types = col_spec_proc_data)  
-# dim(proc_data) 26735 rows x 14 cols
+
 
 #_________________ GET PANEL INFO _________________________#
 

@@ -2,8 +2,10 @@
 #  DESCRIPTION -------------------------------------------------------------
 
 # Script reads the complete set of retest correlations and computes Shapley values for 
-# each predictor of interest for different subsets of the data. Includes boostrapping. 
-# Saves as output the Shapley values for the available and boostraped data sets separately
+# each predictor of interest for different subsets of the data (overall and measure-specific). 
+# Includes boostrapping. 
+# Saves as output the Shapley values for the available and boostraped data sets separately.
+
 
 # Author(s): Alexandra Bagaini(1)
 # (1)Centre for Cognitive and Decision Sciences, Faculty of Psychology, University of Basel.
@@ -13,13 +15,14 @@
 
 
 library(tidyverse)
+library(tidybayes)
 
 # FILES  ---------------------------------------------------
 
 data_path <- c("processing/output/temp_stability/") # where is the input file stored
 retest_file <- "complete_retest.csv" # name of merged retest data 
 output_path <- c("analysis/output/temp_stability/") # where to store the output 
-
+source("helper_functions.R")
 
 # READ DATA ---------------------------------------------------------------
 col_spec <-cols(
@@ -77,14 +80,16 @@ dat <- read_csv(paste0(data_path,retest_file), col_types = col_spec)
 
 
 dat_fltr <-  dat %>%
-  mutate(cor_pearson = if_else(cor_pearson < 0, 0, cor_pearson)) %>% # set negative retest correlations to 0 (see also Enkavi et al., 2019, PNAS)
+  # set negative retest correlations to 0 (see also Enkavi et al., 2019, PNAS). Original and mutated data are highly correlated(r =  0.999)
+   mutate(cor_pearson = if_else(cor_pearson < 0, 0, cor_pearson)) %>% 
   filter(age_group != "10-90" &
            gender_group != "all" & 
            year_age_group == 10 & 
-           n >= 30)  %>% 
+           n >= 30)  %>%
   ungroup() %>% 
   mutate(sample_size = n,
          cor_c = as.vector(scale(cor_pearson, center = TRUE, scale = TRUE)) ,
+         item_num_d = if_else(item_num > 1, "multi", "one"),
          # need to rename/group the levels of certain categ. variables to avoid singularities
           scale_type = if_else(scale_type %in% c("ord","dis"), "ord-dis",  "oe-comp")) # open ended/composite  vs. ordinal/discrete measure)
 
@@ -94,7 +99,7 @@ dat_fltr <-  dat %>%
 
 predictors <- c("panel", # panel characteristics
                 "age_group", "gender_group", "sample_size", # respondent characteristics
-                "measure_category", "domain_name", "scale_type", "time_diff_mean") # measure charactiristics
+                "measure_category", "domain_name", "scale_type", "time_diff_mean", "item_num") # measure characteristics
 
 
 outcome <- "cor_c" # 
@@ -231,7 +236,8 @@ for (curr_boot in 1:n_boot) {
 
 # write_rds(allModelsResults, "shapley_decomp_omni_retest_boot.rds")
 # allModelsResults <- read_rds("shapley_decomp_omni_retest_boot.rds")
-### CALC SHAPPLEY VALUE
+
+### CALC R^2 INCREMENT
 
 dat_r_change <- NULL
 
@@ -309,7 +315,7 @@ write_csv(t, paste0(output_path, "shapley_values_omni_retest_boot_check.csv"))
 
 # MEASURES: NO BOOT  ----------------------------------------------------------
 
-for (curr_meas in c("pro", "fre", "beh")) {
+for (curr_meas in c("fre", "beh", "pro")) {
   
 
   print(curr_meas)
@@ -317,7 +323,7 @@ for (curr_meas in c("pro", "fre", "beh")) {
 
   predictors <- c("panel", # panel characteristics
                   "age_group", "gender_group", "sample_size", # respondent characteristics
-                  "domain_name", "scale_type", "time_diff_mean") # measure characteristics
+                  "domain_name", "scale_type", "time_diff_mean", "item_num") # measure characteristics
   
   
   outcome <- "cor_c" # 
@@ -368,6 +374,7 @@ for (curr_meas in c("pro", "fre", "beh")) {
   # write_rds(allModelsResults, "shapley_decomp_fre_retest.rds")
   # allModelsResults <- read_rds("shapley_decomp_fre_retest.rds")
   
+  # CALCULATE R^2 INCREMENT
   dat_r_change <- NULL
   for (var_int in predictors){
     
@@ -463,7 +470,7 @@ for (curr_meas in c("pro", "fre", "beh")) {
   
   # write_rds(allModelsResults, "shapley_decomp_fre_retest_boot.rds")
   # allModelsResults <- read_rds("shapley_decomp_fre_retest_boot.rds")
-  ### CALC SHAPPLEY VALUE
+  ###  CALCULATE R^2 INCREMENT
   
   dat_r_change <- NULL
   
@@ -529,3 +536,88 @@ beepr::beep()
 
 
 
+
+# SUMMARISE OUTPUT FOR PLOTTING -------------------------------------------
+
+## read shapley values from data set
+main_shapley_vals_fre <- read_csv(paste0(output_path,"shapley_values_fre_retest.csv")) %>% 
+  mutate(measure_category = "Frequency")
+
+main_shapley_vals_pro <- read_csv(paste0(output_path,"shapley_values_pro_retest.csv")) %>% 
+  mutate(measure_category = "Propensity")
+
+
+main_shapley_vals_beh <- read_csv(paste0(output_path,"shapley_values_beh_retest.csv")) %>% 
+  mutate(measure_category = "Behaviour")
+
+
+main_shapley_vals_omni <- read_csv(paste0(output_path, "shapley_values_omni_retest.csv")) %>% 
+  mutate(measure_category = "Omnibus")
+
+main_shapley_vals <- bind_rows(main_shapley_vals_beh,
+                               main_shapley_vals_fre,
+                               main_shapley_vals_pro,
+                               main_shapley_vals_omni)
+
+
+
+predictors <- unique(main_shapley_vals$x)
+w_df <- main_shapley_vals %>% 
+  group_by(n_reg_with, x, measure_category ) %>% 
+  summarise(w = 1/(length(predictors)*n())) 
+
+
+t <- main_shapley_vals %>% 
+  left_join(w_df, by = c("n_reg_with", "x", "measure_category")) %>% 
+  group_by(x, measure_category) %>% 
+  summarise(m = weighted.mean(r2adj_increment, w = w))%>% 
+  rowwise() %>% 
+  mutate(x_lbl = lbl_pred_replace(x),
+         categ_lbl = lbl_categ_replace(x)) %>% 
+  ungroup() 
+
+
+write_csv(t, paste0(output_path,"summary_shapley_values_retest.csv"))
+
+
+## read shapley values from boostrapped data set
+boot_shapley_vals_fre <- read_csv(paste0(output_path,"shapley_values_fre_retest_boot.csv")) %>% 
+  mutate(measure_category = "Frequency")
+
+boot_shapley_vals_pro <- read_csv(paste0(output_path,"shapley_values_pro_retest_boot.csv")) %>% 
+  mutate(measure_category = "Propensity")
+
+
+boot_shapley_vals_beh <- read_csv(paste0(output_path,"shapley_values_beh_retest_boot.csv")) %>% 
+  mutate(measure_category = "Behaviour")
+
+
+boot_shapley_vals_omni <-  read_csv(paste0(output_path, "shapley_values_omni_retest_boot.csv")) %>% 
+  mutate(measure_category = "Omnibus")
+
+boot_shapley_vals <- bind_rows(boot_shapley_vals_beh,
+                               boot_shapley_vals_fre,
+                               boot_shapley_vals_pro,
+                               boot_shapley_vals_omni)
+
+
+boot_w_df <- boot_shapley_vals %>% 
+  group_by(n_reg_with, x, boot_num, measure_category) %>% 
+  summarise(w = 1/(length(predictors)*n())) 
+
+boot_t <- boot_shapley_vals %>% 
+  left_join(boot_w_df, by = c("n_reg_with", "x", "boot_num", "measure_category")) %>% 
+  group_by(x, boot_num, measure_category) %>% 
+  summarise(m = weighted.mean(r2adj_increment, w = w)) %>% 
+  group_by(x, measure_category) %>% 
+  mean_qi(m, .width = c(.5,.8, .95)) %>% 
+  pivot_wider(names_from = .width, values_from = c(.lower,.upper)) %>% 
+  ungroup() %>% 
+  rowwise() %>% 
+  mutate(x_lbl = lbl_pred_replace(x),
+         categ_lbl = lbl_categ_replace(x)) %>% 
+  ungroup() 
+
+
+
+write_csv(boot_t, paste0(output_path,"summary_shapley_values_retest_boot.csv"))

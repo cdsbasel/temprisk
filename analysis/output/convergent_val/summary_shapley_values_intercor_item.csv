@@ -1,0 +1,10 @@
+x,measure_category,m,x_lbl,categ_lbl
+age_group,Omnibus,0.002334089225232517,Age,Respondent
+domain_name_pair_same,Omnibus,0.11054756709442429,Same Domain,Measure
+gender_group,Omnibus,4.344207039091529e-4,Gender,Respondent
+item_num_type,Omnibus,0.019520186627778317,Item Num. Pair Type,Measure
+mean_rel,Omnibus,0.0013980914690927952,Reliability,Measure
+measure_category_pair_same,Omnibus,0.06855787328422928,Same Category,Measure
+panel,Omnibus,0.07661195387303467,Panel,Panel
+sample_size,Omnibus,0.0018804399202761752,n,Respondent
+scale_type_pair_same,Omnibus,0.004153279186164353,Same Scale Type,Measure

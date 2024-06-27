@@ -13,6 +13,7 @@
 
 <title>Variance Decomposition</title>
 
+<script src="site_libs/header-attrs-2.25/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
@@ -32,7 +33,6 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<script src="site_libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -302,7 +302,7 @@ div.tocify {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">Bagaïni et al. (2023)</a>
+      <a class="navbar-brand" href="index.html">temprisk</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -371,12 +371,16 @@ div.tocify {
 <!-- </style> -->
 <div id="brief-description" class="section level2">
 <h2>Brief Description</h2>
-<p>Below, we present an overview of each predictor included in the variance decomposition analysis of the test-retest correlations and inter-correlations. We plot the distributions of the correlations, split into the different levels of each categorical predictor, displaying the mean (light-colored dot) and median (dark-colored dot) values.</p>
+<p>Below, we present an overview of each predictor included in the
+variance decomposition analysis of the test-retest correlations and
+inter-correlations. We plot the distributions of the correlations, split
+into the different levels of each categorical predictor, displaying the
+mean (light-colored dot) and median (dark-colored dot) values.</p>
 <p><br></p>
 <div id="retest-correlations" class="section level3 tabset">
-<h3>Retest-Correlations</h3>
+<h3 class="tabset">Retest-Correlations</h3>
 <div id="omnibus" class="section level4 tabset">
-<h4>Omnibus</h4>
+<h4 class="tabset">Omnibus</h4>
 <div id="by-category" class="section level5">
 <h5>By Category</h5>
 <p><img src="images/categ_overview_omnibus.png" width="1476" /></p>
@@ -419,7 +423,7 @@ div.tocify {
 </div>
 </div>
 <div id="propensity" class="section level4 tabset">
-<h4>Propensity</h4>
+<h4 class="tabset">Propensity</h4>
 <div id="by-domain-1" class="section level5">
 <h5>By Domain</h5>
 <p><img src="images/domain_overview_pro.png" width="1476" /></p>
@@ -457,7 +461,7 @@ div.tocify {
 </div>
 </div>
 <div id="frequency" class="section level4 tabset">
-<h4>Frequency</h4>
+<h4 class="tabset">Frequency</h4>
 <div id="by-domain-2" class="section level5">
 <h5>By Domain</h5>
 <p><img src="images/domain_overview_fre.png" width="1476" /></p>
@@ -495,7 +499,7 @@ div.tocify {
 </div>
 </div>
 <div id="behaviour" class="section level4 tabset">
-<h4>Behaviour</h4>
+<h4 class="tabset">Behaviour</h4>
 <div id="by-domain-3" class="section level5">
 <h5>By Domain</h5>
 <p><img src="images/domain_overview_beh.png" width="1476" /></p>
@@ -534,7 +538,7 @@ div.tocify {
 </div>
 </div>
 <div id="inter-correlations" class="section level3 tabset">
-<h3>Inter-Correlations</h3>
+<h3 class="tabset">Inter-Correlations</h3>
 <div id="by-matching-domain" class="section level4">
 <h4>By Matching Domain</h4>
 <p><img src="images/domain_overview_intercor.png" width="1181" /></p>
@@ -573,6 +577,21 @@ div.tocify {
 <div id="by-reliability" class="section level4">
 <h4>By Reliability</h4>
 <p><img src="images/rel_overview_intercor.png" width="1181" /></p>
+<p><br></p>
+</div>
+<div id="additional-analysis-including-item-match-type"
+class="section level4">
+<h4>Additional Analysis including Item Match Type</h4>
+<p>We conducted an additional Variance Decomposition analysis including
+<em>“Item Number Pair Type”</em> (<em>i.e., “both single item measures”,
+“both multi item measures”, “mixed”</em>) as a predictor. Below are the
+distributions of intercorrelations for each level of <em>“Item Number
+Pair Type”</em> and the results of the analyses. Overall, the 9
+predictors explained 28.54% of the variance, and <em>item number
+match</em> explained 1.95%.</p>
+<p><img src="images/item_overview_intercor.png" width="1772" /></p>
+<p><br></p>
+<p><img src="images/shapley_decomp_convergent_item.png" width="1476" /></p>
 <p><br></p>
 </div>
 </div>

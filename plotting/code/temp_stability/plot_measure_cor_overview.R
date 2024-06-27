@@ -3,7 +3,7 @@
 # Plotting overview of the dataset
 # A) Retest correlations as a function of retest interval
 # B) Inter-correlation distribution
-# C) Number of measures split by ctageory and domain
+# C) Number of measures split by category and domain
 
 
 # Author(s): Alexandra Bagaini, Centre for Cognitive and Decision Sciences, Faculty of Psychology, University of Basel.
@@ -16,6 +16,7 @@ library(tidyverse)
 library(patchwork)
 library(ggh4x)
 library(ggtext)
+library(ggdist)
 
 # FILES  ---------------------------------------------------
 
@@ -197,6 +198,7 @@ dtB <- dat_inter %>%
 
 # PLOTTING MEASURE COUNT --------------------------------------------------
 
+# number of measures per categ and domain
 pC <- dtC %>% 
   ggplot(aes(y = num_meas_dom, x = reorder(dom_name,-num_meas_dom),  fill = col, color = col)) +
   geom_bar(stat = "identity", alpha = .1, linewidth = .25) +
@@ -218,7 +220,7 @@ pC <- dtC %>%
         strip.placement = "outside",
         plot.tag = element_text(family = "Source Sans 3", face = "bold", size = 11),
         legend.position = "none",
-        axis.title =  element_text(family = "Source Sans 3 Light", size = 10, hjust = 0.1, color = "black"),
+        axis.title =  element_text(family = "Source Sans 3", size = 10, hjust = 0.1, color = "black"),
         axis.text.y  = element_blank(),
         plot.margin = margin(r = 20, t = 5, l = 5, b = 15),
         axis.text.x.top = element_markdown(angle = 45, hjust = 0,
@@ -248,24 +250,26 @@ pC
 
 # PLOTTING RETEST DENSITY ---------------------------------------------------------------
 
+# retest correlations as a function of retest interval
 pA <- dtA %>% 
   ggplot(aes(x = time_diff_mean, y = cor_pearson))+
   stat_density_2d(geom = "point", aes(size =after_stat(density)), n = 100, contour = FALSE, 
                   color = "grey70", fill = "grey40",   ##11693F
                   shape = 21, stroke = .25, alpha = .2) +
   theme_minimal() +
-  scale_x_continuous(expand = c(0.0,0.0)) +
+  scale_x_continuous(expand = c(0.005,0.005), breaks = seq(0,20,5)) +
   scale_y_continuous(expand = c(0.0,0.0)) +
   theme(legend.position = "none",
         axis.line.x = element_line(size = .35, color = "black"),
         axis.line.y = element_line(size = .35, color = "black"),
         # panel.background = element_rect(color = "grey50", size = .25),
-        text = element_text(family = "Source Sans 3", size = 9, color = "grey40"),
+        text = element_text(family = "Source Sans 3", size = 9),
+        axis.title.x = element_text(family = "Source Sans 3",  size = 9),
         axis.text.y = element_text( vjust=seq(0,1, length.out = 5)),
         axis.text.x = element_text( hjust=c(0,1)),
         plot.margin = margin(r = 30, b = 30),
         plot.tag = element_text(family = "Source Sans 3", face = "bold", size = 11),
-        title = element_text(family = "Source Sans 3 Light", size = 9, color = "black"),
+        title = element_text(family = "Source Sans 3", size = 9, color = "black"),
         panel.grid = element_blank()) +
   scale_size(range = c(.00,10)) +
   scale_alpha(range = c(0.1,.8)) +
@@ -278,21 +282,46 @@ pA
 
 # PLOTTING INTERCOR DISTRIB -----------------------------------------------
 
+dtB_qi <- dtB %>% mean_qi(cor_spearman, .width = c(.5, .8, .95))
 
-pB <-  ggplot() +
-  geom_vline(xintercept = 0, linetype = "solid", color = "grey40", size = .3) +
-  geom_density(data = dtB, aes(x = cor_spearman),
+# desnity plot of intercorrelations + summary metrics
+pB <- dtB %>% 
+  ggplot() +
+  # geom_segment(aes(x = 0, y = 0, xend = 0, yend = Inf, colour = "segment"), color = "grey40", size = .3) +
+  geom_hline(yintercept = 0, linetype = "solid", color = "grey40", size = .3) +
+  geom_density(aes(x = cor_spearman),
                color = "grey40", fill = "grey40",##0F4C5C
                alpha = .2, size = .25) +
+  geom_crossbar(data = dtB_qi %>% filter(.width == .95),
+                aes(y = 0, x = cor_spearman, xmin = .lower,xmax = .upper),
+                color = "grey40",
+                fill = "grey80",
+                linewidth = .25,
+                width = 0.1) +
+  geom_crossbar(data = dtB_qi %>% filter(.width == .8),
+                aes(y = 0, x = cor_spearman, xmin = .lower,xmax = .upper),
+                linewidth = .25,
+                color = "grey40",
+                fill = "grey60",
+                width = 0.1) +
+  geom_crossbar(data = dtB_qi %>% filter(.width == .5),
+                aes(y = 0, x = cor_spearman, xmin = .lower,xmax = .upper),
+                linewidth = .25,
+                color = "grey40",
+                fill = "grey45",
+                width = 0.1) +
+   geom_point(data = dtB_qi, aes(y = 0, x = cor_spearman), color = "grey95", size = 1) +
   theme_minimal()+
-  scale_x_continuous(limits = c(-1,1), breaks = seq(-1,1,.25)) +
+  geom_vline(xintercept = 0, linetype = "solid", color = "grey40", size = .3) +
+  scale_x_continuous(limits = c(-1,1), breaks = seq(-1,1,.25),expand  = c(0,0,0,0)) +
+  scale_y_continuous(expand  = c(0,0,0,0)) +
   labs(x = "Spearman's rho", tag = "B")+
   theme(panel.spacing.x = unit(1, "cm"),
         plot.tag = element_text(family = "Source Sans 3", face = "bold", size = 11),
         strip.text.x  = element_blank(),
         # strip.text.x  = element_text(family = "Source Sans 3", face = "bold", size = 11, color = "white"),
         axis.text.x = element_text(family = "Source Sans 3", size = 9),
-        axis.title.x = element_text(family = "Source Sans 3 Light",  size = 9),
+        axis.title.x = element_text(family = "Source Sans 3",  size = 9),
         axis.title.y = element_blank(),
         axis.text.y = element_blank(),
         plot.margin = margin(l = 30, b = 30),

@@ -2,7 +2,8 @@
 # DESCRIPTION -------------------------------------------------------------
 
 # In this script we plot the number of test-retest correlation coefficients
-# available based on different thresholds/data configurations 
+# available based on different thresholds/data configurations. Plot added to the 
+# companion website
 
 # PACKAGES ---------------------------------------------------------------
 

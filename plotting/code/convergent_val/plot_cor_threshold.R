@@ -2,7 +2,8 @@
 # DESCRIPTION -------------------------------------------------------------
 
 # In this script we plot the number of inter-correlation coefficients
-# available based on different thresholds/data configurations 
+# available based on different thresholds/data configurations. Plot added to the 
+# companion website
 
 # PACKAGES ---------------------------------------------------------------
 
@@ -79,9 +80,9 @@ p <- dat_thrshA %>%
        y = "",
        fill = "") +
   facet_grid(year_age_group~., scales = "free_y",space = "free_y", switch = "y") +
-  scale_x_continuous(limits = c(0,24000),
+  scale_x_continuous(limits = c(0,26000),
                      expand = c(0.01,0.01),
-                     breaks = seq(0,24000,2000), 
+                     breaks = seq(0,26000,2000), 
                      labels = scales::label_comma(big.mark = "'")) +
   scale_fill_manual(values = rev(c("#0C4A7A", "#5EB496", "#f0f3bd"))) +
   theme(text = element_text(family = "Source Sans 3"),

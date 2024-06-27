@@ -10,6 +10,7 @@
 
 
 library(tidyverse)
+library(ggdist)
 
 
 # FUNCTIONS ---------------------------------------------------------------
@@ -25,47 +26,12 @@ output_path <- c("plotting/output/convergent_val/") # where to store the output
 
 # OMNIBUS PLOTTING ----------------------------------------------------------------
 
-main_shapley_vals <- read_csv(paste0(data_path, "shapley_values_intercor.csv")) %>% 
-  mutate(measure_category = "Omnibus")
 
-predictors <- unique(main_shapley_vals$x)
+t <- read_csv(paste0(data_path,"summary_shapley_values_intercor.csv")) %>% 
+  filter(measure_category == "Omnibus")
 
-w_df <- main_shapley_vals %>% 
-  group_by(n_reg_with, x, measure_category ) %>% 
-  summarise(w = 1/(length(predictors)*n())) 
-
-
-t <- main_shapley_vals %>% 
-  left_join(w_df, by = c("n_reg_with", "x", "measure_category")) %>% 
-  group_by(x, measure_category) %>% 
-  summarise(m = weighted.mean(r2adj_increment, w = w))%>% 
-  rowwise() %>% 
-  mutate(x_lbl = lbl_pred_replace(x),
-         categ_lbl = lbl_categ_replace(x)) %>% 
-  ungroup()
-
-
-boot_shapley_vals <-  read_csv(paste0(data_path, "shapley_values_intercor_boot.csv")) %>% 
-  mutate(measure_category = "Omnibus")
-
-
-boot_w_df <- boot_shapley_vals %>% 
-  group_by(n_reg_with, x, boot_num, measure_category) %>% 
-  summarise(w = 1/(length(predictors)*n())) 
-
-
-boot_t <- boot_shapley_vals %>% 
-  left_join(boot_w_df, by = c("n_reg_with", "x", "boot_num", "measure_category")) %>% 
-  group_by(x, boot_num, measure_category) %>% 
-  summarise(m = weighted.mean(r2adj_increment, w = w)) %>% 
-  group_by(x, measure_category) %>% 
-  mean_qi(m, .width = c(.5,.8, .95)) %>% 
-  pivot_wider(names_from = .width, values_from = c(.lower,.upper)) %>% 
-  ungroup() %>% 
-  rowwise() %>% 
-  mutate(x_lbl = lbl_pred_replace(x),
-         categ_lbl = lbl_categ_replace(x)) %>% 
-  ungroup()
+boot_t <-  read_csv(paste0(data_path,"summary_shapley_values_intercor_boot.csv")) %>% 
+  filter(measure_category == "Omnibus")
 
 
 boot_t$categ_lbl <-  factor(boot_t$categ_lbl, levels= rev(c('Panel','Respondent','Measure')))

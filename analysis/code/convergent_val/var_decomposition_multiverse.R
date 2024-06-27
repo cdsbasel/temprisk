@@ -2,8 +2,9 @@
 #  DESCRIPTION -------------------------------------------------------------
 
 
-# Script reads the complete set of  intercorrelations and computes Shapley values for 
-# each predictor of interest for different subsets and formats of the data. Multiverse analysis. 
+# Script reads the complete set of intercorrelations and computes Shapley values for 
+# each predictor of interest for different subsets and formats of the data. Multiverse analysis.
+# Also performs checks for singularity issues and incomplete data information
 
 
 # Author(s): Alexandra Bagaini(1) 
@@ -27,9 +28,18 @@ data_path <- c("processing/output/convergent_val/") # where is the input file st
 retest_file <- "complete_intercor.csv" # name of merged retest data 
 output_path <- c("analysis/output/convergent_val/") # where to store the output 
 
-masc_dat_file <- "analysis/output/convergent_val/masc_nlpar_pred.csv"
+masc_dat_file <- "analysis/output/convergent_val/masc_nlpar_pred.csv" # file with nlpar estimates
+
+# READ DATA ---------------------------------------------------------------
+
+
+dat <-read_csv(paste0(data_path,retest_file))
+
 dat_masc <- read_csv(masc_dat_file)
 
+
+
+# PREP. DATA ---------------------------------------------------------------
 # select relevant estimates (using only estimates from one age group,)
 dat_masc <- dat_masc %>% 
   filter(age_group == "40-49") %>% 
@@ -43,15 +53,6 @@ dat_masc_a <- dat_masc  %>% rename(estimate_a = .epred, measure_category_a = mea
                                    domain_name_a = x)
 dat_masc_b <- dat_masc  %>% rename(estimate_b = .epred, measure_category_b = measure,
                                    domain_name_b = x)
-
-
-# READ DATA ---------------------------------------------------------------
-
-
-dat <-read_csv(paste0(data_path,retest_file))
-
-
-# PREP. DATA ---------------------------------------------------------------
 
 
 data_fltr <-  dat %>%
@@ -188,7 +189,7 @@ for (curr_comb in 1:nrow(comb_dt)) {
     }
     
     
-    ### CALC SHAPPLEY VALUE
+    ### CALC R^2 INCREMENT
     dat_r_change <- NULL
     
     for (var_int in predictors){
@@ -236,7 +237,7 @@ for (curr_comb in 1:nrow(comb_dt)) {
     }
     
     
-    
+    # SUMMARISE RESULTS
     main_shapley_vals <- dat_r_change %>%
       mutate(measure_category = "Omnibus")
     

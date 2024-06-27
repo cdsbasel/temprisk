@@ -59,7 +59,7 @@ masc_list <- list(fre = readRDS(paste0(model_path, "masc_fre.rds")),
                   beh = readRDS(paste0(model_path, "masc_beh.rds")),
                   as =  readRDS(paste0(model_path, "masc_as.rds")))
 
-
+inv_logit <- function(x){inv.logit(x)}
 ```
 
 
@@ -99,7 +99,7 @@ knitr::include_graphics("images/masc_plot.png")
 <br>
 
 
-Below, we provide information on the model specifications and an overview of the model summaries, including posterior predictive checks (PPCs), approximate leave-one-out (LOO) cross-validation output, and convergence diagnostics (i.e., rhat values, trace plots, effective sample size). We fitted the same model separately to the set of test-retest correlations for each risk preference measure category (i.e., propensity, frequency, and behavior).
+Below, we provide information on the model specifications and an overview of the model summaries, including posterior predictive checks (PPCs), approximate leave-one-out (LOO) cross-validation output, and convergence diagnostics (i.e., Rhat values, trace plots, effective sample size). We fitted the same model separately to the set of test-retest correlations for each risk preference measure category (i.e., propensity, frequency, and behavior).
 
 
 ***To replicate these analyses, refer to the [Workflow](https://cdsbasel.github.io/temprisk/workflow_overview.html) page***
@@ -120,14 +120,13 @@ family <- brmsfamily(
 
 # formula
 formula <- bf(
-  wcor | se(sei, sigma = TRUE) ~ rel * ((1-change) + (change) * (stabch^time_diff_dec)),  
+  wcor|resp_se(sei, sigma = TRUE) ~ rel * (change * ((stabch^time_diff_dec) - 1) + 1),
   nlf(rel ~ inv_logit(logitrel)),
   nlf(change ~ inv_logit(logitchange)),
   nlf(stabch ~ inv_logit(logitstabch)),
-  logitrel ~ 1 + domain_name*age_dec_c + domain_name*age_dec_c2  + female_prop_c +
-    (1 + age_dec_c + age_dec_c2 + female_prop_c | panel),
-  logitchange ~ 1+ domain_name*age_dec_c + domain_name*age_dec_c2 + female_prop_c, 
-  logitstabch ~ 1+ domain_name*age_dec_c + domain_name*age_dec_c2  + female_prop_c, 
+  logitrel ~ 1 + age_dec_c*domain_name + age_dec_c2*domain_name +  female_prop_c + item_num_c + (1 + age_dec_c + age_dec_c2 + female_prop_c | sample),
+  logitchange ~ 1 + age_dec_c*domain_name + age_dec_c2*domain_name + female_prop_c, 
+  logitstabch ~ 1  + age_dec_c*domain_name + age_dec_c2*domain_name + female_prop_c,
   nl = TRUE
 )
 
@@ -351,7 +350,7 @@ ppc_loo_pit_overlay(y = fit_masc$data$wcor,
 
 #### By-Panel Predictions {.tabset}
 
-In the tabs are panel-specific predictions for the trajectory of  domain-specific test-retest correlations over time *(predictions based on the weighted median age of the sample, 50% female)*.
+In the tabs are panel-specific predictions for the trajectory of  domain-specific test-retest correlations over time *(predictions based on the weighted median age of the sample, 50% female, single-item measure as it is the most prevalent type of propensity measure)*.
 
 ```{r, results="asis"}
 
@@ -593,7 +592,7 @@ ppc_loo_pit_overlay(y = fit_masc$data$wcor,
 
 #### By-Panel Predictions {.tabset}
 
-In tabs are panel-specific predictions for the trajectory of  domain-specific test-retest correlations over time *(predictions based on the weighted median age of the sample, 50% female)*.
+In tabs are panel-specific predictions for the trajectory of domain-specific test-retest correlations over time *(predictions based on the weighted median age of the sample, 50% female, single-item measure as it is the most prevalent type of frequency measure)*.
 
 
 ```{r, results="asis"}
@@ -839,7 +838,8 @@ ppc_loo_pit_overlay(y = fit_masc$data$wcor,
 
 #### By-Panel Predictions {.tabset}
 
-In tabs are panel-specific predictions for the trajectory of  domain-specific test-retest correlations over time *(predictions based on the weighted median age of the sample, 50% female)*.
+In tabs are panel-specific predictions for the trajectory of  domain-specific test-retest correlations over time *(predictions based on the weighted median age of the sample, 50% female, overall effect of item number)*.
+
 
 
 
@@ -1097,7 +1097,7 @@ ppc_loo_pit_overlay(y = fit_masc$data$retest,
 
 
 ### By-Construct Predictions
-Construct-specific predictions for the trajectory of test-retest correlations over time *(predictions based on the weighted mean age of the respondents for each construct, 50% female)*.
+Construct-specific predictions for the trajectory of test-retest correlations over time *(predictions based on the weighted mean age of the respondents for each construct, 50% female, overall effect of item number)*.
 
 ```{r, fig.width=10, fig.height=5}
 knitr::include_graphics("images/p_masc_as.png")

@@ -1,4 +1,4 @@
-#### MERGE TEST INTERCORRELATIONS #####
+
 
 # DESCRIPTION -------------------------------------------------------------
 
@@ -19,13 +19,13 @@ source("helper_functions.R")
 # FILES OF INTEREST ---------------------------------------------------
 
 intercor_data_path <- c("processing/output/convergent_val/") # where are the intercor data files stored
-retest_data_wid_path <- c("InterCor/")
+intercor_data_wid_path <-  c("~/Documents/TSRP/Data/", "/Volumes/usb_drive/") 
 
 # csv file list 
 csv_file_list <-  list.files(path = intercor_data_path, pattern = "_intercor_data.csv", full.names = TRUE) # list names of intercor csv files
 
 # rds file list 
-rds_file_list <- list.files(path = retest_data_wid_path, pattern = "_intercor_data.rds",full.names = TRUE) # list names of retest rds files
+rds_file_list <- list.files(path = intercor_data_wid_path, pattern = "_intercor_data.rds",full.names = TRUE, recursive = TRUE) # list names of intercor rds files
 
 
 #_________________COMBINING FILES:  _________________________#

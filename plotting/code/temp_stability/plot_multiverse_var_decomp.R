@@ -1,7 +1,7 @@
 
 # DESCRIPTION -------------------------------------------------------------
 
-# Script that plots the results of the mulriverse Variance Decomposition analysis
+# Script that plots the results of the multiverse Variance Decomposition analysis
 # Code adapted from plotting function of the specr package
 # https://github.com/masurp/specr/tree/master
 # Masur, Philipp K. & Scharkow, M. (2020). specr: Conducting and Visualizing Specification Curve Analyses. Available from https://CRAN.R-project.org/package=specr.
@@ -124,12 +124,13 @@ df_plot <- df_plot %>% mutate(x = case_when(x == "gender_group" ~ "Gender",
                                             x == "measure_category" ~ "Category",
                                             x == "scale_type" ~ "Scale Type",
                                             x == "domain_name" ~ "Domain",
+                                            x == "item_num" ~ "Item Num.",
                                             x == "time_diff_mean" ~ "Retest Interval",
                                             x == "panel" ~ "Panel"))
 
 curr_preds <- list(unique(df_plot$x)[1:3],
                    unique(df_plot$x)[4:6],
-                   unique(df_plot$x)[7:8])
+                   unique(df_plot$x)[7:9])
 p_list <- NULL
 
 for (i in 1:length(curr_preds)) {
@@ -233,8 +234,8 @@ for (i in 1:length(curr_preds)) {
           axis.text = element_text(colour = "black")) +
     labs(x = "", y = "Shapley Value") +
     scale_x_continuous( breaks = c(1,seq(10,round(max_specs,-1),10), max_specs))+
-    scale_y_continuous(breaks = seq(0,.45, .1),
-                       limits = c(0, .45)) +
+    scale_y_continuous(breaks = seq(0,.25, .05),
+                       limits = c(0, .25)) +
     coord_cartesian(xlim = c(1,max_specs), clip = "off")
   
   
@@ -261,7 +262,7 @@ for (i in 1:length(curr_preds)) {
 layout <- "
 AAA
 BBB
-CC#
+CCC
 "
 
 
@@ -371,9 +372,8 @@ df_plot <- df_plot %>% mutate(x = case_when(x == "gender_group" ~ "Gender",
                                             x == "time_diff_mean" ~ "Retest Interval",
                                             x == "panel" ~ "Panel"))
 
-curr_preds <- list(unique(df_plot$x)[1:3],
-                   unique(df_plot$x)[4:6],
-                   unique(df_plot$x)[7])
+curr_preds <- list(unique(df_plot$x)[1:4],
+                   unique(df_plot$x)[5:8])
 p_list <- NULL
 
 
@@ -480,8 +480,8 @@ for (i in 1:length(curr_preds)) {
           axis.text = element_text(colour = "black")) +
     labs(x = "", y = "Shapley Value") +
     scale_x_continuous( breaks = c(1,seq(10,round(max_specs,-1),10), max_specs))+
-    scale_y_continuous(breaks = seq(0,.45, .1),
-                       limits = c(0, .45)) +
+    scale_y_continuous(breaks = seq(0,.25, .05),
+                       limits = c(0, .25)) +
     coord_cartesian(xlim = c(1,max_specs), clip = "off")
   
   
@@ -506,17 +506,15 @@ for (i in 1:length(curr_preds)) {
 layout <- "
 AAAA
 BBBB
-CC##
 "
 
 
-p <- p_list[[1]] + p_list[[2]] + (p_list[[3]] + theme(plot.margin = margin(r = 90))) +
-  plot_layout(design = layout)
+p <- p_list[[1]] + p_list[[2]] +plot_layout(design = layout)
 
 
 
-ggsave(plot = p, paste0(output_path, "shapley_pro_multiverse.png"), height = 37,
-       width = 25, units = "cm", dpi = 300)
+ggsave(plot = p, paste0(output_path, "shapley_pro_multiverse.png"), height = 25,
+       width = 35, units = "cm", dpi = 300)
 
 
 
@@ -613,12 +611,12 @@ df_plot <- df_plot %>% mutate(x = case_when(x == "gender_group" ~ "Gender",
                                             x == "sample_size" ~ "n",
                                             x == "scale_type" ~ "Scale Type",
                                             x == "domain_name" ~ "Domain",
+                                            x == "item_num" ~ "Item Num.",
                                             x == "time_diff_mean" ~ "Retest Interval",
                                             x == "panel" ~ "Panel"))
 
-curr_preds <- list(unique(df_plot$x)[1:3],
-                   unique(df_plot$x)[4:6],
-                   unique(df_plot$x)[7])
+curr_preds <- list(unique(df_plot$x)[1:4],
+                   unique(df_plot$x)[5:8])
 p_list <- NULL
 
 for (i in 1:length(curr_preds)) {
@@ -751,17 +749,16 @@ for (i in 1:length(curr_preds)) {
 layout <- "
 AAAA
 BBBB
-CC##
 "
 
 
-p <- p_list[[1]] + p_list[[2]] + (p_list[[3]] + theme(plot.margin = margin(r = 90))) +
+p <- p_list[[1]] + p_list[[2]] + 
   plot_layout(design = layout)
 
 
 
-ggsave(plot = p, paste0(output_path, "shapley_fre_multiverse.png"), height = 37,
-       width = 25, units = "cm", dpi = 300)
+ggsave(plot = p, paste0(output_path, "shapley_fre_multiverse.png"), height = 25,
+       width = 35, units = "cm", dpi = 300)
 
 
 
@@ -858,13 +855,13 @@ df_plot <- df_plot %>% mutate(x = case_when(x == "gender_group" ~ "Gender",
                                             x == "sample_size" ~ "n",
                                             x == "scale_type" ~ "Scale Type",
                                             x == "domain_name" ~ "Domain",
+                                            x == "item_num" ~ "Item Num.",
                                             x == "time_diff_mean" ~ "Retest Interval",
                                             x == "panel" ~ "Panel"),
                               m = if_else(m < 0,0,m))
 
-curr_preds <- list(unique(df_plot$x)[1:3],
-                   unique(df_plot$x)[4:6],
-                   unique(df_plot$x)[7])
+curr_preds <- list(unique(df_plot$x)[1:4],
+                   unique(df_plot$x)[5:8])
 p_list <- NULL
 
 for (i in 1:length(curr_preds)) {
@@ -968,7 +965,7 @@ for (i in 1:length(curr_preds)) {
           axis.text = element_text(colour = "black")) +
     labs(x = "", y = "Shapley Value") +
     scale_x_continuous( breaks = c(1,seq(10,round(max_specs,-1),10), max_specs))+
-    scale_y_continuous(breaks = seq(0,.45, .1),
+    scale_y_continuous(breaks = seq(0,.45, .05),
                        limits = c(0, .45)) +
     coord_cartesian(xlim = c(1,max_specs), clip = "off")
   
@@ -997,15 +994,14 @@ for (i in 1:length(curr_preds)) {
 layout <- "
 AAAA
 BBBB
-CC##
 "
 
 
-p <- p_list[[1]] + p_list[[2]] + (p_list[[3]] + theme(plot.margin = margin(r = 90))) +
+p <- p_list[[1]] + p_list[[2]] + 
   plot_layout(design = layout)
 
 
 
-ggsave(plot = p, paste0(output_path, "shapley_beh_multiverse.png"), height = 37,
-       width = 25, units = "cm", dpi = 300)
+ggsave(plot = p, paste0(output_path, "shapley_beh_multiverse.png"), height = 25,
+       width = 35, units = "cm", dpi = 300)
 

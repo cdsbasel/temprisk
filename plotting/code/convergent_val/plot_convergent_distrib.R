@@ -1,6 +1,6 @@
 # DESCRIPTION -------------------------------------------------------------
 
-#Plotting distributiuons of inter-correlations, split by category-domains and measure categories
+#Plotting distributiuons of inter-correlations, split by category-domains and measure categories  (suppl. material)
 
 
 # Author(s): Alexandra Bagaini, Centre for Cognitive and Decision Sciences, Faculty of Psychology, University of Basel.
@@ -193,43 +193,43 @@ summary_lbl <-  dt %>%
 A <-  ggplot() +
   geom_vline(xintercept = 0, linetype = "solid", color = "grey80", size = .3) +
   geom_crossbar(data =  summary_point, 
-                aes(xmin = .lower_0.95, x = cor_spearman,  xmax = .upper_0.95, y =reorder(pair_name, rank_order)),
+                aes(xmin = .lower_0.95, x = cor_spearman,  xmax = .upper_0.95, y =reorder(pair_name, rank_order, decreasing = TRUE)),
                 fill = "white",
                 linewidth = .15, position = position_nudge(y=0.5),
                 width = 0.25,alpha =  1) +
   geom_crossbar(data =  summary_point, 
-                aes(xmin = .lower_0.95, x = cor_spearman,  xmax = .upper_0.95, y =reorder(pair_name, rank_order)),
+                aes(xmin = .lower_0.95, x = cor_spearman,  xmax = .upper_0.95, y =reorder(pair_name, rank_order, decreasing = TRUE)),
                 color = "NA",fill = "#0F4C5C",
                 linewidth = .2, position = position_nudge(y=0.5),
                 width = 0.25,alpha =  .4) +
   geom_crossbar(data =  summary_point,
-                aes(xmin = .lower_0.8, x = cor_spearman,  xmax = .upper_0.8, y =reorder(pair_name, rank_order)),
+                aes(xmin = .lower_0.8, x = cor_spearman,  xmax = .upper_0.8, y =reorder(pair_name, rank_order, decreasing = TRUE)),
                 color = "NA", fill = "white",
                 linewidth = .2, position = position_nudge(y=0.5),
                 width = 0.25,alpha =  1) +
   geom_crossbar(data =  summary_point,
-                aes(xmin =.lower_0.8, x = cor_spearman,  xmax = .upper_0.8, y =reorder(pair_name, rank_order)),
+                aes(xmin =.lower_0.8, x = cor_spearman,  xmax = .upper_0.8, y =reorder(pair_name, rank_order, decreasing = TRUE)),
                 color = "NA",fill = "#0F4C5C",
                 linewidth = .2, position = position_nudge(y=0.5),
                 width = 0.25,alpha =  .7) +
   geom_crossbar(data =  summary_point,
-                aes(xmin = .lower_0.5, x = cor_spearman,  xmax = .upper_0.5, y =reorder(pair_name, rank_order)),
+                aes(xmin = .lower_0.5, x = cor_spearman,  xmax = .upper_0.5, y =reorder(pair_name, rank_order, decreasing = TRUE)),
                 color = "NA", fill = "white",
                 linewidth = .2, position = position_nudge(y=0.5),
                 width = 0.25,alpha =  1) +
   geom_crossbar(data =  summary_point,
-                aes(xmin = .lower_0.5, x = cor_spearman,  xmax = .upper_0.5, y =reorder(pair_name, rank_order)),
+                aes(xmin = .lower_0.5, x = cor_spearman,  xmax = .upper_0.5, y =reorder(pair_name, rank_order, decreasing = TRUE)),
                 color = "NA",fill = "#0F4C5C",
                 linewidth = .2, position = position_nudge(y=0.5),
                 width = 0.25,alpha =  1) +
   geom_point(data =  summary_point,
-             aes(x = cor_spearman, y =reorder(pair_name, rank_order)),
+             aes(x = cor_spearman, y =reorder(pair_name, rank_order, decreasing = TRUE)),
              fill = "white", color = "grey20",
              position = position_nudge(y=0.5),
              shape = 21,
              stroke = .5,
              size = 1.5) +
-  geom_text(data = summary_lbl, aes(label = label_k,y =reorder(pair_name, rank_order), x = y_k),
+  geom_text(data = summary_lbl, aes(label = label_k,y =reorder(pair_name, rank_order, decreasing = TRUE), x = y_k),
             color = "grey50",
             family = "Source Sans 3", position = position_nudge(y = .5),
             size = 2, hjust = 0, vjust = .5, angle = 0,

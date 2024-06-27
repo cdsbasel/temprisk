@@ -1,7 +1,7 @@
 
 # DESCRIPTION -------------------------------------------------------------
 
-#Plotting association between different correlation coefficients
+#Plotting association between different correlation coefficients (suppl. material)
 
 
 # Author(s): Alexandra Bagaini, Centre for Cognitive and Decision Sciences, Faculty of Psychology, University of Basel.
@@ -133,7 +133,7 @@ p_labels <-  dat %>%
          labs = str_remove(labs, "0+"))
 
 
-# warning about  8 "missing" ICC2,1 values, but there is no missing values in the data +
+# warning about 30 "missing" ICC2,1 values, but there is no missing values in the data +
 #  range is adequate (message disappears if we do not specify x and y ranges)
 p2 <- dat %>% 
   ggplot(aes(x = cor_pearson, y = icc2_1)) +
@@ -164,7 +164,8 @@ p_labels <-  dat %>%
          labs = str_remove(labs, "0+"))
 
 
-
+# warning about 30 "missing" ICC2,1 values, but there is no missing values in the data +
+#  range is adequate (message disappears if we do not specify x and y ranges)
 p3 <- dat %>% 
   ggplot(aes(x = cor_spearman, y = icc2_1)) +
   geom_point(alpha = .25, shape = 1, size = .5, color = col_c) +
@@ -198,6 +199,5 @@ p
 
 
 
-
-ggsave(filename = paste0(output_path,"correl_metric_plot.png"), plot = p, height = 10, width = 30, units = "cm", dpi = 200)
+ggsave(filename = paste0(output_path,"correl_metric_intercor_plot.png"), plot = p, height = 10, width = 30, units = "cm", dpi = 200)
 

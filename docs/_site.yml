@@ -1,6 +1,6 @@
 name: "companion-website"
 navbar:
-  title: "Bagaïni et al. (2023)"
+  title: "temprisk"
   left:
     - text: "Home"
       href: index.html

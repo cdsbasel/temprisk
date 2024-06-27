@@ -31,8 +31,8 @@ panel <- "DRICHOUTIS"
 sample <- "DRICHOUTIS"
 
 # PATH INFORMATION ---------------------------------------------------
-preproc_data_path <- c("") # location of pre-processed panel data
-intercor_data_wid_path <- c("") # intercor data with ids storage path
+preproc_data_path <-  c("~/Documents/TSRP/Data/DRICHOUTIS/ProcData/") # location of pre-processed panel data
+intercor_data_wid_path <-  c("~/Documents/TSRP/Data/DRICHOUTIS/ProcData/") # intercor data with ids storage path
 measure_info_path <- c("var_info/") # location of rds file containing info on the panel's risk measures to analyse
 intercor_data_path <- c("processing/output/convergent_val/") # intercor data without ids storage path
 age_range_data_path <- c("processing/") # age bins
@@ -66,7 +66,7 @@ risk_info <- read_rds("var_info/panel_risk_info.rds") #  file that contains the 
 
 # keep rows that only have the variables that will be analyzed
 risk_info <- risk_info[[panel]] %>% filter(var_include == 1) %>% select(-c(panel, var_consider, var_include))
-# dim(risk_info)  2 rows x  10 cols
+
 
 #_________________ Create list of Risk Measure Pairs _________________________#
 
@@ -79,7 +79,7 @@ risk_info_a <- risk_info
 colnames(risk_info_a) <- paste0(colnames(risk_info_a), "_a")
 risk_info_b <- risk_info
 colnames(risk_info_b) <- paste0(colnames(risk_info_b), "_b")
-# dim(varcodes)  2 rows x  2 cols
+
 
 # READING CLEAN/PROCESSED PANEL DATA ---------------------------------------------------
 
@@ -105,7 +105,6 @@ col_spec_proc_data <- cols(
 
 
 proc_data <- read_csv(paste0(preproc_data_path, panel, "_proc_data.csv"), col_types = col_spec_proc_data)  
-# dim(proc_data) 696 rows x 14 cols
 
 #_________________ GET PANEL INFO _________________________#
 

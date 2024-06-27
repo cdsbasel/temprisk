@@ -2,9 +2,11 @@
 
 # DESCRIPTION -------------------------------------------------------------
 
-# Script to extract the estimated values of the paramaters of the MASC model fitted
-# using the risk pref data and the data used by Anusic and Schimmack. 
-# Combines results into a dataframe. Used for plotting and other analyses
+# Script to obtain the predicted values of the MASC model parameters for different measure
+# categories and domains from the risk pref data and for different psych constructs from the
+# Anusic and Schimmack dataset. 
+
+# Combines results into a dataframe. Used for plotting.
 
 # Author(s): Alexandra Bagaini(1)
 # (1)Centre for Cognitive and Decision Sciences, Faculty of Psychology, University of Basel.
@@ -33,7 +35,7 @@ masc <- list(Propensity = read_rds(paste0(model_path, "masc_pro.rds")),
              Behaviour  = read_rds(paste0(model_path, "masc_beh.rds")),
              AS2015  = read_rds(paste0(model_path, "masc_as.rds")) )
 
-
+inv_logit <- function(x){plogis(x)}
 # BAGAINI ET AL. DATA ----------------------------------------------------------------
 
 
@@ -48,6 +50,7 @@ for(curr_meas in c("Propensity", "Frequency", "Behaviour")) {
     nd <-  crossing(domain_name = unique(fit_masc$data$domain_name),
                     female_prop_c = 0,
                     time_diff_dec = 0,
+                    item_num_c = 0,
                     sei = 0.01,
                     age_dec_c = 0) %>% 
       mutate(age_dec_c2 = age_dec_c^2)
@@ -74,10 +77,10 @@ for(curr_meas in c("Propensity", "Frequency", "Behaviour")) {
     
     
     ### ACCROSS ALL DOMAINS FOR 40 YEAR OLDS  
-    
     nd <-  crossing(domain_name = NA, #making predictions of the grand mean when using sum coding
                     female_prop_c = 0,
                     time_diff_dec = 0,
+                    item_num_c = 0,
                     sei = 0.01,
                     age_dec_c = 0) %>% 
       mutate(age_dec_c2 = age_dec_c^2)
@@ -143,6 +146,7 @@ for (curr_nlpar in c("stabch","rel","change")) {
                   female_prop_c = 0,
                   time_diff_dec = 0,
                   se = 0.01,
+                  item_num_c = 0,
                   age_dec_c = 0) %>% 
     mutate(age_dec_c2 = age_dec_c^2)
   

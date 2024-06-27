@@ -85,6 +85,7 @@ dat_fltr <-  dat %>%
            year_age_group == 10 & 
            n >= 30) %>% 
   mutate(sample_size = n,
+         item_num_same = ifelse(item_num_a == item_num_b, 1,0),
          scale_type_pair_same = ifelse(scale_type_a == scale_type_b, 1,0),
          measure_category_pair_same = ifelse(measure_category_a == measure_category_b, 1,0),
          domain_name_pair_same = ifelse(domain_name_a == domain_name_b, 1,0),
@@ -166,7 +167,7 @@ for (curr_model in 1:length(allModelsList)) {
 # write_rds(allModelsResults, paste0(output_path, "shapley_decomp_intercor.rds"))
 # allModelsResults <- read_rds(paste0(output_path, "shapley_decomp_intercor.rds"))
 
-
+### CALC R2 INCREMENTS
 dat_r_change <- NULL
 for (var_int in predictors){
   
@@ -226,10 +227,6 @@ for (curr_boot in 1:n_boot) {
   #Creating a resampled dataset from the sample data
   boot_data = data[sample(nrow(data), replace = TRUE), ]
   
-  #parametric bootstrapping (?)
-  # boot_data <- data
-  # boot_data$cor_c <-stats::simulate(fit, nsim = 1)
-  
   
   for (curr_model in 1:length(allModelsList)) {
     
@@ -264,7 +261,7 @@ for (curr_boot in 1:n_boot) {
 
 # write_rds(allModelsResults, "shapley_decomp_intercor_boot.rds")
 # allModelsResults <- read_rds("shapley_decomp_intercor_boot.rds")
-### CALC SHAPPLEY VALUE
+### CALC R2 INCREMENTS
 
 dat_r_change <- NULL
 
@@ -330,5 +327,52 @@ write_csv(t, paste0(output_path, "shapley_values_intercor_boot_check.csv"))
 
 
 
+# SUMMARISE OUTPUT FOR PLOTTING:CALC SHAPLEY VALS -------------------------------------------
+
+main_shapley_vals <- read_csv(paste0(output_path, "shapley_values_intercor.csv")) %>% 
+  mutate(measure_category = "Omnibus")
+
+predictors <- unique(main_shapley_vals$x)
+
+w_df <- main_shapley_vals %>% 
+  group_by(n_reg_with, x, measure_category ) %>% 
+  summarise(w = 1/(length(predictors)*n())) 
+
+
+t <- main_shapley_vals %>% 
+  left_join(w_df, by = c("n_reg_with", "x", "measure_category")) %>% 
+  group_by(x, measure_category) %>% 
+  summarise(m = weighted.mean(r2adj_increment, w = w))%>% 
+  rowwise() %>% 
+  mutate(x_lbl = lbl_pred_replace(x),
+         categ_lbl = lbl_categ_replace(x)) %>% 
+  ungroup()
+
+
+boot_shapley_vals <-  read_csv(paste0(output_path, "shapley_values_intercor_boot.csv")) %>% 
+  mutate(measure_category = "Omnibus")
+
+
+boot_w_df <- boot_shapley_vals %>% 
+  group_by(n_reg_with, x, boot_num, measure_category) %>% 
+  summarise(w = 1/(length(predictors)*n())) 
+
+
+boot_t <- boot_shapley_vals %>% 
+  left_join(boot_w_df, by = c("n_reg_with", "x", "boot_num", "measure_category")) %>% 
+  group_by(x, boot_num, measure_category) %>% 
+  summarise(m = weighted.mean(r2adj_increment, w = w)) %>% 
+  group_by(x, measure_category) %>% 
+  mean_qi(m, .width = c(.5,.8, .95)) %>% 
+  pivot_wider(names_from = .width, values_from = c(.lower,.upper)) %>% 
+  ungroup() %>% 
+  rowwise() %>% 
+  mutate(x_lbl = lbl_pred_replace(x),
+         categ_lbl = lbl_categ_replace(x)) %>% 
+  ungroup()
+
+
+write_csv(t, paste0(output_path,"summary_shapley_values_intercor.csv"))
+write_csv(boot_t, paste0(output_path,"summary_shapley_values_intercor_boot.csv"))
 
 

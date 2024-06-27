@@ -1,15 +1,13 @@
 
 # DESCRIPTION -------------------------------------------------------------
 
-#Plotting association between different correlation coefficients
+#Plotting association between different correlation coefficients. Incldued in the suppl. material
 
 
 # Author(s): Alexandra Bagaini, Centre for Cognitive and Decision Sciences, Faculty of Psychology, University of Basel.
 
 
 # PACKAGES ----------------------------------------------------------------
-
-
 
 
 library(tidyverse)
@@ -69,7 +67,8 @@ col_spec <-cols(
   country = col_character(),
   language = col_character(),
   data_collect_mode = col_character(),
-  sample_type = col_character()
+  sample_type = col_character(),
+  item_num = col_double()
 )
 
 dat <- read_csv(paste0(data_path,retest_file), col_types = col_spec)
@@ -338,7 +337,7 @@ pf <- p1/p2/p3 + plot_annotation(title = 'Frequency',
                                                                          face = "bold")))
 
 
-# warning about  24 "missing" ICC2,1 values, but there is no missing values in the data +
+# warning about  108 "missing" ICC2,1 values, but there is no missing values in the data +
 #  range is adequate (message disappears if we do not specify x and y ranges)
 pf
 

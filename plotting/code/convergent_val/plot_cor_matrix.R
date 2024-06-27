@@ -1,6 +1,7 @@
 # DESCRIPTION -------------------------------------------------------------
 
-#Script to plot the meta-analytic correlation matrix
+#Script to plot the meta-analytic correlation matrix using the results from the analysis in which
+# behavioural measures were categorized into 4 domains (gambling, insurance, occupation, investment)
 
 
 
@@ -61,12 +62,12 @@ p1 <- ggplot(data = melted_cormatB, aes(x, y, fill = (estimate)))+
                 aes(color = lbl_color, label = pooled_est_lbl), 
                 position = position_nudge(y =.3),
                 size = 3) +
-  geom_richtext(lineheight = .75, family = "Source Sans 3", ##Light" 
+  geom_richtext(lineheight = .75, family = "Source Sans 3 Medium", ##Light" 
                 fill = NA, label.color = NA,
                 aes(color = lbl_color, label = cred_int_lbl), 
                 position = position_nudge(y =0),
                 size = 3) +
-  geom_richtext(lineheight = .75, family = "Source Sans 3 Light", 
+  geom_richtext(lineheight = .75, family = "Source Sans 3 Medium", 
                 fill = NA, label.color = NA,
                 aes(color = lbl_color, label = k_lbl), 
                 position = position_nudge(y = -.3),
@@ -109,20 +110,20 @@ melted_cormat <- ma[["measure"]]
 p2 <- ggplot(data = melted_cormat, aes(x = y, y = x, fill = estimate))+
   geom_tile(color = "grey50", linewidth = .2)+
   geom_richtext(lineheight = .75, family = "Source Sans 3", 
-                fill = NA, label.color = NA, fontface = "bold",
+                fill = NA, label.color = NA,fontface = "bold",
                 aes(color = lbl_color, label = pooled_est_lbl), 
                 position = position_nudge(y =.3),
-                size = 5) +
-  geom_richtext(lineheight = .75, family = "Source Sans 3", ##Light" 
+                size = 6) +
+  geom_richtext(lineheight = .75, family = "Source Sans 3 Medium", ##Light" 
                 fill = NA, label.color = NA,
                 aes(color = lbl_color, label = cred_int_lbl), 
                 position = position_nudge(y =0),
-                size = 5) +
-  geom_richtext(lineheight = .75, family = "Source Sans 3 Light", 
+                size = 6) +
+  geom_richtext(lineheight = .75, family = "Source Sans 3 Medium", 
                 fill = NA, label.color = NA,
                 aes(color = lbl_color, label = k_lbl), 
                 position = position_nudge(y = -.3),
-                size = 5) +
+                size = 6) +
   scale_color_identity() +
   scale_fill_gradient2(low = "white", high = "#0F4C5C", mid = "#9FCBD6", 
                        na.value = 'grey70',

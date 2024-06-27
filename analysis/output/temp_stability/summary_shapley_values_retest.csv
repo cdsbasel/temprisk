@@ -1,0 +1,34 @@
+x,measure_category,m,x_lbl,categ_lbl
+age_group,Behaviour,0.009417326437496156,Age,Respondent
+age_group,Frequency,0.08672998851859544,Age,Respondent
+age_group,Omnibus,0.05408227438012879,Age,Respondent
+age_group,Propensity,0.02300030830704009,Age,Respondent
+domain_name,Behaviour,0.06020271841293416,Domain,Measure
+domain_name,Frequency,0.12260289689308669,Domain,Measure
+domain_name,Omnibus,0.1353989309686251,Domain,Measure
+domain_name,Propensity,0.01283404671373411,Domain,Measure
+gender_group,Behaviour,9.85823584462766e-4,Gender,Respondent
+gender_group,Frequency,2.1207385822761957e-4,Gender,Respondent
+gender_group,Omnibus,4.7109901706642856e-4,Gender,Respondent
+gender_group,Propensity,0.02224718635506974,Gender,Respondent
+item_num,Behaviour,0.0028383987664383444,Num. of Items,Measure
+item_num,Frequency,5.2451474791230206e-5,Num. of Items,Measure
+item_num,Omnibus,8.374709767546208e-4,Num. of Items,Measure
+item_num,Propensity,0.0017471121646891973,Num. of Items,Measure
+measure_category,Omnibus,0.04239466165977302,Category,Measure
+panel,Behaviour,0.12783757497766807,Panel,Panel
+panel,Frequency,0.1813274701211582,Panel,Panel
+panel,Omnibus,0.18849839478424535,Panel,Panel
+panel,Propensity,0.09551707902836981,Panel,Panel
+sample_size,Behaviour,0.00931499517435933,n,Respondent
+sample_size,Frequency,0.004565808571706266,n,Respondent
+sample_size,Omnibus,0.0028656758731180816,n,Respondent
+sample_size,Propensity,0.027558149923313242,n,Respondent
+scale_type,Behaviour,0.0038817941082706165,Scale Type,Measure
+scale_type,Frequency,0.004703063519893562,Scale Type,Measure
+scale_type,Omnibus,0.004812577265646285,Scale Type,Measure
+scale_type,Propensity,0.002217983676899668,Scale Type,Measure
+time_diff_mean,Behaviour,0.02638098039373022,Retest Interval,Measure
+time_diff_mean,Frequency,0.06913762378125271,Retest Interval,Measure
+time_diff_mean,Omnibus,0.06816439926744601,Retest Interval,Measure
+time_diff_mean,Propensity,0.05194830513223209,Retest Interval,Measure

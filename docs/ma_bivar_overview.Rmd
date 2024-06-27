@@ -374,27 +374,46 @@ ppc_loo_pit_overlay(y = fit_ma$data$wcor,
 
 <br><br>
 
-## Robustness Checks {.tabset}
+## Robustness Check
 
 ### Behavioural Measure Categorization 
 
-We re-conducted the meta-analyses using a data set in which we treated behavioral measures as belonging to a single overarching "financial" domain (versus 4 domains: occupational, investment, gambling, and insurance). The overall estimate *(0.17, 95% HDI [0.15,0.20]; k = 4,810)* is comparable to the one reported in the main paper. Below are the correlation matrices of the results for this new categorization.
+We re-conducted the meta-analyses using a data set in which we treated behavioral measures as belonging to a single overarching "financial" domain (versus 4 domains: occupational, investment, gambling, and insurance). The overall estimate *(0.17, 95% HDI [0.15,0.20]; k = 4,810)* is comparable to the one reported in the main paper. Below are the correlation matrices of the results for this new categorization, as well as an additional figure comparing these re-calculated estimates to those reported in the matrices included the main paper
 
 ```{r, eval=TRUE, echo=FALSE}
 knitr::include_graphics("images/cor_matrix_fig_beh_agg.png")
 ```
 
-### Correction for Attenuation
+
+<br>
+
+```{r, eval=TRUE, echo=FALSE}
+knitr::include_graphics("images/converge_comp_categorization.png")
+```
+
+
+<br><br>
+
+##  Attenuation
 
 We corrected the 189 meta-analytic estimates of the intercorrelations reported in the main paper for attenuation due to measurement error by using the MASC reliability parameter estimates and Spearman's formula. 
 
 $$r_{true} = \frac{r_{obs}}{\sqrt{rel_{1}*rel_{2}}}$$
 
-Below are the matrices with the correlations corrected for attenuation, any correlation exceeding |1.00| was capped at |1.00|.
+Below are the matrices with the correlations corrected for attenuation (any correlation exceeding |1.00| was capped at |1.00|). We additionally provide a figure below, which contrasts the corrected and uncorrected intercorrelations for each measure pair faceted by category pair.
+
+⚠️ As expected, the results show overall increased correlations between measures. We observe a correlation of rho = 0.95 between the corrected and uncorrected intercorrelations, which indicates that the overall ranking of associations is largely preserved. However, as shown in the figure, the magnitude of the correction is a function of the initial (low) reliability of measures, with those pairs that include measures with low reliability receiving stronger corrections, as it is the case, for example, for behavior-behavior correlations. As a consequence, **reporting corrected intercorrelations may “inflate” intercorrelations for some measure categories, introducing a systematic bias and providing an incorrect view of the actual observed intercorrelations between measures**. As a result, we opted to report the non-corrected values in the manuscript and provide information about corrections for attenuation in the supplementary materials.⚠️
 
 ```{r, eval=TRUE, echo=FALSE}
 knitr::include_graphics("images/cor_matrix_fig_correction.png")
 ```
+
+<br>
+
+```{r, eval=TRUE, echo=FALSE}
+knitr::include_graphics("images/converge_comp_attenuation.png")
+```
+
 
 
 <br><br>

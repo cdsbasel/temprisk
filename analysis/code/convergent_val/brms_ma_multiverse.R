@@ -2,12 +2,15 @@
 
 #  DESCRIPTION -------------------------------------------------------------
 
-# Script reads the aggregated set of  intercorrelations and conducts three Bayesian 
+# Script reads the aggregated set of  intercorrelations and conducts two Bayesian 
 # meta-analyses/meta-regressions using various formats of data (multiverse): 
 # Omnibus
 # By-Measure
-# By-Domain
 # Saves meta-analytic estimates for plotting and model diagnostics
+
+# Author(s): Alexandra Bagaini(1)
+# (1)Centre for Cognitive and Decision Sciences, Faculty of Psychology, University of Basel.
+
 
 
 
@@ -82,6 +85,9 @@ max_treedepth_reached <- NULL
 rhat <- NULL
 neffRatio <- NULL
 
+
+# selecting different dataset formats and run the analyses
+
 for (i in 1:nrow(comb_dt)) {
   
   print(i)
@@ -150,7 +156,7 @@ for (i in 1:nrow(comb_dt)) {
     prior = priors,
     cores = 2, 
     chains = 2,
-    threads = threading(2), 
+    # threads = threading(2), 
     iter = 3000, 
     warmup = 1500, 
     backend = "cmdstanr", 
@@ -273,7 +279,7 @@ for (i in 1:nrow(comb_dt)) {
     prior = priors,
     cores = 2, 
     chains = 2,
-    threads = threading(2), 
+    # threads = threading(2), 
     iter = 3000, 
     warmup = 1500, 
     backend = "cmdstanr", 
