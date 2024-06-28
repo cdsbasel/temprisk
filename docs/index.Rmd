@@ -43,7 +43,7 @@ We make the estimated test-retest correlations and inter-correlations from the p
 
 ## About the companion website
 
-This is the companion website for the study ***Comparing the Temporal Stability and Convergent Validity of Risk Preference Measures: A Meta-Analytic Approach***. Here, we provide additional information on the data, analyses and results reported in the [manuscript](https://psyarxiv.com/d7nuj/):
+This is the companion website for the study ***Meta-Analyses of the Temporal Stability and Convergent Validity of Risk Preference Measures***. Here, we provide additional information on the data, analyses and results reported in the [manuscript](https://psyarxiv.com/d7nuj/):
 
  - **[Data](https://cdsbasel.github.io/temprisk/data_desc.html):** Information on the sources of the data included in the analyses.
  - **[Workflow](https://cdsbasel.github.io/temprisk/workflow_overview.html):** Step-by-step instructions on how to use the files in the OSF repository to replicate the analyses described in the paper.

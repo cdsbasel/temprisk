@@ -911,7 +911,7 @@ formula <- bf(
   nlf(rel ~ inv_logit(logitrel)),
   nlf(change ~ inv_logit(logitchange)),
   nlf(stabch ~ inv_logit(logitstabch)),
-  logitrel ~ 1 + construct*age_dec_c + construct*age_dec_c2  + female_prop_c,
+  logitrel ~ 1 + construct*age_dec_c + construct*age_dec_c2  + female_prop_c + item_num_c,
   logitchange ~ 1+ construct*age_dec_c + construct*age_dec_c2 + female_prop_c, 
   logitstabch ~ 1+ construct*age_dec_c + construct*age_dec_c2  + female_prop_c, 
   nl = TRUE
